@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2016.1.5)  27 FEB 2018 17:39
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2016.1.5)  27 FEB 2018 18:09
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1434,7 +1434,8 @@ uage-mappings.tex)))
 Package: lscape 2000/10/22 v3.01 Landscape Pages (DPC)
 ))
 (./thesis_info.tex) (./Thesis_full.aux (./title_page.aux)
-(./Nomenclature/nomenclature.aux) (./Introduction/introduction.aux)
+(./Abstract/abstract.aux) (./Nomenclature/nomenclature.aux)
+(./Introduction/introduction.aux)
 (./Data_Instrument_Methods/data_instruments_methods.aux)
 (./WeatherSituation/weather_situation.aux) (./Appendix/sounding.aux))
 \openout1 = `Thesis_full.aux'.
@@ -1514,4 +1515,1213 @@ G,.JBIG2,.JB2,.eps]
 (grfext)             \AppendGraphicsExtensions on input line 452.
 
 (/usr/local/texlive/2015/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
-File: epstopdf-sy
+File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
+e
+))
+ABD: EverySelectfont initializing macros
+LaTeX Info: Redefining \selectfont on input line 16.
+LaTeX Info: Redefining \microtypecontext on input line 16.
+Package microtype Info: Generating PDF output.
+Package microtype Info: Character protrusion enabled (level 2).
+Package microtype Info: Using default protrusion set `alltext'.
+Package microtype Info: Automatic font expansion enabled (level 2),
+(microtype)             stretch: 20, shrink: 20, step: 1, non-selected.
+Package microtype Info: Using default expansion set `basictext'.
+Package microtype Info: No adjustment of tracking.
+Package microtype Info: No adjustment of interword spacing.
+Package microtype Info: No adjustment of character kerning.
+Package microtype Info: Loading generic settings for font family
+(microtype)             `futs' (encoding: T1).
+(microtype)             For optimal results, create family-specific settings.
+(microtype)             See the microtype manual for details.
+\AtBeginShipoutBox=\box61
+Package hyperref Info: Link coloring ON on input line 16.
+
+(/usr/local/texlive/2015/texmf-dist/tex/latex/hyperref/nameref.sty
+Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
+
+(/usr/local/texlive/2015/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
+Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
+)
+\c@section@level=\count197
+)
+LaTeX Info: Redefining \ref on input line 16.
+LaTeX Info: Redefining \pageref on input line 16.
+LaTeX Info: Redefining \nameref on input line 16.
+
+(./Thesis_full.out) (./Thesis_full.out)
+\@outlinefile=\write4
+\openout4 = `Thesis_full.out'.
+
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: float package is loaded.
+Package caption Info: sidecap package is loaded.
+Package caption Info: End \AtBeginDocument code.
+\symgns@font=\mathgroup8
+LaTeX Font Info:    Overwriting symbol font `gns@font' in version `bold'
+(Font)                  TS1/futs/m/n --> TS1/futs/bx/n on input line 16.
+Package gensymb Info: Math companion symbols declared on input line 16.
+LaTeX Info: Redefining \degree on input line 16.
+LaTeX Info: Redefining \celsius on input line 16.
+Package gensymb Info: Using text companion symbols for \degree, \celsius and \p
+erthousand on input line 16.
+LaTeX Info: Redefining \ohm on input line 16.
+Package gensymb Info: Using \textohm for \ohm on input line 16.
+Package gensymb Info: Using \textmu for \micro on input line 16.
+
+(/usr/local/texlive/2015/texmf-dist/tex/latex/beamer/translator/dicts/translato
+r-basic-dictionary/translator-basic-dictionary-English.dict
+Dictionary: translator-basic-dictionary, Language: English 
+)
+(/usr/local/texlive/2015/texmf-dist/tex/latex/siunitx/siunitx-abbreviations.cfg
+File: siunitx-abbreviations.cfg 2015/01/21 v2.6e siunitx: Abbreviated units
+)
+\c__siunitx_mathsf_int=\count198
+LaTeX Font Info:    Try loading font information for FML+futmi on input line 16
+.
+ (/usr/local/texlive/2015/texmf-dist/tex/latex/fourier/fmlfutmi.fd
+File: fmlfutmi.fd 2004/10/30 Fontinst v1.926 font definitions for FML/futmi.
+)
+LaTeX Font Info:    Font shape `FMX/futm/m/n' will be
+(Font)              scaled to size 11.03998pt on input line 16.
+LaTeX Font Info:    Font shape `FMX/futm/m/n' will be
+(Font)              scaled to size 8.27998pt on input line 16.
+LaTeX Font Info:    Font shape `FMX/futm/m/n' will be
+(Font)              scaled to size 6.43999pt on input line 16.
+LaTeX Font Info:    Font shape `U/futm/m/n' will be
+(Font)              scaled to size 11.03998pt on input line 16.
+LaTeX Font Info:    Font shape `U/futm/m/n' will be
+(Font)              scaled to size 8.27998pt on input line 16.
+LaTeX Font Info:    Font shape `U/futm/m/n' will be
+(Font)              scaled to size 6.43999pt on input line 16.
+
+(/usr/local/texlive/2015/texmf-dist/tex/latex/microtype/mt-msa.cfg
+File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
+)
+(/usr/local/texlive/2015/texmf-dist/tex/latex/microtype/mt-msb.cfg
+File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
+)
+LaTeX Font Info:    Try loading font information for TS1+futs on input line 16.
+
+
+(/usr/local/texlive/2015/texmf-dist/tex/latex/fourier/ts1futs.fd
+File: ts1futs.fd 2004/03/26 Fontinst v1.926 font definitions for TS1/futs.
+)
+Package microtype Info: Loading generic settings for font family
+(microtype)             `futs' (encoding: TS1).
+(microtype)             For optimal results, create family-specific settings.
+(microtype)             See the microtype manual for details.
+Package microtype Info: Loading generic settings for font family
+(microtype)             `cmss' (encoding: OT1).
+(microtype)             For optimal results, create family-specific settings.
+(microtype)             See the microtype manual for details.
+\c__siunitx_mathtt_int=\count199
+Package microtype Info: Loading generic settings for font family
+(microtype)             `cmtt' (encoding: OT1).
+(microtype)             For optimal results, create family-specific settings.
+(microtype)             See the microtype manual for details.
+\openout2 = `title_page.aux'.
+
+
+(./title_page.tex
+Package hyperref Info: Option `pageanchor' set `false' on input line 10.
+LaTeX Font Info:    Try loading font information for T1+phv on input line 10.
+ (/usr/local/texlive/2015/texmf-dist/tex/latex/psnfss/t1phv.fd
+File: t1phv.fd 2001/06/04 scalable font definitions for T1/phv.
+)
+Package microtype Info: Loading generic settings for font family
+(microtype)             `phv' (encoding: T1).
+(microtype)             For optimal results, create family-specific settings.
+(microtype)             See the microtype manual for details.
+ <DUO_UiO_segl.png, id=107, 142.3719pt x 142.3719pt>
+File: DUO_UiO_segl.png Graphic file (type png)
+ <use DUO_UiO_segl.png>
+Package pdftex.def Info: DUO_UiO_segl.png used on input line 10.
+(pdftex.def)             Requested size: 170.71652pt x 170.73027pt.
+
+[1
+
+
+{/usr/local/texlive/2015/texmf-var/fonts/map/pdftex/updmap/pdftex.map} <./DUO_U
+iO_segl.png>] [2]
+LaTeX Font Info:    Font shape `T1/futs/bx/n' in size <24> not available
+(Font)              Font shape `T1/futs/b/n' tried instead on input line 10.
+ <avhrr201612240330.jpg, id=117, 503.8825pt x 453.695pt>
+File: avhrr201612240330.jpg Graphic file (type jpg)
+
+<use avhrr201612240330.jpg>
+Package pdftex.def Info: avhrr201612240330.jpg used on input line 10.
+(pdftex.def)             Requested size: 252.80176pt x 227.6223pt.
+ [1 <./avhrr201612240330.jpg>]
+LaTeX Font Info:    Try loading font information for T1+cmtt on input line 10.
+
+(/usr/local/texlive/2015/texmf-dist/tex/latex/base/t1cmtt.fd
+File: t1cmtt.fd 2014/09/29 v2.5h Standard LaTeX font definitions
+)
+Package microtype Info: Loading generic settings for font family
+(microtype)             `cmtt' (encoding: T1).
+(microtype)             For optimal results, create family-specific settings.
+(microtype)             See the microtype manual for details.
+ [1]
+Package hyperref Info: Option `pageanchor' set `true' on input line 10.
+)
+\openout2 = `Abstract/abstract.aux'.
+
+
+(./Abstract/abstract.tex [1
+
+
+]) [2
+
+
+] (./Thesis_full.toc)
+\tf@toc=\write5
+\openout5 = `Thesis_full.toc'.
+
+ [1]
+\openout2 = `Nomenclature/nomenclature.aux'.
+
+
+(./Nomenclature/nomenclature.tex) (./Thesis_full.nls
+LaTeX Font Info:    Font shape `T1/futs/bx/n' in size <12> not available
+(Font)              Font shape `T1/futs/b/n' tried instead on input line 5.
+
+Underfull \hbox (badness 10000) detected at line 5
+[]\T1/futs/b/n/12 AR[]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 7
+[]\T1/futs/b/n/12 AROME[]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 9
+[]\T1/futs/b/n/12 C3VP[]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 11
+[]\T1/futs/b/n/12 CPR[]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 13
+[]\T1/futs/b/n/12 DT[]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 15
+[]\T1/futs/b/n/12 ECMWF[]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 17
+[]\T1/futs/b/n/12 EPS[]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 19
+[]\T1/futs/b/n/12 FMI[]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 21
+[]\T1/futs/b/n/12 IVT[]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 23
+[]\T1/futs/b/n/12 MASC[]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 25
+[]\T1/futs/b/n/12 MEPS[]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 27
+[]\T1/futs/b/n/12 Met-Norway[]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 29
+[]\T1/futs/b/n/12 MetCoOp[]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 31
+[]\T1/futs/b/n/12 MRR[]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 33
+[]\T1/futs/b/n/12 MSLP[]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 35
+[]\T1/futs/b/n/12 NWP[]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 37
+[]\T1/futs/b/n/12 PIP[]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 39
+[]\T1/futs/b/n/12 PSD[]
+ []
+
+[2
+
+
+
+]
+Underfull \hbox (badness 10000) detected at line 41
+[]\T1/futs/b/n/12 SMHI[]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 43
+[]\T1/futs/b/n/12 WCB[]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 45
+[]\T1/futs/b/n/12 WMO[]
+ []
+
+) [3]
+\openout2 = `Introduction/introduction.aux'.
+
+ (./Introduction/introduction.tex
+Chapter 1.
+(./images_tex/introduction_twitter_news.tex
+<./fig_introduction/Ana_2512_12UTC.jpg, id=190, 454.69875pt x 315.1775pt>
+File: ./fig_introduction/Ana_2512_12UTC.jpg Graphic file (type jpg)
+
+<use ./fig_introduction/Ana_2512_12UTC.jpg>
+Package pdftex.def Info: ./fig_introduction/Ana_2512_12UTC.jpg used on input li
+ne 5.
+(pdftex.def)             Requested size: 214.87431pt x 148.94139pt.
+
+<./fig_introduction/Twitter_26122016_0934AM.jpeg, id=191, 981.6675pt x 792.9625
+pt>
+File: ./fig_introduction/Twitter_26122016_0934AM.jpeg Graphic file (type jpg)
+ <use ./fig_introduction/Twitter_26122016_0934AM.jpeg>
+Package pdftex.def Info: ./fig_introduction/Twitter_26122016_0934AM.jpeg used o
+n input line 10.
+(pdftex.def)             Requested size: 214.87431pt x 149.90285pt.
+
+<./fig_introduction/street_sign_2512.jpg, id=193, 1445.4pt x 813.0375pt>
+File: ./fig_introduction/street_sign_2512.jpg Graphic file (type jpg)
+
+<use ./fig_introduction/street_sign_2512.jpg>
+Package pdftex.def Info: ./fig_introduction/street_sign_2512.jpg used on input 
+line 14.
+(pdftex.def)             Requested size: 214.87431pt x 120.85864pt.
+
+<./fig_introduction/tree_nrk_2812.jpg, id=194, 652.4375pt x 367.3725pt>
+File: ./fig_introduction/tree_nrk_2812.jpg Graphic file (type jpg)
+
+<use ./fig_introduction/tree_nrk_2812.jpg>
+Package pdftex.def Info: ./fig_introduction/tree_nrk_2812.jpg used on input lin
+e 19.
+(pdftex.def)             Requested size: 214.87431pt x 120.99225pt.
+)
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [1
+
+
+]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[2 <./fig_introduction/Twitter_26122016_0934AM.jpeg> <./fig_introduction/Ana_25
+12_12UTC.jpg> <./fig_introduction/street_sign_2512.jpg> <./fig_introduction/tre
+e_nrk_2812.jpg>]
+LaTeX Font Info:    Font shape `T1/futs/bx/n' in size <17.28> not available
+(Font)              Font shape `T1/futs/b/n' tried instead on input line 34.
+ (./images_tex/introduction_Norway_map.tex
+<./fig_Norway/Norway_MEPS.png, id=251, 650.43pt x 578.16pt>
+File: ./fig_Norway/Norway_MEPS.png Graphic file (type png)
+
+<use ./fig_Norway/Norway_MEPS.png>
+Package pdftex.def Info: ./fig_Norway/Norway_MEPS.png used on input line 6.
+(pdftex.def)             Requested size: 214.87431pt x 221.85016pt.
+
+<./fig_Norway/South_Norway.png, id=253, 650.43pt x 578.16pt>
+File: ./fig_Norway/South_Norway.png Graphic file (type png)
+
+<use ./fig_Norway/South_Norway.png>
+Package pdftex.def Info: ./fig_Norway/South_Norway.png used on input line 12.
+(pdftex.def)             Requested size: 214.87431pt x 179.09837pt.
+)
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[3] (./images_tex/introduction_Dec_obs.tex
+<./fig_weathermast/T_P_U_201612.png, id=293, 1445.4pt x 1011.78pt>
+File: ./fig_weathermast/T_P_U_201612.png Graphic file (type png)
+
+<use ./fig_weathermast/T_P_U_201612.png>
+Package pdftex.def Info: ./fig_weathermast/T_P_U_201612.png used on input line 
+5.
+(pdftex.def)             Requested size: 350.8126pt x 226.58932pt.
+)
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[4 <./fig_Norway/Norway_MEPS.png> <./fig_Norway/South_Norway.png>]
+(./images_tex/introduction_first_MEPS_Dofe_result.tex
+<./fig_MEPS_sfc/20161220_18.png, id=314, 1445.4pt x 505.89pt>
+File: ./fig_MEPS_sfc/20161220_18.png Graphic file (type png)
+
+<use ./fig_MEPS_sfc/20161220_18.png>
+Package pdftex.def Info: ./fig_MEPS_sfc/20161220_18.png used on input line 7.
+(pdftex.def)             Requested size: 214.87431pt x 75.20093pt.
+
+<./fig_MEPS_sfc/20161221_18.png, id=315, 1445.4pt x 505.89pt>
+File: ./fig_MEPS_sfc/20161221_18.png Graphic file (type png)
+
+<use ./fig_MEPS_sfc/20161221_18.png>
+Package pdftex.def Info: ./fig_MEPS_sfc/20161221_18.png used on input line 15.
+(pdftex.def)             Requested size: 214.87431pt x 75.20093pt.
+
+<./fig_MEPS_sfc/20161222_18.png, id=316, 1445.4pt x 505.89pt>
+File: ./fig_MEPS_sfc/20161222_18.png Graphic file (type png)
+
+<use ./fig_MEPS_sfc/20161222_18.png>
+Package pdftex.def Info: ./fig_MEPS_sfc/20161222_18.png used on input line 21.
+(pdftex.def)             Requested size: 214.87431pt x 75.20093pt.
+
+<./fig_MEPS_sfc/20161223_18.png, id=317, 1445.4pt x 505.89pt>
+File: ./fig_MEPS_sfc/20161223_18.png Graphic file (type png)
+
+<use ./fig_MEPS_sfc/20161223_18.png>
+Package pdftex.def Info: ./fig_MEPS_sfc/20161223_18.png used on input line 28.
+(pdftex.def)             Requested size: 214.87431pt x 75.20093pt.
+
+<./fig_MEPS_sfc/20161224_18.png, id=318, 1445.4pt x 505.89pt>
+File: ./fig_MEPS_sfc/20161224_18.png Graphic file (type png)
+
+<use ./fig_MEPS_sfc/20161224_18.png>
+Package pdftex.def Info: ./fig_MEPS_sfc/20161224_18.png used on input line 34.
+(pdftex.def)             Requested size: 214.87431pt x 75.20093pt.
+
+<./fig_MEPS_sfc/20161225_18.png, id=319, 1445.4pt x 505.89pt>
+File: ./fig_MEPS_sfc/20161225_18.png Graphic file (type png)
+
+<use ./fig_MEPS_sfc/20161225_18.png>
+Package pdftex.def Info: ./fig_MEPS_sfc/20161225_18.png used on input line 41.
+(pdftex.def)             Requested size: 214.87431pt x 75.20093pt.
+))
+Overfull \hbox (5.45798pt too wide) in paragraph at lines 74--67
+\T1/futs/m/n/12 (-20) the [][] but fore-casts [][] prior to [][] and [][]
+ []
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[5]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[6 <./fig_weathermast/T_P_U_201612.png>]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[7 <./fig_MEPS_sfc/20161220_18.png> <./fig_MEPS_sfc/20161221_18.png> <./fig_MEP
+S_sfc/20161222_18.png> <./fig_MEPS_sfc/20161223_18.png> <./fig_MEPS_sfc/2016122
+4_18.png> <./fig_MEPS_sfc/20161225_18.png>]
+\openout2 = `Data_Instrument_Methods/data_instruments_methods.aux'.
+
+
+(./Data_Instrument_Methods/data_instruments_methods.tex
+Chapter 2.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [8
+
+
+
+]
+(./images_tex/instruments_Dofe.tex
+<./fig_instruments/Dofe.png, id=370, 1020.81375pt x 598.235pt>
+File: ./fig_instruments/Dofe.png Graphic file (type png)
+
+<use ./fig_instruments/Dofe.png>
+Package pdftex.def Info: ./fig_instruments/Dofe.png used on input line 11.
+(pdftex.def)             Requested size: 175.40295pt x 102.79399pt.
+) (./images_tex/instruments_MRR.tex
+<./fig_instruments/MRR.png, id=380, 339.1872pt x 237.5274pt>
+File: ./fig_instruments/MRR.png Graphic file (type png)
+
+<use ./fig_instruments/MRR.png>
+Package pdftex.def Info: ./fig_instruments/MRR.png used on input line 10.
+(pdftex.def)             Requested size: 175.40295pt x 122.83357pt.
+)
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[9 <./fig_instruments/Dofe.png> <./fig_instruments/MRR.png>]
+(./images_tex/instruments_PiP.tex
+<./fig_instruments/PiP.png, id=402, 279.9258pt x 424.4658pt>
+File: ./fig_instruments/PiP.png Graphic file (type png)
+
+<use ./fig_instruments/PiP.png>
+Package pdftex.def Info: ./fig_instruments/PiP.png used on input line 11.
+(pdftex.def)             Requested size: 175.40295pt x 265.97054pt.
+
+Underfull \hbox (badness 2662) in paragraph at lines 13--13
+[][]\T1/futs/m/n/12 (+20) Figure 2.3.1[][]: []|Pre-cip-it-a-tion Ima-ging
+ []
+
+)
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[10 <./fig_instruments/PiP.png>] (./images_tex/instruments_MASC.tex
+<./fig_instruments/MASC.png, id=418, 339.1872pt x 226.446pt>
+File: ./fig_instruments/MASC.png Graphic file (type png)
+
+<use ./fig_instruments/MASC.png>
+Package pdftex.def Info: ./fig_instruments/MASC.png used on input line 17.
+(pdftex.def)             Requested size: 175.40295pt x 117.103pt.
+
+<./fig_instruments/MASC_snowflakes.png, id=419, 722.7pt x 182.6825pt>
+File: ./fig_instruments/MASC_snowflakes.png Graphic file (type png)
+
+<use ./fig_instruments/MASC_snowflakes.png>
+Package pdftex.def Info: ./fig_instruments/MASC_snowflakes.png used on input li
+ne 20.
+(pdftex.def)             Requested size: 175.40295pt x 44.33807pt.
+)
+Underfull \hbox (badness 1043) in paragraph at lines 62--65
+\T1/futs/m/n/12 (+20) The MASC con-sists of three cam-eras, three
+ []
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[11 <./fig_instruments/MASC.png> <./fig_instruments/MASC_snowflakes.png>]
+LaTeX Font Info:    Font shape `T1/futs/bx/n' in size <9> not available
+(Font)              Font shape `T1/futs/b/n' tried instead on input line 104.
+LaTeX Font Info:    Font shape `T1/futs/bx/n' in size <7> not available
+(Font)              Font shape `T1/futs/b/n' tried instead on input line 104.
+
+Underfull \hbox (badness 10000) in paragraph at lines 113--115
+
+ []
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[12]
+LaTeX Font Info:    Font shape `T1/futs/bx/n' in size <14.4> not available
+(Font)              Font shape `T1/futs/b/n' tried instead on input line 115.
+ (./images_tex/retrieval_sfctemp.tex
+<./fig_weathermast/sfc_temp_20161225.png, id=466, 1445.4pt x 505.89pt>
+File: ./fig_weathermast/sfc_temp_20161225.png Graphic file (type png)
+
+<use ./fig_weathermast/sfc_temp_20161225.png>
+Package pdftex.def Info: ./fig_weathermast/sfc_temp_20161225.png used on input 
+line 4.
+(pdftex.def)             Requested size: 263.11113pt x 92.08292pt.
+)
+(./images_tex/retrieval_MRR_refl.tex
+<./fig_MRR/MRR_20161225.png, id=469, 1445.4pt x 867.24pt>
+File: ./fig_MRR/MRR_20161225.png Graphic file (type png)
+
+<use ./fig_MRR/MRR_20161225.png>
+Package pdftex.def Info: ./fig_MRR/MRR_20161225.png used on input line 4.
+(pdftex.def)             Requested size: 263.11113pt x 157.85645pt.
+)
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[13 <./fig_weathermast/sfc_temp_20161225.png>]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[14 <./fig_MRR/MRR_20161225.png>]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[15]
+Chapter 3.
+[16
+
+]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[17])
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[18]
+\openout2 = `WeatherSituation/weather_situation.aux'.
+
+ (./WeatherSituation/weather_situation.tex
+Chapter 4.
+
+Underfull \hbox (badness 10000) in paragraph at lines 7--15
+
+ []
+
+[19
+
+
+
+]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[20] (./images_tex/WeatherSit_DynTropo.tex
+<./fig_DynTropo/20161220_12.png, id=575, 1445.4pt x 1156.32pt>
+File: ./fig_DynTropo/20161220_12.png Graphic file (type png)
+
+<use ./fig_DynTropo/20161220_12.png>
+Package pdftex.def Info: ./fig_DynTropo/20161220_12.png used on input line 7.
+(pdftex.def)             Requested size: 214.87431pt x 160.71843pt.
+
+<./fig_DynTropo/20161221_12.png, id=577, 1445.4pt x 1156.32pt>
+File: ./fig_DynTropo/20161221_12.png Graphic file (type png)
+
+<use ./fig_DynTropo/20161221_12.png>
+Package pdftex.def Info: ./fig_DynTropo/20161221_12.png used on input line 13.
+(pdftex.def)             Requested size: 214.87431pt x 160.71843pt.
+
+<./fig_DynTropo/20161222_12.png, id=579, 1445.4pt x 1156.32pt>
+File: ./fig_DynTropo/20161222_12.png Graphic file (type png)
+
+<use ./fig_DynTropo/20161222_12.png>
+Package pdftex.def Info: ./fig_DynTropo/20161222_12.png used on input line 20.
+(pdftex.def)             Requested size: 214.87431pt x 160.71843pt.
+
+<./fig_DynTropo/20161223_12.png, id=581, 1445.4pt x 1156.32pt>
+File: ./fig_DynTropo/20161223_12.png Graphic file (type png)
+
+<use ./fig_DynTropo/20161223_12.png>
+Package pdftex.def Info: ./fig_DynTropo/20161223_12.png used on input line 26.
+(pdftex.def)             Requested size: 214.87431pt x 160.71843pt.
+
+<./fig_DynTropo/20161225_12.png, id=583, 1445.4pt x 1156.32pt>
+File: ./fig_DynTropo/20161225_12.png Graphic file (type png)
+
+<use ./fig_DynTropo/20161225_12.png>
+Package pdftex.def Info: ./fig_DynTropo/20161225_12.png used on input line 33.
+(pdftex.def)             Requested size: 438.5141pt x 39.80817pt.
+
+<./fig_DynTropo/20161224_12.png, id=585, 1445.4pt x 1156.32pt>
+File: ./fig_DynTropo/20161224_12.png Graphic file (type png)
+
+<use ./fig_DynTropo/20161224_12.png>
+Package pdftex.def Info: ./fig_DynTropo/20161224_12.png used on input line 42.
+(pdftex.def)             Requested size: 214.87431pt x 160.71843pt.
+File: ./fig_DynTropo/20161225_12.png Graphic file (type png)
+ <use ./fig_DynTropo/20161225_12.png>
+Package pdftex.def Info: ./fig_DynTropo/20161225_12.png used on input line 48.
+(pdftex.def)             Requested size: 214.87431pt x 160.71843pt.
+
+<./fig_DynTropo/20161226_12.png, id=588, 1445.4pt x 1156.32pt>
+File: ./fig_DynTropo/20161226_12.png Graphic file (type png)
+
+<use ./fig_DynTropo/20161226_12.png>
+Package pdftex.def Info: ./fig_DynTropo/20161226_12.png used on input line 54.
+(pdftex.def)             Requested size: 214.87431pt x 160.71843pt.
+
+<./fig_DynTropo/20161227_12.png, id=590, 1445.4pt x 1156.32pt>
+File: ./fig_DynTropo/20161227_12.png Graphic file (type png)
+
+<use ./fig_DynTropo/20161227_12.png>
+Package pdftex.def Info: ./fig_DynTropo/20161227_12.png used on input line 60.
+(pdftex.def)             Requested size: 214.87431pt x 160.71843pt.
+File: ./fig_DynTropo/20161225_12.png Graphic file (type png)
+ <use ./fig_DynTropo/20161225_12.png>
+Package pdftex.def Info: ./fig_DynTropo/20161225_12.png used on input line 66.
+(pdftex.def)             Requested size: 438.5141pt x 39.80817pt.
+)
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[21 <./fig_DynTropo/20161220_12.png> <./fig_DynTropo/20161221_12.png> <./fig_Dy
+nTropo/20161222_12.png> <./fig_DynTropo/20161223_12.png> <./fig_DynTropo/201612
+25_12.png>]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[22 <./fig_DynTropo/20161224_12.png> <./fig_DynTropo/20161226_12.png> <./fig_Dy
+nTropo/20161227_12.png>]
+LaTeX Font Info:    Font shape `FMX/futm/m/n' will be
+(Font)              scaled to size 15.89755pt on input line 48.
+LaTeX Font Info:    Font shape `U/futm/m/n' will be
+(Font)              scaled to size 15.89755pt on input line 48.
+ (./images_tex/WeatherSit_GeopotJet.tex
+<./fig_Geopot_Jet/20161220_12.png, id=623, 1445.4pt x 1156.32pt>
+File: ./fig_Geopot_Jet/20161220_12.png Graphic file (type png)
+
+<use ./fig_Geopot_Jet/20161220_12.png>
+Package pdftex.def Info: ./fig_Geopot_Jet/20161220_12.png used on input line 8.
+
+(pdftex.def)             Requested size: 214.87431pt x 160.71843pt.
+
+<./fig_Geopot_Jet/20161221_12.png, id=625, 1445.4pt x 1156.32pt>
+File: ./fig_Geopot_Jet/20161221_12.png Graphic file (type png)
+
+<use ./fig_Geopot_Jet/20161221_12.png>
+Package pdftex.def Info: ./fig_Geopot_Jet/20161221_12.png used on input line 15
+.
+(pdftex.def)             Requested size: 214.87431pt x 160.71843pt.
+
+<./fig_Geopot_Jet/20161222_12.png, id=627, 1445.4pt x 1156.32pt>
+File: ./fig_Geopot_Jet/20161222_12.png Graphic file (type png)
+
+<use ./fig_Geopot_Jet/20161222_12.png>
+Package pdftex.def Info: ./fig_Geopot_Jet/20161222_12.png used on input line 21
+.
+(pdftex.def)             Requested size: 214.87431pt x 160.71843pt.
+
+<./fig_Geopot_Jet/20161223_12.png, id=629, 1445.4pt x 1156.32pt>
+File: ./fig_Geopot_Jet/20161223_12.png Graphic file (type png)
+
+<use ./fig_Geopot_Jet/20161223_12.png>
+Package pdftex.def Info: ./fig_Geopot_Jet/20161223_12.png used on input line 28
+.
+(pdftex.def)             Requested size: 214.87431pt x 160.71843pt.
+
+<./fig_Geopot_Jet/20161225_12.png, id=631, 1445.4pt x 1156.32pt>
+File: ./fig_Geopot_Jet/20161225_12.png Graphic file (type png)
+
+<use ./fig_Geopot_Jet/20161225_12.png>
+Package pdftex.def Info: ./fig_Geopot_Jet/20161225_12.png used on input line 34
+.
+(pdftex.def)             Requested size: 438.5141pt x 39.80817pt.
+
+<./fig_Geopot_Jet/20161224_12.png, id=633, 1445.4pt x 1156.32pt>
+File: ./fig_Geopot_Jet/20161224_12.png Graphic file (type png)
+
+<use ./fig_Geopot_Jet/20161224_12.png>
+Package pdftex.def Info: ./fig_Geopot_Jet/20161224_12.png used on input line 42
+.
+(pdftex.def)             Requested size: 214.87431pt x 160.71843pt.
+File: ./fig_Geopot_Jet/20161225_12.png Graphic file (type png)
+ <use ./fig_Geopot_Jet/20161225_12.png>
+Package pdftex.def Info: ./fig_Geopot_Jet/20161225_12.png used on input line 48
+.
+(pdftex.def)             Requested size: 214.87431pt x 160.71843pt.
+
+<./fig_Geopot_Jet/20161226_12.png, id=636, 1445.4pt x 1156.32pt>
+File: ./fig_Geopot_Jet/20161226_12.png Graphic file (type png)
+
+<use ./fig_Geopot_Jet/20161226_12.png>
+Package pdftex.def Info: ./fig_Geopot_Jet/20161226_12.png used on input line 55
+.
+(pdftex.def)             Requested size: 214.87431pt x 160.71843pt.
+
+<./fig_Geopot_Jet/20161227_12.png, id=638, 1445.4pt x 1156.32pt>
+File: ./fig_Geopot_Jet/20161227_12.png Graphic file (type png)
+
+<use ./fig_Geopot_Jet/20161227_12.png>
+Package pdftex.def Info: ./fig_Geopot_Jet/20161227_12.png used on input line 61
+.
+(pdftex.def)             Requested size: 214.87431pt x 160.71843pt.
+File: ./fig_Geopot_Jet/20161225_12.png Graphic file (type png)
+ <use ./fig_Geopot_Jet/20161225_12.png>
+Package pdftex.def Info: ./fig_Geopot_Jet/20161225_12.png used on input line 67
+.
+(pdftex.def)             Requested size: 438.5141pt x 39.80817pt.
+)
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[23 <./fig_Geopot_Jet/20161220_12.png> <./fig_Geopot_Jet/20161221_12.png> <./fi
+g_Geopot_Jet/20161222_12.png> <./fig_Geopot_Jet/20161223_12.png> <./fig_Geopot_
+Jet/20161225_12.png>]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[24 <./fig_Geopot_Jet/20161224_12.png> <./fig_Geopot_Jet/20161226_12.png> <./fi
+g_Geopot_Jet/20161227_12.png>] (./images_tex/WeatherSit_AtmRiv.tex
+<./fig_Atm_Riv/20161220_12.png, id=671, 1445.4pt x 1156.32pt>
+File: ./fig_Atm_Riv/20161220_12.png Graphic file (type png)
+
+<use ./fig_Atm_Riv/20161220_12.png>
+Package pdftex.def Info: ./fig_Atm_Riv/20161220_12.png used on input line 7.
+(pdftex.def)             Requested size: 214.87431pt x 160.71843pt.
+
+<./fig_Atm_Riv/20161221_12.png, id=673, 1445.4pt x 1156.32pt>
+File: ./fig_Atm_Riv/20161221_12.png Graphic file (type png)
+
+<use ./fig_Atm_Riv/20161221_12.png>
+Package pdftex.def Info: ./fig_Atm_Riv/20161221_12.png used on input line 13.
+(pdftex.def)             Requested size: 214.87431pt x 160.71843pt.
+
+<./fig_Atm_Riv/20161225_12.png, id=675, 1445.4pt x 1156.32pt>
+File: ./fig_Atm_Riv/20161225_12.png Graphic file (type png)
+
+<use ./fig_Atm_Riv/20161225_12.png>
+Package pdftex.def Info: ./fig_Atm_Riv/20161225_12.png used on input line 19.
+(pdftex.def)             Requested size: 438.5141pt x 39.80817pt.
+
+<./fig_Atm_Riv/20161222_12.png, id=677, 1445.4pt x 1156.32pt>
+File: ./fig_Atm_Riv/20161222_12.png Graphic file (type png)
+
+<use ./fig_Atm_Riv/20161222_12.png>
+Package pdftex.def Info: ./fig_Atm_Riv/20161222_12.png used on input line 28.
+(pdftex.def)             Requested size: 214.87431pt x 160.71843pt.
+
+<./fig_Atm_Riv/20161223_12.png, id=679, 1445.4pt x 1156.32pt>
+File: ./fig_Atm_Riv/20161223_12.png Graphic file (type png)
+
+<use ./fig_Atm_Riv/20161223_12.png>
+Package pdftex.def Info: ./fig_Atm_Riv/20161223_12.png used on input line 35.
+(pdftex.def)             Requested size: 214.87431pt x 160.71843pt.
+
+<./fig_Atm_Riv/20161224_12.png, id=681, 1445.4pt x 1156.32pt>
+File: ./fig_Atm_Riv/20161224_12.png Graphic file (type png)
+
+<use ./fig_Atm_Riv/20161224_12.png>
+Package pdftex.def Info: ./fig_Atm_Riv/20161224_12.png used on input line 41.
+(pdftex.def)             Requested size: 214.87431pt x 160.71843pt.
+File: ./fig_Atm_Riv/20161225_12.png Graphic file (type png)
+ <use ./fig_Atm_Riv/20161225_12.png>
+Package pdftex.def Info: ./fig_Atm_Riv/20161225_12.png used on input line 47.
+(pdftex.def)             Requested size: 214.87431pt x 160.71843pt.
+
+<./fig_Atm_Riv/20161226_12.png, id=684, 1445.4pt x 1156.32pt>
+File: ./fig_Atm_Riv/20161226_12.png Graphic file (type png)
+
+<use ./fig_Atm_Riv/20161226_12.png>
+Package pdftex.def Info: ./fig_Atm_Riv/20161226_12.png used on input line 54.
+(pdftex.def)             Requested size: 214.87431pt x 160.71843pt.
+
+<./fig_Atm_Riv/20161227_12.png, id=686, 1445.4pt x 1156.32pt>
+File: ./fig_Atm_Riv/20161227_12.png Graphic file (type png)
+
+<use ./fig_Atm_Riv/20161227_12.png>
+Package pdftex.def Info: ./fig_Atm_Riv/20161227_12.png used on input line 60.
+(pdftex.def)             Requested size: 214.87431pt x 160.71843pt.
+File: ./fig_Atm_Riv/20161225_12.png Graphic file (type png)
+ <use ./fig_Atm_Riv/20161225_12.png>
+Package pdftex.def Info: ./fig_Atm_Riv/20161225_12.png used on input line 66.
+(pdftex.def)             Requested size: 438.5141pt x 39.80817pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 68--68
+[][]\T1/futs/m/n/12 (+20) Figure 4.4.1[][]: []|At-mo-spheric river ana-lysis ma
+p, data from ECMWF. Dur-ing
+ []
+
+
+LaTeX Warning: Float too large for page by 66.33844pt on input line 69.
+
+)
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[25 <./fig_Atm_Riv/20161220_12.png> <./fig_Atm_Riv/20161221_12.png> <./fig_Atm_
+Riv/20161225_12.png>]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[26 <./fig_Atm_Riv/20161222_12.png> <./fig_Atm_Riv/20161223_12.png> <./fig_Atm_
+Riv/20161224_12.png> <./fig_Atm_Riv/20161226_12.png> <./fig_Atm_Riv/20161227_12
+.png>] (./images_tex/WeatherSit_localobs.tex
+<./fig_weathermast/T_P_U_20161220.png, id=728, 1445.4pt x 505.89pt>
+File: ./fig_weathermast/T_P_U_20161220.png Graphic file (type png)
+
+<use ./fig_weathermast/T_P_U_20161220.png>
+Package pdftex.def Info: ./fig_weathermast/T_P_U_20161220.png used on input lin
+e 7.
+(pdftex.def)             Requested size: 214.87431pt x 76.36746pt.
+
+<./fig_weathermast/T_P_U_20161221.png, id=730, 1445.4pt x 505.89pt>
+File: ./fig_weathermast/T_P_U_20161221.png Graphic file (type png)
+
+<use ./fig_weathermast/T_P_U_20161221.png>
+Package pdftex.def Info: ./fig_weathermast/T_P_U_20161221.png used on input lin
+e 14.
+(pdftex.def)             Requested size: 214.87431pt x 76.36746pt.
+
+<./fig_weathermast/T_P_U_20161222.png, id=732, 1445.4pt x 505.89pt>
+File: ./fig_weathermast/T_P_U_20161222.png Graphic file (type png)
+
+<use ./fig_weathermast/T_P_U_20161222.png>
+Package pdftex.def Info: ./fig_weathermast/T_P_U_20161222.png used on input lin
+e 23.
+(pdftex.def)             Requested size: 214.87431pt x 76.36746pt.
+
+<./fig_weathermast/T_P_U_20161223.png, id=734, 1445.4pt x 505.89pt>
+File: ./fig_weathermast/T_P_U_20161223.png Graphic file (type png)
+
+<use ./fig_weathermast/T_P_U_20161223.png>
+Package pdftex.def Info: ./fig_weathermast/T_P_U_20161223.png used on input lin
+e 30.
+(pdftex.def)             Requested size: 214.87431pt x 76.36746pt.
+
+<./fig_weathermast/T_P_U_20161224.png, id=736, 1445.4pt x 505.89pt>
+File: ./fig_weathermast/T_P_U_20161224.png Graphic file (type png)
+
+<use ./fig_weathermast/T_P_U_20161224.png>
+Package pdftex.def Info: ./fig_weathermast/T_P_U_20161224.png used on input lin
+e 38.
+(pdftex.def)             Requested size: 214.87431pt x 76.36746pt.
+
+<./fig_weathermast/T_P_U_20161225.png, id=738, 1445.4pt x 505.89pt>
+File: ./fig_weathermast/T_P_U_20161225.png Graphic file (type png)
+
+<use ./fig_weathermast/T_P_U_20161225.png>
+Package pdftex.def Info: ./fig_weathermast/T_P_U_20161225.png used on input lin
+e 45.
+(pdftex.def)             Requested size: 214.87431pt x 76.36746pt.
+
+<./fig_weathermast/T_P_U_20161226.png, id=740, 1445.4pt x 505.89pt>
+File: ./fig_weathermast/T_P_U_20161226.png Graphic file (type png)
+
+<use ./fig_weathermast/T_P_U_20161226.png>
+Package pdftex.def Info: ./fig_weathermast/T_P_U_20161226.png used on input lin
+e 51.
+(pdftex.def)             Requested size: 214.87431pt x 76.36746pt.
+
+<./fig_weathermast/T_P_U_20161227.png, id=742, 1445.4pt x 505.89pt>
+File: ./fig_weathermast/T_P_U_20161227.png Graphic file (type png)
+
+<use ./fig_weathermast/T_P_U_20161227.png>
+Package pdftex.def Info: ./fig_weathermast/T_P_U_20161227.png used on input lin
+e 58.
+(pdftex.def)             Requested size: 214.87431pt x 76.36746pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 61--61
+[][]\T1/futs/m/n/12 (+20) Figure 4.5.1[][]: []|Ob-ser-va-tion from the weather 
+mast at Haukel-is-e-terd dur-ing
+ []
+
+)
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[27 <./fig_weathermast/T_P_U_20161220.png> <./fig_weathermast/T_P_U_20161221.pn
+g>]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[28 <./fig_weathermast/T_P_U_20161222.png> <./fig_weathermast/T_P_U_20161223.pn
+g> <./fig_weathermast/T_P_U_20161224.png> <./fig_weathermast/T_P_U_20161225.png
+> <./fig_weathermast/T_P_U_20161226.png> <./fig_weathermast/T_P_U_20161227.png>
+]
+LaTeX Font Info:    Font shape `FMX/futm/m/n' will be
+(Font)              scaled to size 13.24796pt on input line 144.
+LaTeX Font Info:    Font shape `FMX/futm/m/n' will be
+(Font)              scaled to size 9.19998pt on input line 144.
+LaTeX Font Info:    Font shape `FMX/futm/m/n' will be
+(Font)              scaled to size 7.35999pt on input line 144.
+LaTeX Font Info:    Font shape `T1/futs/bx/n' in size <10> not available
+(Font)              Font shape `T1/futs/b/n' tried instead on input line 144.
+LaTeX Font Info:    Font shape `T1/futs/bx/n' in size <8> not available
+(Font)              Font shape `T1/futs/b/n' tried instead on input line 144.
+LaTeX Font Info:    Font shape `U/futm/m/n' will be
+(Font)              scaled to size 13.24796pt on input line 144.
+LaTeX Font Info:    Font shape `U/futm/m/n' will be
+(Font)              scaled to size 9.19998pt on input line 144.
+LaTeX Font Info:    Font shape `U/futm/m/n' will be
+(Font)              scaled to size 7.35999pt on input line 144.
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[29]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[30]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[31])
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[32] (./Thesis_full.bbl
+Underfull \hbox (badness 1331) in paragraph at lines 27--32
+[]\T1/futs/m/n/12 (+20) E. Farest-veit.  80.000 mista ra-di-oen un-der ek-strem
+-vêret, Decem-ber 2016.  URL
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 27--32
+[][]$\T1/cmtt/m/n/12 https : / / www . nrk . no / hordaland / 80 . 000 -[] mist
+a -[] radioen -[] under -[] ekstremveret -[]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 61--67
+\T1/cmtt/m/n/12 publikasjoner / met -[] info / met -[] info -[] 2016 / _ / atta
+chment / download / b0463915 -[]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 61--67
+\T1/cmtt/m/n/12 cba0 -[] 42ac -[] 8539 -[] 4233ae2bf01c : 3d71565a27f8808537319
+9a33ab8569151c144e9 /
+ []
+
+[33
+
+
+]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[34]
+Underfull \hbox (badness 10000) in paragraph at lines 192--198
+\T1/futs/m/n/12 (+20) URL [][]$\T1/cmtt/m/n/12 http : / / docplayer . me / 4873
+4203 -[] Ekstremvaerrapport -[] hendelse -[] urd -[]
+ []
+
+
+Underfull \hbox (badness 1173) in paragraph at lines 192--198
+\T1/cmtt/m/n/12 26 -[] desember -[] met -[] info -[] no -[] 18 -[] 2017 -[] iss
+n -[] x -[] meteorologi -[] bergen . html$[][]\T1/futs/m/n/12 (+20) .  Last
+ []
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[35]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[36])
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[37]
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                \hskip 10.56pt
+(hyperref)                replaced by space on input line 86.
+
+[38
+
+]
+\openout2 = `Appendix/sounding.aux'.
+
+ (./Appendix/sounding.tex [39
+
+]
+<./fig_Sounding/20161220_12Z.png, id=931, 1156.32pt x 1445.4pt>
+File: ./fig_Sounding/20161220_12Z.png Graphic file (type png)
+
+<use ./fig_Sounding/20161220_12Z.png>
+Package pdftex.def Info: ./fig_Sounding/20161220_12Z.png used on input line 13.
+
+(pdftex.def)             Requested size: 289.4209pt x 380.18738pt.
+
+<./fig_Sounding/20161221_12Z.png, id=933, 1156.32pt x 1445.4pt>
+File: ./fig_Sounding/20161221_12Z.png Graphic file (type png)
+
+<use ./fig_Sounding/20161221_12Z.png>
+Package pdftex.def Info: ./fig_Sounding/20161221_12Z.png used on input line 19.
+
+(pdftex.def)             Requested size: 289.4209pt x 380.18738pt.
+
+<./fig_Sounding/20161222_12Z.png, id=935, 1156.32pt x 1445.4pt>
+File: ./fig_Sounding/20161222_12Z.png Graphic file (type png)
+
+<use ./fig_Sounding/20161222_12Z.png>
+Package pdftex.def Info: ./fig_Sounding/20161222_12Z.png used on input line 30.
+
+(pdftex.def)             Requested size: 289.4209pt x 380.18738pt.
+
+<./fig_Sounding/20161223_00Z.png, id=937, 1156.32pt x 1445.4pt>
+File: ./fig_Sounding/20161223_00Z.png Graphic file (type png)
+
+<use ./fig_Sounding/20161223_00Z.png>
+Package pdftex.def Info: ./fig_Sounding/20161223_00Z.png used on input line 37.
+
+(pdftex.def)             Requested size: 289.4209pt x 380.18738pt.
+
+<./fig_Sounding/20161225_12Z.png, id=939, 1156.32pt x 1445.4pt>
+File: ./fig_Sounding/20161225_12Z.png Graphic file (type png)
+
+<use ./fig_Sounding/20161225_12Z.png>
+Package pdftex.def Info: ./fig_Sounding/20161225_12Z.png used on input line 48.
+
+(pdftex.def)             Requested size: 289.4209pt x 380.18738pt.
+
+<./fig_Sounding/20161226_12Z.png, id=941, 1156.32pt x 1445.4pt>
+File: ./fig_Sounding/20161226_12Z.png Graphic file (type png)
+
+<use ./fig_Sounding/20161226_12Z.png>
+Package pdftex.def Info: ./fig_Sounding/20161226_12Z.png used on input line 55.
+
+(pdftex.def)             Requested size: 289.4209pt x 380.18738pt.
+
+Underfull \hbox (badness 1231) in paragraph at lines 59--59
+[][]\T1/futs/m/n/12 (+20) Figure A.1.0[][]: []|Ver-tical pro-files of at-mo-sph
+eric tem-per-at-ure (black) and dew-point tem-per-at-ure (green) dur-ing
+ []
+
+
+LaTeX Warning: Float too large for page by 29.04826pt on input line 60.
+
+[40 <./fig_Sounding/20161220_12Z.png> <./fig_Sounding/20161221_12Z.png>]
+[41 <./fig_Sounding/20161222_12Z.png> <./fig_Sounding/20161223_00Z.png>]
+[42 <./fig_Sounding/20161225_12Z.png> <./fig_Sounding/20161226_12Z.png>])
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 92.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 92.
+
+(./Thesis_full.aux (./title_page.aux) (./Abstract/abstract.aux)
+(./Nomenclature/nomenclature.aux) (./Introduction/introduction.aux)
+(./Data_Instrument_Methods/data_instruments_methods.aux)
+(./WeatherSituation/weather_situation.aux) (./Appendix/sounding.aux))
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 92.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 92.
+Package rerunfilecheck Info: File `Thesis_full.out' has not changed.
+(rerunfilecheck)             Checksum: C08DD54258EABF66B0213A76CA492A92;1836.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 92.
+ ) 
+Here is how much of TeX's memory you used:
+ 25045 strings out of 493089
+ 473425 string characters out of 6134843
+ 553641 words of memory out of 5000000
+ 27538 multiletter control sequences out of 15000+600000
+ 245154 words of font info for 413 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 45i,20n,72p,10432b,1115s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/local/texlive/2015/texmf-dist/fonts/enc/dvips/base/8r.enc}{/usr/local/t
+exlive/2015/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}</usr/local/tex
+live/2015/texmf-dist/fonts/type1/public/fourier/fourier-mex.pfb></usr/local/tex
+live/2015/texmf-dist/fonts/type1/public/fourier/fourier-ml.pfb></usr/local/texl
+ive/2015/texmf-dist/fonts/type1/public/fourier/fourier-mlit.pfb></usr/local/tex
+live/2015/texmf-dist/fonts/type1/public/fourier/fourier-ms.pfb></usr/local/texl
+ive/2015/texmf-dist/fonts/type1/adobe/utopia/putb8a.pfb></usr/local/texlive/201
+5/texmf-dist/fonts/type1/adobe/utopia/putr8a.pfb></usr/local/texlive/2015/texmf
+-dist/fonts/type1/adobe/utopia/putri8a.pfb></usr/local/texlive/2015/texmf-dist/
+fonts/type1/public/cm-super/sftt1200.pfb></usr/local/texlive/2015/texmf-dist/fo
+nts/type1/urw/helvetic/uhvr8a.pfb>
+Output written on Thesis_full.pdf (51 pages, 28565684 bytes).
+PDF statistics:
+ 1039 PDF objects out of 1200 (max. 8388607)
+ 771 compressed objects within 8 object streams
+ 140 named destinations out of 1000 (max. 500000)
+ 79133 words of extra memory for PDF output out of 89155 (max. 10000000)
+

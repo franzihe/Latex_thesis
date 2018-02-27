@@ -1,0 +1,48 @@
+\begin{thenomenclature} 
+
+ \nomgroup{A}
+
+  \item [{AR}]\begingroup Atmospheric River\nomeqref {0.0.0}
+		\nompageref{1}
+  \item [{AROME}]\begingroup Applications of Research to Operations at Mesoscale\nomeqref {0.0.0}
+		\nompageref{1}
+  \item [{C3VP}]\begingroup Canadian CloudSat-CALIPSO Validation Project\nomeqref {0.0.0}
+		\nompageref{1}
+  \item [{CPR}]\begingroup Cloud Profiling Radar\nomeqref {0.0.0}
+		\nompageref{1}
+  \item [{DT}]\begingroup Dynamic Tropopause\nomeqref {0.0.0}
+		\nompageref{1}
+  \item [{ECMWF}]\begingroup European Centre for Medium-Range Weather Forecasts\nomeqref {0.0.0}
+		\nompageref{1}
+  \item [{EPS}]\begingroup Ensemble Prediction System\nomeqref {0.0.0}
+		\nompageref{1}
+  \item [{FMI}]\begingroup Finnish Meteorological Institute\nomeqref {0.0.0}
+		\nompageref{1}
+  \item [{IVT}]\begingroup Integrated Vapour Transport\nomeqref {0.0.0}
+		\nompageref{1}
+  \item [{MASC}]\begingroup Multi-Angular Snowfall Camera\nomeqref {0.0.0}
+		\nompageref{1}
+  \item [{MEPS}]\begingroup MetCoOp Ensemble Prediction System\nomeqref {0.0.0}
+		\nompageref{1}
+  \item [{Met-Norway}]\begingroup Norwegian Meteorological Institute\nomeqref {0.0.0}
+		\nompageref{1}
+  \item [{MetCoOp}]\begingroup Meteorological Co-operation on Operational NWP\nomeqref {0.0.0}
+		\nompageref{1}
+  \item [{MRR}]\begingroup Micro Rain Radar\nomeqref {0.0.0}
+		\nompageref{1}
+  \item [{MSLP}]\begingroup Mean Sea Level Pressure\nomeqref {0.0.0}
+		\nompageref{1}
+  \item [{NWP}]\begingroup Numerical Weather Prediction\nomeqref {0.0.0}
+		\nompageref{1}
+  \item [{PIP}]\begingroup Precipitation Imaging Package\nomeqref {0.0.0}
+		\nompageref{1}
+  \item [{PSD}]\begingroup Particle Size distribution\nomeqref {0.0.0}
+		\nompageref{1}
+  \item [{SMHI}]\begingroup Swedish Meteorological and Hydrological Institute\nomeqref {0.0.0}
+		\nompageref{1}
+  \item [{WCB}]\begingroup Warm Conveyor Belt\nomeqref {0.0.0}
+		\nompageref{1}
+  \item [{WMO}]\begingroup World Meteorological Organization\nomeqref {0.0.0}
+		\nompageref{1}
+
+\end{thenomenclature}

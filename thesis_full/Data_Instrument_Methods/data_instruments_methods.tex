@@ -154,6 +154,20 @@ $F$, forward model in \Cref{eq:scalar_cost_fct}.
 \subsection*{Final result}
 Snowfall retrieval.
 
+% #####
+\section{Retrieved Data processing}
+\subsection*{Snow water content}
+To get a valid comparison between the snow water content (SWC) from the optimal estimation retrieval to the MEPS result the SWC is averaged over each hour. MEPS has output values at \SI{0}{}, \SI{1}{}, \SI{2}{}, ..., \SI{22}{}, \SI{23}{\UTC}. To approach the mean values of SWC in the retrieval \SI{30}{\minute} from the previous day and \SI{29}{\minute} from the next day are connected to the array. This leads to a match of the average value at the same time as from MEPS.
+
+
+% #####
+\subsection*{Snow water path}
+The snow water path (SWP) of each ensemble member is calculated by using the Simpson's integration rule.  \textcolor{red}{Find reference for equation}
+\begin{align}
+	\int_{h_0}^{h_1=\SI{3000}{\metre}} SWC(h) \, dh \approx \frac{h_1 - h_0}{6} \left[SWC(h_0) + 4SWC\left(\frac{h_0 + h1}{2}\right) + SWC(h_1) \right], \qquad [\SI{}{\g\per\square\meter}]
+	\label{eq:SWP}
+\end{align}
+
 % %%% ***************** CHAPTER MEPS ***************** %%%
 \chapter{Numerical forecast model}
 MEPS was newly operational at Met-Norway when the extreme weather occurred in Norway. Comparing model data with actual observations helps to verify the agreement between model prediction and ground based measurements. 
@@ -213,5 +227,26 @@ The thickness, $\Delta z$, of each layer is then be found by using the hypsometr
 \label{eq:hypsometric}
 \end{equation}
 where $R_d$ is gas constant for dry air with a value of \SI{287}{\joule\per\kilogram\per\kelvin},  standard gravity $g\,=\,$\SI{9.81}{\metre\per\square\second}. $p_1$ and $p_2$ are the pressure levels at lower and higher levels, respectively ($p_2 < p_1$).
+
+\subsection*{Snow water content}
+Three solid precipitation categories from the MEPS model are taken to calculate the snow water content (SWC) in each model level. Namely the mixing ratio of snow fall, graupel fall and the atmosphere cloud ice content. Since they are represented as mixing ratios in \SI{}{\kg\per\kg} a transformation to \SI{}{\g\per\cubic\meter} had to be done. The density in each model level ($\rho_{ml}$) is calculated and then multiplied with the sum of the solid precipitation mixing ratio.  
+\begin{align}
+	\rho_{ml} & = \frac{p_{ml}}{R_d T}, \qquad [\SI{}{\kg\per\cubic\meter}] \\
+	SWC_{ml} & = \rho_{ml} \cdot (\text{snow} + \text{graupel} + \text{cloud ice})_{ml} \cdot \num{e6}, \qquad [\SI{}{\g\per\cubic\meter}].
+	\label{eq:SWC_ml}
+\end{align}
+The SWP calculation for each ensemble member is done by using \Cref{eq:SWP}.
+
+\subsection*{Dew point temperature}
+The Python module \texttt{pyMeteo} is used to calculate the dew point temperature of each ensemble member to study the stability of the atmosphere (\url{https://pythonhosted.org/pymeteo/}). The additional package \texttt{thermo.py} is able to calculate the dew point temperature if the pressure and the specific humidity in each level is present. 
+\begin{align}
+	e_l & = ln\left( \frac{\frac{q_v}{\epsilon} \cdot \frac{p}{100}}{1 + \frac{q_v}{\epsilon}} \right) \\
+	T_d & = 273.15 + \frac{243.5 \cdot e_l -440.8}{19.48 -e_l} \qquad [\SI{}{\kelvin}]
+\end{align}
+where, $q_v$ is the specific humidity, $p$ pressure in [\SI{}{\Pa}], $\epsilon = R_d / R_v = 0.622$ with $R_v$ gas constant for water vapour. 
+
+
+
+
 
 

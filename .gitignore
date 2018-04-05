@@ -1,3 +1,9 @@
 ._*.tex
 ._*
-
+*.aux
+*.log
+*.bbl
+*.blg
+*.out
+*.gz
+*.toc

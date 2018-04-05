@@ -1,6 +1,6 @@
 % !TeX spellcheck = en_GB
 % %%% ***************** CHAPTER INSTRUMENTS, AND RETRIEVAL ***************** %%%
-\chapter{Instruments and snowfall retrieval} \label{ch:DIM}
+\chapter{Instruments} \label{ch:DIM}
 \textcolor{red}{\textbf{The overleaf file from the Methodology is here:} \\ \url{https://www.overleaf.com/13946091vphmgxbbxpyg}}
 
 Many factors such as humidity and temperature contribute to snowflake geometry. The knowledge of snowflake habits, particle size distributions, and fall speed lead to a reduction of errors in optimal estimation retrievals. \\
@@ -37,8 +37,52 @@ Radars are very useful to observe the vertical of the atmosphere. The instrument
 The principle of radar measurements is based on an electromagnetic wave, which is emitted from the radar transmitter and interacts with the hydrometeors along the beam. A fraction of the pulse energy is reflected back to the receiver of the radar. The quantity of scattering depends on the shape and structure of the reflected particle. This creates vertical profiles of reflectivity. The reflectivity gives information about the diameter of the object. 
 \\
 The Micro Rain Radar, in \Cref{fig:MRR}, measures profiles of Doppler spectra \citep{metek_micro_2010}. The Doppler spectrum tells about the movement of the particle. The vertical pointing Doppler radar measures the energy that is returned from each interval and thus enabling the detection of the Doppler spectrum \citep{lecuyer_aos_2017}. The MRR measures at a frequency of \SI{24}{\giga\Hz}, the temporal and spatial resolution of \SI{60}{\second} and \SI{100}{\metre}, respectively. The height ranges from \SI{100}{\metre} (because of ground clutter) to \SI{3.000}{\metre} \citep{metek_micro_2010}.
+\newline \newline
+\noindent 
+Radar reflectivity ($z$) from the MRR is transformed from \SI{1}{\mm^6\per\metre^3} to \SI{}{\decibel\,Z}.
+The transformations is done by the following relationship;
+\begin{align}
+	Ze & = 10 \log_{10} \left(\frac{Z}{\SI{1}{\mm^6\per\metre^3}}\right) \qquad [\SI{}{\decibel Z}]
+	\label{eq:Ze}
+\end{align}
+A transformation to rainfall rates can be performed by the $Z$-$R$ relationship. By the use of typical fall speeds and the Marshall and Palmer particle size distribution for liquid particles, the rainfall rate in each layer can be estimated \citep{rinehart_radar_2010}. 
+\begin{align}
+	Z & = 200 R^{\frac{8}{5}} \qquad [\SI{}{\mm^6\per\metre^3}] \nonumber \\ 
+	R & = \left( \frac{ 10^{\frac{Ze}{10}} }{200} \right)^{\frac{8}{5}} \qquad [\SI{}{\mm\per\hour}]
+	\label{eq:Z-R}
+\end{align}
+\Cref{tab:ref_values} represents the Z-R relationship if the Marshall-Palmer assumption (\Cref{eq:Z-R}) is applied. Z-snowfall relationships are developed but are difficult to apply due to the variation of size and density of the particles.
 
+%%% table REFLECTIVITY AND RAINRATE %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{table}[h]
+	\begin{center}
+		\caption{Typical reflectivity values, from \cite{doviak_doppler_1993}. The values are obtained from measurements, models and observations. The rainfall rate $R$ is calculated with \Cref{eq:Z-R}. }\label{tab:ref_values}
+		\begin{tabular}{ll|c|c}
+			\hline \hline
+			\multicolumn{2}{l|}{} & \textbf{Ze} & \textbf{R} \\ 
+			\multicolumn{2}{l|}{} & [\SI{}{\decibel Z}] & [\SI{}{\mm\per\hour}] \\ \hline \hline
+			\multicolumn{2}{l|}{\textbf{Drizzle}} & \num{< 25} &  \num{1.3} \\ \hline
+			\multicolumn{2}{l|}{\textbf{Rain}} & \numrange{25}{60} & \numrange{1.3}{205.0} \\ \hline
+			\multicolumn{2}{l|}{\textbf{Snow}} &  \\ 
+			& dry, low density 	& \num{< 35} & \num{5.6}\\ \hline
+			& Crystal; dry, high density & \num{< 25} & \num{1.3}\\ \hline
+			& wet, melting 		& \num{< 45} & \num{23.7} \\ \hline
+			\multicolumn{2}{l|}{\textbf{Graupel}} & \\
+			& dry 				& \numrange{40}{50} & \numrange{11.5}{48.6} \\ \hline
+			& wet				& \numrange{40}{55} & \numrange{11.5}{99.9} \\ \hline
+			\multicolumn{2}{l|}{\textbf{Hail}} & \\
+			& small; \SI{< 2}{\cm}, wet & \numrange{50}{60} & \numrange{48.6}{205.0}\\
+			& large; \SI{> 2}{\cm}, wet & \numrange{55}{70} & \numrange{99.9}{864.7}\\ \hline
+			\multicolumn{2}{l|}{\textbf{Rain \& Hail}} & \numrange{50}{70} & \numrange{48.6}{864.7} \\ 
+			\hline \hline
+		\end{tabular}
+	\end{center}
+\end{table}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+After the transformation to \SI{}{\decibel Z} the reflectivity is averaged every \SI{200}{\metre} layer. For this, all values above \SI{300}{\metre} are taken. A reflectivity represented at \SI{400}{\metre} represents the average reflectivity between \SIrange{300}{500}{\metre}. 
+
+\pagebreak
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%% PiP %%%%%%%%%%%%%%
@@ -51,7 +95,7 @@ The precipitation imaging package (PiP) is a modification of the Snowflake Video
 In front of the halogen lamp is a frosted window, so that the background light is uniform over all time. A falling particle appears as a 2-D shadow in the video image. \cite{newman_presenting_2009} describes in detail the algorithm applied to the system to get information about the snow-particle habit. \\
 Winds have almost no effect on the result of the video distrometer \citep{newman_presenting_2009}. \textcolor{red}{They also say, to reduce eventual wind effects, should the distrometer be oriented with regard to storm winds (optical axis perpendicular to mean wind). Was that the case for Haukeliseter (I'm just curious)???}
 
-\newpage
+\pagebreak
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%% MASC %%%%%%%%%%%%%%
@@ -68,9 +112,9 @@ The near-infrared sensor, that is used to trigger the cameras and the lights qua
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%% OPTIMAL ESTIMATION RETRIEVAL %%%%%%%%%%%%%%
-\section{Optimal Estimation Retrieval Algorithm} %Section - 1.2
-\label{sec:retrieval}
+% %%% ***************** CHAPTER RETRIEVAL ***************** %%%
+\chapter{Optimal Estimation Retrieval Algorithm} %Section - 1.2
+\label{ch:retrieval}
 Since 2006, with the launch of CloudSats Cloud Profiling Radar (CPR) a global estimation of snowfall can be done. Several studies, such as \cite{kulie_utilizing_2009} have shown that estimated snowfall values depend heavily upon assumed snowflake microphysical properties.
 %\textcolor{red}{Steve had some insertions but no comments.}
 %depending on the retrieval assumption, snowfall estimation can give the same values for different a priori guess, e.g. snowflake microphysical properties. 
@@ -88,85 +132,136 @@ Results from this scheme showed a good agreement with reported values observed a
 Model estimates have proven, how useful the estimation retrieval can be to verify ground-based radar snowfall measurements \citep{norin_intercomparison_2015}.
 Although the retrieval has obviously been improved the estimation algorithm, can still lead to uncertainties in the retrievals of up to \SIrange{140}{200}{\percent} \citep{wood_estimation_2011}. 
 \\
-\noindent The snowfall retrieval assumes an exponential particle size distribution (PSD)
-\begin{align}
-	N(D) = N_{0} exp(-\lambda D).
-	\label{eq:PSD}
-\end{align} 
-$\lambda$ represents here the PSD slope parameter and $N_{0}$ the number density. 
-%$D$ is the particle maximum dimension evaluated from the MASC. 
-\\
-The optimal estimation technique is based on Gaussian statistics. Minimizing the scalar cost function, $\Phi$ for the snowfall properties, $x$ by; 
-\begin{equation}
-\begin{split}
-\Phi(x,y,a) = &(y- F(x))^T \mathbf{S}_y^{-1} (\mathbf{y}-F(\mathbf{x})) \\
-&+(x-a)^T \mathbf{S}_{a}^{-1} (x-a)
-\end{split} \label{eq:scalar_cost_fct}
-\end{equation}
-where, $x$, vector of retrieved snowfall properties (slope parameter and number density); $y$, vector of observation (MRR reflectivity) ; $a$, vector of the a priori guess (temperature dependent); $F$, forward model; $\mathbf{S}_a$, a priori error covariance matrix; $\mathbf{S}_y$, measurement error covariance matrix.
-\\
+% \noindent The snowfall retrieval assumes an exponential particle size distribution (PSD)
+% \begin{align}
+% 	N(D) = N_{0} exp(-\lambda D).
+% 	\label{eq:PSD}
+% \end{align} 
+% $\lambda$ represents here the PSD slope parameter and $N_{0}$ the number density. 
+% %$D$ is the particle maximum dimension evaluated from the MASC. 
+% \\
+% The optimal estimation technique is based on Gaussian statistics. Minimizing the scalar cost function, $\Phi$ for the snowfall properties, $x$ by; 
+% \begin{equation}
+% \begin{split}
+% \Phi(x,y,a) = &(y- F(x))^T \mathbf{S}_y^{-1} (\mathbf{y}-F(\mathbf{x})) \\
+% &+(x-a)^T \mathbf{S}_{a}^{-1} (x-a)
+% \end{split} \label{eq:scalar_cost_fct}
+% \end{equation}
+% where, $x$, vector of retrieved snowfall properties (slope parameter and number density); $y$, vector of observation (MRR reflectivity) ; $a$, vector of the a priori guess (temperature dependent); $F$, forward model; $\mathbf{S}_a$, a priori error covariance matrix; $\mathbf{S}_y$, measurement error covariance matrix.
+% \\
 \cite{cooper_variational_2017} developed a technique to combine MRR, MASC, and PiP information into a common retrieval framework. Specifically, estimates of snowflake microphysical properties from the MRR are used as the a priori term in the optimal-estimation retrieval scheme. The usage of either MASC\,/\,PiP or MRR fall-speed can show which a priori guess in the retrieval gives the more accurate retrieved snowfall rate at the ground. \\
 The difference between the retrieval and the snow gauge observations was \SI{-18}{\percent} when applied to data from Barrow, Alaska.\\
 \cite{cooper_variational_2017} also showed that the retrieval is sensitive to habit and fall speed. The installation of a MRR, MASC, and PIP should help to adjust the particle models for graupels and rimed particles which are often observed at Haukeliseter. 
 
-\section{The estimation retrieval step-by-step}
-To find a relation between the reflectivity and the preciptiation amount several steps and assumptions have to be done. The following lines, will give a detailed information on the steps, and relate that to \Cref{eq:scalar_cost_fct}. 
-\\
-\subsection*{Temperature from measurement site}
-%%% image surface temperature %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\input{./images_tex/retrieval_sfctemp}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-At the Haukeliseter measurement site has in addition a weather mast to full fill the World Meteorological Organization (WMO) requirements. At the weather mast is a temperature sensor, measuring every minute in two meter height. \\
-This temperature looks like in \Cref{fig:sfc_temp} and is used as the vector of the a priori guess ($a$) in \Cref{eq:scalar_cost_fct}
+\section{Theoretical Basis}\label{sec:ret_th}
+To achieve vertical profiles of snowfall from MRR different steps and assumptions are done in the snowfall retrieval. From this, the snowfall rate at the surface can be estimated. The retrieval is only performed for profiles, which are likely to have observed snow. If precipitation is present can be obtained by a reflectivity threshold of \SI{- 15}{\decibel Z}. This threshold is similar to the one used in \cite{wood_level_2013}, where it states that light liquid precipitation is related to \SI{- 10}{\decibel Z} \textcolor{red}{citation here}.
+\begin{itemize}
+	\item surface temperature \SI{< 2}{\celsius}
+	\item follows \Cref{fig:MRR_sfcT}
+	\item \citep{wood_level_2013}: state is described by the exponential size distribution parameters $N_0$ and $\lambda$. Values for $N_0$ may range over several order of magnitude, so $log(N_0$) is retrieved instead. $log(\lambda$) is retreived since they are less skewed and $\lambda$ was strongly non-Gaussian. \\
+	$$log(\lambda) = -0.03053 \cdot T_{sfc} - 0.08258$$, \\ 
+	$$log(N_0) = -0.07193 \cdot T_{sfc} +2.665$$, \\
+	$$T_{sfc} \qquad [\SI{}{\kelvin}] $$\\
+	$$\rightarrow \hat{x} = \begin{bmatrix}
+	log(\lambda)_0 	\\
+	\vdots 			\\
+	log(\lambda)_{nlayer} 	\\
+	log(N_0)_0		\\
+	\vdots			\\
+	log(N_0)_{nlayer}		
+	\end{bmatrix} \qquad nlayer = 14$$
+	\item sensitivity matrix: K \\
+	$$\pm perturbation = \hat{x} \cdot \left(1 \pm \frac{0.2}{100}\right)$$ \\
+	
+	\item error covariance: \\
+	measurement: $$
+	S_y = \begin{bmatrix}
+	6.25 	& 0 	& \dots & 0 		& 0         \\%[0.3em]
+	0		& 6.25 & \dots	& 0 		& 0		 \\
+	\vdots 	& \vdots& \vdots& \ddots 	& \vdots \\
+	0		& 0		& \dots	& 6.25		& 0 \\
+	0 		& 0		& \dots & 0 		& 6.25
+	\end{bmatrix} $$
+	\\
+	a priori: $$
+	S_a = \begin{bmatrix}
+	0.133 	& 0 	& \dots & 0 		& 0         \\%[0.3em]
+	0		& 0.133 & \dots	& 0 		& 0		 \\
+	\vdots 	& \vdots& \vdots& \ddots 	& \vdots \\
+	0		& 0		& \dots	& 0.95 		& 0 \\
+	0 		& 0		& \dots & 0 		& 0.95
+	\end{bmatrix} $$
+\end{itemize}
+% %%% image surface temperature and MRR %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{./images_tex/retrieval_MRR_sfcT}
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\subsection*{MRR measurements}
-%%% image surface temperature %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\input{./images_tex/retrieval_MRR_refl}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-Observations from the MRR ($y$) are used in \Cref{eq:scalar_cost_fct}.
-Radar reflectivity ($z$) from the MRR is already transformed from \SI{1}{\mm^6\per\metre^3} to \SI{}{\decibel\,Z}.
-The transformations is done by the following relationship;
-\begin{equation}
-Z = 10 \log_{10} \left(\frac{z}{\SI{1}{\mm^6\per\metre^3}}\right) \qquad \text{[\SI{}{\decibel Z}]} 
-\end{equation}
-Finding a relationship between reflectivity and particle size, common PSD's are used. In the here presented snowfall retrieval an exponential size distribution is assumed (\Cref{eq:PSD}). Attention should be paid, that here snowfall is estimated, where most retrievals use rain. Relationships between reflectivity and snowfall have been developed. Even if the distribution is known, different crystal shapes lead to different results. Furthermore, vary snow density significantly from storm to storm, where small particles are still Rayleigh scattered, and larger particles non-Rayleigh scattered \citep{gunn_microwave_1954}. 
-\begin{table}[H]
-	\begin{center}
-		\caption{Typical reflectivity values, from \cite{} \textcolor{red}{citation here}. }\label{tab:ref_values}
-		\begin{tabular}{l|c}
-			\hline \hline
-			giant hail & \SI{75}{\decibel Z} \\ \hline
-			heavy rain & \SI{45}{\decibel Z}\,-\,\SI{50}{\decibel Z} \\ \hline
-			heavy snow & \SI{25}{\decibel Z}  \\ \hline
-			fog droplets & \SI{-28}{\decibel Z}\\
-			\hline
-		\end{tabular}
-	\end{center}
-\end{table}
-Only from \Cref{fig:MRR_refl} and \Cref{tab:ref_values} one can not estimate, if snow or rain was present on \SI{25}{\dec}.
-
-
-
-
-
-\subsection*{Scattering model}
-$F$, forward model in \Cref{eq:scalar_cost_fct}.
-\subsection*{Final result}
-Snowfall retrieval.
-
-% #####
-\section{Retrieved Data processing}
-\subsection*{Snow water content}
-To get a valid comparison between the snow water content (SWC) from the optimal estimation retrieval to the MEPS result the SWC is averaged over each hour. MEPS has output values at \SI{0}{}, \SI{1}{}, \SI{2}{}, ..., \SI{22}{}, \SI{23}{\UTC}. To approach the mean values of SWC in the retrieval \SI{30}{\minute} from the previous day and \SI{29}{\minute} from the next day are connected to the array. This leads to a match of the average value at the same time as from MEPS.
+\section{Forward model}
 
 
-% #####
-\subsection*{Snow water path}
-The snow water path (SWP) of each ensemble member is calculated by using the Simpson's integration rule.  \textcolor{red}{Find reference for equation}
-\begin{align}
-	\int_{h_0}^{h_1=\SI{3000}{\metre}} SWC(h) \, dh \approx \frac{h_1 - h_0}{6} \left[SWC(h_0) + 4SWC\left(\frac{h_0 + h1}{2}\right) + SWC(h_1) \right], \qquad [\SI{}{\g\per\square\meter}]
-	\label{eq:SWP}
-\end{align}
+
+% \noindent The snowfall retrieval assumes an exponential particle size distribution (PSD)
+% \begin{align}
+% 	N(D) = N_{0} exp(-\lambda D).
+% 	\label{eq:PSD}
+% \end{align} 
+% $\lambda$ represents here the PSD slope parameter and $N_{0}$ the number density. 
+% %$D$ is the particle maximum dimension evaluated from the MASC. 
+% \\
+% The optimal estimation technique is based on Gaussian statistics. Minimizing the scalar cost function, $\Phi$ for the snowfall properties, $x$ by; 
+% \begin{equation}
+% \begin{split}
+% \Phi(x,y,a) = &(y- F(x))^T \mathbf{S}_y^{-1} (\mathbf{y}-F(\mathbf{x})) \\
+% &+(x-a)^T \mathbf{S}_{a}^{-1} (x-a)
+% \end{split} \label{eq:scalar_cost_fct}
+% \end{equation}
+% where, $x$, vector of retrieved snowfall properties (slope parameter and number density); $y$, vector of observation (MRR reflectivity) ; $a$, vector of the a priori guess (temperature dependent); $F$, forward model; $\mathbf{S}_a$, a priori error covariance matrix; $\mathbf{S}_y$, measurement error covariance matrix.
+% \\
+% To find a relation between the reflectivity and the preciptiation amount several steps and assumptions have to be done. The following lines, will give a detailed information on the steps, and relate that to \Cref{eq:scalar_cost_fct}. 
+% \\
+% \subsection*{Temperature from measurement site}
+
+% At the Haukeliseter measurement site has in addition a weather mast to full fill the World Meteorological Organization (WMO) requirements. At the weather mast is a temperature sensor, measuring every minute in two meter height. \\
+% This temperature looks like in \Cref{fig:sfc_temp} and is used as the vector of the a priori guess ($a$) in \Cref{eq:scalar_cost_fct}
+
+% \subsection*{MRR measurements}
+% %%% image surface temperature %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \input{./images_tex/retrieval_MRR_refl}
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Observations from the MRR ($y$) are used in \Cref{eq:scalar_cost_fct}.
+% 
+
+% Finding a relationship between reflectivity and particle size, common PSD's are used. In the here presented snowfall retrieval an exponential size distribution is assumed (\Cref{eq:PSD}). Attention should be paid, that here snowfall is estimated, where most retrievals use rain. Relationships between reflectivity and snowfall have been developed. Even if the distribution is known, different crystal shapes lead to different results. Furthermore, vary snow density significantly from storm to storm, where small particles are still Rayleigh scattered, and larger particles non-Rayleigh scattered \citep{gunn_microwave_1954}. 
+
+% Only from \Cref{fig:MRR_refl} and \Cref{tab:ref_values} one can not estimate, if snow or rain was present on \SI{25}{\dec}.
+
+
+
+
+
+% \subsection*{Scattering model}
+% $F$, forward model in \Cref{eq:scalar_cost_fct}.
+% \subsection*{Final result}
+% Snowfall retrieval.
+
+% % #####
+% \section{Retrieved Data processing}
+% \subsection*{Snow water content}
+% To get a valid comparison between the snow water content (SWC) from the optimal estimation retrieval to the MEPS result the SWC is averaged over each hour. MEPS has output values at \SI{0}{}, \SI{1}{}, \SI{2}{}, ..., \SI{22}{}, \SI{23}{\UTC}. To approach the mean values of SWC in the retrieval \SI{30}{\minute} from the previous day and \SI{29}{\minute} from the next day are connected to the array. This leads to a match of the average value at the same time as from MEPS.
+
+
+% % #####
+% \subsection*{Snow water path}
+% The snow water path (SWP) of each ensemble member is calculated by using the Simpson's integration rule.  \textcolor{red}{Find reference for equation}
+% \begin{align}
+% 	\int_{h_0}^{h_1=\SI{3000}{\metre}} SWC(h) \, dh \approx \frac{h_1 - h_0}{6} \left[SWC(h_0) + 4SWC\left(\frac{h_0 + h1}{2}\right) + SWC(h_1) \right] \qquad [\SI{}{\g\per\square\meter}]
+%     \label{eq:SWP}
+% \end{align}
+
+
+
+
+
 
 % %%% ***************** CHAPTER MEPS ***************** %%%
 \chapter{Numerical forecast model}
@@ -244,9 +339,3 @@ The Python module \texttt{pyMeteo} is used to calculate the dew point temperatur
 	T_d & = 273.15 + \frac{243.5 \cdot e_l -440.8}{19.48 -e_l} \qquad [\SI{}{\kelvin}]
 \end{align}
 where, $q_v$ is the specific humidity, $p$ pressure in [\SI{}{\Pa}], $\epsilon = R_d / R_v = 0.622$ with $R_v$ gas constant for water vapour. 
-
-
-
-
-
-

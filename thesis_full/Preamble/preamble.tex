@@ -20,6 +20,7 @@
 \usepackage{amsmath,amsfonts,amsthm} % Math packages
 \usepackage{enumitem}
 \usepackage{mathtools}
+\usepackage{commath}
 %\usepackage[pdftex]{graphicx}
 
 
@@ -54,6 +55,16 @@
 \usepackage{subcaption}
 % ******* reference with Fig. before number of Fig. ********
 \usepackage{cleveref}
+\crefrangelabelformat{equation}%
+{(#3#1#4--#5\crefstripprefix{#1}{#2}#6)}
+\crefrangelabelformat{subequation}%
+{(#3#1#4--#5\crefstripprefix{#1}{#2}#6)}
+
+\crefmultiformat{figure}%
+{\edef\crefstripprefixinfo{#1}figs.~#2#1#3}%
+{ and~#2\crefstripprefix{\crefstripprefixinfo}{#1}#3}%
+{, #2\crefstripprefix{\crefstripprefixinfo}{#1}#3}%
+{, and~#2\crefstripprefix{\crefstripprefixinfo}{#1}#3}
 % \Crefname{equation}{Eq.}{Eqs.}
 % \Crefname{figure}{Fig.}{Figs.}
 % \Crefname{tabular}{Tab.}{Tabs.}
@@ -116,19 +127,19 @@
 
 % ***** CHAPTER in ToC *************
 \titlecontents{chapter}% <section-type>
-  [0pt]% <left>
-  {\scshape}% <above-code>
-  {\chaptername\ \thecontentslabel:\quad}% <numbered-entry-format>
-  {}% <numberless-entry-format>
-  {\hfill\contentspage}% <filler-page-format>
+[0pt]% <left>
+{\scshape}% <above-code>
+{\chaptername\ \thecontentslabel:\quad}% <numbered-entry-format>
+{}% <numberless-entry-format>
+{\hfill\contentspage}% <filler-page-format>
 
 \makeatletter
 \newcommand\appendix@chapter[1]{%
-    \refstepcounter{chapter}%
-    \def\app@ct{Appendix \@Alph\c@chapter:\quad#1}
-    \orig@chapter*{\app@ct}%
-    \markboth{\MakeUppercase{\app@ct}}{\MakeUppercase{\app@ct}}
-    \addcontentsline{toc}{chapter}{\app@ct}%
+	\refstepcounter{chapter}%
+	\def\app@ct{Appendix \@Alph\c@chapter:\quad#1}
+	\orig@chapter*{\app@ct}%
+	\markboth{\MakeUppercase{\app@ct}}{\MakeUppercase{\app@ct}}
+	\addcontentsline{toc}{chapter}{\app@ct}%
 }
 \let\orig@chapter\chapter
 \g@addto@macro\appendix{\let\chapter\appendix@chapter}
@@ -140,7 +151,7 @@
 % \makeatother
 
 % 
-  
+
 
 % ******* Custom sectioning and chapter font **********************
 
@@ -160,8 +171,8 @@
 % ******* Custom headers/footers (fancyhdr package)
 \usepackage{fancyhdr}
 \pagestyle{fancyplain}
-		
-        
+
+
 %\renewcommand{\headrulewidth}{2pt}			% header underlines
 %\renewcommand{\footrulewidth}{1pt}			% footer underlines
 
@@ -197,14 +208,14 @@
 % Declaration  
 \newcommand\decName{declaration}
 \newenvironment{declaration}
-  {\renewcommand\abstractname{\decName}\begin{abstract}}
-  {\end{abstract}}
+{\renewcommand\abstractname{\decName}\begin{abstract}}
+	{\end{abstract}}
 
 % Acknowledgment
 \newcommand\ackName{acknowledgement}
 \newenvironment{acknowledgement}
-  {\renewcommand\abstractname{\ackName}\begin{abstract}}
-  {\end{abstract}}
+{\renewcommand\abstractname{\ackName}\begin{abstract}}
+	{\end{abstract}}
 
 % ********* Equation and float numbering ****************************
 \numberwithin{equation}{section}		% Equationnumbering: section.eq#

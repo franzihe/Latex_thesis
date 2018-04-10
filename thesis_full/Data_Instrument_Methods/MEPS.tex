@@ -1,0 +1,76 @@
+% !TeX spellcheck = en_GB
+\chapter{Numerical forecast model}
+MEPS was newly operational at Met-Norway when the extreme weather occurred in Norway. Comparing model data with actual observations helps to verify the agreement between model prediction and ground based measurements. 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%% MEPS %%%%%%%%%%%%%%
+\section{AROME - MetCoOP}
+\label{sec:MEPS}
+AROME-MetCoOp was operational from March 2014 until November 2016, when it was replaced with an ensemble prediction system (EPS) based on AROME-MetCoOp.
+MEPS is used as weather forecast at the Norwegian Meteorological Institute, the Swedish Meteorological and Hydrological Institute (SMHI) and the Finnish Meteorological Institute (FMI), \citep{muller_arome-metcoop:_2017, koltzow_metcoop_2017}. 
+\\
+In principle MEPS is a short-term weather forecast of \SI{66}{\hour} with 10 ensemble member and a horizontal resolution of \SI{2.5}{\km} and 65 vertical levels. In the following section, the model configuration will be briefly explained as well as the motivation for the study case presented.
+\\
+The orange frame in \Cref{fig:site} shows the MEPS model domain for December 2016. It covers the Nordic Countries including open water such as the Atlantic Ocean, the North and the Baltic Sea.  
+\\
+The centre of the model is approximately at \ang{63.5}\,N, \ang{15}\,E. 
+The horizontal grid points are projected on a Lambert projection to receive same area size of each grid cell. 
+The outer, parent grid is the ECMWF-IFS model (European Centre for Medium-Range Weather Forecasts Integrated Forecasting System) with a horizontal resolution of \SI{9}{\km} \citep{homleid_verification_2016}. 
+\\
+Vertical hybrid coordinates are terrain-following and are mass-based, \citep{muller_arome-metcoop:_2017}. Furthermore, it does underlie non-hydrostatic dynamics, \citep{wiki_description_2017}.
+\\
+The representation of snow is covered by a modification of the three-class ice parametrization (ICE3) scheme. Where liquid-phase processes are separated from slow ice-phase processes. To model the snow cover an one-layer atmosphere model scheme is implemented. This includes three variables such as: snow water equivalent (SWE), snow density, and snow albedo \citep{muller_arome-metcoop:_2017}.
+\\
+The MEPS forecasting system consist of 1+9 members where each of the perturbed members perform an initialization of \SI{66}{\hour} at \SIlist{00;06;12;18}{\UTC} \citep{wiki_description_2017}. The ECMWF-IFS forecasts are used \SI{6}{\hour} prior to the actual cycle in MEPS. As synoptic observations are included in the model the snow-depth predictions underlay a special performance. Observations of snow-depth are only available at \SIlist{06;18}{\UTC}, therefore is the snow analysis only performed twice daily \citep{muller_arome-metcoop:_2017, homleid_verification_2016}. 
+\\
+For more detailed information to the model the reader is referred to \cite{muller_arome-metcoop:_2017} and \cite{wiki_description_2017} and its references therein.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%% MEPS %%%%%%%%%%%%%%
+\section{MEPS Data processing}
+\label{sec:MEPS_process}
+To compare the measurements from the surface with the MEPS data, the colsest grid point is used to Haukeliseter.
+\\
+MEPS has a vertical resolution in hybrid sigma pressure coordinates (0-1). The zero sigma level is at the top of the atmosphere, hence positive values are downward. To calculate the actual vertical pressure in \SI{}{\Pa}, a formula is provided in the OPeNDAP Dataset of \texttt{meps\_full\_2\_5km\_*.nc} by \cite{norwegian_meteorological_institute_met_2016}.  
+\begin{align}
+	p(n,k,j,i) = ap(k) + b(k) \cdot ps(n,j,i) \qquad [\SI{}{\Pa}].
+	\label{eq:hybrid_sigma_pressure}
+\end{align}
+$ps$ is the surface air pressure in \SI{}{\Pa}, and information about the variables $ap$, $b$ are not given from the access form. \textcolor{red}{Maybe check in the documentation from BJ?!}  
+\\
+The next step was to convert pressure-levels into actual heights by the use of the hypsometric equation. Here, the air temperature in model levels is used to calculate the mean temperature of each layer. 
+\begin{align}
+	\overline{T} = \dfrac{\int\limits_{p2}^{p1} T \partial ln p}{\int\limits_{p2}^{p1}\partial ln p} \qquad [\SI{}{\kelvin}]
+	\label{eq:T_avg}
+\end{align}
+For the numerical integration, the Simpson rule was used, which is a build-in function in Python. \\
+In the book from \cite{martin_mid-latitude_2006} steps of differentiating the hypsometric equation are presented by using the virtual temperature. But when the atmospheric mixing ratio is large, will the virtual temperature only be \SI{1}{\percent} larger than the actual air temperature. 
+\\
+The thickness, $\Delta z$, of each layer is then be found by using the hypsometric equation from \cite{martin_mid-latitude_2006} and the previously calculated mean temperature (\Cref{eq:T_avg}):
+\begin{equation}
+\begin{split}
+\Delta z & = z_2 - z_1 \\
+& = \frac{R_d \overline{T}}{g} ln(\frac{p_1}{p_2}), \qquad [\SI{}{\metre}]
+\end{split}
+\label{eq:hypsometric}
+\end{equation}
+where $R_d$ is gas constant for dry air with a value of \SI{287}{\joule\per\kilogram\per\kelvin},  standard gravity $g\,=\,$\SI{9.81}{\metre\per\square\second}. $p_1$ and $p_2$ are the pressure levels at lower and higher levels, respectively ($p_2 < p_1$).
+
+\subsection*{Snow water content}
+Three solid precipitation categories from the MEPS model are taken to calculate the snow water content (SWC) in each model level. Namely the mixing ratio of snow fall, graupel fall and the atmosphere cloud ice content. Since they are represented as mixing ratios in \SI{}{\kg\per\kg} a transformation to \SI{}{\g\per\cubic\meter} had to be done. The density in each model level ($\rho_{ml}$) is calculated and then multiplied with the sum of the solid precipitation mixing ratio.  
+\begin{align}
+	\rho_{ml} & = \frac{p_{ml}}{R_d T}, \qquad [\SI{}{\kg\per\cubic\meter}] \\
+	SWC_{ml} & = \rho_{ml} \cdot (\text{snow} + \text{graupel} + \text{cloud ice})_{ml} \cdot \num{e6}, \qquad [\SI{}{\g\per\cubic\meter}].
+	\label{eq:SWC_ml}
+\end{align}
+The SWP calculation for each ensemble member is done by using \Cref{eq:SWP}.
+
+\subsection*{Dew point temperature}
+The Python module \texttt{pyMeteo} is used to calculate the dew point temperature of each ensemble member to study the stability of the atmosphere (\url{https://pythonhosted.org/pymeteo/}). The additional package \texttt{thermo.py} is able to calculate the dew point temperature if the pressure and the specific humidity in each level is present. 
+\begin{align}
+	e_l & = ln\left( \frac{\frac{q_v}{\epsilon} \cdot \frac{p}{100}}{1 + \frac{q_v}{\epsilon}} \right) \\
+	T_d & = 273.15 + \frac{243.5 \cdot e_l -440.8}{19.48 -e_l} \qquad [\SI{}{\kelvin}]
+\end{align}
+where, $q_v$ is the specific humidity, $p$ pressure in [\SI{}{\Pa}], $\epsilon = R_d / R_v = 0.622$ with $R_v$ gas constant for water vapour.

@@ -1,0 +1,83 @@
+% !TeX spellcheck = en_GB
+\chapter{Instruments} \label{ch:DIM}
+\textcolor{red}{\textbf{The overleaf file from the Methodology is here:} \\ \url{https://www.overleaf.com/13946091vphmgxbbxpyg}}
+
+Many factors such as humidity and temperature contribute to snowflake geometry. The knowledge of snowflake habits, particle size distributions, and fall speed lead to a reduction of errors in optimal estimation retrievals. \\
+This work is based on several datasets collected at the Haukeliseter measurement site, \ang{59.8}\,N, \ang{7.2}\,E. A composition of advanced ground based observations and the CloudSat precipitation retrieval will help to get a better understanding of the vertical structure of the atmosphere. 
+\\
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%% INTSTRUMENTS %%%%%%%%%%%%%%
+%\section{Instruments}\label{sec:instruments}
+A collaboration between the University of Utah, University of Wisconsin and Met-Norway made it possible to install three additional instruments at the measurement site during winter 2016/2017. A Multi-Angle Snowflake Camera (MASC) and a Precipitation Imaging Package (PiP) will be used to determine the snow habit, the snowfall particle size distribution, and near-surface fall speed. Additionally, a Micro Rain Radar (MRR) is established to obtain fall speed and particle reflectivity aloft. Together with temperature observations at the surface, is this a good basis to reduce the non-uniquness of snow accumulation in optimal estimation snowfall retrieval, described in \Cref{ch:retrieval}. 
+%
+%
+\pagebreak
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%% DOUBLE FENCE %%%%%%%%%%%%%%
+\section{Double Fence}
+%%% image double fence @ Haukeli %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{./images_tex/instruments_Dofe}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Since the winter season 2010/2011 Haukeliseter is equipped with three rain gauges. The wind shielded gauges are placed perpendicular to the main wind direction (\Cref{fig:Dofe}). The precipitation gauge protected by an octagonal double fence will be the reference to all surface accumulation measurements. The double fence creates an artificial calm wind and maximize the catch of precipitation, \citep{wolff_new_2010, wolff_measurements_2013, wolff_derivation_2015}. \textcolor{red}{This will get some more description. I have to read some up}
+%%% image Dofe, MRR, MASC %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\input{./images_tex/instruments_Dofe_MRR_MASC}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%% MRR %%%%%%%%%%%%%%
+\section{MRR - Micro Rain Radar}
+%%% image MRR instrument %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{./images_tex/instruments_MRR}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Radars are very useful to observe the vertical of the atmosphere. The instrument is able to detect mesoscale features and makes it possible to see the vertical structure of storms \citep{markowski_mesoscale_2011}.\\
+The principle of radar measurements is based on an electromagnetic wave, which is emitted from the radar transmitter and interacts with the hydrometeors along the beam. A fraction of the pulse energy is reflected back to the receiver of the radar. The quantity of scattering depends on the shape and structure of the reflected particle. This creates vertical profiles of reflectivity. The reflectivity gives information about the diameter of the object. 
+\\
+The Micro Rain Radar, in \Cref{fig:MRR}, measures profiles of Doppler spectra \citep{metek_micro_2010}. The Doppler spectrum tells about the movement of the particle. The vertical pointing Doppler radar measures the energy that is returned from each interval and thus enabling the detection of the Doppler spectrum \citep{lecuyer_aos_2017}. The MRR measures at a frequency of \SI{24}{\giga\Hz}, the temporal and spatial resolution of \SI{60}{\second} and \SI{100}{\metre}, respectively. The height ranges from \SI{100}{\metre} (because of ground clutter) to \SI{3.000}{\metre} \citep{metek_micro_2010}.
+%%% table REFLECTIVITY AND RAINRATE %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{./tables_tex/instruments_typical_ref}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newline \newline
+\noindent 
+Radar reflectivity ($z$) from the MRR is transformed from \SI{1}{\mm^6\per\metre^3} to \SI{}{\decibel\,Z}.
+The transformations is done by the following relationship;
+\begin{align}
+Ze & = 10 \log_{10} \left(\frac{Z}{\SI{1}{\mm^6\per\metre^3}}\right) \qquad [\SI{}{\decibel Z}]
+\label{eq:Ze}
+\end{align}
+A transformation to rainfall rates can be performed by the $Z$-$R$ relationship. By the use of typical fall speeds and the Marshall and Palmer particle size distribution for liquid particles, the rainfall rate in each layer can be estimated \citep{rinehart_radar_2010}. 
+\begin{align}
+Z & = 200 R^{\frac{8}{5}} \qquad [\SI{}{\mm^6\metre^{-3}} ] \nonumber \\ 
+R & = \left( \frac{ 10^{\frac{Ze}{10}} }{200} \right)^{\frac{8}{5}} \qquad [ \SI{}{\mm\per\hour} ]
+\label{eq:Z-R}
+\end{align}
+\Cref{tab:ref_values} represents the Z-R relationship if the Marshall-Palmer assumption (\Cref{eq:Z-R}) is applied. Z-snowfall relationships are developed but are difficult to apply due to the variation of size and density of the particles. \\
+After the transformation to \SI{}{\decibel Z} the reflectivity is averaged every \SI{200}{\metre} layer. For this, all values above \SI{300}{\metre} are taken. A reflectivity represented at \SI{400}{\metre} represents the average reflectivity between \SIlist{300;500}{\metre}. 
+
+%\pagebreak
+%\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%% PiP %%%%%%%%%%%%%%
+\section{PiP - Precipitation Imaging Package}
+%%% image PiP instrument %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{./images_tex/instruments_PiP}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+The precipitation imaging package (PiP) is a modification of the Snowflake Video Imager presented by \cite{newman_presenting_2009}. The video distrometer is a construct of a halogen flood lamp and a video system (\Cref{fig:PiP}). The instrument determines the habit of snowflakes from images at a frequency of \SI{60}{\Hz}. Lamp and lens have a distance of approximately \SI{3}{\metre} which follows a field of view: \SI{32}{\mm} by \SI{24}{\mm}. Hence snowflakes from grey-scale images, particle size distribution (PSD) and fall-speed of precipitation can be determined. 
+\\
+In front of the halogen lamp is a frosted window, so that the background light is uniform over all time. A falling particle appears as a 2-D shadow in the video image. \cite{newman_presenting_2009} describes in detail the algorithm applied to the system to get information about the snow-particle habit. \\
+Winds have almost no effect on the result of the video distrometer \citep{newman_presenting_2009}. \textcolor{red}{They also say, to reduce eventual wind effects, should the distrometer be oriented with regard to storm winds (optical axis perpendicular to mean wind). Was that the case for Haukeliseter (I'm just curious)???}
+
+%\pagebreak
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%% MASC %%%%%%%%%%%%%%
+\section{MASC - Multi-Angular Snowfall Camera}
+%%% image MASC %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{./images_tex/instruments_MASC}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Instruments like the afore mentioned PiP has according to \cite{garrett_fall_2012} coarser resolution and the determination of particle size can have size errors. Hence, a new instrument was developed. The Multi-Angular Snowfall Camera (MASC) takes high-resolution images of hydrometeors in free fall and measures the fall-speed simultaneously . \\
+The MASC consists of three cameras, three flashes, and two near-infrared sensors, pointing at a ring centre (\Cref{fig:MASC}). A hydrometeor has to pass through the ring in a certain way to trigger the near-infrared sensors. At the same time the three cameras take a picture of the falling particle. Since the cameras take pictures from three different angles, the particles size, shape, and orientation can be specified from the image and an algorithm, described in \cite{garrett_fall_2012}. Furthermore, the heritage of the hydrometeor, such as collision-coalescence, riming , capture nucleation, or aggregation, can be determined as well as the form. \\
+The near-infrared sensor, that is used to trigger the cameras and the lights quantifies the fall-speed of the hydrometeors, by measuring the time the particle needs to pass the distance between the upper and lower trigger.    

@@ -45,54 +45,60 @@ The difference between the retrieval and the snow gauge observations was \SI{-18
 % %%% image surface temperature and MRR %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \input{./images_tex/retrieval_MRR_sfcT}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-To achieve vertical profiles of snowfall from MRR different steps and assumptions are done in the snowfall retrieval. From the lowest level, the snowfall rate at the surface can be estimated. The retrieval is only performed for profiles, which are likely to have observed snow. To obtain the likelihood of present snow a reflectivity threshold of \SI{- 15}{\decibel Z} is used. This threshold is similar to the one used in \cite{wood_level_2013}, where it states that light liquid precipitation is related to \SI{- 10}{\decibel Z} \textcolor{red}{citation here}. \cite{wood_estimation_2011} compared the reflectivities in the lowest bin and adjacent bin and found, that the reflectivity above \SI{-15}{\dB Z} are not influenced by ground clutter.
+To achieve vertical profiles of snowfall from MRR different steps and assumptions are done in the here presented snowfall retrieval. From one of the lower levels, the snowfall rate at the surface can be estimated. The retrieval is only performed for profiles, which are likely to have observed snow, where most retrievals use rain. In previous studies relationships between reflectivity and snowfall have been developed. Even if the distribution is known, different crystal shapes led to different results. Snow densities vary significantly from storm to storm, where small particles are still Rayleigh scattered, and larger particles non-Rayleigh scattered \citep{gunn_microwave_1954}. 
+\\
+To obtain the likelihood of present snow a reflectivity threshold of \SI{- 15}{\decibel Z} is used. This threshold is similar to the one used in \cite{wood_level_2013}, where it states that light liquid precipitation is related to \SI{- 10}{\decibel Z} \textcolor{red}{citation here}. \cite{wood_estimation_2011} compared the reflectivities in the lowest bin and adjacent bin and found, that the reflectivity above \SI{-15}{\dB Z} are not influenced by ground clutter.
 \newline
-Since the MRR measures above \SI{300}{\metre} and only temperature measurements at the surface exists, a priori temperature ($T_{ap}$) is assumed to be similar to the observed near-surface air temperature. Using a moist adiabatic lapse rate of $dT/dz = \SI{5}{\kelvin\per\km}$ gives $T_{ap}$ in each layer. Temperature measurements above \SI{2}{\celsius} \textcolor{red}{read up reference Liu (2008), \cite{wood_level_2013}} are neglected and assumed to be present liquid precipitation. 
-The purple line in \Cref{fig:MRR_sfcT} represents the time frame during \SI{25}{\dec}, where the MRR measures reflectivity above \SI{- 15}{\decibel Z}, and a priori temperature passes the \SI{2}{\celsius} limit at the surface.  
+The Haukeliseter measurement site is equipped with a weather mast, measuring the air temperature every minute at two meter height (compare \Cref{fig:MRR_sfcT}, upper panel). 
+%
+Since the MRR measures above \SI{300}{\metre} and only temperature measurements at the surface exists, a priori temperature ($T_{a}$) is assumed to be similar to the observed near-surface air temperature. Using a moist adiabatic lapse rate of $dT/dz = \SI{5}{\kelvin\per\km}$ gives $T_{a}$ in each layer. Temperature measurements above \SI{2}{\celsius} \textcolor{red}{read up reference Liu (2008), \cite{wood_level_2013}} are neglected and assumed to be present liquid precipitation. \\
+The purple line in \Cref{fig:MRR_sfcT} represents the time frame during \SI{25}{\dec}, where the MRR measures reflectivity is less than \SI{- 15}{\decibel Z}, and a priori temperature passes the \SI{2}{\celsius} limit at the surface.  
 
 
 \section{Size distribution} \label{sec:size_dist}
 To determine the snowfall rate at the surface an exponential particle size distribution (PSD) is used. 
 \begin{align}
-	N(D) & = N_{0} \exp\left(-\lambda D\right) \qquad [ \SI{}{\per\cubic\metre\per\mm} ] \label{eq:num_dens}
+N(D) & = N_{0} \exp\left(-\lambda D\right) \qquad [ \SI{}{\per\cubic\metre\per\mm} ] \label{eq:num_dens}
 \end{align}
-where $\lambda$ represents the PSD slope parameter and $N_{0}$ the number density. $D$ is the particle maximum dimension evaluated from the 2D-scattering model for hexagonal prism shaped particles at \SI{24}{\giga\Hz} (see \Cref{app:scat_scheme}).
+where $\lambda$ represents the PSD slope parameter and $N_{0}$ the number density. $D$ is the particle maximum dimension evaluated from the 2D-scattering model for branched 6-arm spatial particles with porosities for reflectivity measurements at \SI{24}{\giga\Hz} (see \Cref{app:scat_scheme}).
 %exponential particle size distribution (PSD) \\
 %	$$ \qquad \text{$D$ from B6 scattering model}$$
 %	$$\lambda = 10^{perturbuation}$$ %\\
 %   %$$N_0 = 10^{perturbation}$$
 %The slope parameter and the number density in \Cref{eq:num_dens} varies with height with the help of the following logarithmic assumptions \textcolor{red}{In vsnow_hmrr.pro: DEFINE A PRIORI PSD INFO (LOG FORM) THROUGH WOOD TEMPERATURE PARAMETERIZATION}.
-The slope parameter and the number density in \Cref{eq:num_dens} varies with height by using the following logarithmic assumptions, where $T_{ap}$ is in \SI{}{\celsius}. \cite{wood_estimation_2011} showed a linear fit between $\log(\lambda)$ and $\log(N_0)$ the a prior temperature, respectively. Since the results from C3VP were similar to other observations the linear temperature distribution is assumed to generate the state vector $\mathbf{x}$.
+\\
+\cite{wood_estimation_2011} showed a linear fit between $\log(\lambda)$ and the a priori temperature, respectively $\log(N_0)$ and the a priori temperature.
+Since $T_{a}$ varies with a moist adiabatic lapse in each layer bin the slope parameter and the number density in  \Cref{eq:num_dens} are changing too. Using $T_{a}$ in \SI{}{\celsius} for each layer bin the following logarithmic assumption is used,
 \begin{align}
-	\log(\lambda) & = -0.03053 \cdot T_{ap} - 0.08258  \label{eq:lambda} \qquad [ \log(\SI{}{\per\mm}) ]\\
-    \log(N_0) & = -0.07193 \cdot T_{ap} +2.665  \qquad [ \log(\SI{}{\per\cubic\metre\per\mm})]
+\log(\lambda) & = -0.03053 \cdot T_{ap} - 0.08258  \label{eq:lambda} \qquad [ \log(\SI{}{\per\mm}) ]\\
+\log(N_0) & = -0.07193 \cdot T_{ap} +2.665  \qquad [ \log(\SI{}{\per\cubic\metre\per\mm})]
 \label{eq:N0}
 \end{align}
 % \item \citep{wood_level_2013}: state is described by the exponential size distribution parameters $N_0$ and $\lambda$. Values for $N_0$ may range over several order of magnitude, so $log(N_0$) is retrieved instead. $log(\lambda$) is retreived since they are less skewed and $\lambda$ was strongly non-Gaussian. \textcolor{red}{where is this equations from?}\\
-According to \cite{wood_level_2013} ranges $N_0$ over several orders of magnitude and $\lambda$ was for the C3VP \citep{hudak_canadian_2006} snow events non-Gaussian and therefore the log-transformed values are created for both to achieve the state vector $\mathbf{x}$ of unknown micropyhsical properties.
+Since the results from C3VP were similar to other observations and $N_0$ ranges over several orders of magnitude as well as $\lambda$ was for the snow events non-Gaussian, for both the log-transformed values are created to achieve the state vector $\mathbf{x}$ of unknown micropyhsical properties.
 \begin{align}
-	\mathbf{x} & = \begin{bmatrix}
-		log(\lambda)_0 	\\
-        \vdots 			\\
-        log(\lambda)_{\text{nlayer}} 	\\
-        log(N_0)_0		\\
-        \vdots			\\
-        log(N_0)_{\text{nlayer}}		
-	\end{bmatrix} \qquad \text{nlayer} = 14
-	\label{eq:snow_prop}
+\mathbf{x} & = \begin{bmatrix}
+log(\lambda)_0 	\\
+\vdots 			\\
+log(\lambda)_{\text{nlayer}} 	\\
+log(N_0)_0		\\
+\vdots			\\
+log(N_0)_{\text{nlayer}}		
+\end{bmatrix} \qquad \text{nlayer} = 14
+\label{eq:snow_prop}
 \end{align}
-    
+
 \section{Snowfall retrieval scheme}\label{sec:ret_scheme}
 The optimal estimation method is based on Gaussian statistics. Minimizing the scalar cost function, $\Phi$ for the snowfall properties, $\mathbf{x}$. The cost function weights the difference between the observed reflectivity and the simulated measurements as well as the difference between the estimated and a priori guess. A forward model $F(\mathbf{x})$ relates unknown snowfall parameters $\mathbf{x}$ to radar observations $y$ and approximates the true physical state between them \citep{wood_estimating_2014,cooper_variational_2017}. \\
 Scalar cost function:
 \begin{equation}
-	\begin{split}
-	\Phi(\mathbf{x},y,a) = &(y- F(\mathbf{x}))^T \mathbf{S}_y^{-1} 			(y-F(\mathbf{x})) \\
-		&+(\mathbf{x}-a)^T \mathbf{S}_{a}^{-1} (\mathbf{x}-a)
-	\end{split} \label{eq:scalar_cost_fct}
+\begin{split}
+\Phi(\mathbf{x},y,a) = & (y- F(\mathbf{x}))^T \mathbf{S}_y^{-1} 			(y-F(\mathbf{x})) \\
+&+(\mathbf{x}-a)^T \mathbf{S}_{a}^{-1} (\mathbf{x}-a)
+\end{split} \label{eq:scalar_cost_fct}
 \end{equation}
-where, $\mathbf{x}$, vector of retrieved snowfall properties (\Cref{eq:snow_prop}); $y$, vector of observation (MRR reflectivity) ; $a$, vector of the a priori guess (temperature dependent); $F$, forward model; $\mathbf{S}_a$, a priori error covariance matrix; $\mathbf{S}_y$, measurement error covariance matrix. \\
-
+where, $\mathbf{x}$, vector of retrieved snowfall properties (\Cref{eq:snow_prop}); $y$, vector of observation (MRR reflectivity) ; $a$, vector of the a priori guess (temperature dependent); $F$, forward model (\Cref{eq:forward_model}; $\mathbf{S}_a$, a priori error covariance matrix; $\mathbf{S}_y$, measurement error covariance matrix.
+%
 % a priori: $$
 % 		\mathbf{S}_a = \begin{bmatrix}
 %        0.133 	& 0 	& \dots & 0 		& 0         \\%[0.3em]
@@ -101,6 +107,7 @@ where, $\mathbf{x}$, vector of retrieved snowfall properties (\Cref{eq:snow_prop
 %        0		& 0		& \dots	& 0.95 		& 0 \\
 %        0 		& 0		& \dots & 0 		& 0.95
 %      \end{bmatrix} $$
+\\
 $\mathbf{S}_a$ links the uncertainties of the PSD information and the surface temperature differences. The diagonal matrix elements in $\mathbf{S}_a$ are equal to \numlist{0.133;0.95} for the particle slope parameter and the number density, respectively as in Eq. 7.35 and 7.36 in \cite{wood_estimation_2011}. \\
 % $$\mathbf{S}_y = \begin{bmatrix}
 %        6.25 	& 0 	& \dots & 0 		& 0         \\%[0.3em]
@@ -109,7 +116,7 @@ $\mathbf{S}_a$ links the uncertainties of the PSD information and the surface te
 %        0		& 0		& \dots	& 6.25		& 0 \\
 %        0 		& 0		& \dots & 0 		& 6.25
 %      \end{bmatrix} $$ 
-$\mathbf{S}_y$ characterises the the uncertainties associated with the measurements and the error in the forward model. This study uses for the diagonal matrix elements $2.5^2$ \textcolor{red}{UNIT! based on the study from CITATION. BECAUSE.}
+$\mathbf{S}_y$ characterises the the uncertainties associated with the measurements and the error in the forward model. This study uses for the diagonal matrix elements $2.5^2$ \textcolor{red}{UNIT!? based on the study from CITATION. BECAUSE.}
 \\
 % sensitivity matrix: K \\
 % 	$$\pm perturbation = \hat{x} \cdot \left(1 \pm \frac{0.2}{100}\right)$$ \\
@@ -122,58 +129,84 @@ $\mathbf{S}_y$ characterises the the uncertainties associated with the measureme
 %         \vdots	 	& \vdots		& \ddots & \vdots 	\\
 %         fn_{0,n-1} 	& fn_{1,n-1}	& \ldots & fn_{m-1,n-1}
 % 	\end{bmatrix}$$
-$\mathbf{K}$ represents the sensitivity matrix of the forward model. In the optimal estimation retrieval the state vector $\mathbf{x}$ is perturbed by \SI{\pm 0.2}{\percent}. The Jacobian of the forward model, $\mathbf{K}$, represents the sensitivity of the perturbed, simulated values to the true state. 
-\begin{align}
-	\mathbf{K}(\mathbf{x}) & = \frac{\partial y}{\partial \mathbf{x}} =
-    	\begin{bmatrix}
-    		\frac{\partial y_0}{\partial \mathbf{x}_0} & 
-            \frac{\partial y_0}{\partial \mathbf{x}_1}  & 
-            \ldots & 
-            \frac{\partial y_0}{\partial \mathbf{x}_{2\,\text{x\,nlayer}}} \\[0.3em]
-            \vdots & \vdots & \ddots & \vdots \\[0.3em]
-            \frac{\partial y_{\text{nlayer}}}{\partial \mathbf{x}_0} &
-            \frac{\partial y_{\text{nlayer}}}{\partial \mathbf{x}_1} &
-            \ldots &
-            \frac{\partial y_{\text{nlayer}}}{\partial \mathbf{x}_{2\,\text{x\,nlayer}}}
-    	\end{bmatrix} % Eq. 3.6 in \cite{wood_estimation_2011}
-\end{align}
-Usually $\mathbf{K}$ is not diagonal, therefore it is a mix of the true state and the a priori guess. From the above equation it can be estimated the degree of the influence from the state vector or the a priori values. \\
-The closer $\mathbf{K}$ is diagonal, the more is $\mathbf{x}$ determined by the real observed and a priori guess. If the limit of the partial derivative is close to unity, the retrieved value $\mathbf{x}$ is its true state \citep{wood_estimation_2011}. \\
+%
 % covariance of solution $\hat{x}$ at convergence
 %    $$$$
-\textcolor{red}{I need some explanation here! I don't understand the next step! What is $\mathbf{S}_x$ to $\mathbf{x}$? The error covariance? But after forward model?} At convergence is the error covariance of the retrieved state vector $\mathbf{S}_x$
+\textcolor{red}{I don't understand the next steps and if it is still the same $\mathbf{x}$?!} 
+\\
+At convergence is the error covariance of the retrieved state vector $\mathbf{S}_x$
 \begin{align}
-	\mathbf{S}_x & = \left( \mathbf{S}_a^{-1} + \mathbf{K}^T \mathbf{S}_y^{-1} \mathbf{K} \right)^{-1}
+\mathbf{S}_x & = \left( \mathbf{S}_a^{-1} + \mathbf{K}^T \mathbf{S}_y^{-1} \mathbf{K} \right)^{-1}
 \end{align}
 which follows for $\mathbf{x}$
 \begin{align}
-	\mathbf{x} & = \underbrace{\left( \mathbf{S}_a^{-1} + \mathbf{K}^T \mathbf{S}_y^{-1} \mathbf{K} \right)^{-1} }_\text{$\mathbf{S}_x$} \left( \mathbf{S}_a^{-1} a + \mathbf{K}^T \mathbf{S}_y^{-1} \left(y - F(\mathbf{x}) + \mathbf{K} \mathbf{x} \right)  \right)
+\mathbf{x} & = \underbrace{\left( \mathbf{S}_a^{-1} + \mathbf{K}^T \mathbf{S}_y^{-1} \mathbf{K} \right)^{-1} }_\text{$\mathbf{S}_x$} \left( \mathbf{S}_a^{-1} a + \mathbf{K}^T \mathbf{S}_y^{-1} \left(y - F(\mathbf{x}) + \mathbf{K} \mathbf{x} \right)  \right)
 \end{align}
 %\textcolor{red}{\cite{wood_level_2013}: 'As a diagnostic test of the results, a $\chi^2$ statistic is calculated using the retrieved state vector.}
+The Jacobian matrix, $\mathbf{K}$, represents the sensitivity matrix of the perturbed result of the forward model. The true state $\mathbf{x}$ is perturbed by \SI{\pm 0.2}{\percent} and thus $\mathbf{K}$ represents the relation between simulated values to the true state.  \textcolor{red}{Why are we perturbing it?}
+\begin{align}
+\mathbf{K}(\mathbf{x}) & = \frac{\partial y}{\partial \mathbf{x}} =
+\begin{bmatrix}
+\frac{\partial y_0}{\partial \mathbf{x}_0} & 
+\frac{\partial y_0}{\partial \mathbf{x}_1}  & 
+\ldots & 
+\frac{\partial y_0}{\partial \mathbf{x}_{2\,\text{x\,nlayer}}} \\[0.3em]
+\vdots & \vdots & \ddots & \vdots \\[0.3em]
+\frac{\partial y_{\text{nlayer}}}{\partial \mathbf{x}_0} &
+\frac{\partial y_{\text{nlayer}}}{\partial \mathbf{x}_1} &
+\ldots &
+\frac{\partial y_{\text{nlayer}}}{\partial \mathbf{x}_{2\,\text{x\,nlayer}}}
+\end{bmatrix} % Eq. 3.6 in \cite{wood_estimation_2011}
+\label{eq:Kmatrix}
+\end{align}
+Usually, is $\mathbf{K}$ not diagonal \citep{wood_estimation_2011}, hence it is a mix of the true state and the a priori guess and the influence from them can be estimated. 
+The closer $\mathbf{K}$ is diagonal, the more is $\mathbf{x}$ determined by the real observed and a priori values. If the limit of the partial derivative is close to unity, the retrieved value $\mathbf{x}$ is its true state \citep{wood_estimation_2011}. \\
+\\
+\textcolor{red}{mmmh? What exactly are we doing here?}
 Test the if convergent:
 \begin{align}
-	\hat{x} & = \left( \mathbf{x} - F(\mathbf{x}) \right)^T \mathbf{S}_x^{-1} \left(\mathbf{x} - F(\mathbf{x}) \right)
+\hat{x} & = \left( \mathbf{x} - F(\mathbf{x}) \right)^T \mathbf{S}_x^{-1} \left(\mathbf{x} - F(\mathbf{x}) \right)
 \end{align}
 only if $\hat{x}$ is smaller than \num{2} it is a 'good' retrieval. 
 \\
-If $\mathbf{S}_x$ converges a $\chi^2$ test is performed to test the result of $\mathbf{x}$ 
+To test the result of $\mathbf{x}$ a $\chi^2$ test is performed at the convergence of $\mathbf{S}_x$.
+%
+\begin{equation}
+\begin{split}
+\chi^2 = & \left( F(\mathbf{x}) - y  \right) \mathbf{S}_y^{-1} \left( F(\mathbf{x}) - y \right)^T \\
+& + \left( \mathbf{x} - a \right)^T \mathbf{S}_a^{-1} \left( \mathbf{x} - a\right). 
+\end{split}
+\label{eq:chi}
+\end{equation}
+%
+The first term in \Cref{eq:chi} measures the part of $\chi^2$ related to the noise of the forward model, and the second part the relation to the state vector. Thus the second term describes the accuracy of the quantities within the reflectivity and temperature measurements \citep{rodgers_inverse_2000}.
+% error contribution 
+Furthermore, are the error contribution from the reflectivity measurement uncertainty, $\mathbf{S}_{y_\epsilon}$, and the uncertainty of the a priori values, $\mathbf{S}_{a_\epsilon}$ estimated. \textcolor{red}{Where comes this formulas from? Is the $\mathbf{D}_y$ the $\mathbf{K}_b$ in Eq. 15 in \cite{wood_characterization_2013}? How to interpret?}
+%
 \begin{align}
-	\chi^2 & = \left( F(\mathbf{x}) - y  \right) \mathbf{S}_y^{-1} \left( F(\mathbf{x}) - y \right)^T + \left( \mathbf{x} - a \right)^T \mathbf{S}_a^{-1} \left( \mathbf{x} - a\right)
+\mathbf{D}_y  & = \mathbf{S}_x \mathbf{K}^T \mathbf{S}_y^{-1} %\hspace{4cm} 
+& \mathbf{S}_{y_\epsilon} & = \mathbf{D}_y \mathbf{S}_y \mathbf{D}_y^T \\
+\mathbf{D}_a & = \mathbf{S}_x \mathbf{S}_a^{-1} %\hspace{4cm} 
+& \mathbf{S}_{a_\epsilon} & = \mathbf{D}_a \mathbf{S}_a
 \end{align}
-
-
-\section{NOTES}
+The diagonal of $\mathbf{S}_{y_\epsilon}$ or $\mathbf{S}_{a_\epsilon}$ is a first estimate of the retrieval noise related to the observations \citep{rodgers_inverse_2000}. Uncertainties in $\mathbf{S}_{a_\epsilon}$ occur because of the variability in $T_a$ and similar for $\mathbf{S}_{y_\epsilon}$ due to measurement errors from the MRR.
+\\
+\newline
+%
+% fall speed assumption:
+To achieve snowfall rates at the surface, the snow water content (SWC) has to be transformed into snowfall rates. The use of an assumed particle fall speed of $V = \SI{0.85}{\mPs}$ and the retrieved SWC (\Cref{eq:SWC}) gives the snow mass flux $J_{snow} = \text{SWC} \cdot V$ in [\SI{}{\kilogram\per\square\metre\per\second}]. \textcolor{red}{Why did we use this fall speed? Where does this assumption come from? Similar as \cite{cooper_variational_2017} Eq. 4?} 
+% snow mass flux
+To compare retrieved snow fall rates to double fence measurements and the forecast model output, the precipitation amount at the surface is calculated. 
+\begin{align}
+P = J_{snow} \times \num{e-3} \cdot \left(\SI{3600}{\second} \cdot24 \right) \qquad [\SI{}{\mm\per\day}]
+\end{align}
+The precipitation amount at the surface, presented in \Cref{ch:Res}, are taken to be equal to the values at the snow layer in \SI{800}{\metre}. The use of the values at \SI{800}{\metre} is due to the small increase of reflectivity (ground clutter) in the bottom layers and would follow more observed snow. 
+%
 \begin{itemize}
-\item The error contribution from the observations and the retrieval is calculated with: 
-	$$y_{obs_{err}} = \left( \mathbf{S}_x \mathbf{K}^T \mathbf{S}_y^-1 \right) \mathbf{S}_y \left( \mathbf{S}_x \mathbf{K}^T \mathbf{S}_y^{-1} \right)^T$$
-    $$a_{_{err}} = \left( \mathbf{S}_x \mathbf{S}_a^-1 \right) \mathbf{S}_a \left( \mathbf{S}_x \mathbf{S}_a^{-1} \right)^T $$
-\item fall speed assumption: $w$ = \SI{0.85}{\mPs} \textcolor{red}{from where?}
-\item snow mass flux: $J_{snow} = SWC \cdot w \qquad [\SI{}{\kilogram\per\square\metre\per\second}]$ 
-\item the snow fall rate at the surface is taken from the third level. That follows that snowfall amount at \SI{800}{\metre} represents the snow accumulation at the surface. The reflectivity goes slightly up in the bottom layers which would follow more snow in the lowest layer. 
-	$$P = J_{snow} \times \num{e-3} \cdot \left(\SI{3600}{\second} \cdot24 \right) \qquad [\SI{}{\mm\per\day}]$$ 
-\item The error from the retrieved state vector $\hat{x}$ is calculated
-	$$\pm x_{err} = \hat{x} \pm \mathbf{S}_x$$ 
-    $$equiv_{err} = \frac{1}{2} \left( \frac{\abs{SWC(-x_{err}) - SWC(+x_{err}) }}{SWC(-x_{err})} + \frac{\abs{SWC(-x_{err}) - SWC(-x_{err}) }}{SWC(-x_{err})} \right)$$
+	\item \textcolor{red}{Not sure what to do with this!}
+	\item The error from the retrieved state vector $\mathbf{x}$ is calculated
+	$$\pm \mathbf{S}_{x_{err}} = \mathbf{x} \pm \mathbf{S}_x$$ 
+	$$equiv_{err} = \frac{1}{2} \left( \frac{\abs{\text{SWC}(- \mathbf{S}_{x_{err}} ) - \text{SWC} (+ \mathbf{S}_{x_{err}}) }}{ \text{SWC}(- \mathbf{S}_{x_{err}})} + \frac{\abs{ \text{SWC}(- \mathbf{S}_{x_{err}}) - \text{SWC}(- \mathbf{S}_{x_{err}}) }}{ \text{SWC}(- \mathbf{S}_{x_{err}})} \right)$$
 \end{itemize}
 
 
@@ -182,32 +215,32 @@ Forward model defines a relationship between the radar observations and the retr
 \newline
 The snow water content in each layer is estimated from the knowledge of the snow particle mass-dimension relationship in \Cref{app:scat_scheme}, and a given slope parameter and number density (\Cref{eq:snow_prop}). % Snow water content  in each layer 
 \begin{align}
-	SWC & = \int_{D_{min}}^{D_{max}} m(D) N(D) dD \qquad [\SI{}{\gram\per\cubic\metre}] \label{eq:SWC}
+\text{SWC} & = \int_{D_{min}}^{D_{max}} m(D) N(D) dD \qquad [\SI{}{\gram\per\cubic\metre}] \label{eq:SWC}
 \end{align}
 To achieve a relationship between the reflectivity and the snowfall amount one needs to account for attenuation in the atmosphere. Using the previously calculated PSD (\Cref{eq:num_dens}) the singly-scattered non-attenuated reflectivity for Rayleigh approximation ($2\pi D/\lambda \ll 1$, $\lambda$: wavelength of incident radiation) is found \citep{lecuyer_estimation-based_2002,kulie_utilizing_2009,wood_microphysical_2015}. 
 % singly-scattered non-attenuated reflectivity
 \begin{align}
-	\eta_{bk} & = \int_{D_{min}}^{D_{max}} N(D) \sigma_{bk} dD \qquad [\SI{}{\per\metre}] \nonumber \\
-	Ze^{ss,na} & = \frac{\Lambda^4}{\left\| K_w \right\|^2 \pi^5} \eta_{bk} \qquad \textcolor{red}{[\SI{}{\mm^6\metre^{-3}}]} \label{eq:singleZ}
+\eta_{bk} & = \int_{D_{min}}^{D_{max}} N(D) \sigma_{bk} dD \qquad [\SI{}{\per\metre}] \nonumber \\
+Ze^{ss,na} & = \frac{\Lambda^4}{\left\| K_w \right\|^2 \pi^5} \eta_{bk} \qquad \textcolor{red}{[\SI{}{\mm^6\metre^{-3}}]} \label{eq:singleZ}
 \end{align}
 % $\ldots$ snow backscatter coefficient
-where, $\left\| K_w \right\|^2$ is the complex refractive index of water and varies between \numlist{0.91;0.93} for wavelength between \SIlist{0.01;0.10}{\metre} and is independent of temperature. It also exists a  complex refractive index for ice $\left\| K_i \right\|^2$, which is \SI{0.18}{}. This is valid for a density of \SI{0.917}{\gram\per\cubic\cm} and is independent of temperature and of wavelength in the microwave region \citep{doviak_doppler_1993}. In this work  $\left\| K_w \right\|^2 = 0.93$ is chosen, \textcolor{red}{because ???}. $\sigma_{bk}$ represents the backscattering cross-section and $\Lambda$ is the radar wavelength. 
+where, $\left\| K_w \right\|^2$ is the complex refractive index of water and varies between \numlist{0.91;0.93} for wavelength between \SIlist{0.01;0.10}{\metre} and is independent of temperature. It also exists a  complex refractive index for ice $\left\| K_i \right\|^2$, which is \SI{0.18}{}. This is valid for a density of \SI{0.917}{\gram\per\cubic\cm} and is independent of temperature and of wavelength in the microwave region \citep{doviak_doppler_1993}. In this work  $\left\| K_w \right\|^2 = 0.93$ is chosen, \textcolor{red}{BECAUSE???}. $\sigma_{bk}$ represents the backscattering cross-section and $\Lambda$ is the wavelength OF the radar. 
 \\
-The singly-scattered reflectivity has to be corrected for attenuation in the layers above the actual. In a homogeneous medium is according to Beer's law one way transmission assumed. 
+The singly-scattered reflectivity has to be corrected for attenuation in the layers above the actual layer. According to Beer's law is in a homogeneous medium one way transmission assumed. 
 % account for attenuation
 % homogeneous medium $\Rightarrow$ one way transmission, Beer's law
 \begin{align}
-	\frac{I_{\lambda}}{I_{\lambda_0}} & = \exp \left[ - \int_0^s \beta_{ext} ds'\right] \label{eq:Beer}
+\frac{I_{\lambda}}{I_{\lambda_0}} & = \exp \left[ - \int_0^s \beta_{ext} ds'\right] \label{eq:Beer}
 \end{align}
-where $s$ is the path length through the medium. The transmissivity $I_{\lambda}/I_{\lambda_0}$ is the relation of survived radiation through extinction in the atmosphere with the snow extinction coefficient.
+where $s$ is the path length through the medium. The transmissivity $I_{\lambda}/I_{\lambda_0}$ is the relation of survived radiation through extinction in the atmosphere with the snow extinction coefficient $\beta_{ext}$
 \begin{align}
-	\beta_{ext} & = \int_{D_{min}}^{D_{max}} N(D) \sigma_{ext} dD \qquad [\SI{}{\per\metre}] \label{eq:bext}
+\beta_{ext} & = \int_{D_{min}}^{D_{max}} N(D) \sigma_{ext} dD \qquad [\SI{}{\per\metre}] \label{eq:bext}
 \end{align}
 The extinction coefficient is the sum of absorption and scattering in the atmosphere followed from the extinction cross-section $\sigma_{ext} = \sigma_{abs} + \sigma_{scat}$, \citep{lohmann_introduction_2016,lamb_physics_2011}. \textcolor{red}{\cite[Eq. 12.1 and more][]{lohmann_introduction_2016}} \\
 %singly-scattered attenuated reflectivity 
 Following \Cref{eq:singleZ,eq:Beer,eq:bext} the singly-scattered attenuated reflectivity $Ze^{ss, a}$ is
 \begin{align}
-	Ze^{ss, a} & = Ze^{ss, na} \cdot \frac{I_{\lambda}}{I_{\lambda_0}} \qquad \textcolor{red}{[\SI{}{\mm^6\metre^{-3}}]} \label{eq:sing_scatt_att_Z}
+Ze^{ss, a} & = Ze^{ss, na} \cdot \frac{I_{\lambda}}{I_{\lambda_0}} \qquad \textcolor{red}{[\SI{}{\mm^6\metre^{-3}}]} \label{eq:sing_scatt_att_Z}
 \end{align}
 % multiply-scattered attenuated reflectivity 
 % \cite{matrosov_s._y._influence_2009} found that in heavy snow conditions the multiply-scattered attenuated reflectivity lies between the singly-scattered attenuated and non-attenuated reflectivities \citep[compare Fig. 3.3 in][]{matrosov_s._y._influence_2009}. Therefore, is as in \cite{wood_level_2013} the multiply-scattered attenuated reflectivity, $Ze^ms$, approximated as geometric mean.
@@ -215,69 +248,26 @@ Following \Cref{eq:singleZ,eq:Beer,eq:bext} the singly-scattered attenuated refl
 % 	Ze^ms & = \sqrt{Ze^{ss,na} \cdot Ze^{ss,a}} \qquad [\SI{}{\dB Z}]
 % \end{align}
 % $\Rightarrow$ simulated reflectivities from forward model 
-That follows for the simulated reflectivity from the forward model, $y$ in \Cref{eq:scalar_cost_fct}, 
+That follows for the simulated reflectivity from the forward model, $F(\mathbf{x})$ in \Cref{eq:scalar_cost_fct}, 
 \begin{align}
-	F(\mathbf{x}) & = \begin{bmatrix} 
-        	Ze^{ss,a}_1 \\
-            \vdots \\
-            Ze^{ss,a}_{nlayer}
-        \end{bmatrix} \qquad [\SI{}{\decibel Z}].
+F(\mathbf{x}) & = \begin{bmatrix} 
+Ze^{ss,a}_1 \\
+\vdots \\
+Ze^{ss,a}_{nlayer}
+\end{bmatrix} \qquad [\SI{}{\decibel Z}]. \label{eq:forward_model}
 \end{align}
 
 
 \begin{itemize}
-
-
-	\item \textcolor{red}{not really using the following}
+	\item \textcolor{red}{not really using the following - What to do with it?}
 	\item \textcolor{red}{total number concentration} \\
 	$$n_{tot} = \int_{D_{min}}^{D_{max}} N(D) dD \qquad [\SI{}{\per\cubic\metre}]$$ 
-\item $\ldots$ \textcolor{red}{??? }
-
+	\item $\ldots$ \textcolor{red}{??? }
+	
 \end{itemize}
 
 
-% 
-% \\
-% To find a relation between the reflectivity and the preciptiation amount several steps and assumptions have to be done. The following lines, will give a detailed information on the steps, and relate that to \Cref{eq:scalar_cost_fct}. 
-% \\
-% \subsection*{Temperature from measurement site}
 
-% At the Haukeliseter measurement site has in addition a weather mast to full fill the World Meteorological Organization (WMO) requirements. At the weather mast is a temperature sensor, measuring every minute in two meter height. \\
-% This temperature looks like in \Cref{fig:sfc_temp} and is used as the vector of the a priori guess ($a$) in \Cref{eq:scalar_cost_fct}
-
-% \subsection*{MRR measurements}
-% %%% image surface temperature %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% \input{./images_tex/retrieval_MRR_refl}
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Observations from the MRR ($y$) are used in \Cref{eq:scalar_cost_fct}.
-% 
-
-% Finding a relationship between reflectivity and particle size, common PSD's are used. In the here presented snowfall retrieval an exponential size distribution is assumed (\Cref{eq:PSD}). Attention should be paid, that here snowfall is estimated, where most retrievals use rain. Relationships between reflectivity and snowfall have been developed. Even if the distribution is known, different crystal shapes lead to different results. Furthermore, vary snow density significantly from storm to storm, where small particles are still Rayleigh scattered, and larger particles non-Rayleigh scattered \citep{gunn_microwave_1954}. 
-
-% Only from \Cref{fig:MRR_refl} and \Cref{tab:ref_values} one can not estimate, if snow or rain was present on \SI{25}{\dec}.
-
-
-
-
-
-% \subsection*{Scattering model}
-% $F$, forward model in \Cref{eq:scalar_cost_fct}.
-% \subsection*{Final result}
-% Snowfall retrieval.
-
-% % #####
-% \section{Retrieved Data processing}
-% \subsection*{Snow water content}
-% To get a valid comparison between the snow water content (SWC) from the optimal estimation retrieval to the MEPS result the SWC is averaged over each hour. MEPS has output values at \SI{0}{}, \SI{1}{}, \SI{2}{}, ..., \SI{22}{}, \SI{23}{\UTC}. To approach the mean values of SWC in the retrieval \SI{30}{\minute} from the previous day and \SI{29}{\minute} from the next day are connected to the array. This leads to a match of the average value at the same time as from MEPS.
-
-
-% % #####
-% \subsection*{Snow water path}
-% The snow water path (SWP) of each ensemble member is calculated by using the Simpson's integration rule.  \textcolor{red}{Find reference for equation}
-% \begin{align}
-% 	\int_{h_0}^{h_1=\SI{3000}{\metre}} SWC(h) \, dh \approx \frac{h_1 - h_0}{6} \left[SWC(h_0) + 4SWC\left(\frac{h_0 + h1}{2}\right) + SWC(h_1) \right] \qquad [\SI{}{\g\per\square\meter}]
-%     \label{eq:SWP}
-% \end{align}
 
 
 

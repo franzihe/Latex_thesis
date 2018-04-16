@@ -44,14 +44,14 @@ The Micro Rain Radar, in \Cref{fig:MRR}, measures profiles of Doppler spectra \c
 Radar reflectivity ($z$) from the MRR is transformed from \SI{1}{\mm^6\per\metre^3} to \SI{}{\decibel\,Z}.
 The transformations is done by the following relationship;
 \begin{align}
-Ze & = 10 \log_{10} \left(\frac{Z}{\SI{1}{\mm^6\per\metre^3}}\right) \qquad [\SI{}{\decibel Z}]
-\label{eq:Ze}
+	Ze & = 10 \log_{10} \left(\frac{Z}{\SI{1}{\mm^6\per\metre^3}}\right) \qquad [\SI{}{\decibel Z}]
+	\label{eq:Ze}
 \end{align}
 A transformation to rainfall rates can be performed by the $Z$-$R$ relationship. By the use of typical fall speeds and the Marshall and Palmer particle size distribution for liquid particles, the rainfall rate in each layer can be estimated \citep{rinehart_radar_2010}. 
 \begin{align}
-Z & = 200 R^{\frac{8}{5}} \qquad [\SI{}{\mm^6\metre^{-3}} ] \nonumber \\ 
-R & = \left( \frac{ 10^{\frac{Ze}{10}} }{200} \right)^{\frac{8}{5}} \qquad [ \SI{}{\mm\per\hour} ]
-\label{eq:Z-R}
+	Z & = 200 R^{\frac{8}{5}} \qquad [\SI{}{\mm^6\metre^{-3}} ] \nonumber \\ 
+	R & = \left( \frac{ 10^{\frac{Ze}{10}} }{200} \right)^{\frac{8}{5}} \qquad [ \SI{}{\mm\per\hour} ]
+	\label{eq:Z-R}
 \end{align}
 \Cref{tab:ref_values} represents the Z-R relationship if the Marshall-Palmer assumption (\Cref{eq:Z-R}) is applied. Z-snowfall relationships are developed but are difficult to apply due to the variation of size and density of the particles. \\
 After the transformation to \SI{}{\decibel Z} the reflectivity is averaged every \SI{200}{\metre} layer. For this, all values above \SI{300}{\metre} are taken. A reflectivity represented at \SI{400}{\metre} represents the average reflectivity between \SIlist{300;500}{\metre}. 

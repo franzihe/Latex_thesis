@@ -4,20 +4,20 @@ The previous \Cref{ch:retrieval,ch:MEPS} represented the details within the fore
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%% THICKNESS IN MEPS %%%%%%%%%%%%%%
-\section{Layer thickness in MEPS}
+\section{Layer thickness in MEPS}\label{sec:layer_thickness}
 To compare the measurements from the surface with the MEPS data, the closest grid point is used to Haukeliseter.
 \\
 MEPS has a vertical resolution in hybrid sigma pressure coordinates (0-1). The zero sigma level is at the top of the atmosphere, hence positive values are downward. To calculate the actual vertical pressure in \SI{}{\Pa}, a formula is provided in the OPeNDAP Dataset of \texttt{meps\_full\_2\_5km\_*.nc} by \cite{norwegian_meteorological_institute_met_2016}.  
 \begin{align}
-p(n,k,j,i) = ap(k) + b(k) \cdot ps(n,j,i) \qquad [\SI{}{\Pa}].
-\label{eq:hybrid_sigma_pressure}
+	p(n,k,j,i) = ap(k) + b(k) \cdot ps(n,j,i) \qquad [\SI{}{\Pa}].
+	\label{eq:hybrid_sigma_pressure}
 \end{align}
 $ps$ is the surface air pressure in \SI{}{\Pa}, and information about the variables $ap$, $b$ are not given from the access form. \textcolor{red}{Maybe check in the documentation from BJ?!}  
 \\
 The next step was to convert pressure-levels into actual heights by the use of the hypsometric equation. Here, the air temperature in model levels is used to calculate the mean temperature of each layer. 
 \begin{align}
-\overline{T} = \dfrac{\int\limits_{p2}^{p1} T \partial ln p}{\int\limits_{p2}^{p1}\partial ln p} \qquad [\SI{}{\kelvin}]
-\label{eq:T_avg}
+	\overline{T} = \dfrac{\int\limits_{p2}^{p1} T \partial ln p}{\int\limits_{p2}^{p1}\partial ln p} \qquad [\SI{}{\kelvin}]
+	\label{eq:T_avg}
 \end{align}
 For the numerical integration, the Simpson rule was used, which is a build-in function in Python. \\
 In the book from \cite{martin_mid-latitude_2006} steps of differentiating the hypsometric equation are presented by using the virtual temperature. But when the atmospheric mixing ratio is large, will the virtual temperature only be \SI{1}{\percent} larger than the actual air temperature. 
@@ -31,6 +31,8 @@ The thickness, $\Delta z$, of each layer is then be found by using the hypsometr
 \label{eq:hypsometric}
 \end{equation}
 where $R_d$ is gas constant for dry air with a value of \SI{287}{\joule\per\kilogram\per\kelvin},  standard gravity $g\,=\,$\SI{9.81}{\metre\per\square\second}. $p_1$ and $p_2$ are the pressure levels at lower and higher levels, respectively ($p_2 < p_1$).
+\\
+To gain the respective height of each layer  thickness is the summation of $\Delta z$.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%% SWC %%%%%%%%%%%%%%
@@ -40,9 +42,9 @@ Since MEPS has a higher vertical resolution than the optimal estimation snowfall
 \\
 Within the output from MEPS snow water content does not exist for each model layer. Hence the calculation of the SWC is performed by using the three solid precipitation categories given in MEPS. Namely the mixing ratio of snowfall (S), graupelfall (G) and the atmosphere cloud ice content (CIC). The mixing ratios are represented in \SI{}{\kg\per\kg} and a transformation to \SI{}{\g\per\cubic\meter} is performed. Densities in each model level ($\rho_{ml}$) are calculated and then multiplied with the sum of the solid precipitation mixing ratio. 
 \begin{align}
-\rho_{ml} & = \frac{p_{ml}}{R_d T} & \quad [\SI{}{\kg\per\cubic\meter}]  \\
-SWC_{ml} & = \rho_{ml} \cdot (S + G + CIC)_{ml} \cdot \num{e6} & \quad [\SI{}{\g\per\cubic\meter}].
-\label{eq:SWC_ml}
+	\rho_{ml} & = \frac{p_{ml}}{R_d T} & \quad [\SI{}{\kg\per\cubic\meter}]  \\
+	SWC_{ml} & = \rho_{ml} \cdot (S + G + CIC)_{ml} \cdot \num{e6} & \quad [\SI{}{\g\per\cubic\meter}].
+	\label{eq:SWC_ml}
 \end{align}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -66,7 +68,7 @@ The snow water path (SWP) is the vertically integrated value of the averaged SWC
 \section{Dew point temperature for Skew-T log-P Diagram}
 The Python module \texttt{pyMeteo} is used to calculate the dew point temperature of each ensemble member to study the stability of the atmosphere (\url{https://pythonhosted.org/pymeteo/}, last visited: 25.01.2018). The additional package \texttt{thermo.py} is able to calculate the dew point temperature if the pressure and the specific humidity in each level is known. 
 \begin{align}
-e_l & = ln\left( \frac{\frac{q_v}{\epsilon} \cdot \frac{p}{100}}{1 + \frac{q_v}{\epsilon}} \right) \\
-T_d & = 273.15 + \frac{243.5 \cdot e_l -440.8}{19.48 -e_l} \qquad [\SI{}{\kelvin}]
+	e_l & = ln\left( \frac{\frac{q_v}{\epsilon} \cdot \frac{p}{100}}{1 + \frac{q_v}{\epsilon}} \right) \\
+	T_d & = 273.15 + \frac{243.5 \cdot e_l -440.8}{19.48 -e_l} \qquad [\SI{}{\kelvin}]
 \end{align}
 where, $q_v$ is the specific humidity, $p$ pressure in [\SI{}{\Pa}], $\epsilon = R_d / R_v = 0.622$ with $R_v$ gas constant for water vapour.

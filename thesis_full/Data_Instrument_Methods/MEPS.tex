@@ -1,6 +1,6 @@
 % !TeX spellcheck = en_GB
 \chapter{Numerical forecast model} \label{ch:MEPS}
-MEPS was newly operational at Met-Norway when the extreme weather occurred in Norway. Comparing model data with actual observations helps to verify the agreement between model prediction and ground based measurements. 
+MEPS (MetCoOp Ensemble Prediction System) was newly operational at Met-Norway when the extreme weather occurred in Norway. Comparing model data with actual observations helps to verify the agreement between model prediction and ground based measurements. 
 \\
 AROME-MetCoOp was operational from March 2014 until November 2016, when it was replaced with an ensemble prediction system (EPS) based on AROME-MetCoOp.
 MEPS is used as weather forecast at the Norwegian Meteorological Institute, the Swedish Meteorological and Hydrological Institute (SMHI) and the Finnish Meteorological Institute (FMI), \citep{muller_arome-metcoop:_2017, koltzow_metcoop_2017}.
@@ -9,7 +9,8 @@ MEPS is used as weather forecast at the Norwegian Meteorological Institute, the 
 %%%%%%%%% MEPS %%%%%%%%%%%%%%
 \section{AROME - MetCoOP}
 \label{sec:MEPS}
-In principle, MEPS is a short-term weather forecast of \SI{66}{\hour} with 10 ensemble member and a horizontal resolution of \SI{2.5}{\km} and 65 vertical levels. In the following section, the model configuration will be briefly explained. % as well as the motivation for the study case presented.
+In principle, MEPS is a short-term weather forecast of \SI{66}{\hour} with 10 ensemble member and a horizontal resolution of \SI{2.5}{\km} and 65 vertical levels. One of the members is the deterministic forecast where the other nine present the perturbed state of the deterministic forecast.
+%In the following section, the model configuration will be briefly explained. % as well as the motivation for the study case presented.
 \\
 The orange frame in \Cref{fig:site} shows the MEPS model domain as it was operational for December 2016. It covers the Nordic Countries including open water such as the Atlantic Ocean, the North and the Baltic Sea.  
 \\
@@ -25,10 +26,30 @@ The MEPS forecasting system consist of 1+9 members where each of the perturbed m
 %\\
 %For more detailed information to the model the reader is referred to \cite{muller_arome-metcoop:_2017} and \cite{wiki_description_2017} and its references therein.
 
-\section{MèsoNH}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%% MESONH %%%%%%%%%%%%%%
+\section{Meso-NH}
 \cite{meteo_france_meso-nh_2009}; 
-\cite{seity_arome-france_2010}
+\cite{seity_arome-france_2010} \\
+The physical parametrization within AROME is based on the French research communities' mesoscale non-hydrostatic atmosphere model (Meso-NH). % and uses the external surface model SURFEX \citep{homleid_verification_2016}.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%% SURFEX %%%%%%%%%%%%%%
 \section{SURFEX}
-\cite{masson_surfexv7.2_2013}
+\cite{masson_surfexv7.2_2013} \\
+SURFEX stands for 'surface externalisée' and is introduced into NWP models to ensure the consistent treatment of surface processes. It simulates the exchange of energy between four surface types and the atmosphere \citep{homleid_verification_2016}.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%% ICE3 SCHEME %%%%%%%%%%%%%%
 \section{ICE3 scheme}
-\cite{pinty_mixed-phased_1998}
+\cite{pinty_mixed-phased_1998} \\
+Since the ICE3 scheme showed some weaknesses for the winter month, introduced \cite{muller_arome-metcoop:_2017} some modifications. 
+During cold conditions the ICE3-scheme showed too low temperature at two meter, too much ice fog and all year long was the occurrence of cirrus overestimated. After implementing the modifications described in \cite{muller_arome-metcoop:_2017} the two meter temperature bias was reduced as well as an improvement of low-level clouds was shown. An negative aspect of these adjustments was that the occurrence of fog increased, but it can be compensated if no change is done to the microphysics. 
+
+
+%%% image MASC %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\input{./tables_tex/AROME_modifications}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

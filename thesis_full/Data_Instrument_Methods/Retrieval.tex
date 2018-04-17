@@ -1,6 +1,6 @@
 % !TeX spellcheck = en_GB
-\chapter{Optimal Estimation Retrieval Algorithm} %Section - 1.2
-\label{ch:retrieval}
+\section{Optimal Estimation Retrieval Algorithm} %Section - 1.2
+\label{sec:retrieval}
 Since 2006, with the launch of CloudSats Cloud Profiling Radar (CPR) a global estimation of snowfall can be done. Several studies, such as \cite{kulie_utilizing_2009} have shown that estimated snowfall values depend heavily upon assumed snowflake microphysical properties.
 %\textcolor{red}{Steve had some insertions but no comments.}
 %depending on the retrieval assumption, snowfall estimation can give the same values for different a priori guess, e.g. snowflake microphysical properties. 
@@ -39,7 +39,7 @@ Although the retrieval has obviously been improved the estimation algorithm, can
 The difference between the retrieval and the snow gauge observations was \SI{-18}{\percent} when applied to data from Barrow, Alaska.\\
 \cite{cooper_variational_2017} also showed that the retrieval is sensitive to habit and fall speed. The installation of a MRR, MASC, and PIP should help to adjust the particle models for graupels and rimed particles which are often observed at Haukeliseter. 
 
-\section{Present snow}\label{sec:pre_snow}
+\subsection{Present snow}\label{sec:pre_snow}
 %\item surface temperature \SI{< 2}{\celsius}
 %\item follows \Cref{fig:MRR_sfcT}
 % %%% image surface temperature and MRR %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -55,10 +55,10 @@ Since the MRR measures above \SI{300}{\metre} and only temperature measurements 
 The purple line in \Cref{fig:MRR_sfcT} represents the time frame during \SI{25}{\dec}, where the MRR measures reflectivity is less than \SI{- 15}{\decibel Z}, and a priori temperature passes the \SI{2}{\celsius} limit at the surface.  
 
 
-\section{Size distribution} \label{sec:size_dist}
+\subsection{Size distribution} \label{sec:size_dist}
 To determine the snowfall rate at the surface an exponential particle size distribution (PSD) is used. 
 \begin{align}
-	N(D) & = N_{0} \exp\left(-\lambda D\right) \qquad [ \SI{}{\per\cubic\metre\per\mm} ] \label{eq:num_dens}
+	n(D) & = N_{0} \exp\left(-\lambda D\right) \qquad [ \SI{}{\per\cubic\metre\per\mm} ] \label{eq:num_dens}
 \end{align}
 where $\lambda$ represents the PSD slope parameter and $N_{0}$ the number density. $D$ is the particle maximum dimension evaluated from the 2D-scattering model for branched 6-arm spatial particles with porosities for reflectivity measurements at \SI{24}{\giga\Hz} (see \Cref{app:scat_scheme}).
 %exponential particle size distribution (PSD) \\
@@ -88,7 +88,7 @@ Since the results from C3VP were similar to other observations and $N_0$ ranges 
 	\label{eq:snow_prop}
 \end{align}
 
-\section{Snowfall retrieval scheme}\label{sec:ret_scheme}
+\subsection{Snowfall retrieval scheme}\label{sec:ret_scheme}
 The optimal estimation method is based on Gaussian statistics. Minimizing the scalar cost function, $\Phi$ for the snowfall properties, $\mathbf{x}$. The cost function weights the difference between the observed reflectivity and the simulated measurements as well as the difference between the estimated and a priori guess. A forward model $F(\mathbf{x})$ relates unknown snowfall parameters $\mathbf{x}$ to radar observations $y$ and approximates the true physical state between them \citep{wood_estimating_2014,cooper_variational_2017}. \\
 Scalar cost function:
 \begin{equation}
@@ -210,17 +210,23 @@ The precipitation amount at the surface, presented in \Cref{ch:Res}, are taken t
 \end{itemize}
 
 
-\section{Forward model}
-Forward model defines a relationship between the radar observations and the retrieved state vector $\mathbf{x}$. The knowledge about the a priori parameters and related covariances, as well as $\mathbf{x}$, are used to minimize \Cref{eq:scalar_cost_fct}. The values of $\mathbf{x}$ are found by Newtonian iteration \cite[Eq. 5]{wood_estimating_2014}.
+\subsection{Forward model}
+% %%% image forward problem %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{./images_tex/retrieval_dragon_track}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Forward model defines a relationship between the radar observations and the retrieved state vector $\mathbf{x}$. It is difficult to to find the properties of the atmosphere by using observations due to unknown parameters influencing the measurement. \\
+\cite{stephens_remote_1994} described the forward problem in the manner that a dragon represents the known source, observations \Cref{fig:dragon}. The amount of received radiation lost during the transmittance to the sensor is unknown, the tracks. The forward model will help to find simulated observations before the attenuation took place and give information about the tracks of the dragon.  
+\\
+The knowledge about the a priori parameters and related covariances, as well as $\mathbf{x}$, are used to minimize \Cref{eq:scalar_cost_fct}. The values of $\mathbf{x}$ are found by Newtonian iteration \cite[Eq. 5]{wood_estimating_2014}.
 \newline
 The snow water content in each layer is estimated from the knowledge of the snow particle mass-dimension relationship in \Cref{app:scat_scheme}, and a given slope parameter and number density (\Cref{eq:snow_prop}). % Snow water content  in each layer 
 \begin{align}
-	\text{SWC} & = \int_{D_{min}}^{D_{max}} m(D) N(D) dD \qquad [\SI{}{\gram\per\cubic\metre}] \label{eq:SWC}
+	\text{SWC} & = \int_{D_{min}}^{D_{max}} m(D) n(D) dD \qquad [\SI{}{\gram\per\cubic\metre}] \label{eq:SWC}
 \end{align}
 To achieve a relationship between the reflectivity and the snowfall amount one needs to account for attenuation in the atmosphere. Using the previously calculated PSD (\Cref{eq:num_dens}) the singly-scattered non-attenuated reflectivity for Rayleigh approximation ($2\pi D/\lambda \ll 1$, $\lambda$: wavelength of incident radiation) is found \citep{lecuyer_estimation-based_2002,kulie_utilizing_2009,wood_microphysical_2015}. 
 % singly-scattered non-attenuated reflectivity
 \begin{align}
-	\eta_{bk} & = \int_{D_{min}}^{D_{max}} N(D) \sigma_{bk} dD \qquad [\SI{}{\per\metre}] \nonumber \\
+	\eta_{bk} & = \int_{D_{min}}^{D_{max}} n(D) \sigma_{bk} dD \qquad [\SI{}{\per\metre}] \nonumber \\
 	Ze^{ss,na} & = \frac{\Lambda^4}{\left\| K_w \right\|^2 \pi^5} \eta_{bk} \qquad \textcolor{red}{[\SI{}{\mm^6\metre^{-3}}]} \label{eq:singleZ}
 \end{align}
 % $\ldots$ snow backscatter coefficient
@@ -234,7 +240,7 @@ The singly-scattered reflectivity has to be corrected for attenuation in the lay
 \end{align}
 where $s$ is the path length through the medium. The transmissivity $I_{\lambda}/I_{\lambda_0}$ is the relation of survived radiation through extinction in the atmosphere with the snow extinction coefficient $\beta_{ext}$
 \begin{align}
-	\beta_{ext} & = \int_{D_{min}}^{D_{max}} N(D) \sigma_{ext} dD \qquad [\SI{}{\per\metre}] \label{eq:bext}
+	\beta_{ext} & = \int_{D_{min}}^{D_{max}} n(D) \sigma_{ext} dD \qquad [\SI{}{\per\metre}] \label{eq:bext}
 \end{align}
 The extinction coefficient is the sum of absorption and scattering in the atmosphere followed from the extinction cross-section $\sigma_{ext} = \sigma_{abs} + \sigma_{scat}$, \citep{lohmann_introduction_2016,lamb_physics_2011}. \textcolor{red}{\cite[Eq. 12.1 and more][]{lohmann_introduction_2016}} \\
 %singly-scattered attenuated reflectivity 
@@ -248,7 +254,7 @@ Following \Cref{eq:singleZ,eq:Beer,eq:bext} the singly-scattered attenuated refl
 % 	Ze^ms & = \sqrt{Ze^{ss,na} \cdot Ze^{ss,a}} \qquad [\SI{}{\dB Z}]
 % \end{align}
 % $\Rightarrow$ simulated reflectivities from forward model 
-That follows for the simulated reflectivity from the forward model, $F(\mathbf{x})$ in \Cref{eq:scalar_cost_fct}, 
+That follows with the use of radiative transfer equations for the simulated reflectivity from the forward model, $F(\mathbf{x})$ in \Cref{eq:scalar_cost_fct}, 
 \begin{align}
 	F(\mathbf{x}) & = \begin{bmatrix} 
 		Ze^{ss,a}_1 \\
@@ -261,7 +267,7 @@ That follows for the simulated reflectivity from the forward model, $F(\mathbf{x
 \begin{itemize}
 	\item \textcolor{red}{not really using the following - What to do with it?}
 	\item \textcolor{red}{total number concentration} \\
-	$$n_{tot} = \int_{D_{min}}^{D_{max}} N(D) dD \qquad [\SI{}{\per\cubic\metre}]$$ 
+	$$n_{tot} = \int_{D_{min}}^{D_{max}} n(D) dD \qquad [\SI{}{\per\cubic\metre}]$$ 
 	\item $\ldots$ \textcolor{red}{??? }
 	
 \end{itemize}

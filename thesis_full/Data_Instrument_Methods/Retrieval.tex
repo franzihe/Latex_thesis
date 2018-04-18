@@ -58,7 +58,7 @@ The purple line in \Cref{fig:MRR_sfcT} represents the time frame during \SI{25}{
 \subsection{Size distribution} \label{sec:size_dist}
 To determine the snowfall rate at the surface an exponential particle size distribution (PSD) is used. 
 \begin{align}
-	n(D) & = N_{0} \exp\left(-\lambda D\right) \qquad [ \SI{}{\per\cubic\metre\per\mm} ] \label{eq:num_dens}
+	n(r) & = N_{0} \exp\left(-\lambda r\right) \qquad [ \SI{}{\per\cubic\metre\per\mm} ] \label{eq:num_dens}
 \end{align}
 where $\lambda$ represents the PSD slope parameter and $N_{0}$ the number density. $D$ is the particle maximum dimension evaluated from the 2D-scattering model for branched 6-arm spatial particles with porosities for reflectivity measurements at \SI{24}{\giga\Hz} (see \Cref{app:scat_scheme}).
 %exponential particle size distribution (PSD) \\
@@ -92,10 +92,10 @@ Since the results from C3VP were similar to other observations and $N_0$ ranges 
 The optimal estimation method is based on Gaussian statistics. Minimizing the scalar cost function, $\Phi$ for the snowfall properties, $\mathbf{x}$. The cost function weights the difference between the observed reflectivity and the simulated measurements as well as the difference between the estimated and a priori guess. A forward model $F(\mathbf{x})$ relates unknown snowfall parameters $\mathbf{x}$ to radar observations $y$ and approximates the true physical state between them \citep{wood_estimating_2014,cooper_variational_2017}. \\
 Scalar cost function:
 \begin{equation}
-\begin{split}
-\Phi(\mathbf{x},y,a) = & (y- F(\mathbf{x}))^T \mathbf{S}_y^{-1} 			(y-F(\mathbf{x})) \\
-&+(\mathbf{x}-a)^T \mathbf{S}_{a}^{-1} (\mathbf{x}-a)
-\end{split} \label{eq:scalar_cost_fct}
+	\begin{split}
+		\Phi(\mathbf{x},y,a) = & (y- F(\mathbf{x}))^T \mathbf{S}_y^{-1} 			(y-F(\mathbf{x})) \\
+		&+(\mathbf{x}-a)^T \mathbf{S}_{a}^{-1} (\mathbf{x}-a)
+	\end{split} \label{eq:scalar_cost_fct}
 \end{equation}
 where, $\mathbf{x}$, vector of retrieved snowfall properties (\Cref{eq:snow_prop}); $y$, vector of observation (MRR reflectivity) ; $a$, vector of the a priori guess (temperature dependent); $F$, forward model (\Cref{eq:forward_model}; $\mathbf{S}_a$, a priori error covariance matrix; $\mathbf{S}_y$, measurement error covariance matrix.
 %
@@ -172,11 +172,11 @@ only if $\hat{x}$ is smaller than \num{2} it is a 'good' retrieval.
 To test the result of $\mathbf{x}$ a $\chi^2$ test is performed at the convergence of $\mathbf{S}_x$.
 %
 \begin{equation}
-\begin{split}
-\chi^2 = & \left( F(\mathbf{x}) - y  \right) \mathbf{S}_y^{-1} \left( F(\mathbf{x}) - y \right)^T \\
-& + \left( \mathbf{x} - a \right)^T \mathbf{S}_a^{-1} \left( \mathbf{x} - a\right). 
-\end{split}
-\label{eq:chi}
+	\begin{split}
+		\chi^2 = & \left( F(\mathbf{x}) - y  \right) \mathbf{S}_y^{-1} \left( F(\mathbf{x}) - y \right)^T \\
+		& + \left( \mathbf{x} - a \right)^T \mathbf{S}_a^{-1} \left( \mathbf{x} - a\right). 
+	\end{split}
+	\label{eq:chi}
 \end{equation}
 %
 The first term in \Cref{eq:chi} measures the part of $\chi^2$ related to the noise of the forward model, and the second part the relation to the state vector. Thus the second term describes the accuracy of the quantities within the reflectivity and temperature measurements \citep{rodgers_inverse_2000}.
@@ -221,12 +221,12 @@ The knowledge about the a priori parameters and related covariances, as well as 
 \newline
 The snow water content in each layer is estimated from the knowledge of the snow particle mass-dimension relationship in \Cref{app:scat_scheme}, and a given slope parameter and number density (\Cref{eq:snow_prop}). % Snow water content  in each layer 
 \begin{align}
-	\text{SWC} & = \int_{D_{min}}^{D_{max}} m(D) n(D) dD \qquad [\SI{}{\gram\per\cubic\metre}] \label{eq:SWC}
+	\text{SWC} & = \int_{r_{min}}^{r_{max}} m(r) n(r) dr \qquad [\SI{}{\gram\per\cubic\metre}] \label{eq:SWC}
 \end{align}
-To achieve a relationship between the reflectivity and the snowfall amount one needs to account for attenuation in the atmosphere. Using the previously calculated PSD (\Cref{eq:num_dens}) the singly-scattered non-attenuated reflectivity for Rayleigh approximation ($2\pi D/\lambda \ll 1$, $\lambda$: wavelength of incident radiation) is found \citep{lecuyer_estimation-based_2002,kulie_utilizing_2009,wood_microphysical_2015}. 
+To achieve a relationship between the reflectivity and the snowfall amount one needs to account for attenuation in the atmosphere. Using the previously calculated PSD (\Cref{eq:num_dens}) the singly-scattered non-attenuated reflectivity for Rayleigh approximation ($2\pi r/\lambda \ll 1$, $\lambda$: wavelength of incident radiation) is found \citep{lecuyer_estimation-based_2002,kulie_utilizing_2009,wood_microphysical_2015}. 
 % singly-scattered non-attenuated reflectivity
 \begin{align}
-	\eta_{bk} & = \int_{D_{min}}^{D_{max}} n(D) \sigma_{bk} dD \qquad [\SI{}{\per\metre}] \nonumber \\
+	\eta_{bk} & = \int_{r_{min}}^{r_{max}} n(r) \sigma_{bk} dr \qquad [\SI{}{\per\metre}] \nonumber \\
 	Ze^{ss,na} & = \frac{\Lambda^4}{\left\| K_w \right\|^2 \pi^5} \eta_{bk} \qquad \textcolor{red}{[\SI{}{\mm^6\metre^{-3}}]} \label{eq:singleZ}
 \end{align}
 % $\ldots$ snow backscatter coefficient
@@ -240,7 +240,7 @@ The singly-scattered reflectivity has to be corrected for attenuation in the lay
 \end{align}
 where $s$ is the path length through the medium. The transmissivity $I_{\lambda}/I_{\lambda_0}$ is the relation of survived radiation through extinction in the atmosphere with the snow extinction coefficient $\beta_{ext}$
 \begin{align}
-	\beta_{ext} & = \int_{D_{min}}^{D_{max}} n(D) \sigma_{ext} dD \qquad [\SI{}{\per\metre}] \label{eq:bext}
+	\beta_{ext} & = \int_{r_{min}}^{r_{max}} n(r) \sigma_{ext} dr \qquad [\SI{}{\per\metre}] \label{eq:bext}
 \end{align}
 The extinction coefficient is the sum of absorption and scattering in the atmosphere followed from the extinction cross-section $\sigma_{ext} = \sigma_{abs} + \sigma_{scat}$, \citep{lohmann_introduction_2016,lamb_physics_2011}. \textcolor{red}{\cite[Eq. 12.1 and more][]{lohmann_introduction_2016}} \\
 %singly-scattered attenuated reflectivity 
@@ -267,7 +267,7 @@ That follows with the use of radiative transfer equations for the simulated refl
 \begin{itemize}
 	\item \textcolor{red}{not really using the following - What to do with it?}
 	\item \textcolor{red}{total number concentration} \\
-	$$n_{tot} = \int_{D_{min}}^{D_{max}} n(D) dD \qquad [\SI{}{\per\cubic\metre}]$$ 
+	$$n_{tot} = \int_{r_{min}}^{r_{max}} n(r) dr \qquad [\SI{}{\per\cubic\metre}]$$ 
 	\item $\ldots$ \textcolor{red}{??? }
 	
 \end{itemize}

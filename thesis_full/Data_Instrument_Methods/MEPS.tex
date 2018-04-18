@@ -8,28 +8,28 @@ MEPS is used as weather forecast at the Norwegian Meteorological Institute, the 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%% MEPS %%%%%%%%%%%%%%
 \subsection{AROME - MetCoOP}
-\label{sec:MEPS}
-In principle, MEPS is a short-term weather forecast of \SI{66}{\hour} with 10 ensemble member and a horizontal resolution of \SI{2.5}{\km} and 65 vertical levels. One of the members is the deterministic forecast where the other nine present the perturbed state of the deterministic forecast.
+In principle, MEPS is a short-term weather forecast of \SI{66}{\hour} with 10 ensemble member and a horizontal resolution of \SI{2.5}{\km} and 65 vertical levels. One of the members is the deterministic forecast where the other nine present the perturbed state of the deterministic forecast. The initialisation of each member is performed at \SIlist{00;06;12;18}{\UTC} \citep{metcoop_wiki_description_2017}.
 %In the following section, the model configuration will be briefly explained. % as well as the motivation for the study case presented.
 \\
 The orange frame in \Cref{fig:site} shows the MEPS model domain as it was operational for December 2016. It covers the Nordic Countries including open water such as the Atlantic Ocean, the North and the Baltic Sea.  
 \\
 The centre of the model is approximately at \ang{63.5}\,N, \ang{15}\,E. 
 The horizontal grid points are projected on a Lambert projection to receive the same area size of each grid cell. 
-The outer, parent grid is the ECMWF-IFS model (European Centre for Medium-Range Weather Forecasts Integrated Forecasting System) with a horizontal resolution of \SI{9}{\km} \citep{homleid_verification_2016}. 
+The outer, parent grid is the ECMWF-IFS model (European Centre for Medium-Range Weather Forecasts Integrated Forecasting System) with a horizontal resolution of \SI{9}{\km} \citep{homleid_verification_2016}. The ECMWF-IFS forecasts are used \SI{6}{\hour} prior to the actual cycle in MEPS.
 \\
 Vertical hybrid coordinates are terrain-following and are mass-based, \citep{muller_arome-metcoop:_2017}. How the vertical hybrid coordinates where transformed into layer thickness or height is described in \Cref{sec:layer_thickness}. Furthermore, MEPS underlies non-hydrostatic dynamics, \cite{metcoop_wiki_description_2017}.
 \\
-The representation of snow is covered by a modification of the three-class ice parametrization (ICE3) scheme. Where liquid-phase processes are separated from slow ice-phase processes. To model the snow cover an one-layer atmosphere model scheme is implemented. This includes three variables such as: snow water equivalent (SWE), snow density, and snow albedo \citep{muller_arome-metcoop:_2017}.
+The representation of snow is covered by a modification of the three-class ice parametrization (ICE3) scheme. Where liquid-phase processes are separated from slow ice-phase processes and described in the next section (\Cref{sec:MesoNH}). To model the snow cover an one-layer atmosphere model scheme is implemented. This includes three variables such as: snow water equivalent (SWE), snow density, and snow albedo \citep{muller_arome-metcoop:_2017}.
 \\
-The MEPS forecasting system consist of 1+9 members where each of the perturbed members perform an initialization of \SI{66}{\hour} at \SIlist{00;06;12;18}{\UTC} \citep{metcoop_wiki_description_2017}. The ECMWF-IFS forecasts are used \SI{6}{\hour} prior to the actual cycle in MEPS. As synoptic observations are included in the model the snow-depth predictions underlay a special performance. Observations of snow-depth are only available at \SIlist{06;18}{\UTC}, therefore is the snow analysis only performed twice daily \citep{muller_arome-metcoop:_2017, homleid_verification_2016}. 
+As synoptic observations are included in the model the snow-depth predictions underlay a special performance. Observations of snow-depth are only available at \SIlist{06;18}{\UTC}, therefore is the snow analysis only performed twice daily \citep{muller_arome-metcoop:_2017, homleid_verification_2016}. 
+%The MEPS forecasting system consist of 1+9 members where each of the perturbed members perform an initialization of \SI{66}{\hour} at \SIlist{00;06;12;18}{\UTC} \citep{metcoop_wiki_description_2017}. 
 %\\
 %For more detailed information to the model the reader is referred to \cite{muller_arome-metcoop:_2017} and \cite{wiki_description_2017} and its references therein.
-
+%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%% MESONH %%%%%%%%%%%%%%
-\subsection{Meso-NH and the ICE3 scheme}
+\subsection{Meso-NH and the ICE3 scheme} \label{sec:MesoNH}
 The physical parametrization within AROME is based on the French research communities' mesoscale non-hydrostatic atmosphere model (Meso-NH). The microphysical scheme in the Meso-NH atmospheric simulation system is based on the ICE3 scheme. The purpose of the scheme is to model as correctly as possible the ice phase in the atmosphere and it is assumed that no rain formation occurs at temperatures below \SI{0}{\celsius} \citep{pinty_mixed-phased_1998}. \cite{mccumber_comparison_1991} concluded from their case study that at least three different ice categories are necessary to cover most precipitation but that applications might be case specific. 
 According the \cite{meteo_france_meso-nh_2009} documentation must the ice phase microphysical scheme include: 
 \begin{itemize}
@@ -50,7 +50,7 @@ According to \cite{caniaux_numerical_1994} the particle size distribution  follo
 \end{align}
 where $C$ and $x$ depend on the ice category and represent the relation between each other with the second equation in \Cref{eq:N0}. 
 \\
-The ice water content for primary ice, snowflakes and rimed crystals is then be assumed to be similar to \Cref{eq:SWC}, but the integration limits range from zero to infinity. The mass diameter and particle size distribution (\Cref{eq:mass_diameter,eq:PSD_MEPS}) are represented depending on the ice category shown in \Cref{tab:ice_parameter}.
+The ice water content for primary ice, snowflakes and rimed crystals is then be assumed to be similar to \Cref{eq:SWC}, but the integration limits range from zero to infinity and mass, particle size distribution are dependent on the diameter of the particle. The mass diameter and particle size distribution (\Cref{eq:mass_diameter,eq:PSD_MEPS}) are represented depending on the ice category shown in \Cref{tab:ice_parameter}
 \begin{align}
 	m(D) & = aD^b 	\label{eq:mass_diameter} \\
 	n(D) & = N_0 g(D)	\label{eq:PSD_MEPS}
@@ -71,12 +71,14 @@ After following the above equations including \Cref{eq:SWC} the slope parameter 
 \input{./images_tex/meps_ice3_scheme}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newline
-\cite{meteo_france_meso-nh_2009} documentation suggests to start the microphysics in the ICE3 scheme with 'slow' processes such as homegeneous and heteorogeneous nucleation (HON, HEN), vapour deposition of snow and graupel particles, aggregation (AGG) and autoconversion (ACC), right side in \Cref{fig:ICE3_scheme}. The second step is to initiate the warm processes left side in \Cref{fig:ICE3_scheme}. Then include the aggregation and conversion-melting (CVM) for snowflakes and contact freezing of raindrops (CFR). Add AGG and melting for graupel (MLT), and then the melting from pristine ice  and the Bergeron-Findeisen (BER) process and last the sedimentation terms.  \\
+\cite{meteo_france_meso-nh_2009} documentation suggests to start the microphysics in the ICE3 scheme with 'slow' processes such as homegeneous and heteorogeneous nucleation (HON, HEN), vapour deposition of snow and graupel particles (DEP), aggregation (AGG) and autoconversion (AUT), right side in \Cref{fig:ICE3_scheme} for ice processes. The second step is to initiate the warm processes left side in \Cref{fig:ICE3_scheme}. Then include the aggregation and conversion-melting (CVM) for snowflakes and contact freezing of raindrops (CFR). Add AGG and melting for graupel (MLT), and then the melting from pristine ice  and the Bergeron-Findeisen (BER) process and last the sedimentation terms.  \\
 \Cref{fig:ICE3_scheme} shows the summary of the microphysical processes for mixed phase clouds. The study focuses mostly on solid precipitation particles and therefore only the initiation and growth of pristine ice crystals r$_i$, snowflakes r$_s$, and rimed crystals r$_g$ is presented. 
 \\
-Following \cite{pinty_mixed-phased_1998} and \Cref{fig:ICE3_scheme} are the primary ice crystals activated by either heterogeneous nucleation (HEN), when an ice nuclei is present or by homogeneous nucleation (HON), when the atmospheric temperature is below \SI{-35}{\celsius}. The growing process for these particles can be the Bergeron-Findeisen process (BER) or deposition of water vapour (DEP). \\
-Snow particles are initiated by autoconversion (AUT) of r$_i$ and grow by the riming of cloud droplets (RIM) or rain droplets (ACC), and by collection of small pristine crystals (AGG), indicated by the green lines in \Cref{fig:ICE3_scheme}. \\
-As indicated by the blue lines in \Cref{fig:ICE3_scheme} are graupel an effect of heavy riming and grow in the scheme if the riming aggregates are of larger diameter size than \SI{7}{\mm} \citep{meteo_france_meso-nh_2009}. As indicated can graupel also grow when larger colliding raindrops reshape snowflakes to graupel (ACC). Furthermore, is graupel growth affected by wet or dry (WET, DRY) accretion, when the surface temperature of graupel is larger than the environmental temperature. DRY graupel expansion happens as long as the surface temperature is less that the surrounding temperature, then collected drops will freeze. WET graupel growth appears, when a liquid film is on the surface of the graupel particle (surface temperature larger than surrounding) then the liquid condensate is shed away and hail will be formed. In ICE3 is hail not specifically included it is mixed in to the graupel category and therefore a distinction between the two categories cannot be made. 
+Following \cite{pinty_mixed-phased_1998} and \Cref{fig:ICE3_scheme} it can be seen how AROME performs the ice production. Orange lines in \Cref{fig:ICE3_scheme} show the initiation of pristine ice crystals and snowflakes. In purple the growing mechanisms of r$_i$ (BER,DEP). Green lines demonstrate the expansion of the snowflakes (RIM, AGG, ACC). Graupel (r$_g$) forms as an effect of heavy riming (RIM), by collision of larger raindrops with snowflakes (ACC), by WET/DRY growth or by contact freezing of raindrops (CFR). All graupel growth processes are indicated by blue lines in \Cref{fig:ICE3_scheme}. 
+
+% are the primary ice crystals activated by either heterogeneous nucleation (HEN), when an ice nuclei is present or by homogeneous nucleation (HON), when the atmospheric temperature is below \SI{-35}{\celsius}. The growing process for these particles can be the Bergeron-Findeisen process (BER) or deposition of water vapour (DEP). \\
+% Snow particles are initiated by autoconversion (AUT) of r$_i$ and grow by the riming of cloud droplets (RIM) or rain droplets (ACC), and by collection of small pristine crystals (AGG), indicated by the green lines in \Cref{fig:ICE3_scheme}. \\
+% As indicated by the blue lines in \Cref{fig:ICE3_scheme} are graupel an effect of heavy riming and grow in the scheme if the riming aggregates are of larger diameter size than \SI{7}{\mm} \citep{meteo_france_meso-nh_2009}. As indicated can graupel also grow when larger colliding raindrops reshape snowflakes to graupel (ACC). Furthermore, is graupel growth affected by wet or dry (WET, DRY) accretion, when the surface temperature of graupel is larger than the environmental temperature. DRY graupel expansion happens as long as the surface temperature is less that the surrounding temperature, then collected drops will freeze. WET graupel growth appears, when a liquid film is on the surface of the graupel particle (surface temperature larger than surrounding) then the liquid condensate is shed away and hail will be formed. In ICE3 is hail not specifically included it is mixed in to the graupel category and therefore a distinction between the two categories cannot be made. 
 
 %
 
@@ -85,8 +87,8 @@ As indicated by the blue lines in \Cref{fig:ICE3_scheme} are graupel an effect o
 %
 \subsection{Adjustment of ICE3 inside MEPS}
 % refinement for AROME 
-Since the ICE3 scheme showed some weaknesses for the winter month, introduced \cite{muller_arome-metcoop:_2017} some modifications. 
-During cold conditions the ICE3-scheme showed too low temperature at two meter, too much ice fog and all year long was the occurrence of cirrus overestimated. After implementing the modifications described in \cite{muller_arome-metcoop:_2017} the two meter temperature bias was reduced as well as an improvement of low-level clouds was shown. An negative aspect of these adjustments was that the occurrence of fog increased, but it can be compensated if no change is done to the microphysics. 
+Since the ICE3 scheme showed some weaknesses for the winter month, \cite{muller_arome-metcoop:_2017} introduced some modifications. 
+During cold conditions the ICE3-scheme showed too low temperature at two meter, too much ice fog and all year long was the occurrence of cirrus overestimated. After implementing the modifications described in \cite{muller_arome-metcoop:_2017} the two meter temperature bias was reduced as well as an improvement of low-level clouds was shown. An negative aspect of these adjustments was that the occurrence of fog increased, but it can be compensated if no changes are done to the microphysics. 
 
 
 

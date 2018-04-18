@@ -94,6 +94,7 @@
 \usepackage{tocloft}
 \renewcommand{\cftchapfont}{\scshape}
 
+
 % ******** upper case ToC, LoF, LoT, Nomenclature, and renaming ****
 % Table of Contents
 \renewcommand{\cfttoctitlefont}{\hfill\normalfont\huge\scshape}
@@ -128,7 +129,7 @@
 % ***** CHAPTER in ToC *************
 \titlecontents{chapter}% <section-type>
 [0pt]% <left>
-{\scshape}% <above-code>
+{\scshape\bfseries}% <above-code>
 {\chaptername\ \thecontentslabel:\quad}% <numbered-entry-format>
 {}% <numberless-entry-format>
 {\hfill\contentspage}% <filler-page-format>

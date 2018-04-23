@@ -10,20 +10,34 @@ This work is based on several datasets collected at the Haukeliseter measurement
 %%%%%%%%% INTSTRUMENTS %%%%%%%%%%%%%%
 %\section{Instruments}\label{sec:instruments}
 A collaboration between the University of Utah, University of Wisconsin and Met-Norway made it possible to install three additional instruments at the measurement site during winter 2016/2017. A Multi-Angle Snowflake Camera (MASC) and a Precipitation Imaging Package (PiP) will be used to determine the snow habit, the snowfall particle size distribution, and near-surface fall speed. Additionally, a Micro Rain Radar (MRR) is established to obtain fall speed and particle reflectivity aloft. Together with temperature observations at the surface, is this a good basis to reduce the non-uniquness of snow accumulation in optimal estimation snowfall retrieval, described in \Cref{sec:retrieval}. 
+%%% image instrument setting @ Haukeli %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{./images_tex/instruments_setting}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\noindent
+A sketch of the instrumentation setting is presented in \Cref{fig:inst_setting}. The octagonal indicates the double fence. The container is north-east from the double fence having the MRR, MASC and PiP mounted at the top. \textbf{M1} in \Cref{fig:inst_setting} is the \SI{10}{\metre} weather mast, providing the hourly \cite{eklima_norwegian_2016} temperature and wind measurements. The mean wind direction from west-north-west and east-south-east are shown in the windrose in \Cref{fig:inst_setting}.
 %
 %
-%\pagebreak
+\pagebreak
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%% DOUBLE FENCE %%%%%%%%%%%%%%
-\subsection{Double Fence}
+\subsection{Double Fence}\label{sec:dofe}
 %%% image double fence @ Haukeli %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \input{./images_tex/instruments_Dofe}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-Since the winter season 2010/2011 Haukeliseter is equipped with three rain gauges. The wind shielded gauges are placed perpendicular to the main wind direction (\Cref{fig:Dofe}). The precipitation gauge protected by an octagonal double fence will be the reference to all surface accumulation measurements. The double fence creates an artificial calm wind and maximize the catch of precipitation, \citep{wolff_new_2010, wolff_measurements_2013, wolff_derivation_2015}. \textcolor{red}{This will get some more description. I have to read some up}
+Since the winter season 2010/2011 Haukeliseter is equipped with several precipitation gauges. The wind shielded gauges are placed perpendicular to the main wind direction (E/W wind).
+The precipitation gauge protected by an octagonal double fence (\Cref{fig:dofe_pic}) will be the reference to all surface accumulation measurements. The double fence creates an artificial calm wind and maximize the catch of precipitation, \citep{wolff_new_2010, wolff_measurements_2013, wolff_derivation_2015}. The wind inside the double fence is measured to be not much higher than \SI{5}{\mPs} even if the winds outside exceed \SI{20}{\mPs} (occured \SI{26}{\dec}). % so far it is unknown, if the catch efficiency stabilises for wind speeds beyond \SI{10}{\mPs} and may lead to wrong values
+For now, it is presumed that the average undercatch inside a double fence is \SI{20}{\percent} for wind speeds between \SIlist{10;20}{\mPs} and \SI{10}{\percent} for wind speeds under \SI{9}{\mPs} \citep{wolff_wmo_2018}.
+\\
+Inside the double fence is a precipitation-weighing gauge Geonor T-200B3 \citep[3-wire transducers, \SI{1000}{\mm},][]{geonor_inc._t-200b_2015} with a Alter wind screen to reduce wind turbulence around the gauge. At Haukeliseter is the orifice height of the Geonor \SI{4.5}{\metre} above the ground. This is due to an expected snow depth of \SIrange{2}{3}{\metre} during a winter season and to reduce the likelihood of measuring drifting snow \citep{wolff_measurements_2013,wolff_derivation_2015}. \\
+A vertical cross section of the T-200B gauge is shown in \Cref{fig:gauge_sketch}. Precipitation particles fall through the \SI{200}{\square\cm} orifice protected with a heated collar, into a cylindric bucket filled with frost protection. The bucket is placed on top of a Bucket Support Dish \citep[\Cref{fig:gauge_sketch},][]{geonor_inc._t-200b_2015}. This dish is connected with three wire sensors having an eigenfrequency changing with the weight inside the bucket. A formula provided by \cite{geonor_inc._t-200b_2015} calculates the amount of precipitation from the frequency of each sensor. The three sensors provide a reduction of an error in connection with an unlevel installation. Met-Norway will average value of all three sensors and provide it as hourly data at \citeauthor{eklima_norwegian_2016}.
+
+%\textcolor{red}{This will get some more description. I have to read some up}
+
 %%% image Dofe, MRR, MASC %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\input{./images_tex/instruments_Dofe_MRR_MASC}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\newpage
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -45,15 +59,15 @@ The Micro Rain Radar, in \Cref{fig:MRR}, measures profiles of Doppler spectra \c
 MRR radar reflectivity ($Z$) is transformed from \SI{1}{\mm^6\per\metre^3} to \SI{}{\decibel\,Z}.
 The transformations is done with the following relationship;
 \begin{align}
-Ze & = 10 \log_{10} \left(\frac{Z}{\SI{1}{\mm^6\per\metre^3}}\right) \qquad [\SI{}{\decibel Z}]
-\label{eq:Ze}
+	Ze & = 10 \log_{10} \left(\frac{Z}{\SI{1}{\mm^6\per\metre^3}}\right) \qquad [\SI{}{\decibel Z}]
+	\label{eq:Ze}
 \end{align}
 A transformation to rainfall rates can be performed by the $Z$-$R$ (reflectivity - rainfall) relationship. 
 The rainfall rate in each layer can be estimated by the use of typical fall speeds and the Marshall-Palmer particle size distribution for liquid particles \citep{rinehart_radar_2010}. 
 \begin{align}
-Z & = 200 R^{\frac{8}{5}} \qquad [\SI{}{\mm^6\metre^{-3}} ] \nonumber \\ 
-R & = \left( \frac{ 10^{\frac{Ze}{10}} }{200} \right)^{\frac{8}{5}} \qquad [ \SI{}{\mm\per\hour} ]
-\label{eq:Z-R}
+	Z & = 200 R^{\frac{8}{5}} \qquad [\SI{}{\mm^6\metre^{-3}} ] \nonumber \\ 
+	R & = \left( \frac{ 10^{\frac{Ze}{10}} }{200} \right)^{\frac{8}{5}} \qquad [ \SI{}{\mm\per\hour} ]
+	\label{eq:Z-R}
 \end{align}
 % %%% table REFLECTIVITY AND RAINRATE %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % \input{./tables_tex/instruments_typical_ref}
@@ -81,6 +95,7 @@ Particle size distribution (PSD) and fall speed of precipitation can be determin
 Winds have almost no effect on the result of the video distrometer \citep{newman_presenting_2009}. \textcolor{red}{They also say, to reduce eventual wind effects, should the distrometer be oriented with regard to storm winds (optical axis perpendicular to mean wind). Was that the case for Haukeliseter (I'm just curious)???}
 
 %\pagebreak
+\newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%% MASC %%%%%%%%%%%%%%

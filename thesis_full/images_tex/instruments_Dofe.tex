@@ -1,15 +1,14 @@
-% !TeX spellcheck = en_GB
-% \begin{figure}[h!]
-% 	\centering
-% 		\includegraphics[width=0.55\textwidth]{./fig_instruments/Dofe.png}
-% 	\caption{Picture, showing the double fence and unprotected precipitation gauges at the measurement site Haukeliseter. Picture taken from \cite{wolff_derivation_2015}.}\label{fig:Dofe}
-% \end{figure}
-
-\begin{wrapfigure}[10]{r}{0.44\textwidth}
+\begin{wrapfigure}[27]{r}{0.44\textwidth}
 	\vspace{-\normalbaselineskip}
 	\centering
-	\includegraphics[width=0.4\textwidth]{./fig_instruments/Dofe.png}
-	%	\vspace{-10pt}
-	\caption{Double fence and unprotected precipitation gauges at Haukeliseter, from \cite{wolff_derivation_2015}. The prevailing wind from east comes from the left side in the image. }\label{fig:Dofe}
-	\vspace{-\normalbaselineskip}
+	\begin{subfigure}[b]{0.4\textwidth}
+		\includegraphics[width=\textwidth]{./fig_instruments/Dofe.png}
+		\caption{}\label{fig:dofe_pic}
+	\end{subfigure}	
+	\begin{subfigure}[b]{0.4\textwidth}
+		\includegraphics[trim={0.8cm, 2.3cm, 2.4cm, 3cm},clip,width=\textwidth]{./fig_instruments/Geonor_sketch.png}
+		\caption{}\label{fig:gauge_sketch}
+	\end{subfigure}	
+	\caption{\protect\subref{fig:dofe_pic}: Double fence and unprotected precipitation gauges at Haukeliseter, from \cite{wolff_derivation_2015}. The prevailing wind direction from east comes from the lower, left corner in the image and the west wind from the opposite site. \protect\subref{fig:gauge_sketch}: Vertical cross section of T-200B precipitation gauge \citep{geonor_inc._t-200b_2015}.}\label{fig:Dofe}
+	%	\vspace{-\normalbaselineskip}
 \end{wrapfigure}

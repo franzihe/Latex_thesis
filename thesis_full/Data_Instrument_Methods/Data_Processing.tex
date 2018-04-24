@@ -1,23 +1,24 @@
 % !TeX spellcheck = en_GB
 \section{Data processing} \label{sec:data_proc}
-The previous \Cref{sec:retrieval,sec:MEPS} represented the details on retrieving snowfall amounts from the optimal estimation retrieval and the forecast model outputs. The following section will describe how the different variables where processed to achieve a comparison between the retrieved values and the forecast model output. 
+%The previous \Cref{sec:retrieval,sec:MEPS} represented the details on retrieving snowfall amounts from the optimal estimation retrieval and the forecast model outputs. 
+The following section will describe how the different variables where processed to achieve a comparison between the retrieved values and the forecast model output. 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%% THICKNESS IN MEPS %%%%%%%%%%%%%%
 \subsection{Layer thickness in MEPS}\label{sec:layer_thickness}
-To compare the measurements from the surface with the MEPS data, the closest grid point is used to Haukeliseter.
+To compare the measurements from the surface with the MEPS data, the closest grid point to Haukeliseter, is used.
 \\
 MEPS has a vertical resolution in hybrid sigma pressure coordinates, were one is at the surface and decreases with height. To calculate the actual vertical pressure in \SI{}{\Pa}, a formula is provided in the OPeNDAP Dataset of \texttt{meps\_full\_2\_5km\_*.nc} by the \cite{norwegian_meteorological_institute_met_2016}.  
 \begin{align}
-p(n,k,j,i) = a_p(k) + b(k) \cdot p_s(n,j,i) \qquad [\SI{}{\Pa}].
-\label{eq:hybrid_sigma_pressure}
+	p(n,k,j,i) = a_p(k) + b(k) \cdot p_s(n,j,i) \qquad [\SI{}{\Pa}].
+	\label{eq:hybrid_sigma_pressure}
 \end{align}
-$p_s$ is the surface air pressure in \SI{}{\Pa}, and information about the variables $a_p$, $b$ are not given from the access form. \textcolor{red}{On what is this based on?}  
+$p_s$ is the surface air pressure in \SI{}{\Pa}, and information about the variables $a_p$, $b$ are not given from the access form. \textcolor{red}{Find reference for sigma-hybrid coordinate transformation equation.}  
 \\
 The next step was to convert pressure-levels into actual heights by the use of the hypsometric equation. Here, the air temperature in model levels is used to calculate the mean temperature of each layer. 
 \begin{align}
-\overline{T} = \dfrac{\int\limits_{p2}^{p1} T \partial ln p}{\int\limits_{p2}^{p1}\partial ln p} \qquad [\SI{}{\kelvin}]
-\label{eq:T_avg}
+	\overline{T} = \dfrac{\int\limits_{p2}^{p1} T \partial ln p}{\int\limits_{p2}^{p1}\partial ln p} \qquad [\SI{}{\kelvin}]
+	\label{eq:T_avg}
 \end{align}
 For the numerical integration, the Simpson rule was used, which is a build-in function in Python. \\
 \cite{martin_mid-latitude_2006} presents steps of differentiating the hypsometric equation by using the virtual air temperature. But when the atmospheric mixing ratio is large, will the virtual temperature only be \SI{1}{\percent} larger than the actual air temperature. Since the error is little calculations are done with the provided air temperature in model levels.
@@ -41,9 +42,9 @@ Since MEPS has a higher vertical resolution than the optimal estimation snowfall
 \\
 Within the output from MEPS snow water content does not exist for each model layer. Hence the calculation of the SWC is performed by using the three solid precipitation categories given in MEPS. Namely the mixing ratio of snowfall ($r_s$), graupelfall ($r_g$) and the atmosphere cloud ice content ($r_i$). The mixing ratios are represented in \SI{}{\kg\per\kg} and a transformation to \SI{}{\g\per\cubic\meter} is performed. Densities in each model level ($\rho_{ml}$) are calculated and then multiplied with the sum of the solid precipitation mixing ratio. 
 \begin{align}
-\rho_{ml} & = \frac{p_{ml}}{R_d T} & \quad [\SI{}{\kg\per\cubic\meter}]  \\
-SWC_{ml} & = \rho_{ml} \cdot (r_s + r_g + r_i)_{ml} \cdot \num{e6} & \quad [\SI{}{\g\per\cubic\meter}].
-\label{eq:SWC_ml}
+	\rho_{ml} & = \frac{p_{ml}}{R_d T} & \quad [\SI{}{\kg\per\cubic\meter}]  \\
+	SWC_{ml} & = \rho_{ml} \cdot (r_s + r_g + r_i)_{ml} \cdot \num{e6} & \quad [\SI{}{\g\per\cubic\meter}].
+	\label{eq:SWC_ml}
 \end{align}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -67,7 +68,7 @@ The snow water path is a measure of the weight of ice particles per unit area. I
 \subsection{Dew point temperature for Skew-T log-P Diagram}
 The Python module \texttt{pyMeteo} is used to calculate the dew point temperature of each ensemble member to study the stability of the atmosphere (\url{https://pythonhosted.org/pymeteo/}, last visited: 25.01.2018). The additional package \texttt{thermo.py} is able to calculate the dew point temperature if the pressure and the specific humidity in each level are known. 
 \begin{align}
-e_l & = ln\left( \frac{\frac{q_v}{\epsilon} \cdot \frac{p}{100}}{1 + \frac{q_v}{\epsilon}} \right) \\
-T_d & = 273.15 + \frac{243.5 \cdot e_l -440.8}{19.48 -e_l} \qquad [\SI{}{\kelvin}]
+	e_l & = ln\left( \frac{\frac{q_v}{\epsilon} \cdot \frac{p}{100}}{1 + \frac{q_v}{\epsilon}} \right) \\
+	T_d & = 273.15 + \frac{243.5 \cdot e_l -440.8}{19.48 -e_l} \qquad [\SI{}{\kelvin}]
 \end{align}
 where, $q_v$ is the specific humidity, $p$ pressure in [\SI{}{\Pa}], $\epsilon = R_d / R_v = 0.622$ with $R_v$ gas constant for water vapour.

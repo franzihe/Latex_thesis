@@ -1,0 +1,60 @@
+% !TeX spellcheck = en_GB
+% %%% ***************** CHAPTER RESULTS ***************** %%%
+\chapter{Results} \label{ch:Res}
+\textcolor{red}{\textbf{The overleaf file from the Results is here:} \\ \url{https://www.overleaf.com/15070250fhqztvnygzmn}} 
+\\
+%
+%ensemble member \numlist{0;1} every hour; ensemble member \numrange{2}{10} every three hours. \\
+%
+\begin{itemize}
+	\item \SI{21}{\dec} has convective storm from \SIrange{9}{13}{\UTC} then pulsing
+	\item on \SI{23}{\dec} convective storm from \SIrange{16}{00}{\UTC} 
+	\item connection with wind \Cref{fig:wind21,fig:wind22,fig:wind23,fig:wind24,fig:wind25,fig:wind26}% when pulsing event then wind observations from N\-W to S\-W
+	%\item $\rightarrow$ when wind from S\-S\-W to S\-E then convective storm habit
+	\item \textbf{pick interesting days:}
+	\begin{itemize}
+		\item \SI{21}{\dec}, because change from convective storm to pulsing event $\rightarrow$ put in the connection with wind. MEPS does catch convective part, but not as strong. High SWC$_\textit{MEPS}$ at \SI{20}{\UTC}
+		\item \SI{22}{\dec}, because SWC$_\mathit{RETRIEVAL}$ almost same as SWC$_\mathit{MEPS}$, only \SI{2}{\hour} shift
+		\item \SI{24}{\dec}, because SWC$_\mathit{MEPS}$ almost as pulsing as SWC$_\mathit{RETRIEVAL}$ just not as strong. Also overestimation of surface snowfall from MEPS \Cref{fig:sfc_acc24}. All 10 ensemble members have pulsing. Most interesting EM5, EM7 (not shown).
+		\Cref{fig:wind24} looks interesting, good catch between the two systems.
+		\item \SI{25}{\dec}, because MEPS covers the LWC at the same time as retrieval, but the retrieval does not see the snow above $\rightarrow$ weakness of retrieval is shown even though weak. See: \Cref{fig:SWC25} and \ref{fig:LWC25}. Also it has the overestimation at the surface \Cref{fig:sfc_acc25}
+		\item \SI{26}{\dec} \Cref{fig:wind26} see overestimation of SWP$_MEPS$ in scatter and in wind. Is it somehow connected?!
+	\end{itemize}
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%% SFC ACCUMULATION %%%%%%%%%%%%%%
+\input{./Results/surface_snowfall_accumulation}
+\newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%% SWP WIND RELATION %%%%%%%%%%%%%%
+\input{./Results/SWP_wind_relation}
+\newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%% SWC COMPARISON %%%%%%%%%%%%%%
+\input{./Results/SWC_Retrieval_MEPS}
+\newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%% 21122016 %%%%%%%%%%%%%%
+\input{./Results/20161221}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%% 22122016 %%%%%%%%%%%%%%
+\input{./Results/20161222}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%% 24122016 %%%%%%%%%%%%%%
+\input{./Results/20161224}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%% 24122016 %%%%%%%%%%%%%%
+\input{./Results/20161225}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+

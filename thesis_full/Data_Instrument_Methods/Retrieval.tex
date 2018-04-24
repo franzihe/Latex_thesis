@@ -61,15 +61,15 @@ To determine the snowfall rate at the surface an exponential particle size distr
 \begin{align}
 	n(r) & = N_{0} \exp\left(-\lambda r\right) \qquad [ \SI{}{\per\cubic\metre\per\mm} ] \label{eq:num_dens}
 \end{align}
-where $\lambda$ represents the PSD slope parameter and $N_{0}$ the number density. $r$ is the particle maximum dimension evaluated from the 2D-scattering model for branched 6-arm spatial particles with porosities for reflectivity measurements at \SI{24}{\giga\Hz} (see \Cref{app:scat_scheme}).
+where $\lambda$ represents the PSD slope parameter and $N_{0}$ the number concentration. $r$ is the particle maximum dimension evaluated from the 2D-scattering model for branched 6-arm spatial particles with porosities for reflectivity measurements at \SI{24}{\giga\Hz} (see \Cref{app:scat_scheme}).
 %exponential particle size distribution (PSD) \\
 %	$$ \qquad \text{$D$ from B6 scattering model}$$
 %	$$\lambda = 10^{perturbuation}$$ %\\
 %   %$$N_0 = 10^{perturbation}$$
 %The slope parameter and the number density in \Cref{eq:num_dens} varies with height with the help of the following logarithmic assumptions \textcolor{red}{In vsnow_hmrr.pro: DEFINE A PRIORI PSD INFO (LOG FORM) THROUGH WOOD TEMPERATURE PARAMETERIZATION}.
 \\
-Since $T_{a}$ varies with a moist adiabatic lapse rate in each layer bin the slope parameter and the number density in \Cref{eq:num_dens} are changing too. \cite{wood_estimation_2011} showed a linear fit between $\log(\lambda)$ and the a priori temperature, respectively $\log(N_0)$ and the a priori temperature.
-Using $T_{a}$ in \SI{}{\celsius} for each layer bin the following logarithmic assumption is used, to define the slope parameter and the number density.
+Since $T_{a}$ varies with a moist adiabatic lapse rate in each layer bin the slope parameter and the number concentration in \Cref{eq:num_dens} are changing too. \cite{wood_estimation_2011} showed a linear fit between $\log(\lambda)$ and the a priori temperature, respectively $\log(N_0)$ and the a priori temperature.
+Using $T_{a}$ in \SI{}{\celsius} for each layer bin the following logarithmic assumption is used, to define the slope parameter and the number concentration.
 \begin{align}
 	\log(\lambda) & = -0.03053 \cdot T_{ap} - 0.08258  \label{eq:lambda} \qquad [ \log(\SI{}{\per\mm}) ]\\
 	\log(N_0) & = -0.07193 \cdot T_{ap} +2.665  \qquad [ \log(\SI{}{\per\cubic\metre\per\mm})]
@@ -113,7 +113,7 @@ where, $\mathbf{x}$, vector of retrieved snowfall properties (\Cref{eq:snow_prop
 %        0 		& 0		& \dots & 0 		& 0.95
 %      \end{bmatrix} $$
 \\
-$\mathbf{S}_a$ links the uncertainties of the PSD information and the surface temperature differences. The diagonal matrix elements in $\mathbf{S}_a$ are equal to \numlist{0.133;0.95} for the particle slope parameter and the number density, respectively as from  Eq. 7.35 and 7.36 in \cite{wood_estimation_2011}. \\
+$\mathbf{S}_a$ links the uncertainties of the PSD information and the surface temperature differences. The diagonal matrix elements in $\mathbf{S}_a$ are equal to \numlist{0.133;0.95} for the particle slope parameter and the number concentration, respectively as from  Eq. 7.35 and 7.36 in \cite{wood_estimation_2011}. \\
 % $$\mathbf{S}_y = \begin{bmatrix}
 %        6.25 	& 0 	& \dots & 0 		& 0         \\%[0.3em]
 %        0		& 6.25 & \dots	& 0 		& 0		 \\
@@ -207,7 +207,7 @@ Forward model defines a relationship between the radar observations and the retr
 \\
 The knowledge about the a priori parameters and related covariances, as well as $\mathbf{x}$, are used to minimize \Cref{eq:scalar_cost_fct}. The values of $\mathbf{x}$ are found by Newtonian iteration \cite[Eq. 5]{wood_estimating_2014}.
 \newline
-The snow water content in each layer is estimated from the knowledge of the snow particle mass-dimension relationship in \Cref{app:scat_scheme}, and a PSD related to slope parameter and number density (\Cref{eq:num_dens,eq:lambda,eq:N0}). % Snow water content  in each layer 
+The snow water content in each layer is estimated from the knowledge of the snow particle mass-dimension relationship in \Cref{app:scat_scheme}, and a PSD related to slope parameter and number concentration (\Cref{eq:num_dens,eq:lambda,eq:N0}). % Snow water content  in each layer 
 \begin{align}
 	\text{SWC} & = \int_{r_{min}}^{r_{max}} m(r) n(r) dr \qquad [\SI{}{\gram\per\cubic\metre}] \label{eq:SWC}
 \end{align}

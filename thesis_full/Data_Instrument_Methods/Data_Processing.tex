@@ -25,11 +25,11 @@ For the numerical integration, the Simpson rule was used, which is a build-in fu
 \\
 The thickness, $\Delta z$, of each layer is then be found by using the hypsometric equation from \cite{martin_mid-latitude_2006} and the previously calculated mean temperature (\Cref{eq:T_avg}):
 \begin{equation}
-\begin{split}
-\Delta z  = z_2 - z_1 
-& = \frac{R_d \overline{T}}{g} ln\left(\frac{p_1}{p_2} \right) \qquad [\SI{}{\metre}]
-\end{split}
-\label{eq:hypsometric}
+	\begin{split}
+		\Delta z  = z_2 - z_1 
+		& = \frac{R_d \overline{T}}{g} ln\left(\frac{p_1}{p_2} \right) \qquad [\SI{}{\metre}]
+	\end{split}
+	\label{eq:hypsometric}
 \end{equation}
 where $R_d$ is gas constant for dry air with a value of \SI{287}{\joule\per\kilogram\per\kelvin},  standard gravity $g\,=\,$\SI{9.81}{\metre\per\square\second}. $p_1$ and $p_2$ are the pressure levels at lower and higher levels, respectively ($p_2 < p_1$).
 To gain the respective height of each pressure layer, $\Delta z$ is summed.
@@ -52,18 +52,31 @@ Within the output from MEPS snow water content does not exist for each model lay
 \subsection{Snow water path}
 The snow water path (SWP) is the vertically integrated value of the averaged SWC (\Cref{eq:SWC,eq:SWC_ml}), where the numerical Simpson's integration is applied.  
 \begin{equation}
-\begin{split}
-\int_{h_0}^{h_1=\SI{3000}{\metre}} \text{SWC}(h) \, dh \approx 
-\frac{h_1 - h_0}{6}  & \left[ \text{SWC}(h_0)    + \text{SWC}(h_1)   \vphantom{\frac{h_0 + h1}{2}} \right. \\ 
-& \left. + 4 \text{SWC}\left(\frac{h_0 + h1}{2}\right)  
-\right] \qquad [\SI{}{\g\per\square\meter}]
-\end{split}
-\label{eq:SWP}
+	\begin{split}
+		\int_{h_0}^{h_1=\SI{3000}{\metre}} \text{SWC}(h) \, dh \approx 
+		\frac{h_1 - h_0}{6}  & \left[ \text{SWC}(h_0)    + \text{SWC}(h_1)   \vphantom{\frac{h_0 + h1}{2}} \right. \\ 
+		& \left. + 4 \text{SWC}\left(\frac{h_0 + h1}{2}\right)  
+		\right] \qquad [\SI{}{\g\per\square\meter}]
+	\end{split}
+	\label{eq:SWP}
 \end{equation}
 The snow water path is a measure of the weight of ice particles per unit area. It indicates the total amount of ice in the atmosphere.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%% Ensemble spread %%%%%%%%%%%%%%
+\subsection{Ensemble mean and Ensemble spread}
+\textcolor{red}{Check literature of meaning} \\
+The ensemble mean is the average of all ten ensemble members of MEPS.
+\begin{align}
+	\bar{x} & = \frac{\sum_{i=1}^n x_i}{N}
+\end{align}
+The ensemble spread is known as the standard deviation with respect to their mean of the model output. That means it shows the variation around the center or control run.
+\begin{align}
+	\sigma & = \sqrt{\frac{\sum_{i=1}^n (x_i - \bar{x})^2}{N-1}}
+\end{align}
+for either variable is the dimension of the standard deviation the same.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
+%%%%%%%%% Dew point T for SkewT %%%%%%%%%%%%%%
 
 \subsection{Dew point temperature for Skew-T log-P Diagram}
 The Python module \texttt{pyMeteo} is used to calculate the dew point temperature of each ensemble member to study the stability of the atmosphere (\url{https://pythonhosted.org/pymeteo/}, last visited: 25.01.2018). The additional package \texttt{thermo.py} is able to calculate the dew point temperature if the pressure and the specific humidity in each level are known. 

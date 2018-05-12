@@ -10,6 +10,7 @@
 
 % ******** to only print particular chapters with references *******
 %\includeonly{Abstract/abstract}
+%\includeonly{Results/results}
 
 
 
@@ -66,9 +67,10 @@
 % ******* Main Matter ********************
 	\newpage\pagenumbering{arabic}\setcounter{page}{1}
     \include{Introduction/introduction}
-    \include{Theory/theory}
-    \include{Data_Instrument_Methods/data_instruments_methods}
     \include{Weather_Situation/weather_situation}
+%    \include{Theory/theory}
+    \include{Data_Instrument_Methods/data_instruments_methods}
+
     \include{Results/results}
 
 	  
@@ -89,10 +91,14 @@
    %  \begin{appendices}
    \appendix
 %   \chapter{}
-
+	
+	\include{./Appendix/sounding}
    \include{./Appendix/B6pr_2_dimensional_and_mass_oriented_24.0GHz}
-   \include{./Appendix/sounding}
-   \include{./Appendix/LWP_MEPS}
+   
+%   \chapter{Results}
+   \include{./Appendix/LWC_MEPS}
+   \include{./Appendix/ensemble_spread}
+   \include{./Appendix/all_vert_ens_memb}
    
    % 	\end{appendices}
 	

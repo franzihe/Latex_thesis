@@ -1,0 +1,107 @@
+% !TeX spellcheck = en_GB
+\documentclass[a4paper,12pt, UKenglish,twoside]{report}
+
+% ********** Preamble: Contains packages and user-defined commands and settings ****************************
+\input{Preamble/preamble_print}
+
+
+% ******** Thesis Inforamtion such as Title, author, and date *****
+\input{thesis_info}
+
+% ******** to only print particular chapters with references *******
+%\includeonly{Abstract/abstract}
+%\includeonly{Results/results}
+
+
+
+ 
+\begin{document}
+% ******** Title page ******************
+	\include{title_page}
+      
+      
+% ********** Declaration **************
+%	\include{Declaration/declaration}
+	
+% ********** Acknowledgment **************
+%	\include{Acknowledgment/acknowledgement}
+ 
+ 
+% ********** Abstract *****************
+	\include{Abstract/abstract}
+    \thispagestyle{empty}
+    \clearpage\thispagestyle{empty}\hbox{}\newpage %whole line needed to insert a blank page
+	\normalsize
+	
+% ******* Table of contents, List of Figures, Tables **************
+{%\hypersetup{linkcolor=black} 	% sets the regularly red color to black
+
+	\newpage
+    \pagenumbering{roman}
+	\setcounter{page}{1}
+    \renewcommand{\contentsname}{Table of Contents}
+    \tableofcontents
+	\thispagestyle{empty}
+    
+	
+%    \newpage
+%    \addcontentsline{toc}{chapter}{List of Figures}
+%    \listoffigures
+%    \thispagestyle{empty}
+%    
+%    \newpage
+%    \addcontentsline{toc}{chapter}{List of Tables}
+% 	\listoftables
+%	\thispagestyle{empty}
+%   	
+    \newpage
+    \addcontentsline{toc}{chapter}{List of Abbreviations}
+    \include{Nomenclature/nomenclature}
+    \printnomenclature[1in]              %%% add width here.
+    \thispagestyle{empty}
+    
+%    \clearpage\thispagestyle{empty}\hbox{}\newpage %whole line needed to insert a blank page
+}
+	
+    
+% ******* Main Matter ********************
+	\newpage\pagenumbering{arabic}\setcounter{page}{1}
+    \include{Introduction/introduction}
+    \include{Weather_Situation/weather_situation}
+%    \include{Theory/theory}
+    \include{Data_Instrument_Methods/data_instruments_methods}
+
+    \include{Results/results}
+
+	  
+	  
+% ******* Bibliography *******************************
+%	\clearpage\thispagestyle{empty}\hbox{}\newpage %whole line needed to insert a blank page
+	\newpage
+	\addcontentsline{toc}{chapter}{References}
+	\renewcommand{\bibname}{References}
+    \bibliography{./References/MasterThesis,./References/Names,./References/unpublished}
+    \bibliographystyle{plainnat}
+    \newpage
+	
+	
+% ******* Appendices *********************************
+%	\clearpage\thispagestyle{empty}\hbox{}\newpage %whole line needed to insert a blank page
+	\pagestyle{plain}
+   %  \begin{appendices}
+   \appendix
+%   \chapter{}
+	
+	\include{./Appendix/sounding}
+   \include{./Appendix/B6pr_2_dimensional_and_mass_oriented_24.0GHz}
+   
+%   \chapter{Results}
+   \include{./Appendix/LWC_MEPS}
+   \include{./Appendix/ensemble_spread}
+   \include{./Appendix/all_vert_ens_memb}
+   
+   % 	\end{appendices}
+	
+
+
+\end{document}

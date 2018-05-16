@@ -51,10 +51,10 @@ The principle of radar measurements is based on an electromagnetic wave, which i
 Vertical profiles of reflectivity give information about the diameter of the target object.
 \\
 The Micro Rain Radar, in \Cref{fig:MRR}, measures profiles of Doppler spectra \citep{metek_micro_2010}. The Doppler spectrum tells about the movement of the particle. The vertical pointing Doppler radar measures the energy that is returned from each interval and thus enabling the detection of the Doppler spectrum \citep{lecuyer_aos_2017}. The MRR measures at a frequency of \SI{24}{\giga\Hz}, and has a temporal and spatial spatial resolution of \SI{60}{\second} and \SI{100}{\metre}, respectively. The radar height range is from \SI{100}{\metre} (because of ground clutter) to \SI{3.000}{\metre} \citep{metek_micro_2010}.
-%%% table REFLECTIVITY AND RAINRATE %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\input{./tables_tex/instruments_typical_ref}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%\\ %\newline
+% %%% table REFLECTIVITY AND RAINRATE %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \input{./tables_tex/instruments_typical_ref}
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% %\\ %\newline
 \noindent 
 MRR radar reflectivity ($Z$) is transformed from \SI{1}{\mm^6\per\metre^3} to \SI{}{\decibel\,Z}.
 The transformations is done with the following relationship;
@@ -77,6 +77,9 @@ The rainfall rate in each layer can be estimated by the use of typical fall spee
 \Cref{tab:ref_values} represents the Z-R relationship if the Marshall-Palmer assumption (\Cref{eq:Z-R}) is applied. Z-snowfall relationships are developed but are difficult to apply due to the variation of size and density of the particles \citep{lecuyer_aos_2017}. \\
 After the transformation to \SI{}{\decibel Z} the reflectivity is averaged for every \SI{200}{\metre} layer thickness, where only values above \SI{300}{\metre} are taken. %For this, all values above \SI{300}{\metre} are taken. 
 For instance, a reflectivity at \SI{400}{\metre} represents the mean value of reflectivity between \SIlist{300;500}{\metre}. 
+%%% table REFLECTIVITY AND RAINRATE %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{./tables_tex/instruments_typical_ref}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %\pagebreak
 %\newpage

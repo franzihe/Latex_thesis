@@ -4,45 +4,38 @@
 % \textcolor{red}{\textbf{The overleaf file from the Results is here:} \\ \url{https://www.overleaf.com/15070250fhqztvnygzmn}} 
 % \\V
 %
-In this chapter the results of the optimal estimation retrieval and the regional mesoscale forecast model are presented. On the basis of the methodology described in \Cref{ch:Methods} it should be evaluated if a regional mesoscale forecast model prognoses the same snowfall amount as observed with the ground based remote sensing at Haukeliseter. All days of the seven day event showed their own significances. Since some patterns repeated during these days the most interesting days, \SIlist{21;24;25}{\dec}, are picked and studied in more detail.
-%ensemble member \numlist{0;1} every hour; ensemble member \numrange{2}{10} every three hours. \\
-%
-%\begin{itemize}
-% \item \SI{21}{\dec} has convective storm from \SIrange{9}{13}{\UTC} then pulsing
-% \item on \SI{23}{\dec} convective storm from \SIrange{16}{00}{\UTC} 
-% \item connection with wind \Cref{fig:wind21,fig:wind22,fig:wind23,fig:wind24,fig:wind25,fig:wind26}% when pulsing event then wind observations from N\-W to S\-W
-% %\item $\rightarrow$ when wind from S\-S\-W to S\-E then convective storm habit
-% \item \textbf{pick interesting days:}
-% 	\begin{itemize}
-% 	\item \SI{21}{\dec}, because change from convective storm to pulsing event $\rightarrow$ put in the connection with wind. MEPS does catch convective part, but not as strong. High SWC$_\textit{MEPS}$ at \SI{20}{\UTC}
-% %    \item \SI{22}{\dec}, because SWC$_\mathit{RETRIEVAL}$ almost same as SWC$_\mathit{MEPS}$, only \SI{2}{\hour} shift
-%     \item \SI{24}{\dec}, because SWC$_\mathit{MEPS}$ almost as pulsing as SWC$_\mathit{RETRIEVAL}$ just not as strong. Also overestimation of surface snowfall from MEPS \Cref{fig:sfc_acc24}. All 10 ensemble members have pulsing. Most intense in pulsing events: control, EM1, EM4, EM5, EM7 (not shown).
-% %    \item \SI{25}{\dec}, because MEPS covers the LWC at the same time as retrieval, but the retrieval does not see the snow above $\rightarrow$ weakness of retrieval is shown even though weak. See: \Cref{fig:SWC25} and \ref{fig:LWC25}. Also it has the overestimation at the surface \Cref{fig:sfc_acc25}
-%     \item \SI{26}{\dec} almost correct forecasted peak, all three systems recognise stop of precipitation (retrieval a little earlier), MEPS overestimates after 12h forecast, MEPS has stronger SWP values than retrieval, no relation between wind and scatter
-% 	\end{itemize}
-% \item \textbf{Research question:}  \\ Does a regional mesoscale model catch the same snowfall amount as observed at a certain location?
-% \end{itemize}
+In this chapter the results of the surface observation, the optimal estimation retrieval and the regional mesoscale forecast model are presented. On the basis of the methodology described in \Cref{ch:Methods} it should be evaluated if a regional mesoscale forecast model prognoses the same synoptical patterns as observed at the measurement site. Also, vertical SWC forecasted by MEPS is being verified with the retrieved SWC at Haukeliseter. 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%% table SWP and LWP max %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%\input{./tables_tex/SWC_SWP_max_val}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%% surface %%%%%%%%%%%%%%
+\input{./Results/results_surface}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%% SFC ACCUMULATION %%%%%%%%%%%%%%
 \input{./Results/surface_snowfall_accumulation}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%% SWC COMPARISON %%%%%%%%%%%%%%
-\input{./Results/SWC_Retrieval_MEPS}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-%\newpage
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%% ensemble verification %%%%%%%%%%%%%%
-\input{./Results/MEPS_verification}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%% surface %%%%%%%%%%%%%%
+\input{./Results/results_vertical}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%% SWC COMPARISON %%%%%%%%%%%%%%
+%\input{./Results/SWC_Retrieval_MEPS}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%%\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%% ensemble verification %%%%%%%%%%%%%%
+%\input{./Results/MEPS_verification}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Wednesday, \SI{21}{\dec}}
 \textcolor{red}{Get surface accumulation and vertical into relation. Why does the surface overestimate, but the vertical is weaker. Why does the surface overestimate but the vertical seems to catch the observations better?}

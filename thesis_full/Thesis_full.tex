@@ -68,10 +68,9 @@
 % ******* Main Matter ********************
 	\newpage\pagenumbering{arabic}\setcounter{page}{1}
     \include{Introduction/introduction}
-    \include{Weather_Situation/weather_situation}
-%    \include{Theory/theory}
+  %    \include{Theory/theory}
     \include{Data_Instrument_Methods/data_instruments_methods}
-
+	\include{Weather_Situation/weather_situation}
     \include{Results/results}
 
 	  
@@ -82,7 +81,7 @@
 	\addcontentsline{toc}{chapter}{References}
 	\renewcommand{\bibname}{References}
     \bibliography{./References/MasterThesis,./References/Names,./References/unpublished}
-    \bibliographystyle{plainnat}
+    \bibliographystyle{plainnat_reversed}
     \newpage
 	
 	
@@ -97,9 +96,12 @@
    \include{./Appendix/B6pr_2_dimensional_and_mass_oriented_24.0GHz}
    
 %   \chapter{Results}
-   \include{./Appendix/LWC_MEPS}
-   \include{./Appendix/ensemble_spread}
-   \include{./Appendix/all_vert_ens_memb}
+	\include{./Appendix/error_var_sfc}
+	\include{./Appendix/SWC_1h}
+	\include{./Appendix/all_vert_ens_memb}
+%   \include{./Appendix/LWC_MEPS}
+%%   \include{./Appendix/ensemble_spread}
+%   \include{./Appendix/all_vert_ens_memb}
    
    % 	\end{appendices}
 	

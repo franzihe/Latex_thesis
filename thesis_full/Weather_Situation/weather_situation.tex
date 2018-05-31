@@ -4,11 +4,12 @@
 %\textcolor{red}{\textbf{The overleaf file from the Synoptic weather situation is here:} \\
 %	\url{https://www.overleaf.com/13946126xwbhxxrcwbyd}}
 %\\
-This extreme weather event is chosen since MEPS just became operational and in addition surface snow instruments where installed to profile the vertical at Haukeliseter. Preliminary test showed the overestimation of snow accumulation by MEPS compared to the measurements at the ground. Furthermore, was changed the phase between the precipitation.  
+This extreme weather event is chosen since MEPS just became operational and in addition surface snow instruments where installed to profile the vertical at Haukeliseter. Preliminary test showed the overestimation of snow accumulation by MEPS compared to the measurements at the ground. Furthermore, changed the phase of precipitation from solid to liquid to solid.  
 \\
-The next sections will give a definition of an extreme weather, a description of the different weather maps, and a synoptic interpretation of the storm and why mixed phase precipitation was observed at Haukeliseter. \\
-Before the analysis each weather maps' purpose  will be presented to understand the connections between them. For this, the ECMWF ...blabla product... so many grid degree ...  is processed.
+The next sections will give a definition of an extreme weather event, a description of the different weather maps, and a synoptic interpretation of the storm and why mixed phase precipitation was observed at Haukeliseter. \\
+Before the analysis each weather maps' purpose  will be presented to understand the connections between them. For this, the ECMWF operational model Cycle {43r1} are used. The analysis consists of 137 model levels and to reduce computational costs is it reduced to the \textit{octahedral reduced Gaussian grid} and then interpolated to a N640 Gaussian grid. 
 \\
+Between the pole and the equator are 640 lines of latitude equally symmetric spaced. This follows 1280 latitude lines for each hemisphere. The resolution along the longitude is \SI{90}{\degree}/640 lines with points getting closer with increasing latitude. This follows a total number of grid points of $8 \cdot 640^2$ \citep{dando_introducing_2016}.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%% EXTREME WEATHER %%%%%%%%%%%%%%
@@ -49,4 +50,3 @@ Before the analysis each weather maps' purpose  will be presented to understand 
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % %%%%%%%%% LARGE SCALE CIRCULATION %%%%%%%%%%%%%%
 \input{./Weather_Situation/large_scale_circulation}
-

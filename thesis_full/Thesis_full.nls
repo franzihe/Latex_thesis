@@ -2,13 +2,28 @@
 
  \nomgroup{A}
 
+  \item [{ACC}]\begingroup Accretion\nomeqref {0.0.0}\nompageref{iii}
+  \item [{AGG}]\begingroup Aggregation\nomeqref {0.0.0}\nompageref{iii}
   \item [{AR}]\begingroup Atmospheric River\nomeqref {0.0.0}
 		\nompageref{iii}
   \item [{AROME}]\begingroup Applications of Research to Operations at Mesoscale\nomeqref {0.0.0}
 		\nompageref{iii}
+  \item [{AUT}]\begingroup Autoconversion\nomeqref {0.0.0}
+		\nompageref{iii}
+  \item [{BER}]\begingroup Bergeron-Findeisen process\nomeqref {0.0.0}
+		\nompageref{iii}
   \item [{C3VP}]\begingroup Canadian CloudSat-CALIPSO Validation Project\nomeqref {0.0.0}
 		\nompageref{iii}
+  \item [{CFR}]\begingroup Contact Freezing of Raindrops\nomeqref {0.0.0}
+		\nompageref{iii}
   \item [{CPR}]\begingroup Cloud Profiling Radar\nomeqref {0.0.0}
+		\nompageref{iii}
+  \item [{CV}]\begingroup Coefficient of Variation\nomeqref {0.0.0}
+		\nompageref{iii}
+  \item [{CVM}]\begingroup Conversion-melting\nomeqref {0.0.0}
+		\nompageref{iii}
+  \item [{DEP}]\begingroup Deposition\nomeqref {0.0.0}\nompageref{iii}
+  \item [{DRY}]\begingroup Dry processes\nomeqref {0.0.0}
 		\nompageref{iii}
   \item [{DT}]\begingroup Dynamic Tropopause\nomeqref {0.0.0}
 		\nompageref{iii}
@@ -18,16 +33,25 @@
 		\nompageref{iii}
   \item [{FMI}]\begingroup Finnish Meteorological Institute\nomeqref {0.0.0}
 		\nompageref{iii}
+  \item [{HEN}]\begingroup Heterogeneous Nucleation\nomeqref {0.0.0}
+		\nompageref{iii}
+  \item [{HON}]\begingroup Homogeneous Nucleation\nomeqref {0.0.0}
+		\nompageref{iii}
   \item [{IVT}]\begingroup Integrated Vapour Transport\nomeqref {0.0.0}
+		\nompageref{iii}
+  \item [{LWC}]\begingroup Liquid Water Content\nomeqref {0.0.0}
 		\nompageref{iii}
   \item [{MASC}]\begingroup Multi-Angular Snowfall Camera\nomeqref {0.0.0}
 		\nompageref{iii}
   \item [{MEPS}]\begingroup MetCoOp Ensemble Prediction System\nomeqref {0.0.0}
 		\nompageref{iii}
+  \item [{Meso-NH}]\begingroup Mesoscale Non-Hydrostatic model\nomeqref {0.0.0}
+		\nompageref{iii}
   \item [{Met-Norway}]\begingroup Norwegian Meteorological Institute\nomeqref {0.0.0}
 		\nompageref{iii}
   \item [{MetCoOp}]\begingroup Meteorological Co-operation on Operational NWP\nomeqref {0.0.0}
 		\nompageref{iii}
+  \item [{MLT}]\begingroup Melting\nomeqref {0.0.0}\nompageref{iii}
   \item [{MRR}]\begingroup Micro Rain Radar\nomeqref {0.0.0}
 		\nompageref{iii}
   \item [{MSLP}]\begingroup Mean Sea Level Pressure\nomeqref {0.0.0}
@@ -38,6 +62,7 @@
 		\nompageref{iii}
   \item [{PSD}]\begingroup Particle Size distribution\nomeqref {0.0.0}
 		\nompageref{iii}
+  \item [{RIM}]\begingroup Riming\nomeqref {0.0.0}\nompageref{iii}
   \item [{SMHI}]\begingroup Swedish Meteorological and Hydrological Institute\nomeqref {0.0.0}
 		\nompageref{iii}
   \item [{SWC}]\begingroup Snow Water Content\nomeqref {0.0.0}
@@ -45,6 +70,8 @@
   \item [{SWP}]\begingroup Snow Water Path\nomeqref {0.0.0}
 		\nompageref{iii}
   \item [{WCB}]\begingroup Warm Conveyor Belt\nomeqref {0.0.0}
+		\nompageref{iii}
+  \item [{WET}]\begingroup Wet processes\nomeqref {0.0.0}
 		\nompageref{iii}
   \item [{WMO}]\begingroup World Meteorological Organization\nomeqref {0.0.0}
 		\nompageref{iii}

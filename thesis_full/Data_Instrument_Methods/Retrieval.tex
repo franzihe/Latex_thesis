@@ -39,16 +39,16 @@ Although the retrieval has obviously been improved the estimation algorithm, a p
 The difference between the retrieval and the snow gauge observations was \SI{-18}{\percent} when applied to data from Barrow, Alaska.\\
 \cite{cooper_variational_2017} also showed that the retrieval is sensitive to habit and fall speed. The installation of a MRR, MASC, and PIP should help to adjust the particle models for graupels and rimed particles which are often observed at Haukeliseter. 
 %
-%%%% FORWARD MODEL %%%%%%%
 \newpage
+%%%% FORWARD MODEL %%%%%%%
 \subsection{Forward model}\label{sec:forward_model}
 %%% image forward problem %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \input{./images_tex/retrieval_dragon_track}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Forward model defines a relationship between the radar observations and the retrieved state vector $\mathbf{x}$. It is difficult to find the properties of the atmosphere by using observations due to unknown parameters influencing the measurement. \\
-\cite{stephens_remote_1994} described the forward problem in the manner that a Dragon represents the known source, observations \Cref{fig:dragon}. The amount of received radiation lost during the transmittance to the sensor is unknown, the Tracks in \Cref{fig:dragon}. The forward model will help to find simulated observations before the attenuation took place and give information about the tracks of the dragon.  
+\cite{stephens_remote_1994} described the forward problem in the manner that e.g. a reindeer represents the known source, observations \Cref{fig:dragon}. The amount of received radiation lost during the transmittance to the sensor is unknown, the Tracks in \Cref{fig:dragon:forward}. The forward model will help to find simulated observations before the attenuation took place and give information about the tracks of the reindeer. In the scope of this work the inverse problem is solved. The tracks in \Cref{fig:dragon:inverse} present the vertical reflectivity observations from the MRR. Using the forward model will solve the inverse problem by finding the question mark in \Cref{fig:dragon:inverse}, which are simulated profiles of SWC.
 \\
-The knowledge about the a priori parameters and related covariances, as well as $\mathbf{x}$, are used to minimize \Cref{eq:scalar_cost_fct}. The values of $\mathbf{x}$ are found by Newtonian iteration \cite[Eq. 5]{wood_estimating_2014}.
+The knowledge about the a priori parameters and related covariances, as well as $\mathbf{x}$, are used to minimize the cost function in \Cref{eq:scalar_cost_fct}. The values of $\mathbf{x}$ are found by Newtonian iteration \cite[Eq. 5]{wood_estimating_2014}.
 \newline
 The snow water content in each layer is estimated from the knowledge of the snow particle mass-dimension relationship in \Cref{app:scat_scheme}, and a PSD related to slope parameter and number concentration (\Cref{eq:num_dens,eq:lambda,eq:N0}). % Snow water content  in each layer 
 \begin{align}
@@ -271,7 +271,7 @@ To compare retrieved snow fall rates to double fence measurements and the foreca
 \begin{align}
 	P = J_{snow} \times \num{e-3} \cdot \left(\SI{3600}{\second} \cdot24 \right) \qquad [\SI{}{\mm\per\day}]
 \end{align}
-The precipitation amount at the surface, presented in \Cref{ch:Res}, are taken to be equal to the values at the snow layer in \SI{800}{\metre}. The use of the values at \SI{800}{\metre} is due to the small increase of reflectivity (ground clutter) in the bottom layers and would follow more observed snow. 
+The precipitation amount at the surface, presented in \Cref{ch:Res}, are taken to be equal to the values at the snow layer in \SI{400}{\metre}, the lowest level of the obtained averaged MRR reflectivities. 
 % %
 % \begin{itemize}
 % 	\item \textcolor{red}{Not sure what to do with this!}
@@ -279,6 +279,8 @@ The precipitation amount at the surface, presented in \Cref{ch:Res}, are taken t
 % 	$$\pm \mathbf{S}_{x_{err}} = \mathbf{x} \pm \mathbf{S}_x$$ 
 % 	$$equiv_{err} = \frac{1}{2} \left( \frac{\abs{\text{SWC}(- \mathbf{S}_{x_{err}} ) - \text{SWC} (+ \mathbf{S}_{x_{err}}) }}{ \text{SWC}(- \mathbf{S}_{x_{err}})} + \frac{\abs{ \text{SWC}(- \mathbf{S}_{x_{err}}) - \text{SWC}(- \mathbf{S}_{x_{err}}) }}{ \text{SWC}(- \mathbf{S}_{x_{err}})} \right)$$
 % \end{itemize}
+
+
 
 
 

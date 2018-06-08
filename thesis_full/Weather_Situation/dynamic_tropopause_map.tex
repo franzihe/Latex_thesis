@@ -1,14 +1,79 @@
 % !TeX spellcheck = en_GB
 \section{Dynamic Tropopause map}
 \label{sec:DT}
-The dynamic tropopause map (DT), shown in \Cref{fig:DynTropo} presents the potential temperature distribution at the tropopause. Colder tropopause is associated with colder colours and vice versa warmer tropopause with warmer colours (shading according to the colorbar). Therefore, a warmer tropopause indicates an elevation of the atmospheric column. 
+The dynamic tropopause maps (DT), presented herein are comprised of the potential temperature (shading) and wind barbs [\SI{}{\mPs}] on the two PVU surface (one PV unit = \SI{e-6}{\metre\squared\per\s\kelvin\per\kg}), and the \num{925}--\SI{850}{\hPa} averaged relative vorticity (black contours - every \SI{.5e-4}{\per\second} only positive values are plotted).  An example is presented in \Cref{fig:DynTropo}.
+%shown in \Cref{fig:DynTropo} presents the potential temperature distribution at the tropopause. 
+%Colder tropopause is associated with colder colours and vice versa warmer tropopause with warmer colours (shading according to the colorbar). Therefore, a warmer tropopause indicates an elevation of the atmospheric column. 
+High (low) values of potential temperature represent and elevated (suppressed) tropopause.  Regions with a large horizontal gradient of potential temperate indicate  a steeply-sloping tropopause that is associated with an enhanced pressure gradient force and winds.  The low-level averaged relative vorticity is plotted to provide a 3-dimensional (in the vertical) picture of the atmosphere.  It is useful for identifying cyclone centres and attendant frontal boundaries.
 \\
-The gradient at the \SI{2}{PVU} (\SI{1}{PV} unit = \SI{e-6}{\metre\squared\per\s\kelvin\per\kg}; \cite{hoskins_use_1985}) surface, between the cold and warm area indicates the thermal wind. There is a slope between the cold and warm surfaces increasing towards the warmer column averaged temperature. An increased slope means also an increased pressure gradient force with increasing height and therefore an increase in geostrophic wind. This means, that there exists a vertical wind shear. From this, the mid-latitude jet stream can be pointed out.  \textcolor{red}{do I need to present the equation of thermal wind?} Wind barbs in \SI{}{\mPs} indicate the direction of the wind flow, which is generally from west to east in the mid-latitudes.  
+%The gradient at the \SI{2}{PVU} (\SI{1}{PV} unit = \SI{e-6}{\metre\squared\per\s\kelvin\per\kg}; \cite{hoskins_use_1985}) surface, between the cold and warm area indicates the thermal wind. There is a slope between the cold and warm surfaces increasing towards the warmer column averaged temperature. An increased slope means also an increased pressure gradient force with increasing height and therefore an increase in geostrophic wind. This means, that there exists a vertical wind shear. From this, the mid-latitude jet stream can be pointed out.  \textcolor{red}{do I need to present the equation of thermal wind?} Wind barbs in \SI{}{\mPs} indicate the direction of the wind flow, which is generally from west to east in the mid-latitudes.  
 \\
 The  \SI{925}-\SI{850}{\hPa} layer-averaged surface relative vorticity is shown in black contours, every \SI{.5e-4}{\per\second}. It represents the rotation of a fluid. \textcolor{red}{Does the relative vorticity need more explanation? }
 \\
-Along the Rossby-Wave-Guide, troughs and ridges are seen which can be combined with the surface relative vorticity to understand the vertical dynamic interaction in the atmosphere. In case of a westward tilt between the surface cyclone and an upper level through an intensification of the surface cyclone is more likely to occur.
+Along the Rossby-Wave-Guide \textcolor{red}{Define what I mean by Rossby-Wave-Guide}, troughs and ridges are seen which can be combined with the surface relative vorticity to understand the vertical dynamic interaction in the atmosphere. In case of a westward tilt between the surface cyclone and an upper level through an intensification of the surface cyclone is more likely to occur.
+% It might be interesting to show a single DT plot (large) and identify the above elements to help clarify ... and show a slp-thickness-jet map at the same time side by side identifying the same features!  And ... having read further, an IVT map as well.  I think it would be good to have a three panel figure at one time illustrating the different plots and the relationship with synoptic scale weather and the coherence between the different plots
+\newpage
+%%%%%% 20/12 DT
+\noindent\begin{minipage}%[t][0.55\textheight]
+[t]{.51\textwidth}
+  	\centering
+  		\includegraphics[trim={4.2cm 0cm 4.3cm 5.1cm},clip,
+        width=\textwidth]{./fig_DynTropo/20161220_12}
+\end{minipage}\hfill
+\begin{minipage}[b]{.44\textwidth}
+	\captionof{subfigure}{Dynamic tropopause analysis map at \SI{2}{PVU}. Potential temperature [K] at the \SI{2}{PVU} surface, shaded according to the colour bar. Total wind, barbs [\SI{}{\mPs}], and \SI{925}--\SI{850}{\hPa} layer-averaged surface relative vorticity (black contours, every \SI{.5e-4}{\per\second}).} \label{fig:DT20}
+\end{minipage}
+%%%%%% 20/12 slp thickness
+\noindent\begin{minipage}%[t][0.55\textheight]
+[t]{.51\textwidth}
+  	\centering
+  		\includegraphics[trim={4.2cm 0cm 4.3cm 5.1cm},clip,
+         width=\textwidth]{./fig_Geopot_Jet/20161220_12}
+\end{minipage}\hfill
+\begin{minipage}[b]{.44\textwidth}
+	\captionof{subfigure}{Jet, thickness, mean sea level pressure, and moisture synoptic analysis. \SI{250}{\hPa} wind speed, shaded according to the colour bar, [\SI{}{\mPs}]. \SI{1000}-\SI{500}{\hPa} thickness, dashed contours every \SI{6}{\deca\meter}, MSLP, black contours every \SI{4}{\hPa}, total column water vapour [\SI{}{\mm}], shaded according the grey scale.} \label{fig:GP20}
+\end{minipage}
+%%%%%% 20/12 IVT
+\noindent\begin{minipage}%[t][0.55\textheight]
+[t]{.51\textwidth}
+  	\centering
+  		\includegraphics[trim={4.2cm 0cm 4.3cm 5.1cm},clip,
+         width=\textwidth]{./fig_Atm_Riv/20161220_12}
+\end{minipage}\hfill
+\begin{minipage}[b]{.44\textwidth}
+	\captionof{subfigure}{Atmospheric river analysis map. IVT, shaded according to the colour bar [\SI{}{\IVT}]. Vectors, indicating the direction and magnitude of the IVT. } \label{fig:AR20}
+\end{minipage}
+\captionof{figure}{ECMWF analysis on \SI{20}{\dec} at \SI{12}{\UTC}.}\label{fig:20_12}
 
-%%% Dynamic tropopause map %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\input{images_tex/WeatherSit_DynTropo}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\begin{figure}
+	\centering
+    \begin{subfigure}[b]{0.49\textwidth}
+    	\includegraphics[trim={4.2cm 0cm 4.3cm 5.1cm},clip,
+        width=\textwidth]{./fig_DynTropo/20161220_12}
+        \caption{}
+    \end{subfigure}
+    %
+    \begin{subfigure}[b]{0.49\textwidth}
+    	\includegraphics[trim={4.2cm 0cm 4.3cm 5.1cm},clip,
+         width=\textwidth]{./fig_Geopot_Jet/20161220_12}
+        \caption{}
+    \end{subfigure}
+    %
+    \begin{subfigure}[b]{0.49\textwidth}
+    	\includegraphics[trim={4.2cm 0cm 4.3cm 5.1cm},clip,
+         width=\textwidth]{./fig_Atm_Riv/20161220_12}
+        \caption{}
+    \end{subfigure}
+    %
+    \begin{subfigure}[b]{0.49\textwidth}
+    	\includegraphics[trim={4.9cm 1.cm 1.5cm 1cm},clip,
+		width=\textwidth]{./fig_weathermast/T_P_U_20161220}
+        \caption{}
+    \end{subfigure}
+\end{figure}
+
+
+% %%% Dynamic tropopause map %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \input{images_tex/WeatherSit_DynTropo}
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

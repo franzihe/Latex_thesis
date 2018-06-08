@@ -1,40 +1,16 @@
 % !TeX spellcheck = en_GB
 \section{Optimal Estimation Retrieval Algorithm} %Section - 1.2
 \label{sec:retrieval}
-Since 2006, with the launch of CloudSats Cloud Profiling Radar (CPR) a global estimation of snowfall can be done. Several studies, such as \citet{kulie_utilizing_2009} have shown that estimated snowfall values depend heavily upon assumed snowflake microphysical properties.
-%\textcolor{red}{Steve had some insertions but no comments.}
-%depending on the retrieval assumption, snowfall estimation can give the same values for different a priori guess, e.g. snowflake microphysical properties. 
-%Introducing information from snow microphysics will reduce the non-uniqueness in optimal estimation radar retrieval schemes. 
-%This can be done by using the temperature at a lower level as a priori as the CloudSat retrieval does.  
-%\\
+% maybe start out by saying that you are trying to estimate atmospheric parameters  (SWC in our case) from a set of measurements.   The optimal-estimation approach provides a flexible retrieval framework that can incorporate multiple measurements/ pieces of information into a common retrieval framework.  In this way, we can use measurements from MRR, PIP, and MASC to estimate vertical profiles of snowfall.  You could then discuss the reindeer -> tracks thing to illustrate the general principle.  
+Since 2006, with the launch of the CloudSat Cloud Profiling Radar (CPR) a global estimation of snowfall can be done. Several studies, such as \citet{kulie_utilizing_2009} have shown that estimated snowfall values depend heavily upon assumed snowflake microphysical properties.
 \citet{wood_microphysical_2015} showed that a refinement of the CloudSat snowfall retrieval algorithm can be performed by using snowflake models. 
-%\textcolor{red}{That was Steves comment which is exactly what I wrote? "
 This study was based on data from the Canadian CloudSat-CALIPSO Validation Project \citep[C3VP,][]{hudak_canadian_2006}, where they concentrated on cold season clouds and precipitation.
-%"} 
 \\
-\noindent In an attempt to reduce the non-uniqueness of the problem, \citet{wood_microphysical_2015} used the a priori knowledge of snowfall microphysics and temperature (from ground-based observations) to refine the forward-model assumptions for the CloudSat snowfall retrieval scheme. 
-%\textcolor{red}{Steve: "They also used a temperature to introduce a priori information on particle size into the retrieval scheme. " Me: They did? So, by introducing a temp they estimate the particle size?}
+In an attempt to reduce the non-uniqueness of the problem, \citet{wood_microphysical_2015} used the a priori knowledge of snowfall microphysics and temperature (from ground-based observations) to refine the forward-model assumptions for the CloudSat snowfall retrieval scheme. 
 Results from this scheme showed a good agreement with reported values observed at meteorological measurement sites. \\
 Model estimates have proven, how useful the estimation retrieval can be to verify ground-based radar snowfall measurements \citep{norin_intercomparison_2015}.
 Although the retrieval has obviously been improved the estimation algorithm, a priori guess can still lead to uncertainties in the retrievals of up to \SIrange{140}{200}{\percent} \citep{wood_estimation_2011}. 
 \\
-% \noindent The snowfall retrieval assumes an exponential particle size distribution (PSD)
-% \begin{align}
-% 	N(D) = N_{0} exp(-\lambda D).
-% 	\label{eq:PSD}
-% \end{align} 
-% $\lambda$ represents here the PSD slope parameter and $N_{0}$ the number density. 
-% %$D$ is the particle maximum dimension evaluated from the MASC. 
-% \\
-% The optimal estimation technique is based on Gaussian statistics. Minimizing the scalar cost function, $\Phi$ for the snowfall properties, $x$ by; 
-% \begin{equation}
-% \begin{split}
-% \Phi(x,y,a) = &(y- F(x))^T \mathbf{S}_y^{-1} (\mathbf{y}-F(\mathbf{x})) \\
-% &+(x-a)^T \mathbf{S}_{a}^{-1} (x-a)
-% \end{split} \label{eq:scalar_cost_fct}
-% \end{equation}
-% where, $x$, vector of retrieved snowfall properties (slope parameter and number density); $y$, vector of observation (MRR reflectivity) ; $a$, vector of the a priori guess (temperature dependent); $F$, forward model; $\mathbf{S}_a$, a priori error covariance matrix; $\mathbf{S}_y$, measurement error covariance matrix.
-% \\
 \citet{cooper_variational_2017} developed a technique to combine MRR, MASC, and PiP information into a common retrieval framework. Specifically, estimates of snowflake microphysical properties from the MRR are used as the a priori term in the optimal-estimation retrieval scheme. The usage of either MASC/PiP or MRR fall-speed can show which a priori guess in the retrieval gives the more accurate retrieved snowfall rate at the ground. \\
 The difference between the retrieval and the snow gauge observations was \SI{-18}{\percent} when applied to data from Barrow, Alaska.\\
 \citet{cooper_variational_2017} also showed that the retrieval is sensitive to habit and fall speed. The installation of a MRR, MASC, and PIP should help to adjust the particle models for graupels and rimed particles which are often observed at Haukeliseter. 
@@ -42,10 +18,13 @@ The difference between the retrieval and the snow gauge observations was \SI{-18
 \newpage
 %%%% FORWARD MODEL %%%%%%%
 \subsection{Forward model}\label{sec:forward_model}
+%Should we discuss the forward model after we discuss OE?   Also, note there is very little attenuation at 24 GHz so I'm not sure why we spend so much time discussing it. 
 %%% image forward problem %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \input{./images_tex/retrieval_dragon_track}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-Forward model defines a relationship between the radar observations and the retrieved state vector $\mathbf{x}$. It is difficult to find the properties of the atmosphere by using observations due to unknown parameters influencing the measurement. \\
+Forward model defines a relationship between the radar observations and the retrieved state vector $\mathbf{x}$. It is difficult to find the properties of the atmosphere by using observations due to unknown parameters influencing the measurement. 
+\\
+% I have no idea what this paragraph is saying.  I mean I know but not from what is written.
 \citet{stephens_remote_1994} described the forward problem in the manner that e.g. a reindeer represents the known source, observations \Cref{fig:dragon}. The amount of received radiation lost during the transmittance to the sensor is unknown, the Tracks in \Cref{fig:dragon:forward}. The forward model will help to find simulated observations before the attenuation took place and give information about the tracks of the reindeer. In the scope of this work the inverse problem is solved. The tracks in \Cref{fig:dragon:inverse} present the vertical reflectivity observations from the MRR. Using the forward model will solve the inverse problem by finding the question mark in \Cref{fig:dragon:inverse}, which are simulated profiles of SWC.
 \\
 The knowledge about the a priori parameters and related covariances, as well as $\mathbf{x}$, are used to minimize the cost function in \Cref{eq:scalar_cost_fct}. The values of $\mathbf{x}$ are found by Newtonian iteration \citet[Eq. 5]{wood_estimating_2014}.
@@ -61,49 +40,56 @@ To achieve a relationship between the reflectivity and the snowfall amount one n
 	Ze^{ss,na} & = \frac{\Lambda^4}{\left\| K_w \right\|^2 \pi^5} \eta_{bk} \qquad [\SI{}{\mm^6\metre^{-3}}] \label{eq:singleZ}
 \end{align}
 % $\ldots$ snow backscatter coefficient
-where, $\Lambda$ is the wavelength of the radar; $\left\| K_w \right\|^2$ is the complex refractive index of water and varies between \numlist{0.91;0.93} for wavelength between \SIlist{0.01;0.10}{\metre} and is independent of temperature. It also exists a  complex refractive index for ice $\left\| K_i \right\|^2$, which is \SI{0.18}{}. This is valid for a density of \SI{0.917}{\gram\per\cubic\cm} and is independent of temperature and of wavelength in the microwave region \citep{doviak_doppler_1993}. In this work  $\left\| K_w \right\|^2 = 0.93$ is chosen, \textcolor{red}{BECAUSE???}. 
-\\
-The singly-scattered reflectivity has to be corrected for attenuation in the layers above the actual layer. According to Beer's law is in a homogeneous medium one-way transmission assumed. 
-% account for attenuation
-% homogeneous medium $\Rightarrow$ one-way transmission, Beer's law
-\begin{align}
-	\frac{I_{\lambda}}{I_{\lambda_0}} & = \exp \left[ - \int_0^s \beta_{ext} ds'\right] \label{eq:Beer}
-\end{align}
-where $s$ is the path length through the medium. The transmissivity $I_{\lambda}/I_{\lambda_0}$ is the relation of survived radiation through extinction in the atmosphere with the snow extinction coefficient $\beta_{ext}$
-\begin{align}
-	\beta_{ext} & = \int_{r_{min}}^{r_{max}} n(r) \sigma_{ext} dr \qquad [\SI{}{\per\metre}] \label{eq:bext}
-\end{align}
-The extinction coefficient is the sum of absorption and scattering in the atmosphere followed from the extinction cross-section $\sigma_{ext} = \sigma_{abs} + \sigma_{scat}$, \citep{lohmann_introduction_2016,lamb_physics_2011}. \textcolor{red}{\citet[Eq. 12.1 and more][]{lohmann_introduction_2016}} \\
-%singly-scattered attenuated reflectivity 
-Following \Cref{eq:singleZ,eq:Beer,eq:bext} the singly-scattered attenuated reflectivity $Ze^{ss, a}$ is
-\begin{align}
-	Ze^{ss, a} & = Ze^{ss, na} \cdot \frac{I_{\lambda}}{I_{\lambda_0}} \qquad [\SI{}{\mm^6\metre^{-3}}] \label{eq:sing_scatt_att_Z}
-\end{align}
-% multiply-scattered attenuated reflectivity 
-% \citet{matrosov_s._y._influence_2009} found that in heavy snow conditions the multiply-scattered attenuated reflectivity lies between the singly-scattered attenuated and non-attenuated reflectivity \citep[compare Fig. 3.3 in][]{matrosov_s._y._influence_2009}. Therefore, is as in \citet{wood_level_2013} the multiply-scattered attenuated reflectivity, $Ze^ms$, approximated as geometric mean.
+where, $\Lambda$ is the wavelength of the radar; $\left\| K_w \right\|^2$ is the complex refractive index of water and varies between \numlist{0.91;0.93} for wavelength between \SIlist{0.01;0.10}{\metre} and is independent of temperature. It also exists a  complex refractive index for ice $\left\| K_i \right\|^2$, which is \SI{0.18}{}. This is valid for a density of \SI{0.917}{\gram\per\cubic\cm} and is independent of temperature and of wavelength in the microwave region \citep{doviak_doppler_1993}. In this work  $\left\| K_w \right\|^2 = 0.93$ is chosen. \textcolor{red}{Why did we choose K$_w$ and not the one for ice?}
+% Is anything in this section after this point even necessary?  There is practically no attenaution at 24 GHZ for snow.  
+%, \textcolor{red}{BECAUSE???}. 
+% %
+% \\
+% The singly-scattered reflectivity has to be corrected for attenuation in the layers above the actual layer. According to Beer's law is in a homogeneous medium one-way transmission assumed. 
+% % account for attenuation
+% % homogeneous medium $\Rightarrow$ one-way transmission, Beer's law
 % \begin{align}
-% 	Ze^ms & = \sqrt{Ze^{ss,na} \cdot Ze^{ss,a}} \qquad [\SI{}{\dB Z}]
+% 	\frac{I_{\lambda}}{I_{\lambda_0}} & = \exp \left[ - \int_0^s \beta_{ext} ds'\right] \label{eq:Beer}
 % \end{align}
-% $\Rightarrow$ simulated reflectivity from forward model 
-That follows with the use of radiative transfer equations for the simulated reflectivity from the forward model, $F(\mathbf{x})$ in \Cref{eq:scalar_cost_fct}, after the transformation with \Cref{eq:Ze}
-\begin{align}
-	F(\mathbf{x}) & = \begin{bmatrix} 
-		Ze^{ss,a}_1 \\
-		\vdots \\
-		Ze^{ss,a}_{nlayer}
-	\end{bmatrix} \qquad [\SI{}{\decibel Z}]. \label{eq:forward_model}
-\end{align}
+% where $s$ is the path length through the medium. The transmissivity $I_{\lambda}/I_{\lambda_0}$ is the relation of survived radiation through extinction in the atmosphere with the snow extinction coefficient $\beta_{ext}$
+% \begin{align}
+% 	\beta_{ext} & = \int_{r_{min}}^{r_{max}} n(r) \sigma_{ext} dr \qquad [\SI{}{\per\metre}] \label{eq:bext}
+% \end{align}
+% The extinction coefficient is the sum of absorption and scattering in the atmosphere followed from the extinction cross-section $\sigma_{ext} = \sigma_{abs} + \sigma_{scat}$, \citep{lohmann_introduction_2016,lamb_physics_2011}. \textcolor{red}{\citet[Eq. 12.1 and more][]{lohmann_introduction_2016}} \\
+% %singly-scattered attenuated reflectivity 
+% Following \Cref{eq:singleZ,eq:Beer,eq:bext} the singly-scattered attenuated reflectivity $Ze^{ss, a}$ is
+% \begin{align}
+% 	Ze^{ss, a} & = Ze^{ss, na} \cdot \frac{I_{\lambda}}{I_{\lambda_0}} \qquad [\SI{}{\mm^6\metre^{-3}}] \label{eq:sing_scatt_att_Z}
+% \end{align}
+% % multiply-scattered attenuated reflectivity 
+% % \citet{matrosov_s._y._influence_2009} found that in heavy snow conditions the multiply-scattered attenuated reflectivity lies between the singly-scattered attenuated and non-attenuated reflectivity \citep[compare Fig. 3.3 in][]{matrosov_s._y._influence_2009}. Therefore, is as in \citet{wood_level_2013} the multiply-scattered attenuated reflectivity, $Ze^ms$, approximated as geometric mean.
+% % \begin{align}
+% % 	Ze^ms & = \sqrt{Ze^{ss,na} \cdot Ze^{ss,a}} \qquad [\SI{}{\dB Z}]
+% % \end{align}
+% % $\Rightarrow$ simulated reflectivity from forward model 
+% That follows with the use of radiative transfer equations for the simulated reflectivity from the forward model, $F(\mathbf{x})$ in \Cref{eq:scalar_cost_fct}, after the transformation with \Cref{eq:Ze}
+% \begin{align}
+% 	F(\mathbf{x}) & = \begin{bmatrix} 
+% 		Ze^{ss,a}_1 \\
+% 		\vdots \\
+% 		Ze^{ss,a}_{nlayer}
+% 	\end{bmatrix} \qquad [\SI{}{\decibel Z}]. \label{eq:forward_model}
+% \end{align}
 
 
-% \begin{itemize}
-% 	\item \textcolor{red}{not really using the following - What to do with it?}
-% 	\item \textcolor{red}{total number concentration} \\
-% 	$$n_{tot} = \int_{r_{min}}^{r_{max}} n(r) dr \qquad [\SI{}{\per\cubic\metre}]$$ 
-% 	\item $\ldots$ \textcolor{red}{??? }
+% % \begin{itemize}
+% % 	\item \textcolor{red}{not really using the following - What to do with it?}
+% % 	\item \textcolor{red}{total number concentration} \\
+% % 	$$n_{tot} = \int_{r_{min}}^{r_{max}} n(r) dr \qquad [\SI{}{\per\cubic\metre}]$$ 
+% % 	\item $\ldots$ \textcolor{red}{??? }
 
 % \end{itemize}
+%
+%
+%
 %%% RETRIEVAL SCHEME %%%%%%%%%
 \subsection{Snowfall retrieval scheme}\label{sec:ret_scheme}
+% To understand how we incorporate in-situ observations of snowflake microphysics from the MASC/ PIP into the retireval scheme, it is helpful to review the structure of the optimal-estiamtion approach.  
 The optimal estimation method is based on Gaussian statistics. Minimizing the scalar cost function, $\Phi$ for the snowfall properties, $\mathbf{x}$. The cost function weights the difference between the observed reflectivity and the simulated measurements as well as the difference between the estimated and a priori guess. %A forward model $F(\mathbf{x})$ relates unknown snowfall parameters $\mathbf{x}$ to radar observations $y$ and approximates the true physical state between them \citep{wood_estimating_2014,cooper_variational_2017}. 
 \\
 Scalar cost function:

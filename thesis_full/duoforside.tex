@@ -22,93 +22,95 @@
 %% The main command:
 
 \newcommand{\duoforside}[1][]{{%
-  \parindent = 0pt   \parskip = 0pt
-  \@ifundefined{hypersetup}{}{\hypersetup{pageanchor=false}}
-  \setkeys{duo@keys}{#1}
-  \duo@page@i
-  \@ifundefined{duo@thesisname@eng}
-    {\if@twoside \duo@blankpage \fi}
-    {\duo@page@ii \duo@page@iii \duo@page@iv}
-  \setcounter{page}{1}
-  \@ifundefined{hypersetup}{}{\hypersetup{pageanchor=true}}
+		\parindent = 0pt   \parskip = 0pt
+		\@ifundefined{hypersetup}{}{\hypersetup{pageanchor=false}}
+		\setkeys{duo@keys}{#1}
+		\duo@page@i
+		\@ifundefined{duo@thesisname@eng}
+		{\if@twoside \duo@blankpage \fi}
+		{\duo@page@ii \duo@page@iii \duo@page@iv}
+		\setcounter{page}{1}
+		\@ifundefined{hypersetup}{}{\hypersetup{pageanchor=true}}
 }}
 
 \newcommand{\duo@empty}{}
 
 \newcommand{\duo@page@i}{%
-  \begin{titlepage}
-    \fontfamily{\duo@font}\fontencoding{T1}
-    \def \and {\\}
-    \centering
-    \fontsize{16}{19pt}\selectfont
-    \null\par
-    \vspace*{-2cm}
-    {\fontsize{24}{28pt}\selectfont \duo@title\par}
-    \vspace{1\baselineskip}
-    \ifx \duo@subtitle = \duo@empty
-    \else
-        {\fontsize{20}{23pt}\fontshape{sl}\selectfont \duo@subtitle\par}
-        \vspace{1\baselineskip}
-    \fi
-    \duo@author\par
-    \vspace{1\baselineskip plus 3fill}
-    \includegraphics[width=6cm]{DUO_UiO_segl}\par
-    \vspace{1\baselineskip plus 4fill}
-    \ifx \duo@kind = \duo@empty
-    \else
-      \duo@kind\par
-      \vspace{1\baselineskip}
-    \fi
-    \ifx \duo@dept = \duo@empty
-    \else
-      \duo@dept\par
-    \fi
-    \ifx \duo@fac = \duo@empty
-    \else
-      \duo@fac\par
-      \vspace{1\baselineskip}
-    \fi
-    \MakeUppercase{\csname duo@uio@\duo@lang\endcsname}\par
-    \vspace{1\baselineskip}
-    {\fontsize{12}{14pt}\selectfont \duo@date\par}
-    \vspace{-2cm}
-    \null
-  \end{titlepage}
+	\begin{titlepage}
+		\fontfamily{\duo@font}\fontencoding{T1}
+		\def \and {\\}
+		\centering
+		\fontsize{16}{19pt}\selectfont
+		\null\par
+		\vspace*{-2cm}
+		{\fontsize{24}{28pt}\selectfont \duo@title\par}
+		\vspace{1\baselineskip}
+		\ifx \duo@subtitle = \duo@empty
+		\else
+		{\fontsize{20}{23pt}\fontshape{sl}\selectfont \duo@subtitle\par}
+		\vspace{1\baselineskip}
+		\fi
+		\duo@author\par
+		\vspace{1\baselineskip plus 3fill}
+		\includegraphics[width=6cm]{DUO_UiO_segl}\par
+		\vspace{1\baselineskip plus 4fill}
+		\ifx \duo@kind = \duo@empty
+		\else
+		\duo@kind\par
+		\vspace{1\baselineskip}
+		\fi
+		\ifx \duo@dept = \duo@empty
+		\else
+		\duo@dept\par
+		\fi
+		\ifx \duo@fac = \duo@empty
+		\else
+		\duo@fac\par
+		\vspace{1\baselineskip}
+		\fi
+		\MakeUppercase{\csname duo@uio@\duo@lang\endcsname}\par
+		\vspace{1\baselineskip}
+		{\fontsize{12}{14pt}\selectfont \duo@date\par}
+		\vspace{-2cm}
+		\null
+	\end{titlepage}
 }
 
 \newcommand{\duo@page@ii}{%
-  \duo@blankpage
+	\duo@blankpage
 }
 
 \newcommand{\duo@page@iii}{%
-  \begin{titlepage}
-    \def \and {\\}
-    \centering
-    \null\vfill
-    {\fontsize{24}{28pt}\fontseries{bx}\selectfont \@title\par}
-    \vfill
-    {\fontsize{20}{23pt}\fontshape{sl}\selectfont \duo@subtitle\par}
-    \vfill
-    {\fontsize{16}{18pt}\selectfont \@author\par}
-    \vfill\vfill\vfill
-    \ifthenelse{\equal{\duo@image}{}}{}
-      {\includegraphics[keepaspectratio,width=10cm,height=8cm]{\duo@image}\par\vfill\vfill}
-  \end{titlepage}
+	\begin{titlepage}
+		\def \and {\\}
+		\centering
+		\null\vfill
+		{\fontsize{24}{28pt}\fontseries{bx}\selectfont \@title\par}
+		\vfill
+		{\fontsize{20}{23pt}\fontshape{sl}\selectfont \duo@subtitle\par}
+		\vfill
+		{\fontsize{16}{18pt}\selectfont \@author\par}
+		\vfill\vfill\vfill
+		\ifthenelse{\equal{\duo@image}{}}{}
+		{\includegraphics[keepaspectratio,width=10cm,height=8cm]{\duo@image}\par\vfill\vfill}
+		\raggedright
+		\vfill \footnotesize{Satellite image of the extreme extratropical cyclone on 24 December 2016 at the coast of Norway. Image obtained from the Dundee Satellite Receiving Station \url{http://www.sat.dundee.ac.uk}.}
+	\end{titlepage}
 }
 
 \newcommand{\duo@page@iv}{%
-  \begin{titlepage}
-    \null
-    \vfill
-    \raggedright
-    \def \and {, }
-    \textcopyright~\arabic{duo@cur@year} \duo@author\\[\baselineskip]
-    \leavevmode\duo@title\\[\baselineskip]
-    \url{http://www.duo.uio.no/}
-    \ifthenelse{\equal{\duo@printer}{}}{}
-      {\\[\baselineskip] \csname duo@printertitle@\duo@lang \endcsname:
-        \duo@printer}
-  \end{titlepage}
+	\begin{titlepage}
+		\null
+		\vfill
+		\raggedright
+		\def \and {, }
+		\textcopyright~\arabic{duo@cur@year} \duo@author\\[\baselineskip]
+		\leavevmode\duo@title\\[\baselineskip]
+		\url{http://www.duo.uio.no/}
+		\ifthenelse{\equal{\duo@printer}{}}{}
+		{\\[\baselineskip] \csname duo@printertitle@\duo@lang \endcsname:
+			\duo@printer}
+	\end{titlepage}
 }
 
 
@@ -168,12 +170,12 @@
 \newcounter{duo@cur@month}  \setcounter{duo@cur@month}{\the\month}
 
 \ifthenelse{\theduo@cur@month<7}
-  {\newcommand{\duo@term@eng}{Spring}%
-   \newcommand{\duo@term@bm}{V\aa ren}%
-   \newcommand{\duo@term@nn}{V\aa ren}}
-  {\newcommand{\duo@term@eng}{Autumn}%
-   \newcommand{\duo@term@bm}{H\o sten}%
-   \newcommand{\duo@term@nn}{Hausten}}
+{\newcommand{\duo@term@eng}{Spring}%
+	\newcommand{\duo@term@bm}{V\aa ren}%
+	\newcommand{\duo@term@nn}{V\aa ren}}
+{\newcommand{\duo@term@eng}{Autumn}%
+	\newcommand{\duo@term@bm}{H\o sten}%
+	\newcommand{\duo@term@nn}{Hausten}}
 \newcommand{\duo@term}{\csname duo@term@\duo@lang\endcsname}
 \newcommand{\duo@year}{\arabic{duo@cur@year}}
 
@@ -181,8 +183,8 @@
 %% Other utilities:
 
 \newcommand{\duo@blankpage}{%
-    \thispagestyle{empty}
-    \null
-    \newpage}
+	\thispagestyle{empty}
+	\null
+	\newpage}
 
 \endinput

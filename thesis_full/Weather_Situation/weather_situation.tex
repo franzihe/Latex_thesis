@@ -1,14 +1,18 @@
 % !TeX spellcheck = en_GB
 % %%% ***************** CHAPTER SYNOPTIC WEATHER SITUATION ***************** %%%
-\chapter{Analysis of the Christmas Storm 2016}
+\chapter{Analysis of the Christmas Storm 2016}\label{ch:weather_ana}
 %\textcolor{red}{\textbf{The overleaf file from the Synoptic weather situation is here:} \\
 %	\url{https://www.overleaf.com/13946126xwbhxxrcwbyd}}
 %\\
-This extreme weather event is chosen since MEPS just became operational and in addition surface snow instruments where installed to profile the vertical at Haukeliseter. Preliminary test showed the overestimation of snow accumulation by MEPS compared to the measurements at the ground. Furthermore, changed the phase of precipitation from solid to liquid to solid.  
+%This extreme weather event is chosen since MEPS just became operational and in addition surface snow instruments where installed to profile the vertical at Haukeliseter. Preliminary test showed the overestimation of snow accumulation by MEPS compared to the measurements at the ground. Furthermore, changed the phase of precipitation from solid to liquid to solid.  
+Extreme storm Urd was chosen for an in depth examination for a number of intriguing reasons:  i) the MEPS forecasting system had recently become the operational model platform for Met-Norway, ii) the Haukerlister site is a WMO sanctioned weather station with single and double fence rain gauge measurements, iii) additional instruments were placed at the site for the winter 2016/2017 season allowing for the vertical profiling of snow properties and snowfall accumulation, and iv) the unique temporal evolution of the precipitation properties during the event.
 \\
-The next sections will give a definition of an extreme weather event, a description of the different weather maps, and a synoptic interpretation of the storm and why mixed phase precipitation was observed at Haukeliseter. \\
-Before the analysis each weather maps' purpose  will be presented to understand the connections between them. For this, the ECMWF operational model Cycle {43r1} are used. The analysis consists of 137 model levels and to reduce computational costs is it reduced to the \textit{octahedral reduced Gaussian grid} and then interpolated to a N640 Gaussian grid. 
+A preliminary analysis identified periods of both good agreement of snow accumulation measurements by MEPS in comparison to the ground observations, as well as periods of overestimation by MEPS.  The above factors make for an interesting study to assess and better understand the usefulness of the measurements in question.
 \\
+The next sections will provide a definition of an extreme weather event, a description of the weather maps that were utilized, and a presentation of the synoptic scale evolution of the storm. \\
+Prior to the analysis, each weather maps' purpose  will be presented to understand the connections between them. All the weather maps are generated using data from ECMWF operational model Cycle {43r1}. The analysis consists of 137 model levels and to reduce computational costs is it reduced to the \textit{octahedral reduced Gaussian grid} and then interpolated to a N640 Gaussian grid. 
+\\
+% Rich says about the following: seems more than necessary but keep the reference!
 Between the pole and the equator are 640 lines of latitude equally symmetric spaced. This follows 1280 latitude lines for each hemisphere. The resolution along the longitude is \SI{90}{\degree}/640 lines with points getting closer with increasing latitude. This follows a total number of grid points of $8 \cdot 640^2$ \citep{dando_introducing_2016}.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -21,14 +25,14 @@ Between the pole and the equator are 640 lines of latitude equally symmetric spa
 \input{./Weather_Situation/dynamic_tropopause_map}
 \newpage
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % %%%%%%%%% THICKNESS MAP %%%%%%%%%%%%%%
 \input{./Weather_Situation/thickness_map}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % %%%%%%%%% ATM_RIV %%%%%%%%%%%%%%
 \input{./Weather_Situation/atmospheric_river_map}
 
@@ -38,15 +42,16 @@ Between the pole and the equator are 640 lines of latitude equally symmetric spa
 % %%%%%%%%% WEATHERMAST OBSV %%%%%%%%%%%%%%
 \input{./Weather_Situation/weather_mast}
 
-\newpage
+% \newpage
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% %%%%%%%%% RADIOSONDES STAVANGER %%%%%%%%%%%%%%
-\input{./Weather_Situation/radiosondes}
+% % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% % %%%%%%%%% RADIOSONDES STAVANGER %%%%%%%%%%%%%%
+% \input{./Weather_Situation/radiosondes}
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% %%%%%%%%% LARGE SCALE CIRCULATION %%%%%%%%%%%%%%
-\input{./Weather_Situation/large_scale_circulation}
+% % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% % %%%%%%%%% LARGE SCALE CIRCULATION %%%%%%%%%%%%%%
+% \input{./Weather_Situation/large_scale_circulation}
+

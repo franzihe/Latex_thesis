@@ -1,0 +1,283 @@
+% !TeX spellcheck = en_GB
+\section{Optimal Estimation Retrieval Algorithm} %Section - 1.2
+\label{sec:retrieval}
+% maybe start out by saying that you are trying to estimate atmospheric parameters  (SWC in our case) from a set of measurements.   The optimal-estimation approach provides a flexible retrieval framework that can incorporate multiple measurements/ pieces of information into a common retrieval framework.  In this way, we can use measurements from MRR, PIP, and MASC to estimate vertical profiles of snowfall.  You could then discuss the reindeer -> tracks thing to illustrate the general principle.  
+% literally taken from paper until Skofronick, Noh
+The quantitative estimation of snowfall at the global scale from spaceborne measurements has occurred only recently. Initial retrieval approaches were based on passive microwave measurements \citep{skofronick-jackson_physical_2004,noh_development_2006}. But since these passive measurements can only assess total integrated snow water path for a given column, such efforts were unable to provide much information on the vertical profiles of snow water. 
+The launch of the CloudSat \SI{94}{\giga\hertz} Cloud Profiling Radar (CPR) in 2006, however, provided the first opportunity to examine such vertical structure at a global scale. Several studies, such as \citet{matrosov_modeling_2007} and \citet{kulie_utilizing_2009}, have shown that the CPR can be used to estimate snofall rate but that estimated snowfall values depend heavily upon assumed snowflake microphysical properties. So, for a given radar reflectivity, we can get large differences in estimated snow rate depending upon retrieval assumptions such as snowflake habit and particle size distribution (PSD).
+%
+%\citet{wood_microphysical_2015} showed that a refinement of the CloudSat snowfall retrieval algorithm can be performed by using snowflake models. This study was based on data from the Canadian CloudSat-CALIPSO Validation Project \citep[C3VP,][]{hudak_canadian_2006}, where they concentrated on cold season clouds and precipitation.
+For the operational CloudSat snowfall retrieval scheme (2C-SNOW-PROFILE), \citet{wood_microphysical_2015} developed snowflake particle models based upon video snow disdrometer observations from the Canadian CloudSat-CALIPSO Validation Project \citep[C3VP,][]{hudak_canadian_2006}. Scattering properties for these snow particle models were based upon the Discrete Dipole Approximation (DDA) method. It was hoped that the use of realistic snow properties in the retrievals would lead to reasonable estimates of snowfall in the retrieval. In addition, they derived an a priori relationship between particle size distribution parameters and temperature that they could use as an additional constraint for the snowfall scheme. Use of the flexible optimal-estimation retrieval framework allowed a means to develop a best estimate of snow properties that are consistent with both the CPR reflectivities and the a priori constraint. 
+\\
+%In an attempt to reduce the non-uniqueness of the problem, \citet{wood_microphysical_2015} used the a priori knowledge of snowfall microphysics and temperature (from ground-based observations) to refine the forward-model assumptions for the CloudSat snowfall retrieval scheme. 
+%Results from this scheme showed a good agreement with reported values observed at meteorological measurement sites \textcolor{red}{references}. 
+%\\
+%Model estimates have proven, how useful the estimation retrieval can be to verify ground-based radar snowfall measurements \citep{norin_intercomparison_2015}.Although the retrieval has obviously been improved the estimation algorithm, a priori guess can still lead to uncertainties in the retrievals of up to \SIrange{140}{200}{\percent} \citep{wood_estimation_2011}. 
+They have also been used to estimate snowfall in remote locations such as the Antarctic and Arctic \citep{palerme_how_2014,kulie_shallow_2016}, that in turn, have been used to evaluate the representation of snowfall in climate models \citep{palerme_evaluation_2017,christensen_arctic_2016}. Similarly, these estimates have been used to assess the performance of ground-based radar schemes such as those based upon the operational weather radar system in Sweden \citep{norin_intercomparison_2015}. Despite such progress, however, the CloudSat scheme can still lead to uncertainties in the retrievals of up to \SIrange{140}{200}{\percent} \citep{wood_estimation_2011} for individual storms.
+\\
+%\citet{cooper_variational_2017} developed a technique to combine MRR, MASC, and PiP information into a common retrieval framework. Specifically, estimates of snowflake microphysical properties from the MRR are used as the a priori term in the optimal-estimation retrieval scheme. The usage of either MASC/PiP or MRR fall-speed can show which a priori guess in the retrieval gives the more accurate retrieved snowfall rate at the ground. 
+Again, these uncertainties arise from the large variance in snowflake microphysical  properties as observed in nature. In response, \citet{cooper_variational_2017} explored the use of in-situ, event specific  observations of snowflake microphysical properties to improve radar-based retrievals of snowfall.  This work was based upon observations from the Ka-band ARM Zenith Radar (KAZR) and Multi-Angle Snow Camera (MASC) deployed at the ARM Climate Facility Site at Barrow in Spring 2014. This ground-based \SI{35}{\giga\hertz} retrieval scheme was modified from the space-borne \SI{94}{\giga\hertz} CloudSat retrieval scheme developed by \citet{wood_estimation_2011}. But instead of using a temperature dependent a priori characterisation of PSD, \citeauthor{cooper_variational_2017} introduced the in-situ observations of particle size distribution through the a priori terms of the optimal-estimation framework. 
+\\
+%The difference between the retrieval and the snow gauge observations was \SI{-18}{\percent} when applied to data from Barrow, Alaska.\\
+%\citet{cooper_variational_2017} also showed that the retrieval is sensitive to habit and fall speed. The installation of a MRR, MASC, and PIP should help to adjust the particle models for graupels and rimed particles which are often observed at Haukeliseter. 
+%
+Preliminary analyses suggest good performance for this retrieval scheme at Barrow. Estimates of snowfall from the \citet{cooper_variational_2017} approach differed by \SI{18}{\percent} relative to nearby National Weather Service snow gauge measurements for total accumulation over multiple snow events. However, given limited snowfall observed at Barrow during the MASC deployment, it was difficult to come to any definitive conclusions about retrieval performance. The NSF (National Science Foundation) funded field campaign with MRR, MASC, and PIP (Precipitation Imaging Package) deployment at Haukeliseter provides an ideal opportunity to further explore this retrieval approach. This study will continue continue to examine the sensitivity of retrieval surface snowfall rate to assumptions of habit, fall speed, and particle size distribution as in \citet{cooper_variational_2017}. But the work presented here will be different in that we also will examine the vertical profiles of snowfall through the atmospheric column.  
+
+%\newpage
+%%%% FORWARD MODEL %%%%%%%
+\subsection{Forward model}\label{sec:forward_model}
+%Should we discuss the forward model after we discuss OE?   Also, note there is very little attenuation at 24 GHz so I'm not sure why we spend so much time discussing it. 
+%%% image forward problem %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{./images_tex/retrieval_dragon_track}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Forward model defines a relationship between the radar observations and the retrieved state vector $\mathbf{x}$. It is difficult to find the properties of the atmosphere by using observations due to unknown parameters influencing the measurement. 
+\\
+% I have no idea what this paragraph is saying.  I mean I know but not from what is written.
+\citet{stephens_remote_1994} described the forward problem in the manner that e.g. a reindeer represents the known source, observations \Cref{fig:dragon}. The amount of received radiation lost during the transmittance to the sensor is unknown, the Tracks in \Cref{fig:dragon:forward}. The forward model will help to find simulated observations before the attenuation took place and give information about the tracks of the reindeer. In the scope of this work the inverse problem is solved. The tracks in \Cref{fig:dragon:inverse} present the vertical reflectivity observations from the MRR. Using the forward model will solve the inverse problem by finding the question mark in \Cref{fig:dragon:inverse}, which are simulated profiles of SWC.
+\\
+The knowledge about the a priori parameters and related covariances, as well as $\mathbf{x}$, are used to minimize the cost function in \Cref{eq:scalar_cost_fct}. The values of $\mathbf{x}$ are found by Newtonian iteration \citet[Eq. 5]{wood_estimating_2014}.
+\newline
+The snow water content in each layer is estimated from the knowledge of the snow particle mass-dimension relationship in \Cref{app:scat_scheme}, and a PSD related to slope parameter and number concentration (\Cref{eq:num_dens,eq:lambda,eq:N0}). % Snow water content  in each layer 
+\begin{align}
+	\text{SWC} & = \int_{r_{min}}^{r_{max}} m(r) n(r) dr \qquad [\SI{}{\gram\per\cubic\metre}] \label{eq:SWC}
+\end{align}
+To achieve a relationship between the reflectivity and the snowfall amount one needs to account for attenuation in the atmosphere. Using the previously calculated PSD (\Cref{eq:num_dens}) the backscattering cross-section $\sigma_{bk}$, one can estimate the reflectivity for Rayleigh approximated, singly-scattered non-attenuated ice particles \citep{lecuyer_estimation-based_2002,kulie_utilizing_2009,wood_microphysical_2015}. The Rayleigh approximation assumes, that $2\pi r/\lambda \ll 1$, where $\lambda$ the wavelength of incident radiation.
+% singly-scattered non-attenuated reflectivity
+\begin{align}
+	\eta_{bk} & = \int_{r_{min}}^{r_{max}} n(r) \sigma_{bk} dr \qquad [\SI{}{\per\metre}] \nonumber \\
+	Ze^{ss,na} & = \frac{\Lambda^4}{\left\| K_w \right\|^2 \pi^5} \eta_{bk} \qquad [\SI{}{\mm^6\metre^{-3}}] \label{eq:singleZ}
+\end{align}
+% $\ldots$ snow backscatter coefficient
+where, $\Lambda$ is the wavelength of the radar; $\left\| K_w \right\|^2$ is the complex refractive index of water and varies between \numlist{0.91;0.93} for wavelength between \SIlist{0.01;0.10}{\metre} and is independent of temperature. It also exists a  complex refractive index for ice $\left\| K_i \right\|^2$, which is \SI{0.18}{}. This is valid for a density of \SI{0.917}{\gram\per\cubic\cm} and is independent of temperature and of wavelength in the microwave region \citep{doviak_doppler_1993}. In this work  $\left\| K_w \right\|^2 = 0.93$ is chosen. \textcolor{red}{Why did we choose K$_w$ and not the one for ice?}
+% Is anything in this section after this point even necessary?  There is practically no attenaution at 24 GHZ for snow.  
+%, \textcolor{red}{BECAUSE???}. 
+% %
+% \\
+% The singly-scattered reflectivity has to be corrected for attenuation in the layers above the actual layer. According to Beer's law is in a homogeneous medium one-way transmission assumed. 
+% % account for attenuation
+% % homogeneous medium $\Rightarrow$ one-way transmission, Beer's law
+% \begin{align}
+% 	\frac{I_{\lambda}}{I_{\lambda_0}} & = \exp \left[ - \int_0^s \beta_{ext} ds'\right] \label{eq:Beer}
+% \end{align}
+% where $s$ is the path length through the medium. The transmissivity $I_{\lambda}/I_{\lambda_0}$ is the relation of survived radiation through extinction in the atmosphere with the snow extinction coefficient $\beta_{ext}$
+% \begin{align}
+% 	\beta_{ext} & = \int_{r_{min}}^{r_{max}} n(r) \sigma_{ext} dr \qquad [\SI{}{\per\metre}] \label{eq:bext}
+% \end{align}
+% The extinction coefficient is the sum of absorption and scattering in the atmosphere followed from the extinction cross-section $\sigma_{ext} = \sigma_{abs} + \sigma_{scat}$, \citep{lohmann_introduction_2016,lamb_physics_2011}. \textcolor{red}{\citet[Eq. 12.1 and more][]{lohmann_introduction_2016}} \\
+% %singly-scattered attenuated reflectivity 
+% Following \Cref{eq:singleZ,eq:Beer,eq:bext} the singly-scattered attenuated reflectivity $Ze^{ss, a}$ is
+% \begin{align}
+% 	Ze^{ss, a} & = Ze^{ss, na} \cdot \frac{I_{\lambda}}{I_{\lambda_0}} \qquad [\SI{}{\mm^6\metre^{-3}}] \label{eq:sing_scatt_att_Z}
+% \end{align}
+% % multiply-scattered attenuated reflectivity 
+% % \citet{matrosov_s._y._influence_2009} found that in heavy snow conditions the multiply-scattered attenuated reflectivity lies between the singly-scattered attenuated and non-attenuated reflectivity \citep[compare Fig. 3.3 in][]{matrosov_s._y._influence_2009}. Therefore, is as in \citet{wood_level_2013} the multiply-scattered attenuated reflectivity, $Ze^ms$, approximated as geometric mean.
+% % \begin{align}
+% % 	Ze^ms & = \sqrt{Ze^{ss,na} \cdot Ze^{ss,a}} \qquad [\SI{}{\dB Z}]
+% % \end{align}
+% % $\Rightarrow$ simulated reflectivity from forward model 
+% That follows with the use of radiative transfer equations for the simulated reflectivity from the forward model, $F(\mathbf{x})$ in \Cref{eq:scalar_cost_fct}, after the transformation with \Cref{eq:Ze}
+% \begin{align}
+% 	F(\mathbf{x}) & = \begin{bmatrix} 
+% 		Ze^{ss,a}_1 \\
+% 		\vdots \\
+% 		Ze^{ss,a}_{nlayer}
+% 	\end{bmatrix} \qquad [\SI{}{\decibel Z}]. \label{eq:forward_model}
+% \end{align}
+
+
+% % \begin{itemize}
+% % 	\item \textcolor{red}{not really using the following - What to do with it?}
+% % 	\item \textcolor{red}{total number concentration} \\
+% % 	$$n_{tot} = \int_{r_{min}}^{r_{max}} n(r) dr \qquad [\SI{}{\per\cubic\metre}]$$ 
+% % 	\item $\ldots$ \textcolor{red}{??? }
+
+% \end{itemize}
+%
+%
+%
+%%% RETRIEVAL SCHEME %%%%%%%%%
+\subsection{Snowfall retrieval scheme}\label{sec:ret_scheme}
+% To understand how we incorporate in-situ observations of snowflake microphysics from the MASC/ PIP into the retireval scheme, it is helpful to review the structure of the optimal-estiamtion approach.  
+The optimal estimation method is based on Gaussian statistics. Minimizing the scalar cost function, $\Phi$ for the snowfall properties, $\mathbf{x}$. The cost function weights the difference between the observed reflectivity and the simulated measurements as well as the difference between the estimated and a priori guess. %A forward model $F(\mathbf{x})$ relates unknown snowfall parameters $\mathbf{x}$ to radar observations $y$ and approximates the true physical state between them \citep{wood_estimating_2014,cooper_variational_2017}. 
+\\
+Scalar cost function:
+\begin{equation}
+\begin{split}
+\Phi(\mathbf{x},y,a) = & (y- F(\mathbf{x}))^T \mathbf{S}_y^{-1} 			(y-F(\mathbf{x})) \\
+&+(\mathbf{x}-a)^T \mathbf{S}_{a}^{-1} (\mathbf{x}-a)
+\end{split} \label{eq:scalar_cost_fct}
+\end{equation}
+where, $\mathbf{x}$, vector of retrieved snowfall properties (\Cref{eq:snow_prop}); $y$, vector of observation (MRR reflectivity) ; $a$, vector of the a priori guess (temperature dependent); $\mathbf{S}_a$, a priori error covariance matrix; $\mathbf{S}_y$, measurement error covariance matrix. The forward model $F(\mathbf{x})$, presented in \Cref{sec:forward_model} relates unknown snowfall parameters $\mathbf{x}$ to radar observations $y$ and approximates the true physical state between them \citep{wood_estimating_2014,cooper_variational_2017}.
+%
+% a priori: $$
+% 		\mathbf{S}_a = \begin{bmatrix}
+%        0.133 	& 0 	& \dots & 0 		& 0         \\%[0.3em]
+%        0		& 0.133 & \dots	& 0 		& 0		 \\
+%        \vdots 	& \vdots& \vdots& \ddots 	& \vdots \\
+%        0		& 0		& \dots	& 0.95 		& 0 \\
+%        0 		& 0		& \dots & 0 		& 0.95
+%      \end{bmatrix} $$
+\\
+$\mathbf{S}_a$ links the uncertainties of the PSD information and the surface temperature differences. The diagonal matrix elements in $\mathbf{S}_a$ are equal to \numlist{0.133;0.95} for the particle slope parameter and the number concentration, respectively as from  Eq. 7.35 and 7.36 in \citet{wood_estimation_2011}. \\
+% $$\mathbf{S}_y = \begin{bmatrix}
+%        6.25 	& 0 	& \dots & 0 		& 0         \\%[0.3em]
+%        0		& 6.25 & \dots	& 0 		& 0		 \\
+%        \vdots 	& \vdots& \vdots& \ddots 	& \vdots \\
+%        0		& 0		& \dots	& 6.25		& 0 \\
+%        0 		& 0		& \dots & 0 		& 6.25
+%      \end{bmatrix} $$ 
+$\mathbf{S}_y$ characterises the uncertainties associated with the measurements and the error in the forward model. This study uses for the diagonal matrix elements $2.5^2$ \textcolor{red}{UNIT!? based on the study from CITATION. BECAUSE.}
+\\
+% sensitivity matrix: K \\
+% 	$$\pm perturbation = \hat{x} \cdot \left(1 \pm \frac{0.2}{100}\right)$$ \\
+% 	perform Forward model \\
+% 	matrix of Kernel functions, Jacobian of forward model with respect to the state vector 
+% 	$$fn_{i,j} = \frac{y_{max_j} - y_{min_j}}{+ perturbation_i - (- perturbation_i)}$$
+% 	$$\mathbf{K}(i,j) = \begin{bmatrix}
+% 		fn_{0,0} 	& fn_{1,0} 		& \ldots & fn_{m-1,0} \\
+%         fn_{0,1} 	& fn_{1,1}	 	& \ldots & fn_{m-1,1} \\
+%         \vdots	 	& \vdots		& \ddots & \vdots 	\\
+%         fn_{0,n-1} 	& fn_{1,n-1}	& \ldots & fn_{m-1,n-1}
+% 	\end{bmatrix}$$
+%
+% covariance of solution $\hat{x}$ at convergence
+%    $$$$
+\textcolor{red}{I don't understand the next steps and if it is still the same $\mathbf{x}$?!} 
+\\
+At convergence is the error covariance of the retrieved state vector $\mathbf{S}_x$
+\begin{align}
+	\mathbf{S}_x & = \left( \mathbf{S}_a^{-1} + \mathbf{K}^T \mathbf{S}_y^{-1} \mathbf{K} \right)^{-1}
+\end{align}
+which follows for $\mathbf{x}$
+\begin{align}
+	\mathbf{x} & = \underbrace{\left( \mathbf{S}_a^{-1} + \mathbf{K}^T \mathbf{S}_y^{-1} \mathbf{K} \right)^{-1} }_\text{$\mathbf{S}_x$} \left( \mathbf{S}_a^{-1} a + \mathbf{K}^T \mathbf{S}_y^{-1} \left(y - F(\mathbf{x}) + \mathbf{K} \mathbf{x} \right)  \right)
+\end{align}
+%\textcolor{red}{\citet{wood_level_2013}: 'As a diagnostic test of the results, a $\chi^2$ statistic is calculated using the retrieved state vector.}
+The Jacobian matrix, $\mathbf{K}$, represents the sensitivity matrix of the perturbed result of the forward model. The true state $\mathbf{x}$ is perturbed by \SI{\pm 0.2}{\percent} and thus $\mathbf{K}$ represents the relation between simulated values to the true state and how sensitive the simulated values are to small changes when starting a new retrieval cycle.   
+% \textcolor{red}{Why are we perturbing it?}
+% \begin{align}
+% 	\mathbf{K}(\mathbf{x}) & = \frac{\partial y}{\partial \mathbf{x}} =
+% 	\begin{bmatrix}
+% 		\frac{\partial y_0}{\partial \mathbf{x}_0} & 
+% 		\frac{\partial y_0}{\partial \mathbf{x}_1}  & 
+% 		\ldots & 
+% 		\frac{\partial y_0}{\partial \mathbf{x}_{2\,\text{x\,nlayer}}} \\[0.3em]
+% 		\vdots & \vdots & \ddots & \vdots \\[0.3em]
+% 		\frac{\partial y_{\text{nlayer}}}{\partial \mathbf{x}_0} &
+% 		\frac{\partial y_{\text{nlayer}}}{\partial \mathbf{x}_1} &
+% 		\ldots &
+% 		\frac{\partial y_{\text{nlayer}}}{\partial \mathbf{x}_{2\,\text{x\,nlayer}}}
+% 	\end{bmatrix} % Eq. 3.6 in \citet{wood_estimation_2011}
+% 	\label{eq:Kmatrix}
+% \end{align}
+% Usually, is $\mathbf{K}$ not diagonal \citep{wood_estimation_2011}, hence it is a mix of the true state and the a priori guess and the influence from them can be estimated. 
+The closer $\mathbf{K}$ is diagonal, the more is $\mathbf{x}$ determined by the real observed and a priori values. If the limit of the partial derivative is close to unity, the retrieved value $\mathbf{x}$ is its true state \citep{wood_estimation_2011}. 
+\\[12pt]
+\textcolor{red}{mmmh? What exactly are we doing here?}
+Test the if convergent:
+\begin{align}
+	\hat{x} & = \left( \mathbf{x} - F(\mathbf{x}) \right)^T \mathbf{S}_x^{-1} \left(\mathbf{x} - F(\mathbf{x}) \right)
+\end{align}
+only if $\hat{x}$ is smaller than \num{2} it is a 'good' retrieval. 
+\\
+To test the result of $\mathbf{x}$ a $\chi^2$ test is performed at the convergence of $\mathbf{S}_x$.
+%
+\begin{equation}
+\begin{split}
+\chi^2 = & \left( F(\mathbf{x}) - y  \right) \mathbf{S}_y^{-1} \left( F(\mathbf{x}) - y \right)^T \\
+& + \left( \mathbf{x} - a \right)^T \mathbf{S}_a^{-1} \left( \mathbf{x} - a\right). 
+\end{split}
+\label{eq:chi}
+\end{equation}
+%
+The first term in \Cref{eq:chi} measures the part of $\chi^2$ related to the noise of the forward model, and the second part the relation to the state vector. Thus, the second term describes the accuracy of the quantities within the reflectivity and temperature measurements \citep{rodgers_inverse_2000}.
+% error contribution 
+Furthermore, are the error contribution from the reflectivity measurement uncertainty, $\mathbf{S}_{y_\epsilon}$, and the uncertainty of the a priori values, $\mathbf{S}_{a_\epsilon}$ estimated. 
+% \textcolor{red}{Where comes this formula from? Is the $\mathbf{D}_y$ the $\mathbf{K}_b$ in Eq. 15 in \citet{wood_characterization_2013}? How to interpret?}
+% %
+% \begin{align}
+% 	\mathbf{D}_y  & = \mathbf{S}_x \mathbf{K}^T \mathbf{S}_y^{-1} %\hspace{4cm} 
+% 	& \mathbf{S}_{y_\epsilon} & = \mathbf{D}_y \mathbf{S}_y \mathbf{D}_y^T \\
+% 	\mathbf{D}_a & = \mathbf{S}_x \mathbf{S}_a^{-1} %\hspace{4cm} 
+% 	& \mathbf{S}_{a_\epsilon} & = \mathbf{D}_a \mathbf{S}_a
+% \end{align}
+% The diagonal of $\mathbf{S}_{y_\epsilon}$ or $\mathbf{S}_{a_\epsilon}$ is a first estimate of the retrieval noise related to the observations \citep{rodgers_inverse_2000}. Uncertainties in $\mathbf{S}_{a_\epsilon}$ occur because of the variability in $T_a$ and similar for $\mathbf{S}_{y_\epsilon}$ due to measurement errors from the MRR.
+
+%%% PRESENCE OF SNOW %%%%%%%%%%%
+\subsection{Presence of snow}\label{sec:pre_snow}
+%\item surface temperature \SI{< 2}{\celsius}
+%\item follows \Cref{fig:MRR_sfcT}
+%%% image surface temperature and MRR %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{./images_tex/retrieval_MRR_sfcT}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+To achieve vertical profiles of snowfall from MRR different steps and assumptions are done in the here presented snowfall retrieval. From one of the lower levels, the snowfall rate at the surface can be estimated. The retrieval is only performed for profiles, which are likely to have observed snow, where most retrievals use rain. In previous studies relationships between reflectivity and snowfall have been developed. Even if the PSD of ice particles is known, different crystal shapes led to different results. Snow densities vary significantly from storm to storm, where small particles are still Rayleigh scattered, and larger particles non-Rayleigh scattered \citep{gunn_microwave_1954}. 
+\\
+To obtain the likelihood of present snow a reflectivity threshold of \SI{- 15}{\decibel Z} is used. This threshold is similar to the one used in \citet{wood_level_2013}, where it states that light liquid precipitation is related to \SI{- 10}{\decibel Z} \citep{stephens_properties_2007}. \citet{wood_estimation_2011} compared the reflectivity in the lowest bin and adjacent bin and found, that the reflectivity above \SI{-15}{\dB Z} are not influenced by ground clutter.
+\newline
+The Haukeliseter measurement site is equipped with a weather mast, measuring the air temperature every minute at two meter height (compare \Cref{fig:MRR_sfcT}, upper panel). 
+%
+Since the MRR measures above \SI{300}{\metre} and only temperature measurements at the surface exists, a priori temperature ($T_{a}$) is assumed to be similar to the observed near-surface air temperature. Using a moist adiabatic lapse rate of $dT/dz = \SI{5}{\kelvin\per\km}$ gives $T_{a}$ in each layer. 
+Assuming snow exists at temperature measurements up to a threshold of \SI{2}{\celsius}, validated by \citet{liu_g._deriving_2008} who analysed present weather reports to find the distinction between liquid and solid precipitation.\\
+The purple line in the lower panel of \Cref{fig:MRR_sfcT} represents the time frame during \SI{25}{\dec}, where the MRR reflectivity is less than \SI{- 15}{\decibel Z}, and a priori temperature passes the \SI{2}{\celsius} limit at the surface.  
+
+%%% SIZE DISTRIBUTION %%%%%%%%%%%
+\subsection{Size distribution} \label{sec:size_dist}
+To determine the snowfall rate at the surface an exponential particle size distribution (PSD) is needed. 
+\begin{align}
+	n(r) & = N_{0} \exp\left(-\lambda r\right) \qquad [ \SI{}{\per\cubic\metre\per\mm} ] \label{eq:num_dens}
+\end{align}
+where $\lambda$ represents the PSD slope parameter and $N_{0}$ the number concentration. $r$ is the particle maximum dimension evaluated from the 2D-scattering model for branched 6-arm spatial particles with porosities for reflectivity measurements at \SI{24}{\giga\Hz} (see \Cref{app:scat_scheme}).
+%exponential particle size distribution (PSD) \\
+%	$$ \qquad \text{$D$ from B6 scattering model}$$
+%	$$\lambda = 10^{perturbuation}$$ %\\
+%   %$$N_0 = 10^{perturbation}$$
+%The slope parameter and the number density in \Cref{eq:num_dens} varies with height with the help of the following logarithmic assumptions \textcolor{red}{In vsnow_hmrr.pro: DEFINE A PRIORI PSD INFO (LOG FORM) THROUGH WOOD TEMPERATURE PARAMETERIZATION}.
+\\
+Since $T_{ap}$ varies with a moist adiabatic lapse rate in each layer bin the slope parameter and the number concentration in \Cref{eq:num_dens} are changing too. \citet{wood_estimation_2011} showed a linear fit between $\log(\lambda)$ and the a priori temperature, respectively $\log(N_0)$ and the a priori temperature.
+Using $T_{ap}$ in \SI{}{\celsius} for each layer bin the following logarithmic assumption is used, to define the slope parameter and the number concentration.
+\begin{align}
+	\log(\lambda) & = -0.03053 \cdot T_{ap} - 0.08258  \label{eq:lambda} \qquad [ \log(\SI{}{\per\mm}) ]\\
+	\log(N_0) & = -0.07193 \cdot T_{ap} +2.665  \qquad [ \log(\SI{}{\per\cubic\metre\per\mm})]
+	\label{eq:N0}
+\end{align}
+% \item \citep{wood_level_2013}: state is described by the exponential size distribution parameters $N_0$ and $\lambda$. Values for $N_0$ may range over several order of magnitude, so $log(N_0$) is retrieved instead. $log(\lambda$) is retrieved since they are less skewed and $\lambda$ was strongly non-Gaussian. \textcolor{red}{where is this equations from?}\\
+To achieve the state vector $\mathbf{x}$ of unknown microphysical properties, the log-transformed values are taken.
+\begin{align}
+	\mathbf{x} & = \begin{bmatrix}
+		log(\lambda)_0 	\\
+		\vdots 			\\
+		log(\lambda)_{\text{nlayer}} 	\\
+		log(N_0)_0		\\
+		\vdots			\\
+		log(N_0)_{\text{nlayer}}		
+	\end{bmatrix} \qquad \text{nlayer} = 14
+	\label{eq:snow_prop}
+\end{align}
+The log-transformed equation is useful, since the results from C3VP were similar to other observations. The study showed, that $N_0$ ranges over several order of magnitude as well as $\lambda$ was non-Gaussian for the snow events \citet{wood_estimation_2011}.
+
+%%% SURFACE SNOWFALL RATE %%%%%%%%%
+\subsection{Snowfall rate at the surface}
+%
+% fall speed assumption:
+To achieve snowfall rates at the surface, the snow water content (\Cref{eq:SWC}) has to be transformed. The use of an assumed particle fall speed of $V = \SI{0.85}{\mPs}$ and the retrieved SWC (\Cref{eq:SWC}) gives the snow mass flux $J_{snow} = \text{SWC} \cdot V$ in [\SI{}{\kilogram\per\square\metre\per\second}]. \textcolor{red}{Why did we use this fall speed? Where does this assumption come from? Similar as \citet{cooper_variational_2017} Eq. 4?} 
+% snow mass flux
+To compare retrieved snow, fall rates to double fence measurements and the forecast model output, the precipitation amount at the surface is calculated. 
+\begin{align}
+	P = J_{snow} \times \num{e-3} \cdot \left(\SI{3600}{\second} \cdot24 \right) \qquad [\SI{}{\mm\per\day}]
+\end{align}
+The precipitation amount at the surface, presented in \Cref{ch:Res}, are taken to be equal to the values at the snow layer in \SI{400}{\metre}, the lowest level of the obtained averaged MRR reflectivity. 
+% %
+% \begin{itemize}
+% 	\item \textcolor{red}{Not sure what to do with this!}
+% 	\item The error from the retrieved state vector $\mathbf{x}$ is calculated
+% 	$$\pm \mathbf{S}_{x_{err}} = \mathbf{x} \pm \mathbf{S}_x$$ 
+% 	$$equiv_{err} = \frac{1}{2} \left( \frac{\abs{\text{SWC}(- \mathbf{S}_{x_{err}} ) - \text{SWC} (+ \mathbf{S}_{x_{err}}) }}{ \text{SWC}(- \mathbf{S}_{x_{err}})} + \frac{\abs{ \text{SWC}(- \mathbf{S}_{x_{err}}) - \text{SWC}(- \mathbf{S}_{x_{err}}) }}{ \text{SWC}(- \mathbf{S}_{x_{err}})} \right)$$
+% \end{itemize}
+
+
+
+
+
+
+
+

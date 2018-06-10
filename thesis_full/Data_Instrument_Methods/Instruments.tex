@@ -2,15 +2,17 @@
 \section{Instruments} \label{sec:DIM}
 The WMO site Haukeliseter, operated by Met-Norway serve numerous meteorological measurements of temperature, wind speed and direction. \SI{10}{\meter} wind and \SI{4.5}{\metre} air temperature are measured at the tower close to the double fence (\Cref{sec:dofe}). The wind measurements are performed with an ultrasonic wind sensor from Gill (Wind observer II with extended heating). Air temperature is obtained with a pt100 element at gauge height and protected by standard Norwegian radiation screen \citep{wolff_derivation_2015}. \textcolor{red}{Pressure? } Further information about the WMO site and the instrument setting, can be found in \citet{wolff_measurements_2013,wolff_derivation_2015}.
 \\
-A collaboration between the University of Utah, University of Wisconsin and Met-Norway made it possible to install three additional instruments at the measurement site during winter 2016/2017. A Multi-Angle Snowflake Camera (MASC) and a Precipitation Imaging Package (PiP) will be used to determine the snow habit, the snowfall particle size distribution, and the near-surface fall speed. Additionally, a Micro Rain Radar (MRR) is established to obtain fall speed and particle reflectivity aloft. 
-Since many factors such as humidity and temperature contribute to snowflake geometry is the knowledge of snowflake habits, particle size distributions, and fall speed crucial to reduce error in snowfall retrievals.
+A collaboration between the University of Utah, University of Wisconsin and Met-Norway made it possible to install three additional instruments at the measurement site during winter 2016/2017. A Micro Rain Radar (MRR) is used to obtain particle reflectivity and Doppler velocity aloft, thus providing the vertical structure of the storm. 
+Additionally, a Multi-Angle Snowflake Camera (MASC) and a Precipitation Imaging Package (PIP) will be used to determine the snow habit, the snowfall particle size distribution, and the near-surface fall speed.  
+Since many factors such as humidity and temperature contribute to snowflake geometry, the use of theses instruments will provide knowledge of snowflake habits, particle size distributions, and fall speed crucial to reduce error in snowfall retrievals.
 \\
-This work is based on several datasets collected at the Haukeliseter measurement site, \ang{59.8}\,N, \ang{7.2}\,E. A composition of advanced ground-based observations and a modified \SI{24}{\giga\Hz}-MRR scheme presented by \citet{cooper_variational_2017} will help to get a better understanding of the vertical structure of the atmosphere and to reduce the uncertainties in the estimation of surface snowfall rate found using the optimal estimation retrieval scheme (\Cref{sec:retrieval}). 
+%This work is based on several datasets collected at the Haukeliseter measurement site, \ang{59.8}\,N, \ang{7.2}\,E. 
+%A composition of advanced ground-based observations and a modified \SI{24}{\giga\Hz}-MRR scheme presented by \citet{cooper_variational_2017} will help to get a better understanding of the vertical structure of the atmosphere and to reduce the uncertainties in the estimation of surface snowfall rate found using the optimal estimation retrieval scheme (\Cref{sec:retrieval}). 
 %%% image instrument setting @ Haukeli %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \input{./images_tex/instruments_setting}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \noindent
-A sketch of the instrumentation setting is presented in \Cref{fig:inst_setting}. The octagonal indicates the double fence. The container is north-east from the double fence having the MRR, MASC and PiP mounted at the top. \textbf{M1} in \Cref{fig:inst_setting} is the \SI{10}{\metre} weather mast, providing the hourly \citet{eklima_norwegian_2016} temperature, pressure, and wind measurements. The mean wind direction from west-north west and east-south east are shown in the wind rose in \Cref{fig:inst_setting}.
+A sketch of the instrumentation setting is presented in \Cref{fig:inst_setting}. The octagonal indicates the double fence. The container is north-east from the double fence having the MRR, MASC and PIP mounted at the top. \textbf{M1} in \Cref{fig:inst_setting} is the \SI{10}{\metre} weather mast, providing the hourly \citet{eklima_norwegian_2016} temperature, pressure, and wind measurements. The mean wind direction from west-north west and east-south east are shown in the wind rose in \Cref{fig:inst_setting}.
 %
 %
 %\newpage
@@ -69,14 +71,16 @@ After the transformation to \SI{}{\decibel Z} the reflectivity is averaged for e
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%% PiP %%%%%%%%%%%%%%
-\subsection{PiP - Precipitation Imaging Package}
+\subsection{PIP - Precipitation Imaging Package}
 %%% image PiP instrument %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \input{./images_tex/instruments_PiP}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-The precipitation imaging package (PiP) is a modification of the Snowflake Video Imager presented by \citet{newman_presenting_2009}. The video distrometer is a construct of a halogen flood lamp and a video system (\Cref{fig:PiP}). The instrument determines the habit of snowflakes from images at a frequency of \SI{60}{\Hz}. Both lamp and lens have a distance of approximately \SI{3}{\metre} that follows a field of view: \SI{32}{\mm} by \SI{24}{\mm}. 
+The Precipitation Imaging Package (PIP) is a video disdrometer that is a modification of the Snowflake Video Imager presented by \citet{newman_presenting_2009}. It consist of a halogen flood lamp and a video system that samples at \SI{60}{\Hz} (\Cref{fig:PiP}). 
+%The instrument determines the habit of snowflakes from images at a frequency of \SI{60}{\Hz}. 
+Both lamp and lens have a distance of approximately \SI{3}{\metre} that follows a field of view: \SI{32}{\mm} by \SI{24}{\mm}. 
 \\
 In front of the halogen lamp there is a frosted window, so that the background light is uniform over all time. A falling particle appears as a 2-D shadow in the video image. 
-Particle size distribution (PSD) and fall speed of precipitation can be determined from the black and white images provided by the system.
+Particle size distribution (PSD) and fall speed of precipitation can be determined from the black and white images provided by the system. The instrument also can give first order estimates of snowflake particle habit when in focus in the images.  
 \citet{newman_presenting_2009} describes the details of the algorithm applied to the system to get information about the snow-particle habit. \\
 The Winds have almost no effect on the result of the video distrometer \citep{newman_presenting_2009}. To reduce eventual wind effects, the distrometer was oriented perpendicular to the mean wind.
 \newpage
@@ -87,6 +91,7 @@ The Winds have almost no effect on the result of the video distrometer \citep{ne
 %%% image MASC %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \input{./images_tex/instruments_MASC}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-Instruments like the afore mentioned PiP has according to \citet{garrett_fall_2012} coarser resolution and the determination of particle size can have larger errors. Hence, a new instrument was developed. The Multi-Angular Snowfall Camera (MASC) takes high-resolution images of hydrometeors in free fall and measures the fall-speed simultaneously. \\
+%Instruments like the afore mentioned PIP has according to \citet{garrett_fall_2012} coarser resolution and the determination of particle size can have larger errors. Hence, a new instrument was developed. 
+The Multi-Angular Snowfall Camera (MASC) takes high-resolution images of hydrometeors in free fall and measures the fall-speed simultaneously. \\
 The MASC consists of three cameras, three flashes, and two near-infrared sensors, pointing at a ring centre (\Cref{fig:MASC}). A hydrometeor has to pass through the ring in a certain way to trigger the near-infrared sensors. At the same time the three cameras take a picture of the falling particle. Since the cameras take pictures from three different angles, the particles size, shape, and orientation can be specified from an algorithm applied to the image, described in \citet{garrett_fall_2012}. Furthermore, the form and heritage of the hydrometeor, such as collision-coalescence, riming, capture nucleation, or aggregation, can be estimated. \\
 The near-infrared sensor, that is used to trigger the cameras and the lights quantifies the fall-speed of the hydrometeors, by measuring the time the particle needs to pass the distance between the upper and lower trigger.    

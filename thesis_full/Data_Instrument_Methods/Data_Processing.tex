@@ -69,21 +69,46 @@ The ensemble mean is the average of all ten ensemble members of MEPS.
 \begin{align}
 	\bar{x} & = \frac{\sum_{i=1}^n x_i}{N} \label{eq:meanMEPS}
 \end{align}
-The ensemble spread is known as the standard deviation with respect to their mean of the model output. That means it shows the variation around the center or control run.
+The coefficient of variation is known as the standard deviation with respect to their mean of the model output. That means it shows the variation around the center or control run.
+The standard deviation is defined as:
 \begin{align}
 	\sigma & = \sqrt{\frac{\sum_{i=1}^n (x_i - \bar{x})^2}{N-1}} \label{eq:stdMEPS}
 \end{align}
-for either variable is the dimension of the standard deviation the same.
-\\
-To verify how well MEPS performed during the Christmas storm a variation of the SWC is calculated. For this, the standard deviation (\Cref{eq:stdMEPS}) is divided by the ensemble mean (\Cref{eq:meanMEPS}).
+which follows for the coefficient of variation:
+\begin{align}
+	CV & = \frac{\sigma}{\bar{x}}
+\end{align}
+% \\
+% To verify how well MEPS performed during the Christmas storm a variation of the SWC is calculated. For this, the standard deviation (\Cref{eq:stdMEPS}) is divided by the ensemble mean (\Cref{eq:meanMEPS}).
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%% Dew point T for SkewT %%%%%%%%%%%%%%
-
-\subsection{Dew point temperature for Skew-T log-P Diagram}
-The Python module \texttt{pyMeteo} is used to calculate the dew point temperature of each ensemble member to study the stability of the atmosphere (\url{https://pythonhosted.org/pymeteo/}, last visited: 25.01.2018). The additional package \texttt{thermo.py} is able to calculate the dew point temperature if the pressure and the specific humidity in each level are known. 
+%%%%%%%%% MAE & ME %%%%%%%%%%%%%%
+\subsection{Mean error and mean absolute error}
+The mean error for the each ensemble member is calculated with: 
 \begin{align}
-	e_l & = ln\left( \frac{\frac{q_v}{\epsilon} \cdot \frac{p}{100}}{1 + \frac{q_v}{\epsilon}} \right) \\
-	T_d & = 273.15 + \frac{243.5 \cdot e_l -440.8}{19.48 -e_l} \qquad [\SI{}{\kelvin}]
+	ME = \frac{\sum_{i=1}^n MEPS_{ens} - DoFe_{obs}}{N}
 \end{align}
-where, $q_v$ is the specific humidity, $p$ pressure in [\SI{}{\Pa}], $\epsilon = R_d / R_v = 0.622$ with $R_v$ gas constant for water vapour.
+where $MEPS_{ens}$ represents the value of each ensemble member and $DoFe_{obs}$ defines the observation from the double fence. For the mean absolute error follows then:
+\begin{align}
+	MAE = \frac{\sum_{i=1}^n \left| MEPS_{ens} - DoFe_{obs}\right|}{N}
+\end{align}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%% %Diff, %Avg Diff %%%%%%%%%%%%%%
+\subsection{Percent difference and average difference}
+The percentage difference presented in the results (\Cref{tab:res:ret_error} and \textcolor{red}{add for MEPS}) are calculated by:
+\begin{align}
+	\SI{}{\percent} \text{Difference} & = \frac{SF - DoFe_{obs}}{DoFe_{obs}} \times 100
+\end{align}
+$SF$ presents the snowfall from the retrieval or the MEPS ensemble forecast. The average is then taken from all \SI{}{\percent} Difference values to see the difference of the Christmas storm 2016.
+
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% %%%%%%%%% Dew point T for SkewT %%%%%%%%%%%%%%
+
+% \subsection{Dew point temperature for Skew-T log-P Diagram}
+% The Python module \texttt{pyMeteo} is used to calculate the dew point temperature of each ensemble member to study the stability of the atmosphere (\url{https://pythonhosted.org/pymeteo/}, last visited: 25.01.2018). The additional package \texttt{thermo.py} is able to calculate the dew point temperature if the pressure and the specific humidity in each level are known. 
+% \begin{align}
+% 	e_l & = ln\left( \frac{\frac{q_v}{\epsilon} \cdot \frac{p}{100}}{1 + \frac{q_v}{\epsilon}} \right) \\
+% 	T_d & = 273.15 + \frac{243.5 \cdot e_l -440.8}{19.48 -e_l} \qquad [\SI{}{\kelvin}]
+% \end{align}
+% where, $q_v$ is the specific humidity, $p$ pressure in [\SI{}{\Pa}], $\epsilon = R_d / R_v = 0.622$ with $R_v$ gas constant for water vapour.

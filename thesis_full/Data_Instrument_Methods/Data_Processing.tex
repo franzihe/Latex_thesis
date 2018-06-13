@@ -69,7 +69,9 @@ The ensemble mean is the average of all ten ensemble members of MEPS.
 \begin{align}
 	\bar{x} & = \frac{\sum_{i=1}^n x_i}{N} \label{eq:meanMEPS}
 \end{align}
-The coefficient of variation is known as the standard deviation with respect to their mean of the model output. That means it shows the variation around the center or control run.
+which is the standard deviation of the ten ensemble members divided by the mean of all ensemble members. This coefficient gives the possibility to compare the SWC results for different days with different values. 
+%It follows for even a low ensemble spread of SWC (standard deviation of all ensemble members) then the different members do not need to be less variable.
+The coefficient of variation shows the variation around the center or control run.
 The standard deviation is defined as:
 \begin{align}
 	\sigma & = \sqrt{\frac{\sum_{i=1}^n (x_i - \bar{x})^2}{N-1}} \label{eq:stdMEPS}
@@ -90,7 +92,7 @@ The mean error for the each ensemble member is calculated with:
 \end{align}
 where $MEPS_{ens}$ represents the value of each ensemble member and $DoFe_{obs}$ defines the observation from the double fence. For the mean absolute error follows then:
 \begin{align}
-	MAE = \frac{\sum_{i=1}^n \left| MEPS_{ens} - DoFe_{obs}\right|}{N}
+	MAE = \frac{\sum_{i=1}^n \left| MEPS_{ens} - DoFe_{obs}\right|}{N} \label{eq:MAE}
 \end{align}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

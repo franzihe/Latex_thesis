@@ -25,7 +25,6 @@
 \usepackage{longtable}
 \usepackage{multirow}
 \usepackage{graphicx}
-%\usepackage{floatrow}
 \usepackage{caption}
 \usepackage{subcaption}
 \setlength{\headheight}{14.5pt}
@@ -256,3 +255,15 @@
 % ********** automatically link DOI's ****************
 \newcommand*{\doi}[1]{\href{http://dx.doi.org/\detokenize{#1}}{doi: \detokenize{#1}}} 
 
+% ********** include part only in toc ****************
+\NewDocumentCommand{\TOCpart}{s m}{%
+	\clearpage
+	\stepcounter{part}%
+	\addtocontents{toc}{%
+		\protect\contentsline{part}% type
+		{\protect\numberline{\thepart} #2}% number + title
+		{\number\numexpr\value{page}+1}% page number
+		{chapter.\number\numexpr\value{chapter}+1}}% hyperref link
+	\cleardoublepage
+	\ignorespaces
+}

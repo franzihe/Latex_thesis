@@ -1,13 +1,20 @@
 % !TeX spellcheck = en_GB
-\section{MetCoOp Ensemble Prediction System}
+\section{Operational weather forecast model - MEPS}\label{sec:DIM:MEPS}
 MEPS (MetCoOp Ensemble Prediction System) was newly operational at Met-Norway when the extreme weather occurred in Norway. Comparing model data with actual observations helps to verify the agreement between model prediction and ground-based measurements. 
 \\
 AROME-MetCoOp was operational from March 2014 until November 2016, when it was replaced with an ensemble prediction system (EPS) based on AROME-MetCoOp.
 MEPS is used as weather forecast at the Norwegian Meteorological Institute, the Swedish Meteorological and Hydrological Institute (SMHI) and the Finnish Meteorological Institute (FMI), \citep{muller_arome-metcoop:_2017, koltzow_metcoop_2017}.
+\\
+\\
+%Ensemble prediction has the goal to improve the forecast by ensemble averaging, to provide an indication of the reliability of the forecast, and a quantitative basis for probabilistic forecasting \citep{kalnay_atmospheric_2003}. 
+\textcolor{red}{Include the difference between AROME-MetCoOp and MEPS \\
+  } %Ein ensemble Vorhersagesystem erfordert die Definition der Anfangsamplitude und die horizontal eun vertikale Struktur der Störung. In der Regel wird die Anfangs Amplitude so gewählt, dass sie nahe an den Beobachtungen liegth. Die Anfangsbedingung für die Störung liegt innerhalb eines Kreises (abbildung) der Beobachtungsunsicherheit. In der Regel liegen die Vorhersagen nahe beieinander für den kurzen Vorhersagebereich und können als deterministisch betrachtet werden. Nach einer bestimmten zeit sind die Prognosen der unterschiedlichen Störugsmitglieder so groß, dass sie als stochastisch betrachtet werden müssen. Für die Vorhersage von großräumigen Störungen liegt die Übergangszeit in der Größenordnung von zwei bis drei Tagen. Für die Vorhersage von mesoskaligen Phänomenen kann dies nur wenige Stunden betragen.
+%\\
+%Der Unterschied zwischen AROME-MetCoOp und MEPS liegt darin, dass AROME-MetCoOp nur eine deterministische Vorhersage enthält, wobei MEPS neun weitere Störungsmitglieder der deterministischen Vorhersage besitzt.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%% MEPS %%%%%%%%%%%%%%
-\subsection{AROME - MetCoOP}
+\subsection{MetCoOP Ensemble Prediction System - MEPS}
 In principle, MEPS is a short-term weather forecast consisting of a ten ensemble member  forecast system with \SI{66}{\hour} prediction time and a horizontal resolution of \SI{2.5}{\km} and 65 vertical levels. One of the members is the deterministic forecast where the other nine present the perturbed state of the deterministic forecast. The initialisation of each member is performed at \SIlist{00;06;12;18}{\UTC} \citep{metcoop_wiki_description_2017}.
 \\ 
 Forecast data saved for the deterministic and first ensemble member have a time resolution of one hour for \SI{66}{\hour}. The other eight members have values every three hours for up to \SI{48}{\hour} forecast time.
@@ -20,7 +27,9 @@ Forecast data saved for the deterministic and first ensemble member have a time 
 \\
 The centre of the model is approximately at \ang{63.5}\,N, \ang{15}\,E. 
 The horizontal grid points are projected on a Lambert projection to receive the same area size of each grid cell. 
-The outer, parent grid is the ECMWF-IFS model (European Centre for Medium-Range Weather Forecasts Integrated Forecasting System) with a horizontal resolution of \SI{9}{\km} \citep{homleid_verification_2016}. The ECMWF-IFS forecasts are used \SI{6}{\hour} prior to the actual cycle in MEPS.
+%The outer, parent grid is the ECMWF-IFS model (European Centre for Medium-Range Weather Forecasts Integrated Forecasting System) with a horizontal resolution of \SI{9}{\km} \citep{homleid_verification_2016}. The ECMWF-IFS forecasts are used \SI{6}{\hour} prior to the actual cycle in MEPS.
+The regional model MEPS receives initial and boundary conditions from ECMWF-IFS (European Centre for Medium-Range Weather Forecasts Integrated Forecasting System) before it can produce forecasts \citep{muller_arome-metcoop:_2017}. The horizontal resolution of the parent ECMWF grid is \SI{9}{\km} \citep{homleid_verification_2016}. The ECMWF-IFS forecasts are used \SI{6}{\hour} prior to the actual cycle in MEPS.
+Since initial conditions such as observations have uncertainties as well as the model has mistrust, and  the own climatology needs to be approached, a model has to stabilize before the simulations can be trusted. The spin-up time varies depending on the quality of the initial and boundary conditions. 
 \\
 Vertical hybrid coordinates are terrain-following and are mass-based, \citep{muller_arome-metcoop:_2017}. How the vertical hybrid coordinates are transformed into layer thickness or height is described in \Cref{sec:layer_thickness}. Furthermore, MEPS underlies non-hydrostatic dynamics, \cite{metcoop_wiki_description_2017}.
 \\
@@ -89,7 +98,7 @@ Following \cite{pinty_mixed-phased_1998} and \Cref{fig:ICE3_scheme} it can be se
 % As indicated by the blue lines in \Cref{fig:ICE3_scheme} are graupel an effect of heavy riming and grow in the scheme if the riming aggregates are of larger diameter size than \SI{7}{\mm} \citep{meteo_france_meso-nh_2009}. As indicated can graupel also grow when larger colliding raindrops reshape snowflakes to graupel (ACC). Furthermore, is graupel growth affected by wet or dry (WET, DRY) accretion, when the surface temperature of graupel is larger than the environmental temperature. DRY graupel expansion happens as long as the surface temperature is less that the surrounding temperature, then collected drops will freeze. WET graupel growth appears, when a liquid film is on the surface of the graupel particle (surface temperature larger than surrounding) then the liquid condensate is shed away, and hail will be formed. In ICE3 is hail not specifically included it is mixed in to the graupel category and therefore a distinction between the two categories cannot be made. 
 
 %
-\subsection{Adjustment of ICE3 inside MEPS}
+\subsection{Adjustment of ICE3 inside AROME-MetCoOp}
 % refinement for AROME 
 Since the ICE3 scheme showed some weaknesses for the winter month, \cite{muller_arome-metcoop:_2017} introduced some modifications. 
 During cold conditions the ICE3-scheme showed too low temperature at two meter, too much ice fog and all year long was the occurrence of cirrus overestimated. After implementing the modifications described in \cite{muller_arome-metcoop:_2017} the two meter temperature bias was reduced as well as an improvement of low-level clouds was shown. A negative aspect of these adjustments was that the occurrence of fog increased.%, by an error in the surface scheme.

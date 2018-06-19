@@ -15,23 +15,26 @@ Since many factors such as humidity and temperature contribute to snowflake geom
 A sketch of the instrumentation setting is presented in \Cref{fig:inst_setting}. The octagonal indicates the double fence. The container is north-east from the double fence having the MRR, MASC and PIP mounted at the top. \textbf{M1} in \Cref{fig:inst_setting} is the \SI{10}{\metre} weather mast, providing the hourly \citet{eklima_norwegian_2016} temperature, pressure, and wind measurements. The mean wind direction from west-north west and east-south east are shown in the wind rose in \Cref{fig:inst_setting}.
 %
 %
-%\newpage
+\newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%% DOUBLE FENCE %%%%%%%%%%%%%%
-\subsection{Double Fence Snow gauge}\label{sec:dofe}
+\subsection{Double Fence Snow Gauge}\label{sec:dofe}
 %%% image double fence @ Haukeli %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \input{./images_tex/instruments_Dofe}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Since the winter 2010/2011 Haukeliseter is equipped with several precipitation gauges. The wind shielded gauges are placed perpendicular to the main wind direction (E/W wind).
 \\
-The wind-induced under-catch of solid precipitation is determined by \citet{wolff_derivation_2015}. The wind plays different roles in the amount of accumulation depending on the kind of precipitation. For temperatures below \SI{-2}{\celsius} the wind speed influences the falling snow. Where less precipitation can be observed at higher wind speeds or more precipitation can be measured if too much is blown into the gauge. The catch ratio between the standard Geonor precipitation gauge and the Double Fence - Geonor (\Cref{fig:dofe_pic}) shows that only \SI{80}{\percent} of solid precipitation is observed at wind speeds of \SI{2}{\mPs} whereas only \SI{40}{\percent} at \SI{5}{\mPs}, Figure 5 in \citet{wolff_derivation_2015}. 
+Measurement uncertainties can be caused by the instrument itself, which varies with wind speed, gauge wind shielding, shape, size, phase, and fall velocity of hydrometeors \citep{kochendorfer_analysis_2017,wolff_derivation_2015}. Wind plays different roles in the amount of accumulation depending on the kind of precipitation. For temperatures below \SI{-2}{\celsius} the wind speed influences the falling snow. Where less precipitation can be observed at higher wind speeds or more precipitation can be measured if too much is blown into the gauge.
+Since wind has an influence on frozen precipitation, a WMO (World Meteorological Organization) precipitation analysis between 1987 and 1993 recommended that the double-fence inter-comparison reference should be used as a reference for snow measurements \citep{goodison_wmo_1998}. An adjustment for unshielded and single-shielded precipitation gauges followed in 2010.
+%The wind-induced under-catch of solid precipitation is determined by \citet{wolff_derivation_2015}. The 
+\citet{wolff_derivation_2015} showed the catch ratio between the standard Geonor precipitation gauge and the Double Fence - Geonor (\Cref{fig:dofe_pic}). Only \SI{80}{\percent} of solid precipitation is observed at wind speeds of \SI{2}{\mPs} whereas only \SI{40}{\percent} at \SI{5}{\mPs}, Figure 5 in \citet{wolff_derivation_2015}. 
 \\
 The precipitation gauge protected by an octagonal double fence (\Cref{fig:dofe_pic}) is more accurate than the single fence and will be used as the reference to all surface accumulation measurements. The double fence creates an artificial calm wind and maximize the catch of precipitation, \citep{wolff_new_2010, wolff_measurements_2013, wolff_derivation_2015}. The wind inside the double fence is measured to be not much higher than \SI{5}{\mPs} even if the winds outside exceed \SI{20}{\mPs} (occurred \SI{26}{\dec}). % so far it is unknown, if the catch efficiency stabilises for wind speeds beyond \SI{10}{\mPs} and may lead to wrong values
-Alternatively, a bush gauge is a precipitation gauge surrounded by a large bush to create artificial calm winds to increase the catch ratio of frozen precipitation and is considered as the best available measurement for solid precipitation \citep{wolff_wmo_2018}. Unfortunately there are only two bush gauges in the world, and because of local limitations a double fence construction is developed as reference for the Solid Precipitation Measurement intercomparison study during \numrange{1986}{1993} \citep{goodison_wmo_1998}. \citet{wolff_wmo_2018} comparison between bush gauge and double fence precipitation measurements have shown, that the double fence will measure up to \SI{10}{\percent} less precipitation for wind speeds up to \SI{9}{\mPs} outside the fence. As for now, no detailed comparison betweeen bush gauge and double fence exists at thigh wind speeds. Extrapolation of measurement observations where double fence and bush gauge exist, let believe that the double fence will not underestimate more than \SI{20}{\percent} during high wind speed events with frozen precipitation. 
+Alternatively, a bush gauge is a precipitation gauge surrounded by a large bush to create artificial calm winds to increase the catch ratio of frozen precipitation and is considered as the best available measurement for solid precipitation \citep[unpublished]{wolff_wmo_2018}. Unfortunately there are only two bush gauges in the world, and because of local limitations a double fence construction is developed as reference for the Solid Precipitation Measurement intercomparison study during \numrange{1986}{1993} \citep{goodison_wmo_1998}. \citet{wolff_wmo_2018} [unpublished] comparison between bush gauge and double fence precipitation measurements have shown, that the double fence will measure up to \SI{10}{\percent} less precipitation for wind speeds up to \SI{9}{\mPs} outside the fence. As for now, no detailed comparison betweeen bush gauge and double fence exists at thigh wind speeds. Extrapolation of measurement observations where double fence and bush gauge exist, let believe that the double fence will not underestimate more than \SI{20}{\percent} during high wind speed events with frozen precipitation. 
 \\
 This shows the need of a combination of ground-based observations together with an optimal estimation retrieval to verify the accuracy of MEPS. \citet{wolff_derivation_2015} introduced an adjustment function for the Geonor double fence, so that different precipitation under certain wind speeds are presented correctly and can be used as confidential data. 
-For now, it is presumed that the average under catch inside a double fence is \SI{20}{\percent} for wind speeds between \SIlist{10;20}{\mPs} and \SI{10}{\percent} for wind speeds below \SI{9}{\mPs} \citep{wolff_wmo_2018}.
+For now, it is presumed that the average under catch inside a double fence is \SI{20}{\percent} for wind speeds between \SIlist{10;20}{\mPs} and \SI{10}{\percent} for wind speeds below \SI{9}{\mPs} \citep[][unpublished]{wolff_wmo_2018}.
 \\ \\
 Inside the double fence is a precipitation-weighing gauge Geonor T-200B3 \citep[3-wire transducers, \SI{1000}{\mm},][]{geonor_inc._t-200b_2015} with an Alter wind screen to reduce wind turbulence around the gauge. At Haukeliseter the orifice height of the Geonor is \SI{4.5}{\metre} above the ground because of an expected snow depth of two to three meter during a winter season and the likelihood of measuring drifting snow \citep{wolff_measurements_2013,wolff_derivation_2015}. \\
 A vertical cross section of the T-200B gauge is shown in \Cref{fig:gauge_sketch}. The precipitation particles fall through the \SI{200}{\square\cm} orifice protected with a heated collar, into a cylindric bucket filled with frost protection. The bucket is placed on top of a Bucket Support Dish \citep[\Cref{fig:gauge_sketch},][]{geonor_inc._t-200b_2015}. This dish is connected with three wire sensors having an eigenfrequency changing with the weight inside the bucket. A formula provided by \citet{geonor_inc._t-200b_2015} calculates the amount of precipitation with the frequency of each sensor. The three sensors provide a reduction of an error in connection with an unlevel installation. Met-Norway average the values of all three sensors and provide hourly data at \citeauthor{eklima_norwegian_2016}.
@@ -70,7 +73,6 @@ After the transformation to \SI{}{\decibel Z} the reflectivity is averaged for e
 
 \newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%% PiP %%%%%%%%%%%%%%
 \subsection{PIP - Precipitation Imaging Package}
 %%% image PiP instrument %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -84,7 +86,8 @@ In front of the halogen lamp there is a frosted window, so that the background l
 Particle size distribution (PSD) and fall speed of precipitation can be determined from the black and white images provided by the system. The instrument also can give first order estimates of snowflake particle habit when in focus in the images.  
 \citet{newman_presenting_2009} describes the details of the algorithm applied to the system to get information about the snow-particle habit. \\
 The Winds have almost no effect on the result of the video distrometer \citep{newman_presenting_2009}. To reduce eventual wind effects, the distrometer was oriented perpendicular to the mean wind.
-\newpage
+
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%% MASC %%%%%%%%%%%%%%

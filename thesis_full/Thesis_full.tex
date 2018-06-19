@@ -1,5 +1,5 @@
 % !TeX spellcheck = en_GB
-\documentclass[a4paper,12pt, UKenglish,twoside]{report}
+\documentclass[a4paper,11pt, UKenglish,twoside]{report}
 
 % ********** Preamble: Contains packages and user-defined commands and settings ****************************
 \input{Preamble/preamble}
@@ -13,10 +13,11 @@
 %\includeonly{title_page,Introduction/introduction}
 %\includeonly{Introduction/introduction}
 %\includeonly{%title_page,
-%	Results/results,./Appendix/SWC_1h,./Appendix/all_vert_ens_memb}
+%	Results/results,Summary/summary,./Appendix/SWC_1h,./Appendix/all_vert_ens_memb}
 %\includeonly{Data_Instrument_Methods/data_instruments_methods}
-%\includeonly{Weather_Situation/weather_situation,Results/results}
+%\includeonly{Weather_Situation/weather_situation}%,Results/results}
 %\includeonly{Summary/summary}
+
 
 
 
@@ -32,10 +33,7 @@
 	\normalsize
       
 
-% ********** Acknowledgment **************
-%	\include{Acknowledgment/acknowledgement}
-% 	\clearpage\thispagestyle{empty}\hbox{}\newpage %whole line needed to insert a
-% 
+
 
 % ******* Table of contents, List of Figures, Tables **************
 {\hypersetup{linkcolor=black} 	% sets the regularly red color to black
@@ -58,13 +56,7 @@
 % 	\listoftables
 %	\thispagestyle{empty}
 %   	
-    \newpage
-    \addcontentsline{toc}{chapter}{List of Abbreviations}
-    \include{Nomenclature/nomenclature}
-    \printnomenclature[1in]              %%% add width here.
-    \thispagestyle{empty}
-    
-    \clearpage\thispagestyle{empty}\hbox{}\newpage %whole line needed to insert a blank page
+
 }
 	
     
@@ -73,12 +65,28 @@
     \include{Introduction/introduction}
   %    \include{Theory/theory}
     \include{Data_Instrument_Methods/data_instruments_methods}
-    \TOCpart{Results and Discussion}
+%	\addcontentsline{toc}{part}{Results and Discussion}
 	\include{Weather_Situation/weather_situation}
     \include{Results/results}
     \include{Summary/summary}
+    
+    
+    
+
+% ********** List of Abreviations **************
+    \newpage
+	\addcontentsline{toc}{chapter}{List of Abbreviations}
+	\include{Nomenclature/nomenclature}
+	\printnomenclature[1in]              %%% add width here.
+	\thispagestyle{empty}
+
+	\clearpage\thispagestyle{empty}\hbox{}\newpage %whole line needed to insert a blank page
 
 
+% ********** Acknowledgment **************
+	\include{Acknowledgment/acknowledgement}
+ 	\clearpage\thispagestyle{empty}\hbox{}\newpage %whole line needed to insert a
+ 
 	  
 % ******* Bibliography *******************************
 %	\clearpage\thispagestyle{empty}\hbox{}\newpage %whole line needed to insert a blank page
@@ -108,6 +116,7 @@
 
 % 	\end{appendices}	  	
 	
+
 
 \clearpage\thispagestyle{empty}\hbox{}\newpage %whole line needed to insert a	
 % ********** Declaration **************

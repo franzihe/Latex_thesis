@@ -15,7 +15,8 @@
 \usepackage{floatflt}
 \usepackage[verbose]{placeins}
 \usepackage{wrapfig}
-
+\usepackage[a4paper,lmargin={3cm},rmargin={2cm},tmargin={2.5cm},bmargin = {2.5cm}]{geometry}
+%\usepackage[width={160mm},top={30cm},bottom={30mm},headheight={15pt}]{geometry}
 \usepackage[protrusion=true,expansion=true]{microtype}	
 \usepackage{amsmath,amsfonts,amsthm} % Math packages
 \usepackage{enumitem}
@@ -27,7 +28,7 @@
 \usepackage{graphicx}
 \usepackage{caption}
 \usepackage{subcaption}
-\setlength{\headheight}{14.5pt}
+\setlength{\headheight}{14pt}
 
 % ****** References and links in color and linked ********************
 \usepackage[breaklinks=true]{hyperref}
@@ -61,15 +62,15 @@
 % ******* reference with Fig. before number of Fig. ********
 \usepackage{cleveref}
 \crefrangelabelformat{equation}%
-       {(#3#1#4--#5\crefstripprefix{#1}{#2}#6)}
+{(#3#1#4--#5\crefstripprefix{#1}{#2}#6)}
 \crefrangelabelformat{subequation}%
-      {(#3#1#4--#5\crefstripprefix{#1}{#2}#6)}
-      
+{(#3#1#4--#5\crefstripprefix{#1}{#2}#6)}
+
 \crefmultiformat{figure}%
-  {\edef\crefstripprefixinfo{#1}figs.~#2#1#3}%
-  { and~#2\crefstripprefix{\crefstripprefixinfo}{#1}#3}%
-  {, #2\crefstripprefix{\crefstripprefixinfo}{#1}#3}%
-  {, and~#2\crefstripprefix{\crefstripprefixinfo}{#1}#3}
+{\edef\crefstripprefixinfo{#1}figs.~#2#1#3}%
+{ and~#2\crefstripprefix{\crefstripprefixinfo}{#1}#3}%
+{, #2\crefstripprefix{\crefstripprefixinfo}{#1}#3}%
+{, and~#2\crefstripprefix{\crefstripprefixinfo}{#1}#3}
 % \Crefname{equation}{Eq.}{Eqs.}
 % \Crefname{figure}{Fig.}{Figs.}
 % \Crefname{tabular}{Tab.}{Tabs.}
@@ -133,19 +134,19 @@
 
 % ***** CHAPTER in ToC *************
 \titlecontents{chapter}% <section-type>
-  [0pt]% <left>
-  {\scshape\bfseries}% <above-code>
-  {\chaptername\ \thecontentslabel:\quad}% <numbered-entry-format>
-  {}% <numberless-entry-format>
-  {\hfill\contentspage}% <filler-page-format>
+[0pt]% <left>
+{\scshape\bfseries}% <above-code>
+{\chaptername\ \thecontentslabel:\quad}% <numbered-entry-format>
+{}% <numberless-entry-format>
+{\hfill\contentspage}% <filler-page-format>
 
 \makeatletter
 \newcommand\appendix@chapter[1]{%
-    \refstepcounter{chapter}%
-    \def\app@ct{Appendix \@Alph\c@chapter:\quad#1}
-    \orig@chapter*{\app@ct}%
-    \markboth{\MakeUppercase{\app@ct}}{\MakeUppercase{\app@ct}}
-    \addcontentsline{toc}{chapter}{\app@ct}%
+	\refstepcounter{chapter}%
+	\def\app@ct{Appendix \@Alph\c@chapter:\quad#1}
+	\orig@chapter*{\app@ct}%
+	\markboth{\MakeUppercase{\app@ct}}{\MakeUppercase{\app@ct}}
+	\addcontentsline{toc}{chapter}{\app@ct}%
 }
 \let\orig@chapter\chapter
 \g@addto@macro\appendix{\let\chapter\appendix@chapter}
@@ -157,7 +158,7 @@
 % \makeatother
 
 % 
-  
+
 
 % ******* Custom sectioning and chapter font **********************
 
@@ -180,8 +181,8 @@
 % ******* Custom headers/footers (fancyhdr package)
 \usepackage{fancyhdr}
 \pagestyle{fancyplain}
-		
-        
+
+
 %\renewcommand{\headrulewidth}{2pt}			% header underlines
 %\renewcommand{\footrulewidth}{1pt}			% footer underlines
 
@@ -217,14 +218,14 @@
 % Declaration  
 \newcommand\decName{declaration}
 \newenvironment{declaration}
-  {\renewcommand\abstractname{\decName}\begin{abstract}}
-  {\end{abstract}}
+{\renewcommand\abstractname{\decName}\begin{abstract}}
+	{\end{abstract}}
 
 % Acknowledgment
 \newcommand\ackName{acknowledgement}
 \newenvironment{acknowledgement}
-  {\renewcommand\abstractname{\ackName}\begin{abstract}}
-  {\end{abstract}}
+{\renewcommand\abstractname{\ackName}\begin{abstract}}
+	{\end{abstract}}
 
 % ********* Equation and float numbering ****************************
 \numberwithin{equation}{section}		% Equationnumbering: section.eq#
@@ -256,6 +257,10 @@
 \newcommand*{\doi}[1]{\href{http://dx.doi.org/\detokenize{#1}}{doi: \detokenize{#1}}} 
 
 % ********** include part only in toc ****************
+%\addto\captionsLANGUAGE{\renewcommand{\partname}{}
+%%\renewcommand{\chaptername}{}} 
+%\renewcommand{\thepart}{}
+
 \NewDocumentCommand{\TOCpart}{s m}{%
 	\clearpage
 	\stepcounter{part}%
@@ -263,7 +268,27 @@
 		\protect\contentsline{part}% type
 		{\protect\numberline{\thepart} #2}% number + title
 		{\number\numexpr\value{page}+1}% page number
-		{chapter.\number\numexpr\value{chapter}+1}}% hyperref link
+		{chapter.%\number
+			\numexpr\value{chapter}+1}}% hyperref link
 	\cleardoublepage
 	\ignorespaces
 }
+
+% ******* Adjusting the space between references in the bibliography. **********
+\newlength{\bibitemsep}\setlength{\bibitemsep}{.2\baselineskip plus .05\baselineskip minus .05\baselineskip}
+\newlength{\bibparskip}\setlength{\bibparskip}{0pt}
+\let\oldthebibliography\thebibliography
+\renewcommand\thebibliography[1]{%
+	\oldthebibliography{#1}%
+	\setlength{\parskip}{\bibitemsep}%
+	\setlength{\itemsep}{\bibparskip}%
+}
+% ******** If subfigure reaches 'Z' *************** 
+\usepackage{alphalph}
+\renewcommand*{\thesubfigure}{%
+	\alphalph{\value{subfigure}}%
+}%
+
+
+% ******** specify the line spacing for all sections and paragraphs until another command is used *************
+\usepackage{setspace}

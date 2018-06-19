@@ -1,12 +1,12 @@
 % !TeX spellcheck = en_GB
-\section{Numerical data transformation} \label{sec:data_proc}
+\section{Computing Snowfall Quantities} \label{sec:data_proc}
 %The previous \Cref{sec:retrieval,sec:MEPS} represented the details on retrieving snowfall amounts from the optimal estimation retrieval and the forecast model outputs. 
 The following section will describe how the different variables where processed to achieve a comparison between the retrieved values and the forecast model output. 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%% THICKNESS IN MEPS %%%%%%%%%%%%%%
-\subsection{Layer thickness in MEPS}\label{sec:layer_thickness}
-To compare the measurements from the surface with the MEPS data, the closest grid point to Haukeliseter, is used.
+\subsection{Layer Thickness in MEPS}\label{sec:layer_thickness}
+To compare the measurements from the surface with the MEPS data, the closest grid point to Haukeliseter, is used. The closest grid point to Haukeliseter is \ang{59.80}\,N, \ang{7.22}\,E.
 \\
 MEPS has a vertical resolution in hybrid sigma pressure coordinates, were one is at the surface and decreases with height. To calculate the actual vertical pressure in \SI{}{\Pa}, a formula is provided in the OPeNDAP Dataset of \texttt{meps\_full\_2\_5km\_*.nc} by the \citet{norwegian_meteorological_institute_met_2016}.  
 \begin{align}
@@ -36,7 +36,7 @@ To gain the respective height of each pressure layer, $\Delta z$ is summed.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%% SWC %%%%%%%%%%%%%%
-\subsection{Snow water content}
+\subsection{Snow Water Content}
 To get a valid comparison between the SWC from the optimal estimation retrieval and the results from MEPS, the SWC is averaged over each hour. Taking the model initialisation of MEPS at \SI{0}{\UTC} the model produces forecast values at \SI{0}{}, \SI{1}{}, \SI{2}{}, $\ldots$, \SI{22}{}, \SI{23}{}, $\ldots$, \SI{66}{\UTC}. To approach hourly mean values from the retrieval SWC an average over \SI{30}{\minute} prior and \SI{29}{\minute} after each full hour is performed. This leads to a match of the average value at the same time as from MEPS. \\
 Since MEPS has a higher vertical resolution than the optimal estimation snowfall retrieval each vertical profile of SWC is averaged every \SI{200}{\metre}. To accomplish the same vertical resolution only values above \SI{100}{\metre} are used to start at the same range height as given from the MRR (\Cref{sec:MRR}).
 \\
@@ -49,7 +49,7 @@ Within the output from MEPS snow water content does not exist for each model lay
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%% SWP %%%%%%%%%%%%%%
-\subsection{Snow water path}
+\subsection{Snow Water Path}\label{sec:SWP}
 The snow water path (SWP) is the vertically integrated value of the averaged SWC (\Cref{eq:SWC,eq:SWC_ml}), where the numerical Simpson's integration is applied.  
 \begin{equation}
 \begin{split}
@@ -62,8 +62,10 @@ The snow water path (SWP) is the vertically integrated value of the averaged SWC
 \end{equation}
 The snow water path is a measure of the weight of ice particles per unit area. It indicates the total amount of ice in the atmosphere.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Statistical Methods for Analysing Data}
+\textcolor{red}{Something to get a flow}
 %%%%%%%%% Ensemble spread %%%%%%%%%%%%%%
-\subsection{Ensemble mean and Coefficient of Variation}\label{sec:ens_mean_spread}
+\subsection{Ensemble Mean and Coefficient of Variation}\label{sec:ens_mean_spread}
 \textcolor{red}{Check literature of meaning} \\
 The ensemble mean is the average of all ten ensemble members of MEPS.
 \begin{align}
@@ -85,7 +87,7 @@ which follows for the coefficient of variation:
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%% MAE & ME %%%%%%%%%%%%%%
-\subsection{Mean error and mean absolute error}
+\subsection{Mean Error and Mean Absolute Error}
 The mean error for the each ensemble member is calculated with: 
 \begin{align}
 	ME = \frac{\sum_{i=1}^n MEPS_{ens} - DoFe_{obs}}{N}
@@ -97,20 +99,10 @@ where $MEPS_{ens}$ represents the value of each ensemble member and $DoFe_{obs}$
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%% %Diff, %Avg Diff %%%%%%%%%%%%%%
-\subsection{Percent difference and average difference}
+\subsection{Percent Difference and Average Difference}
 The percentage difference presented in the results (\Cref{tab:res:ret_error} and \textcolor{red}{add for MEPS}) are calculated by:
 \begin{align}
 	\SI{}{\percent} \text{Difference} & = \frac{SF - DoFe_{obs}}{DoFe_{obs}} \times 100
 \end{align}
 $SF$ presents the snowfall from the retrieval or the MEPS ensemble forecast. The average is then taken from all \SI{}{\percent} Difference values to see the difference of the Christmas storm 2016.
 
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% %%%%%%%%% Dew point T for SkewT %%%%%%%%%%%%%%
-
-% \subsection{Dew point temperature for Skew-T log-P Diagram}
-% The Python module \texttt{pyMeteo} is used to calculate the dew point temperature of each ensemble member to study the stability of the atmosphere (\url{https://pythonhosted.org/pymeteo/}, last visited: 25.01.2018). The additional package \texttt{thermo.py} is able to calculate the dew point temperature if the pressure and the specific humidity in each level are known. 
-% \begin{align}
-% 	e_l & = ln\left( \frac{\frac{q_v}{\epsilon} \cdot \frac{p}{100}}{1 + \frac{q_v}{\epsilon}} \right) \\
-% 	T_d & = 273.15 + \frac{243.5 \cdot e_l -440.8}{19.48 -e_l} \qquad [\SI{}{\kelvin}]
-% \end{align}
-% where, $q_v$ is the specific humidity, $p$ pressure in [\SI{}{\Pa}], $\epsilon = R_d / R_v = 0.622$ with $R_v$ gas constant for water vapour.

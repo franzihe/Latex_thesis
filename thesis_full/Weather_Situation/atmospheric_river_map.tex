@@ -1,12 +1,21 @@
 % !TeX spellcheck = en_GB
 \section{Integrated Vapour Transport}
-\label{sec:atm_riv}
-An atmospheric river (AR) is a filament structure of intense moisture transport from the tropics to higher latitudes. Heavy precipitation can be associated with it, because the air is warm and moist. This can often be observed at mountain ranges at west coasts such as in Norway \citep{azad_extreme_2017}. Due to orographic lifting the moisture will be released and follow high amounts of precipitation. 
-\\
-An atmospheric river is characterised if the integrated vapour transport shows values higher than \SI{250}{\IVT} and a continuous region larger than \SI{2000}{\km} \citep{rutz_climatological_2014}.
-\\
+ \label{sec:weather:atm_riv}
+% An atmospheric river (AR) is a filament structure of intense moisture transport from the tropics to higher latitudes. Heavy precipitation can be associated with it, because the air is warm and moist. This can often be observed at mountain ranges at west coasts such as in Norway \citep{azad_extreme_2017}. Due to orographic lifting the moisture will be released and follow high amounts of precipitation. 
+% \\
+% An atmospheric river is characterised if the integrated vapour transport shows values higher than \SI{250}{\IVT} and a continuous region larger than \SI{2000}{\km} \citep{rutz_climatological_2014}.
+% \\
 \Cref{fig:AR24_pres} shows coloured contours of the integrated vapour transport (IVT) in \SI{}{\IVT}, where warmer colours indicate higher IVT. 
 Stream vectors in \Cref{fig:AR24_pres} indicate the direction and intensity of the IVT flow. 
+% The integrated vapour transport (IVT) was calculated from the ECMWF data as followed:
+% \begin{align}
+% IVT = \frac{1}{g} \int\limits_{p_{sfc}}^{\SI{100}{\hPa}} q \mathbf{V} dp \qquad [\SI{}{\IVT}]
+% \label{eq:IVT}
+% \end{align} 
+% where $g$ is the standard gravity, $q$ the specific humidity, and $\mathbf{V}$ the total wind vector at each pressure level $p$. The numerical, trapezoidal integration is performed by using data from the surface pressure $p_{sfc}$ to \SI{850}{\hPa} in \SI{50}{\hPa} intervals and from \SIrange{700}{100}{\hPa} in \SI{100}{\hPa} intervals.
+\\
+Analysing integrated vapour transport maps is important, since extreme precipitation events in Norway are often influenced by moist, warm air advection from the tropics \citep{azad_extreme_2017}. \Cref{fig:AtmRiv} shows integrated vapour transport from the tropics to the midlatitudes, but it also presents that the occurrence of the atmospheric river was not the main factor which led to intense precipitation during the 2016 Christmas storm. 
+Since it showed not to be intense it will not be further discussed.
 %%% Atmospheric river maps %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{figure}[H]
 	\centering
@@ -44,15 +53,6 @@ Stream vectors in \Cref{fig:AR24_pres} indicate the direction and intensity of t
 \end{figure}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \noindent
-The integrated vapour transport (IVT) was calculated from the ECMWF data as followed:
-\begin{align}
-IVT = \frac{1}{g} \int\limits_{p_{sfc}}^{\SI{100}{\hPa}} q \mathbf{V} dp \qquad [\SI{}{\IVT}]
-\label{eq:IVT}
-\end{align} 
-where $g$ is the standard gravity, $q$ the specific humidity, and $\mathbf{V}$ the total wind vector at each pressure level $p$. The numerical, trapezoidal integration is performed by using data from the surface pressure $p_{sfc}$ to \SI{850}{\hPa} in \SI{50}{\hPa} intervals and from \SIrange{700}{100}{\hPa} in \SI{100}{\hPa} intervals.
-\\
-Analysing integrated vapour transport maps is important, since extreme precipitation events in Norway are often influenced by moist, warm air advection from the tropics \citep{azad_extreme_2017}. \Cref{fig:AtmRiv} shows integrated vapour transport from the tropics to the midlatitudes, but it also presents that the occurrence of the atmospheric river was not the main factor which led to intense precipitation during the 2016 Christmas storm. 
-Since it showed not to be intense it will not be further discussed.
 %% Atmospheric river maps %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{figure}[t!]\ContinuedFloat
 	%%%%%% 24/12

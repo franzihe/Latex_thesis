@@ -22,6 +22,7 @@ Again, these uncertainties arise from the large variance in snowflake microphysi
 Preliminary analyses suggested good performance for this retrieval scheme at Barrow, Alaska. Estimates of snowfall from the \citet{cooper_variational_2017} approach differed by \SI{18}{\percent} relative to nearby National Weather Service snow gauge measurements for total accumulation over multiple snow events. However, given limited snowfall observed at Barrow during the deployment of the MASC, it was difficult to come to any definitive conclusions about retrieval performance. The NSF (National Science Foundation) funded field campaign with MRR, MASC, and PIP (Precipitation Imaging Package) deployment at Haukeliseter provides an ideal opportunity to further explore the \citet{cooper_variational_2017} retrieval approach. This thesis will continue to examine the sensitivity of retrieval surface snowfall rate to assumptions of habit, fall speed, and particle size distribution as in \citet{cooper_variational_2017}. In addition, this study here will will examine the vertical profiles of snowfall profiles in the atmospheric column.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+%\newpage
 %%%% OE scheme %%%%%%%
 \subsection{Snowfall Retrieval Scheme}\label{sec:ret_scheme}
 %%% image forward problem %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -29,14 +30,11 @@ Preliminary analyses suggested good performance for this retrieval scheme at Bar
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 The optimal-estimation snowfall retrieval scheme was modified for the Barrow instrumentation described in \citet{cooper_variational_2017} to the \SI{24}{\giga\hertz} MRR, MASC, and PIP located at Haukeliseter. This scheme was then used to derive surface snowfall rates and vertical profiles of snow water content using different combinations of retrieval assumptions based upon in-situ observations.
 Here a discussion of the optimal-estimation framework is presented so that the reader can understand exactly how the different measurements in the retrieval scheme were incorporated. The differences in the forward and inverse problem are reviewed in the beginning. Both, forward and inverse problem underlie the basic methodologies of remote sensing.
-\\
-\\
+\par\medskip\noindent
 The general concepts of forward and inverse problems are illustrated in \Cref{fig:dragon}.  The forward problem describes the relationship between the physical parameters of interest and the measurements (\Cref{fig:dragon:forward}). In \Cref{fig:dragon:inverse}, the physical parameter is the reindeer and the measurements are its tracks. In the here presented thesis snowfall scheme, the physical parameters are the vertical profiles of snow water content (SWC) and the measurements are the MRR reflectivities.  The inverse problem represents the opposite goal.  The physical entity (reindeer and SWC) must be inferred from the measurements (reindeer tracks or MRR reflectivities).
-\\
-\\
+\par\medskip\noindent
 The optimal-estimation framework is used to solve the inverse problem for the thesis work. But it is more complex than the direct inversion as represented in \Cref{fig:dragon:inverse}. Instead of inverting directly for the parameter of interest (SWC) from the measurements [\SI{}{\decibel ze}], the scheme includes additional information based upon an 'a priori' understanding of the physics of the retrieval problem. Thus, it represents a weighted balance between what the data can tell about the state and what is already known about it. For the CloudSat retrieval scheme, this a priori information came from a parametrisation relating particle size distribution (PSD) to temperature. For the Barrow and Haukeliseter schemes, the a priori information could also come from the in-situ observations of snowflake microphysics. These constraints also add numerical stability to the inversion process when there are either calibration errors in the measurements or uncertainties in the forward model that relates the physical parameter to measurement space. Details of the radar forward model are discussed at the end of this section.
-\\
-\\
+\par\medskip\noindent
 The optimal estimation method is based on Gaussian statistics.  It solves for snowfall properties of interest or retrieval vector, $\mathbf{x}$, by minimizing the scalar cost function, $\Phi$ , as in \Cref{eq:scalar_cost_fct}.
 \begin{equation}
 \begin{split}
@@ -49,14 +47,12 @@ Specifically, or this thesis retrieval scheme, $\mathbf{x}$ represents the PSD p
 	n(r) & = N_{0} \exp\left(-\lambda r\right) \qquad [ \SI{}{\per\cubic\metre\per\mm} ] \label{eq:num_dens}
 \end{align}
 The $\mathbf{S}_y$ and $\mathbf{S}_{a}$ terms, in \Cref{eq:scalar_cost_fct}, represent the forward model and measurement error covariance matrix and the a priori error covariance matrix, respectively. The relative differences between $\mathbf{S}_{a}$ and $\mathbf{S}_y$ weight the importance of the observations and the a priori considerations in determining our best estimate of PSD properties. 
-\\
-\\
+\par\medskip\noindent
 Newtonian iteration is used until the value of the cost function converges and our best estimate of snowfall properties are found.  The optimal-estimation scheme also provides error diagnostics through the retrieval error covariance matrix, $\mathbf{S}_x$, as in \Cref{eq:Sx}.
 \begin{align}
 	\mathbf{S}_x & = \left( \mathbf{S}_a^{-1} + \mathbf{K}^T \mathbf{S}_y^{-1} \mathbf{K} \right)^{-1}\label{eq:Sx}
 \end{align}
 The Jacobian matrix, $\mathbf{K}$, represents the sensitivity matrix of the perturbed result of the forward model. The true state $\mathbf{x}$ is perturbed by \SI{0.2}{\percent} and thus $\mathbf{K}$ represents the relation between simulated values to the true state and how sensitive the simulated values are to small changes when starting a new retrieval cycle. The closer $\mathbf{K}$ is diagonal, the more is $\mathbf{x}$ determined by the real observed and a priori values. If the limit of the partial derivative is close to unity, the retrieved value $\mathbf{x}$ is its true state \citep{wood_estimation_2011}.
-\\
 \\
 In practical application for this multiple layer retrieval scheme, log-transformed particle size distribution parameters of slope and number intercept were used due to the large expected range of these variables. The state vector, $\mathbf{x}$, is defined in \Cref{eq:snow_prop}.
 \begin{align}
@@ -78,7 +74,6 @@ The usage of a priori terms were explored both from in-situ microphysical observ
 \end{align}
 The log-transformed equations are useful, since the results from C3VP were similar to other observations. The study showed, that $N_0$ ranges over several order of magnitude as well as $\lambda$ was non-Gaussian for the snow events \citet{wood_estimation_2011}. The diagonal matrix elements in $\mathbf{S}_a$ (\Cref{eq:scalar_cost_fct,eq:Sx}) are equal to \numlist{0.133;0.95} for the particle slope parameter and the number intercept, respectively, as from Eq. 7.35 and 7.36 in \citet{wood_estimation_2011}. The diagonal matrix elements for $\mathbf{S}_y$ are $2.5^2$ in \Cref{eq:scalar_cost_fct,eq:Sx}.
 \\
-\\
 After the best estimate of PSD parameters are found, the snow water content in each layer is calculated using the snow particle mass-dimension relationships as in \Cref{app:scat_scheme}. 
 %
 \begin{align}
@@ -88,27 +83,25 @@ $r$ is the particle maximum dimension and $m(r)$ the related mass.
 \\
 This thesis work considered the database of particle models developed for the CloudSat mission, e.g. different types of aggregates, sector plates, and columns. Scattering properties for these snowflakes were calculated for the \SI{24}{\giga\hertz} frequency using discrete dipole approximation (DDA). Observations from the MASC of snowflake habit were used to guide particle selection. Snow water content, in turn, was translated into a snowfall rate using fall speed observations (MASC, PIP, or MRR Doppler velocity) or climatological analyses ($V = \SI{0.85}{\mPs}$). Surface snowfall rate is estimated using the SWC from the lowest non-noise reflectivity and radar bin. 
 \\
-\\
 The forward model that calculates simulated \SI{24}{\giga\hertz} MRR reflectivities from PSD parameters was modified from that used in the CloudSat \SI{94}{\giga\hertz} operational snowfall product (2C-SNOW-PROFILE). Backscatter from frozen hydrometeors in each radar bin is summed up as in \Cref{eq:backscatter} form which reflectivity factor, Z, can be found (\Cref{eq:singleZ}). 
 % singly-scattered non-attenuated reflectivity
 \begin{align}
 	\eta_{bk} & = \int_{r_{min}}^{r_{max}} n(r) \sigma_{bk} dr \qquad [\SI{}{\per\metre}] \label{eq:backscatter} \\
 	Ze^{ss,na} & = \frac{\Lambda^4}{\left\| K_w \right\|^2 \pi^5} \eta_{bk} \qquad [\SI{}{\mm^6\metre^{-3}}] \label{eq:singleZ}
 \end{align}
-where, $\Lambda$ is the wavelength of the radar; $\left\| K_w \right\|^2$ is the complex refractive index of water. Radar backscatter values were estimated using discrete dipole approximation for the CloudSat particle models at \SI{24}{\giga\hertz}. Unlike the \SI{94}{\giga\hertz} spaceborne CloudSat mission, multiple scattering and attenuation can be neglected for \SI{24}{\giga\hertz} MRR and the short path length retrievals as viewed from the ground perspective.  
+Where, $\Lambda$ is the wavelength of the radar; $\left\| K_w \right\|^2$ is the complex refractive index of water. Radar backscatter values were estimated using discrete dipole approximation for the CloudSat particle models at \SI{24}{\giga\hertz}. Unlike the \SI{94}{\giga\hertz} spaceborne CloudSat mission, multiple scattering and attenuation can be neglected for \SI{24}{\giga\hertz} MRR and the short path length retrievals as viewed from the ground perspective.  
 
 %\newpage
 \subsection{Environmental Masks for the Optimal Estimation Retrieval}\label{sec:pre_snow}
-%%% image surface temperature and MRR %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\input{./images_tex/retrieval_MRR_sfcT}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\noindent
 Different steps and assumptions are done in the here presented snowfall retrieval, to achieve vertical profiles of snowfall from MRR. The snowfall rate at the surface can be estimated from one of the lower levels. The optimal estimation retrieval is only performed for profiles, which are likely to have observed snow. 
 %Relationships between reflectivity and snowfall have been developed in previous studies. Different crystal shapes led to different results, even if the PSD of ice particles is known. Snow densities vary significantly from storm to storm, where small particles are still Rayleigh scattered, and larger particles non-Rayleigh scattered \citep{gunn_microwave_1954}. 
 \\
 This value was  chosen as sensitivity studies \citep[e.g.][]{wood_level_2013} that a days worth of such reflectivities would produce only a trace of snow.  Such a value therefore guarantees that a significant snow event is not missed and that any storms with lower \SI{}{\decibel Z} values would not produce meaningful precipitation.
 %A reflectivity threshold of \SI{- 15}{\decibel Z} was selected for the scheme. The threshold is similar to the one used in \citet{wood_level_2013}. Light liquid precipitation is related to \SI{- 10}{\decibel Z} \citep{stephens_properties_2007}. \citet{wood_estimation_2011} found, that the reflectivity above \SI{-15}{\dB Z} are not influenced by ground clutter, when the reflectivity in the lowest bin and adjacent bin is compared.
-\\
+%%% image surface temperature and MRR %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{./images_tex/retrieval_MRR_sfcT}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\noindent
 The Haukeliseter measurement site is equipped with a weather mast, measuring the air temperature every minute at two-meter height (compare \Cref{fig:MRR_sfcT}, upper panel). 
 %
 Since the MRR measures above \SI{300}{\metre} and temperature measurements exists only at the surface, a priori temperature ($T_{ap}$) at the surface is assumed to be similar to the observed near-surface air temperature. The use of a moist adiabatic lapse rate of $dT/dz = \SI{5}{\kelvin\per\km}$ gives $T_{ap}$ in each layer. 

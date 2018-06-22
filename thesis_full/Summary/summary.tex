@@ -4,45 +4,37 @@
 \chapter{Summary and Outlook}
 % \textcolor{red}{SUMMARIZE! What did you do? Why did you do it? What did you use? What were your findings? What could be done in the future?} 
 % \\
-The %extreme weather event 'Urd' 
-Christmas storm in 2016, an extreme weather event
+The Christmas storm in 2016, an extreme weather event,
 affected large parts of Eastern, Southern, and Western Norway. 
-In this thesis, a case study of an extreme event %for snowfall 
-occurring on \SI{21} to \SI{26}{\dec} %has been explored
-was studied. 
-%During this period a low-pressure system developed east of Iceland, and the second cyclone evolved in the western Atlantic.
+In this thesis, a case study of an extreme event occurring on \num{21} to \SI{26}{\dec} was studied. During winter 2016/2017 additional instruments such as a Micro Rain Radar (MRR), Particle Imaging Package (PIP), and Multi-Angular Snowfall Camera (MASC) were installed at Haukeliseter (\SI{991}{\metre} above sea level). The modified CloudSat optimal estimation retrieval was applied to estimate surface snow amount. 
+The Meteorological Cooperation on Operational Numerical Weather Prediction (MetCoOp) Ensemble Prediction system (MEPS) became operational from November 2016 when it substituted the Mèteo-France Applications of Research to Operations at MEsoscale (AROME)-MetCoOp system at the Norwegian Meteorological Institute. Since MEPS has just become operational, a unique opportunity is given to do first comparisons between observations at the World Meteorological Organization station Haukeliseter, the additional installed instruments for snow, and the weather forecast model for the Christmas storm.
+%The change from a deterministic forecast to an ensemble prediction system will help to take into account measurement uncertainties. / predictability
 \\
-% weather analysis
-The 2016 Christmas storm was analysed with the help of ECMWF analysis maps at the dynamic tropopause level and at the surface. First a low-pressure system developed east of Iceland propagating polward, followed by a second low-pressure system, which evolved in the western Atlantic, going eastward.
-% Meteorologic analysis 
-Meteorological parameters were evaluated to investigate if the large scale phenomena such as occlusion passages were observed and predicted by MEPS.
-% sensitivity study + agreement dofe
-A sensitivity study of retrieved snow accumulation for different a-priori assumptions was carried out. The results for surface snow accumulation agreed better with the double fence gauge observations for rimed particle assumptions than the use of a small pristine particle.
-% overestimation sfc snowfall
-Snowfall comparisons between double fence gauge observations and MEPS forecast of precipitation amounts were investigated at the WMO measurement site Haukeliseter. 
-% vertical analysis
-Furthermore, a comparison between retrieved profiles of snow water content %is compared to \SI{48}{\hour} forecasts of MEPS. 
-and MEPS forecast were carried out. %Wind related 
-% topography and wind
-Finally, topographic influence on wind and precipitation %and the 
-next to the impact of horizontal resolution of MEPS were discussed. %examined.
+%%%% weather analysis
+The 2016 Christmas storm was analysed with the help of ECMWF analysis from the surface to the dynamic tropopause level. Meteorological parameters were evaluated to prove if the large-scale phenomena were observed and predicted by MEPS.
+%%%% sensitivity study + agreement dofe
+A sensitivity study of retrieved surface snow accumulation for different a-priori assumptions was implemented. 
+%%%% overestimation sfc snowfall
+Snow comparisons between double fence gauge observations and MEPS forecast were investigated at the World Meteorological Organization measurement site Haukeliseter. 
+%%%% vertical analysis
+Furthermore, a comparison between retrieved snow profiles of snow water content and MEPS forecast was carried out. %Wind related 
 \par\medskip
 \noindent
 %%%%%%%% weather analysis
-A low-pressure east of Iceland and a cold tropopause led to observed mixed-phase precipitation at the Haukeliseter site. A second cyclone developed in the western Atlantic on \SI{22}{\dec} and moved to Norway. Temperature changes related to the cold and warm fronts, and warm sector passages led to precipitation changes from snow to liquid at Haukeliseter. 
-The associated warm sector led to liquid precipitation at Haukeliseter, followed by a landfall on \SI{26}{\dec} and dissipation of the cyclone.
+%A low-pressure east of Iceland and a cold tropopause led to observed mixed-phase precipitation at the Haukeliseter site. A second cyclone developed in the western Atlantic on \SI{22}{\dec} and moved to Norway. 
+During \num{21} to \SI{26}{\dec} a low-pressure system developed east of Iceland propagating poleward, followed by a second low-pressure system, which evolved in the western Atlantic, moving eastward.
+Temperature changes related to a low and high tropopause, occlusions, and warm sector passages led to precipitation changes %from frozen to liquid 
+at Haukeliseter. 
+Within the warm sector passage liquid precipitation was observed at Haukeliseter, followed by a landfall of the Christmas storm 2016 on \SI{26}{\dec} and dissipation afterwards. 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \par\medskip
 \noindent
 %%%%%%%% met analysis
-The ensemble prediction weather forecast system MEPS became operational from
-%AROME-MetCoOp was operational until 
-November 2016 when it substituted the AROME-MetCoOp system at the Norwegian Meteorological Institute. 
-%The change from a deterministic forecast to an ensemble prediction system will help to take into account measurement uncertainties. / predictability
-Since MEPS has just become operational, an unique opportunity is given to do first comparisons between observations at the WMO station Haukeliseter, the additional installed instruments, and the weather forecast model for the Christmas storm.
 %The closest model grid point to the measurement site Haukeliseter was chosen to answer the research question if MEPS is able to predict large-scale phenomena such as occlusions related to an extreme event.
-It turned out that the regional forecast model MEPS is capable of predicting changes associated to frontal passages and occlusions during the Christmas 2016 extreme event at Haukeliseter. 
-Pressure, temperature, and wind changes associated with transitions of fronts were predicted \SIlist{24;48}{\hour} in advance for this particular case study. 
+%It turned out that t
+The regional forecast model MEPS is capable of predicting sea level pressure, \SI{2}{\metre} air temperature, and \SI{10}{\metre} wind changes associated to frontal passages and occlusions during the Christmas 2016 storm at Haukeliseter. 
+Transitions of the occlusions and the warm sector were predicted \SIlist{24;48}{\hour} in advance for this particular case.
+However, MEPS simulated too high wind speed (mean absolute error $\le$\SI{10}{\mPs}) and surface precipitation amount (mean absolute error $\le$\SI{15}{\mm}).
 % %%% correlation %%% MAE
 % % SLP
 % The correlation between surface observations at Haukeliseter and the weather forecast model were best for sea level pressure. 
@@ -54,89 +46,98 @@ Pressure, temperature, and wind changes associated with transitions of fronts we
 \par\medskip
 \noindent
 %%%%%%%% sensitivity study
-Double fence gauge measurements are considered as one of the best surface measurements for snowfall. During winter 2016/2017 additional instruments such as a MRR, MASC and PIP were installed at Haukeliseter. A state of the art optimal estimation snowfall retrieval allowed to compare surface observations to vertically retrieved snowfall amounts. 
+%The results for surface snow accumulation agreed better with the double fence gauge observations for rimed particle assumptions (\SI{-5}{\percent}) than the use of a small pristine particles (+\SI{70}{\percent}).
+%Double fence gauge measurements are considered as 
+According to literature the double fence gauge instrument is  one of the best surface measurements for snow and taken as reference norm for precipitation observations. 
+A state of the art optimal estimation snowfall retrieval using a-priori guess from MRR, PIP, and MASC, allowed to compare surface observations to vertically retrieved snow amounts. 
 \\
-Assumptions of a particle model for rimed aggregates, climatological particle size distributions and fall speeds followed the best estimate for surface snowfall accumulation compared to the use of the CloudSat PSD estimate at Haukeliseter. On \SI{22}{\dec}, the deviation between CloudSat PSD and double fence gauge was \SI{70}{\percent}. The average difference between retrieved snowfall amount for rimed particles and double fence was lower than \SI{-5}{\percent} for \SIlist{12;24}{\hour} snowfall accumulation during the extreme event in 2016. This followed the use of retrieved estimates of rimed particle models for the continues discussion.
-\\
-%%%%%%%% agreement estmiated acc with dofe
-This small difference between observed and estimated snowfall shows the importance to choose a priori assumptions correctly to achieve reasonable surface estimates of precipitation amount at the ground.
+In the sensitivity study assumptions of a particle model for rimed aggregates ('B6'), climatological particle size distributions (PSD) and fall speeds followed the best estimate for surface snowfall accumulation compared to the use of a less reflective CloudSat aggregate model ('B8') 
+%the CloudSat PSD estimate %for pristine habits 
+at Haukeliseter. On \SI{22}{\dec}, the deviation between retrieval results found using the CloudSat aggregate particle model and double fence gauge measurement was \SI{70}{\percent}. 
+%The average difference between retrieved snowfall amount for rimed particles and double fence was lower than \SI{-5}{\percent} for \SIlist{12;24}{\hour} snowfall accumulation during the extreme event in 2016. 
+\par\medskip
+\noindent
+%%%%%%%% agreement estimated acc with dofe
+Small differences between observed and estimated snow for rimed aggregates ($\le$ \SI{-5}{\percent}) shows the importance to choose a priori assumptions correctly to achieve reasonable surface estimates of precipitation amount at the ground. 
+% \\
+% This followed the use of retrieved estimates of rimed particle models for the continues discussion. %Furthermore, 
+The small deviation gives confidence to trust the vertical estimated snow water content.
 \par\medskip
 \noindent
 %%%%%%%% overestimation of sfc precip
-MEPS simulated the surface precipitation amount too high during the intensification of the Christmas 2016 storm. 
-The average difference between observations and forecasted precipitation amount at the surface decreased with increasing lead time for \num{21} to \SI{26}{\dec}.
+The average difference between observations and forecasted precipitation amount at the surface decreased with increasing lead time (\SI{12}{\hour}: +\SI{135}{\percent}, \SI{24}{\hour}: +\SI{33}{\percent}) for \num{21} to \SI{26}{\dec}.
+%MEPS simulated the surface precipitation amount too high during \num{24} and \SI{26}{\dec} (\SI{60}{\percent}). %the intensification of the Christmas 2016 storm. 
 %In the meteorological analysis an overestimation of surface precipitation accumulation up to \SI{60}{\percent} showed. 
-On the first three days (\num{21} to \SI{23}{\dec}) the average difference error was less than \SI{11}{\percent} for \SIlist{12;24}{\hour} accumulation.
-Between \num{24} and \SI{26}{\dec} a averaged difference error of \SI{60}{\percent} showed.
-The \SI{12}{\hour} precipitation accumulation had a mean absolute error up to \SI{15}{\mm} for MEPS. %which is more than eight times larger than the Norwegian mean for AROME-MetCoOp of December 2014 \citep{muller_arome-metcoop:_2017}.
+The results revealed, the 
+%On the first three days (\num{21} to \SI{23}{\dec}) the 
+average difference for \SIlist{12;24}{\hour} accumulation   was less than +\SI{11}{\percent} (\num{21} to \SI{23}{\dec}) and +\SI{60}{\percent} (\num{24} to \SI{26}{\dec}). 
+%between \num{24} and \SI{26}{\dec} an average deviation of +\SI{60}{\percent} occurred.
+%The \SI{12}{\hour} precipitation accumulation had a mean absolute error up to \SI{15}{\mm} for MEPS. %which is more than eight times larger than the Norwegian mean for AROME-MetCoOp of December 2014 \citep{muller_arome-metcoop:_2017}.
 \\
-A comparison of \SI{10}{\percent} under-catchment of the double fence measurement to the MEPS forecast showed a smaller difference error than not taking wind effects into account.
-%Forcasted surface precipitation accumulation comparison of the wind influenced under-catchment by the double fence of \SI{10}{\percent} showed a smaller difference error. 
-Nevertheless, the precipitation accumulation at the surface was overestimated more than \SI{40}{\percent} by MEPS. %Reasons for the prediction of too much precipitation accumulation at the ground could be initialisation errors as well as the use of one grid point instead of using a variable average of surrounding grid points. The results show that MEPS is not able to predict the precipitation correctly for Haukeliseter during the Christmas 2016 extreme event. 
+Taking the \SI{10}{\percent} negative bias of the double fence measurements due to wind effects into account, reduces the forecasted surface snow error to +\SI{40}{\percent}.
+%A comparison of \SI{10}{\percent} under-catchment of the double fence measurement to the MEPS forecast showed a smaller difference (+\SI{40}{\percent}) than not taking wind effects into account.
+%Forecasted surface precipitation accumulation comparison of the wind influenced under-catchment by the double fence of \SI{10}{\percent} showed a smaller difference error. 
+%Nevertheless, the precipitation accumulation at the surface was overestimated more than \SI{40}{\percent} by MEPS. %Reasons for the prediction of too much precipitation accumulation at the ground could be initialisation errors as well as the use of one grid point instead of using a variable average of surrounding grid points. The results show that MEPS is not able to predict the precipitation correctly for Haukeliseter during the Christmas 2016 extreme event. 
 \par\medskip
 \noindent
 %%%%%%% vertical analysis
-The profiles of estimated snow water content can be trusted after it was shown that the retrieved estimated snowfall at the surface is in good agreement with those observed at the double fence gauge.
+% The profiles of estimated snow water content can be trusted after it was shown that the retrieved estimated snowfall at the surface is in good agreement with those observed at the double fence gauge.
+% \\
+On \SI{25}{\dec}, MASC images allowed to verify the presence of liquid precipitation during the passage of a warm sector at Haukeliseter. MEPS was able to simulate the timing of liquid precipitation \SIlist{24;48}{\hour} in advance. %Vertical 
+Comparison between MRR reflectivity profiles and modelled liquid water content showed the accurate simulation of liquid precipitation, both in time and thickness layer, in the lower most atmosphere. %Both in time and layer thickness. %This is an important advantage of a regional weather forecast model, as the change from snowfall to liquid precipitation poses a great risk in Norwegian mountains.
 \\
-The one and three hourly ensemble means of MEPS displayed the ability to predict more continuous, up-slope snow storm patterns related to occlusion passages. As well as pulsing precipitation associated to strong westerlies.
+%Precipitation associated with up-slope wind showed a low ensemble variability for initialisations \SIlist{24;48}{\hour} prior storm occurrence %was low. 
+Less variability ($\le$ \SI{25}{\percent}) of snow water content between the ensemble members was seen for the continues precipitation associated with south-easterlies for initialisations \SIlist{24;48}{\hour} prior.
+MEPS ensemble members were certain about the appearance of pulsing snowfall patterns related to westerlies, but not the timing. 
+The coefficient of variation showed more variability ($\ge$ \SI{50}{\percent}) between the ensemble members for the short, pulsed than for continuous precipitation pattern. The larger variability of the ensemble members for the pulsing storm patterns is likely related to the temporal resolution of MEPS ensemble forecast data and the short appearance of the pulses of around \SI{30}{\min}.
 \\
-On \SI{25}{\dec}, MASC images could verify the presence of liquid precipitation during the passage of a warm sector at Haukeliseter. MEPS was able to estimate the episode of liquid precipitation \SIlist{24;48}{\hour} in advance. %Vertical 
-Comparison between reflectivity profiles and modelled liquid water content showed the accurate prediction of liquid precipitation, both in duration and layer thickness. %This is an important advantage of a regional weather forecast model, as the change from snowfall to liquid precipitation poses a great risk in Norwegian mountains.
-\\
-However, the deterministic and first ensemble member with \SI{1}{\hour} resolution predicted higher snow water content (\SI{1.5}{\SWC}) compared to the retrieved values %on some days 
-during the 2016 Christmas storm.
-\\
-Precipitation associated with up-slope wind showed a low ensemble variability for initialisations \SIlist{24;48}{\hour} prior storm occurrence %was low. 
-MEPS ensemble members were uncertain about the appearance of snowfall pulsing patterns related to westerlies. Greater variability between the ensemble members for pulsing storm patterns is likely related to the temporal resolution of MEPS ensemble forecast data and the short appearance of the pulses of around \SI{30}{\min}.
-\\
-The estimated snow water content from MRR profiles is larger than the instantaneous average MEPS prediction. % of snowfall. 
-\\
+The hourly averaged estimated snow water content from MRR profiles is larger ($\le$ \SI{1.5}{\SWC}) than the ensemble mean of instantaneous MEPS forecasts ($\le$ \SI{1.2}{\SWC}). % of snowfall. 
+%However, t
+But, the deterministic and first ensemble member with \SI{1}{\hour} resolution predicted higher snow water content ($\ge$\SI{2.0}{\SWC}) compared to the retrieved values ($\le$\SI{1.5}{\SWC}) %on some days 
+during the 2016 Christmas storm, showing the importance of high temporal resolution.
 \par\medskip
 \noindent
-Although MEPS has a horizontal resolution of \SI{2.5}{\km}, the representation of the %mountainous terrain 
+%%% orography
+Although MEPS has a high horizontal resolution of \SI{2.5}{\km}, the representation of the %mountainous terrain 
 topography in Norway might still be an issue. MEPS %is able to 
-resolves some of the major orographic patterns, such as high mountains to the west and the south-east of the Haukeliseter station. Westerlies and their associated pulsing precipitation pattern were correctly.% predicted by MEPS but the ensemble members showed a large variability about the existence of this storm patterns. 
-The coefficient of variation showed more variability between the ensemble members for the short, pulsed precipiation pattern. Less variability was seen for the uninterrupted precipitation associated with south-easterlies.
-Forecasts of westerlies during \num{24} and \SI{26}{\dec} showed a good correlation with observations. In contrast, observed south-east winds were often predicted as south-westerly wind (not along the mountain valley, with south-east direction) during \num{21} and \SI{23}{\dec}. Nevertheless, MEPS is able to relate southerly winds with up-slope patterns of precipitation.
+resolves some of the major orographic patterns at the Haukeliseter station, such as high mountains to the west and the south-east. %Westerlies and their associated pulsing precipitation pattern were correctly.% predicted by MEPS but the ensemble members showed a large variability about the existence of this storm patterns. 
+The one and three hourly ensemble mean forecast of snow water content displayed the ability to predict more continuous, up-slope snow storm patterns related to occlusion passages as well as pulsing precipitation associated to strong westerlies.
+\\
+Forecasts of westerlies during \num{24} and \SI{26}{\dec} showed a good correlation with observations. In contrast, observed south-easterly winds were predicted as south-westerly wind on \num{21} and \SI{23}{\dec}. %Nevertheless, MEPS is able to relate southerly winds with continuous patterns of precipitation.
+% The topography around Haukeliseter influences wind and precipitation.
 % \par\medskip
 % \noindent
+%%%% topography and wind
+Finally, topographic influence on wind and precipitation %and the 
+next to the impact of horizontal resolution of MEPS were discussed. %examined.
 \\
 \\
-This study demonstrates %the complex interaction of analysing snowfall extreme events with observations, and regional model prediction.
-how difficult it is to merge different observations to verify a regional model during an extreme event.
-The here presented results are a first %look for only 
-case study for one winter storm at %one 
-a Norwegian station in the mountainous. Further studies have to be done. 
+%This study demonstrates %the complex interaction of analysing snowfall extreme events with observations, and regional model prediction.
+%how difficult it is to merge different observations to verify a regional model during an extreme event.
+The here presented results are a first case study for one winter storm at a Norwegian station in the mountainous. Further studies have to be investigated. 
 %Similar approaches to compare a mesoscale ensemble member forecast system with vertical in-situ measurements for snowfall are barely done.  
 
 
 \section{Outlook}
-Only a few studies have addressed similar approaches like the comparison of vertical snowfall prediction to observations, and thus comparison with other work is difficult. Hence, the presented results motivate to deal more with the subject of vertical snowfall observations and its comparison to regional weather forecast models. 
+Only a few studies have addressed similar approaches like this study here by comparing snow observations with weather forecast model. %the comparison of vertical snowfall prediction to observations, and thus comparison with other work is difficult. Hence, the presented results motivate to deal more with the subject of vertical snowfall observations and its comparison to regional weather forecast models. 
 \par\medskip
 \noindent
-First and foremost it is important to investigate more extreme snowfall events during winter at Haukeliseter, whether deviations between surface accumulation and estimated precipitation amount from vertical observations keep as small. Furthermore, these results should be compared to different stations in Norway with similar polar tundra climate, to find if a-priori assumptions can be generalised for the same local climate. 
-\\
-More case studies will also help to get a better estimate about the performance of MEPS for snowfall prediction for extreme  storm events during winter. 
-The mean absolute error for the \SI{12}{\hour} accumulation of precipitation revealed large variability depending on the initialisation time of MEPS and the intensification of the cyclone %getting more extreme. 
-%The presented increase in mean absolute error with intensification might be low compared to other cases. 
-\\
-\\
-%%% DISCUSSION ????
-The previous chapters have indicated that the regional model MEPS is able to predict larger scale phenomena. This might be related to the outer boundary condition ECMWF or the Christmas 2016 extreme event was more predictable for large scale phenomena. In general, surface parameters such as sea level pressure and temperature were predicted well in MEPS. Only wind speed and precipitation accumulation showed overestimation in MEPS predictions. Wind speed forecasts were higher than observed wind speed. Related to the representation of the orography in MEPS the general overestimation of wind speed could already be apparent in the deterministic version AROME-MetCoOp.
-%Perhaps related to the representation of the orography in MEPS, or the general overestimation of wind speed already apparent in the deterministic version, AROME-MetCoOp.
-\\
-Sensitivity studies for the outer boundary could help to understand how the influence of ECMWF forecast on the MEPS predictions for local meteorological effects. ECMWF as boundary condition might not have reached its background climate state when MEPS was initiated during the event. This could also have contributed to the overestimation of wind speed and surface accumulation. A comparison between ECMWF forecast and MEPS will verify if this might be the case.
-Re-analysis data can help to show the uncertainty in the initial and boundary conditions. A re-run with analysis data from ECMWF could possibly improve the original forecast. It will be interesting to initiate MEPS with new boundary conditions from ECMWF. Even though meteorological observations are transmitted to ECMWF at the meteorological observation times, not all observations will be communicated in time for the initialisation. An initialisation now with all available observations inside ECMWF will help to see an influence on the overestimation of wind and precipitation accumulation.
-\\
-Another approach could be to perturb the deterministic forecast in another way. Different perturbations might lead to a better correlation between observation and MEPS forecast at the ground. Furthermore, the choice of using the closest grid point to Haukeliseter might not have been the best approach. Using four nearby grid points instead of only one could help to verify if overestimations of MEPS forecasts would still be present compared to observations. 
-\\
-Even though MEPS performed well in the vertical by relating the wind to the storm structure correctly, it will be interesting to investigate the presented results with a higher time resolution to resolve for the short pulses. Since MEPS overestimates the surface accumulation and the vertical SWC of ensemble means show to be in general smaller than the estimated snow water content, the afore mentioned solution helps to investigate the overestimation of snowfall at the surface and the relationship between the vertical forecast and surface prediction model.
-\\
-The local effect of pulsing patterns related to westerlies should be examined. To understand if e.g. wave breaking occurs at the mountain to the west or if it is an effect of local surface fronts. 
+First and foremost, it is important to investigate more extreme storm events during winter at Haukeliseter, whether deviations between observed and retrieved surface accumulation from vertical observations keep as small. Furthermore, these results should be compared to different stations in Norway with similar polar tundra climate, to investigate if the a-priori assumptions can be generalised for as similar local climate. 
+\par\medskip
+\noindent
+It is important to have correct measurements such as the double fence gauge or the MRR-PSD retrieval approaches. The double fence gauge observations should be investigated further to understand the wind related under-catchment of surface precipitation amount. Correct measurements will help to improve initial conditions for weather forecast models. %so initialisations can start at a truer state. 
+Furthermore, accurate observations will help to get a greater understanding of the vertical snow structure.
+%Investigating in more detail microphysical processes within mesoscale storms with vertical measurements of snow for extreme events can be a grand improvement for weather and climate prediction. 
+\par\medskip
+\noindent
+Even though MEPS performed well in the vertical by relating the wind to the storm structure correctly, it will be interesting to investigate the presented results with a higher time resolution to resolve for the short pulses. %Since MEPS overestimates the surface accumulation and the vertical SWC of ensemble member show to be in general smaller than the estimated snow water content (\Cref{fig:SWP}). 
+The afore mentioned solution helps to investigate the simulation of high snow amount at the surface and the relationship between the vertical forecast and surface prediction model.
+\par\medskip
+\noindent
+Sensitivity studies for the outer boundary could help to understand the influence of European Centre for Medium-Range Weather Forecasts (ECMWF) forecast on the MEPS predictions for local meteorological effects. This means e.g. initiating MEPS with and without all available observations for the outer boundary and MEPS domain. %ECMWF as boundary condition might not have reached its background climate state when MEPS was initiated during the event. This could also have contributed to the overestimation of wind speed and surface accumulation. A comparison between ECMWF forecast and MEPS will verify if this might be the case.
+%Re-analysis data can help to show the uncertainty in the initial and boundary conditions. A re-run with analysis data from ECMWF could possibly improve the original forecast. 
+%It will be interesting to initiate MEPS with new boundary conditions from ECMWF. %Even though meteorological observations are transmitted to ECMWF at the meteorological observation times, not all observations will be communicated in time for the initialisation. 
+An initialisation with all available observations inside ECMWF will help to see an influence on the wind and precipitation predictions in MEPS.
 \\
 \\
-It is important to have correct measurements such as the double fence gauge or the MRR-PSD retrieval approaches. The double fence gauge observations should be investigated further to understand the wind related under-catchment of surface precipitation amount. Correct measurements will help to improve initial conditions for weather forecast models, so initialisations can start at a more true state. Furthermore accurate observations will help to get a greater understanding of vertical snowfall structure.
-Investigating in more detail microphysical processes within mesoscale storms with vertical measurements of snowfall for extreme events can be a grand improvement for weather and climate prediction. 
-
-% \textcolor{red}{Include the following: \\
-% With the forecast output more than \SI{24}{\hour} prior can risk notice be send out to the population and rescue teams can prepare in advance. Furthermore, roads and train tracks can be closed to increase the safety. }
+More case studies will also help to get a better estimate about the performance of MEPS for snow prediction for storm events during winter. The mean absolute error for the \SI{12}{\hour} accumulation of precipitation revealed large variability depending on the initialisation time of MEPS and the intensification of the cyclone.

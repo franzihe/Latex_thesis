@@ -1,40 +1,34 @@
 % !TeX spellcheck = en_GB
 % ************************** Thesis Abstract *****************************
-% Use `abstract' as an option in the document class to print only the titlepage and the abstract.
+% Use `abstract' as an option in the document class to print only the title page and the abstract.
 \singlespacing
 \begin{abstract}
-\noindent
-Previous studies showed the importance to have information about the vertical location of precipitation to simulate precipitation and related cyclone development correctly in mesoscale models. 
-During Christmas 2016, an extreme storm affected the local infrastructure of Eastern, Southern, and Western Norway. %As a result high wind speeds combined with high amount of frozen and liquid precipitation were observed. 
-During \num{21} and \SI{26}{\dec}, the extreme storm was investigated for snowfall at the WMO measurement site Haukeliseter. 
-\\
-The WMO measurement site Haukeliseter is equipped with a double fence snow gauge to reduce wind affects and increase catch-ratios for frozen precipitation. 
-In winter 2016/2017, three additional instruments were installed to estimate snowfall with the help of an optimal estimation retrieval approach. 
-%The optimal estimation snowfall retrieval uses a priori guess for particle size distribution, habit, and fall speed to simulate snow.
-In November 2016 the ensemble prediction system AROME-MetCoOp (MEPS) became operational at the Norwegian Meteorological Institute. 
-\\
-The extreme weather event has been studied using ECMWF weather analysis, double fence gauge measurements, optimal estimation retrieval, and ensemble prediction forecast. 
-\\
-In the course of the days, two cyclones as well as frontal passages affect Norway. Observed frozen and liquid precipitation is associated with the cyclones and the fronts during \num{21} and \SI{26}{\dec}. 
-The meteorological analysis of surface properties from observations and MEPS forecast agree on the passage of warm sector and occlusions. Wind speeds %and surface precipitation amount 
-are predicted too high by MEPS during the entire event. Westerlies are better forecasted by MEPS than south-easterlies.
-\\
-A sensitivity study of the optimal estimation retrieval shows the advantage of using the Multi-Angular Snowfall Camera to choose the correct particle size distribution for rimed aggregates during the extreme Christmas storm. 
-The average difference between the double fence gauge observations and the retrieved surface snowfall amount for assumed rimed aggregates is less than \SI{-5}{\percent} for \SIlist{12;24}{\hour} surface accumulation.
-\\
-During \num{24} and \SI{26}{\dec}, %overestimation of predicted 
-surface precipitation amount is predicted too high compared to double fence gauge observations (+\SI{60}{\percent}). %The difference error reaches +\SI{60}{\percent} during the extreme event. 
-Liquid precipitation was observed at Haukeliseter in the afternoon on \SI{25}{\dec}. MEPS initialisations \SIlist{24;48}{\hour} prior simulate the thickness and duration of the liquid layer in the lower most atmosphere. MEPS predicted less snow water content than the profiles of retrieved snow profiles.
-Haukeliseter is surrounded by mountains. Local topography effects lead to continuous %vertical 
-snow patterns during weak, south-easterly winds. Strong westerlies show high amount of snow water content with a pulsing pattern.
-\\
-The results are representative for only one extreme storm during winter. More %extreme 
-should be investigated to verify the presented results.  
-
-%Previous studies show that retrievals can lead to non-unique snowfall accumulation. Regional models are still under development to represent mesoscale features precisely.
-%The Haukeliseter site is used to measure snow accumulation since winter 2010\,/\,2011. This new approach makes it unique since it is exposed to high wind speeds and snow amounts of 2\,-\,3\,m are observed during a regular winter season.
-%During Christmas 2016 an extreme weather event occurred at Haukeliseter. High wind speeds combined with high precipitation of snow and rain were monitored.
-%Optimal estimation retrievals are under construction to measure the amount of snowfall accumulation. Retrievals such as the one for CloudSat try to avoid the non-uniqueness of different snowfall habits and uses a priori information such as temperature. Another approach is to use microphysical information from MASC and PIP to reduce uncertainties in the radar snowfall retrieval.
-%The MetCoOP ensemble prediction system is operational at the Norwegian Meteorological institute since 2016. Preliminary comparison between MEPS and double fence gauge measurements show an overestimation of snowfall accumulation with longer lead time.
+	\noindent
+	Previous studies showed the importance to have information about the vertical distribution of precipitation to simulate snow and related cyclone development correctly in regional, mesoscale models. 
+	During Christmas 2016, an extreme storm affected the local infrastructure of Eastern, Southern, and Western Norway.
+	In this thesis, the Christmas storm 2016 is investigated for snow observations and the operational forecast model at Haukeliseter (\SI{991}{\metre} above sea level), Norway.
+	\par\medskip
+	\noindent
+	The WMO measurement site Haukeliseter is equipped with conventional meteorological instruments and a double fence snow gauge instrument to reduce wind effects and increase catch-ratios for frozen precipitation. 
+	In winter 2016/2017, three additional instruments were installed for a US National Science Foundation funded field campaign, to estimate snow water content in the column with the help of the optimal estimation retrieval. 
+	%The optimal estimation snowfall retrieval uses a priori guess for particle size distribution, habit, and fall speed to simulate snow.
+	In November 2016, the AROME-MetCoOp ensemble prediction system (MEPS) became operational at the Norwegian Meteorological Institute. 
+	In this thesis, the extreme weather event is studied using European Centre for Medium-Range Weather Forecasts weather analysis, meteorological measurements, including double fence gauge and radar observations, optimal estimation retrieval, and MEPS. 
+	\\
+	During \num{21} and \SI{26}{\dec}, two cyclones as well as frontal passages affected Norway. Observed frozen and liquid precipitation is associated with the cyclones and the fronts. %during \num{21} and \SI{26}{\dec}. 
+	The meteorological analysis of surface properties from observations and MEPS forecasts agree on the passages of occlusions and  warm sector. Wind speeds and surface precipitation amount are predicted too high by MEPS (mean absolute error: $\le$\SI{10}{\mPs} and $\le$\SI{15}{\mm}) during the entire event with westerlies revealing a better agreement with observations than south-easterlies. A sensitivity study of the optimal estimation retrieval shows the advantage of using the Multi-Angular Snowfall Camera to choose the correct particle habit. % for rimed aggregates during the extreme Christmas storm. 
+	During the Christmas 2016 storm, the average difference between the double fence gauge observations and the retrieved surface amount for assumed rimed aggregates is less than \SI{-5}{\percent} for \SIlist{12;24}{\hour} surface snow accumulation. With longer lead time the average difference decreases between double fence gauge observations and forecasted precipitation amount for \SIlist{12;24}{\hour} accumulation (+\SI{135}{\percent} and +\SI{33}{\percent}). However, for \num{24} and \SI{26}{\dec}, the surface precipitation amount is predicted too high compared to double fence gauge observations (+\SI{60}{\percent}). %The difference error reaches +\SI{60}{\percent} during the extreme event. 
+	Liquid precipitation was observed at Haukeliseter in the afternoon on \SI{25}{\dec}. MEPS initialisations \SIlist{24;48}{\hour} prior successfully simulate the thickness and duration of the liquid layer in the lower most atmosphere, but it predicts less snow water content ($\le$ \SI{1.2}{\SWC}) than the profiles of retrieved snow profiles ($\le$ \SI{1.5}{\SWC}). 
+	%Haukeliseter is surrounded by mountains. 
+	Local topography effects by the surrounding mountains lead to continuous %vertical 
+	snow patterns during strong westerlies and weak south-easterlies,  show high amount of snow water content with a pulsing pattern. Finally, orography impacts on snow observations and model forecast are discussed.
+	% \\
+	% The results are representative for one extreme storm during winter, more cases should be investigated in future studies. % to verify the presented results.  
+	
+	%Previous studies show that retrievals can lead to non-unique snowfall accumulation. Regional models are still under development to represent mesoscale features precisely.
+	%The Haukeliseter site is used to measure snow accumulation since winter 2010\,/\,2011. This new approach makes it unique since it is exposed to high wind speeds and snow amounts of 2\,-\,3\,m is observed during a regular winter season.
+	%During Christmas 2016 an extreme weather event occurred at Haukeliseter. High wind speeds combined with high precipitation of snow and rain were monitored.
+	%Optimal estimation retrievals are under construction to measure the amount of snowfall accumulation. Retrievals such as the one for CloudSat try to avoid the non-uniqueness of different snowfall habits and uses a priori information such as temperature. Another approach is to use microphysical information from MASC and PIP to reduce uncertainties in the radar snowfall retrieval.
+	%The MetCoOP ensemble prediction system is operational at the Norwegian Meteorological institute since 2016. Preliminary comparison between MEPS and double fence gauge measurements show an overestimation of snowfall accumulation with longer lead time.
 \end{abstract}
 \linespread{1.25}

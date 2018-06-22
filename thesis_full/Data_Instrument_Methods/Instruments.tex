@@ -1,101 +1,135 @@
 % !TeX spellcheck = en_GB
 \section{Instruments} \label{sec:DIM}
-The WMO site Haukeliseter, operated by Met-Norway serve numerous meteorological measurements of temperature, wind speed and direction. \SI{10}{\meter} wind and \SI{4.5}{\metre} air temperature are measured at the tower close to the double fence (\Cref{sec:dofe}). The wind measurements are performed with an ultrasonic wind sensor from Gill (Wind observer II with extended heating). Air temperature is obtained with a pt100 element at gauge height and protected by standard Norwegian radiation screen \citep{wolff_derivation_2015}. \textcolor{red}{Pressure? } Further information about the WMO site and the instrument setting, can be found in \citet{wolff_measurements_2013,wolff_derivation_2015}.
+The WMO site Haukeliseter, operated by Met-Norway serve numerous meteorological measurements of temperature, wind speed and direction. \SI{10}{\meter} wind and \SI{4.5}{\metre} air temperature are measured at the tower \textbf{M1} close to the double fence (\Cref{fig:inst_setting}). The wind measurements are performed with an ultrasonic wind sensor from Gill (Wind observer II with extended heating). Air temperature is obtained with a pt100 element at gauge height and protected by standard Norwegian radiation screen \citep{wolff_derivation_2015}. %\textcolor{red}{Pressure? } 
+Further information about the WMO site and the instrument setting, can be found in \citet{wolff_measurements_2013,wolff_derivation_2015}.
 \\
-A collaboration between the University of Utah, University of Wisconsin and Met-Norway made it possible to install three additional instruments at the measurement site during winter 2016/2017. A Micro Rain Radar (MRR) is used to obtain particle reflectivity and Doppler velocity aloft, thus providing the vertical structure of the storm. 
+A collaboration between the University of Utah, the University of Wisconsin, and Met-Norway made it possible to install three additional instruments at the measurement site during winter 2016/2017. A Micro Rain Radar (MRR) is used to obtain particle reflectivity and Doppler velocity aloft, thus providing the vertical structure of the storm. 
 Additionally, a Multi-Angle Snowflake Camera (MASC) and a Precipitation Imaging Package (PIP) will be used to determine the snow habit, the snowfall particle size distribution, and the near-surface fall speed.  
 Since many factors such as humidity and temperature contribute to snowflake geometry, the use of theses instruments will provide knowledge of snowflake habits, particle size distributions, and fall speed crucial to reduce error in snowfall retrievals.
 \\
 %This work is based on several datasets collected at the Haukeliseter measurement site, \ang{59.8}\,N, \ang{7.2}\,E. 
 %A composition of advanced ground-based observations and a modified \SI{24}{\giga\Hz}-MRR scheme presented by \citet{cooper_variational_2017} will help to get a better understanding of the vertical structure of the atmosphere and to reduce the uncertainties in the estimation of surface snowfall rate found using the optimal estimation retrieval scheme (\Cref{sec:retrieval}). 
-%%% image instrument setting @ Haukeli %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\input{./images_tex/instruments_setting}
+A sketch of the instrumentation setting is presented in \Cref{fig:inst_setting}. The octagonal (\textbf{X0}) indicates the double fence gauge. The \textbf{container} is north-east from the double fence having the MRR, MASC and PIP mounted at the top. \textbf{M1} in \Cref{fig:inst_setting} is the \SI{10}{\metre} weather mast, providing the hourly \citet{eklima_norwegian_2016} temperature, pressure, and wind measurements. The mean wind direction is from west-north west and east-south east as shown in the wind rose in \Cref{fig:inst_setting}.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\noindent
-A sketch of the instrumentation setting is presented in \Cref{fig:inst_setting}. The octagonal indicates the double fence. The container is north-east from the double fence having the MRR, MASC and PIP mounted at the top. \textbf{M1} in \Cref{fig:inst_setting} is the \SI{10}{\metre} weather mast, providing the hourly \citet{eklima_norwegian_2016} temperature, pressure, and wind measurements. The mean wind direction from west-north west and east-south east are shown in the wind rose in \Cref{fig:inst_setting}.
-%
-%
-\newpage
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%% DOUBLE FENCE %%%%%%%%%%%%%%
 \subsection{Double Fence Snow Gauge}\label{sec:dofe}
+Since the winter 2010/2011, Haukeliseter is equipped with several precipitation gauges (\textbf{X0, X2, X3, X4, X5, Nord} in \Cref{fig:inst_setting}). The wind shielded gauges are placed perpendicular to the main wind direction (easterly/westerly wind, \Cref{fig:inst_setting}).
+\\
+The double fence gauge (\textbf{X0} in \Cref{fig:inst_setting}) is presented in \Cref{fig:dofe_pic} to the left of the image.
+Inside the double fence is a precipitation-weighing gauge Geonor T-200B3 \citep[3-wire transducers, \SI{1000}{\mm},][]{geonor_inc._t-200b_2015} (\Cref{fig:gauge_sketch}) with an Alter wind screen to reduce wind turbulence around the gauge. At Haukeliseter the orifice height of the Geonor T-200B3 is \SI{4.5}{\metre} above the ground because of expected snow height of two to three meter during a winter season and the likelihood of measuring drifting snow \citep{wolff_measurements_2013,wolff_derivation_2015}. 
+\\
+A vertical cross section of the T-200B gauge is shown in \Cref{fig:gauge_sketch}. The precipitation particles fall through the \SI{200}{\square\cm} orifice (pink) protected with a heated collar into a cylinderic bucket filled with frost protection (cyan). The bucket is placed on top of a bucket support dish (yellow) \citep[\Cref{fig:gauge_sketch},][]{geonor_inc._t-200b_2015}. This dish is connected with three wire sensors (green) having an eigenfrequency changing with the weight inside the bucket. %A formula provided by \citet{geonor_inc._t-200b_2015} calculates the amount of precipitation with the frequency of each sensor. 
 %%% image double fence @ Haukeli %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \input{./images_tex/instruments_Dofe}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-Since the winter 2010/2011 Haukeliseter is equipped with several precipitation gauges. The wind shielded gauges are placed perpendicular to the main wind direction (E/W wind).
+\noindent
+The three sensors provide a reduction of an error in connection with an unlevel installation. Met-Norway averages the values of all three sensors and provide hourly accumulated data at \citeauthor{eklima_norwegian_2016}. 
 \\
-Measurement uncertainties can be caused by the instrument itself, which varies with wind speed, gauge wind shielding, shape, size, phase, and fall velocity of hydrometeors \citep{kochendorfer_analysis_2017,wolff_derivation_2015}. Wind plays different roles in the amount of accumulation depending on the kind of precipitation. For temperatures below \SI{-2}{\celsius} the wind speed influences the falling snow. Where less precipitation can be observed at higher wind speeds or more precipitation can be measured if too much is blown into the gauge.
-Since wind has an influence on frozen precipitation, a WMO (World Meteorological Organization) precipitation analysis between 1987 and 1993 recommended that the double-fence inter-comparison reference should be used as a reference for snow measurements \citep{goodison_wmo_1998}. An adjustment for unshielded and single-shielded precipitation gauges followed in 2010.
+In this thesis, the hourly precipitation amount provided by \citeauthor{eklima_norwegian_2016} is accumulated over \SI{48}{\hour}.
+\\
+\\
+Measurement uncertainties can be caused by the instrument itself, which varies with wind speed, gauge wind shielding, and shape, size, phase, and fall velocity of hydrometeors \citep{kochendorfer_analysis_2017,wolff_derivation_2015}. Wind plays different roles in the amount of accumulation depending on the kind of precipitation. For temperatures below \SI{-2}{\celsius} the wind influences the falling snow. Less precipitation can be observed at higher wind speeds or more precipitation can be measured if too much is blown into the gauge.
+Since wind has an influence on frozen precipitation, a WMO precipitation analysis between 1987 and 1993 recommended that the \textit{double-fence inter-comparison reference} should be used for snow measurements \citep{goodison_wmo_1998}. An adjustment for unshielded and single-shielded precipitation gauges followed in 2010 \citep{nitu_cimo_2010}.
 %The wind-induced under-catch of solid precipitation is determined by \citet{wolff_derivation_2015}. The 
-\citet{wolff_derivation_2015} showed the catch ratio between the standard Geonor precipitation gauge and the Double Fence - Geonor (\Cref{fig:dofe_pic}). Only \SI{80}{\percent} of solid precipitation is observed at wind speeds of \SI{2}{\mPs} whereas only \SI{40}{\percent} at \SI{5}{\mPs}, Figure 5 in \citet{wolff_derivation_2015}. 
 \\
-The precipitation gauge protected by an octagonal double fence (\Cref{fig:dofe_pic}) is more accurate than the single fence and will be used as the reference to all surface accumulation measurements. The double fence creates an artificial calm wind and maximize the catch of precipitation, \citep{wolff_new_2010, wolff_measurements_2013, wolff_derivation_2015}. The wind inside the double fence is measured to be not much higher than \SI{5}{\mPs} even if the winds outside exceed \SI{20}{\mPs} (occurred \SI{26}{\dec}). % so far it is unknown, if the catch efficiency stabilises for wind speeds beyond \SI{10}{\mPs} and may lead to wrong values
-Alternatively, a bush gauge is a precipitation gauge surrounded by a large bush to create artificial calm winds to increase the catch ratio of frozen precipitation and is considered as the best available measurement for solid precipitation \citep[unpublished]{wolff_wmo_2018}. Unfortunately there are only two bush gauges in the world, and because of local limitations a double fence construction is developed as reference for the Solid Precipitation Measurement intercomparison study during \numrange{1986}{1993} \citep{goodison_wmo_1998}. \citet{wolff_wmo_2018} [unpublished] comparison between bush gauge and double fence precipitation measurements have shown, that the double fence will measure up to \SI{10}{\percent} less precipitation for wind speeds up to \SI{9}{\mPs} outside the fence. As for now, no detailed comparison betweeen bush gauge and double fence exists at thigh wind speeds. Extrapolation of measurement observations where double fence and bush gauge exist, let believe that the double fence will not underestimate more than \SI{20}{\percent} during high wind speed events with frozen precipitation. 
+\citet{wolff_derivation_2015} showed the catch ratio between the standard Geonor precipitation gauge and the Double Fence - Geonor T-200B3 (\Cref{fig:Dofe}). Only \SI{80}{\percent} of solid precipitation is observed at wind speeds of \SI{2}{\mPs} whereas only \SI{40}{\percent} at \SI{5}{\mPs} \citep[][Figure 5]{wolff_derivation_2015}. 
 \\
-This shows the need of a combination of ground-based observations together with an optimal estimation retrieval to verify the accuracy of MEPS. \citet{wolff_derivation_2015} introduced an adjustment function for the Geonor double fence, so that different precipitation under certain wind speeds are presented correctly and can be used as confidential data. 
-For now, it is presumed that the average under catch inside a double fence is \SI{20}{\percent} for wind speeds between \SIlist{10;20}{\mPs} and \SI{10}{\percent} for wind speeds below \SI{9}{\mPs} \citep[][unpublished]{wolff_wmo_2018}.
-\\ \\
-Inside the double fence is a precipitation-weighing gauge Geonor T-200B3 \citep[3-wire transducers, \SI{1000}{\mm},][]{geonor_inc._t-200b_2015} with an Alter wind screen to reduce wind turbulence around the gauge. At Haukeliseter the orifice height of the Geonor is \SI{4.5}{\metre} above the ground because of an expected snow depth of two to three meter during a winter season and the likelihood of measuring drifting snow \citep{wolff_measurements_2013,wolff_derivation_2015}. \\
-A vertical cross section of the T-200B gauge is shown in \Cref{fig:gauge_sketch}. The precipitation particles fall through the \SI{200}{\square\cm} orifice protected with a heated collar, into a cylindric bucket filled with frost protection. The bucket is placed on top of a Bucket Support Dish \citep[\Cref{fig:gauge_sketch},][]{geonor_inc._t-200b_2015}. This dish is connected with three wire sensors having an eigenfrequency changing with the weight inside the bucket. A formula provided by \citet{geonor_inc._t-200b_2015} calculates the amount of precipitation with the frequency of each sensor. The three sensors provide a reduction of an error in connection with an unlevel installation. Met-Norway average the values of all three sensors and provide hourly data at \citeauthor{eklima_norwegian_2016}.
+The precipitation gauge protected by an octagonal double fence (\textbf{X0}, \Cref{fig:inst_setting}) is more accurate than the single fence (\textbf{X2}, \Cref{fig:inst_setting}) and are used as the reference to all surface accumulation measurements in this thesis. 
+The double fence creates an artificial calm wind and therefore maximize the catch of precipitation, \citep{ wolff_derivation_2015}. The wind inside the double fence is measured to be below \SI{5}{\mPs} even if the winds outside exceed \SI{20}{\mPs}. % so far it is unknown, if the catch efficiency stabilises for wind speeds beyond \SI{10}{\mPs} and may lead to wrong values
+Alternatively, a bush gauge is a precipitation gauge surrounded by a large bush to create artificial calm winds to increase the catch ratio of frozen precipitation and is considered as the best available measurement for solid precipitation \citep[unpublished]{wolff_wmo_2018}. Unfortunately, there are only two bush gauges in the world available, and because of local limitations a double fence construction was developed \citep{goodison_wmo_1998}. %as reference for the Solid Precipitation Measurement intercomparison study during \numrange{1986}{1993} \citep{goodison_wmo_1998}. 
+\citet{wolff_wmo_2018} [unpublished] comparison between bush gauge and double fence precipitation measurements have shown that the double fence has a negative bias of \SI{10}{\percent} for wind speeds up to \SI{9}{\mPs}. % outside the fence. 
+As for now, no detailed comparison between bush gauge and double fence exists at thigh wind speeds. Therefore, comparisons from bush and double fence gauge were extrapolated for higher wind speed. 
+%Extrapolation of measurement observations where double fence and bush gauge exist, let believe 
+These results revealed that the double fence has a negative bias up to \SI{20}{\percent} during high wind speed and frozen precipitation. 
+%\\
+%\textcolor{red}{LATER: This shows the need of a combination of ground-based observations together with an optimal estimation retrieval to verify the accuracy of MEPS. } %\citet{wolff_derivation_2015} introduced an adjustment function for the Geonor T-200B3 double fence for Haukeliseter so that different precipitation types under certain wind speeds are presented correctly and can be used as confidential data. 
+%For now, it is assumed that the average under catch inside a double fence is \SI{20}{\percent} for wind speeds between \SIlist{10;20}{\mPs} and \SI{10}{\percent} for wind speeds below \SI{9}{\mPs} \citep[][unpublished]{wolff_wmo_2018}.
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%% MRR %%%%%%%%%%%%%%
-\subsection{MRR - Micro Rain Radar}\label{sec:MRR}
+\subsection{Micro Rain Radar}\label{sec:MRR}
 %%% image MRR instrument %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \input{./images_tex/instruments_MRR}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-Radars are very useful to observe the vertical profile of the atmosphere. The instrument detects mesoscale features and makes it possible to visualise the vertical structure of storms \citep{markowski_mesoscale_2011}.\\
-The principle of radar measurements is based on an electromagnetic wave, which is emitted from the radar transmitter and interacts with the hydrometeors along the beam. A fraction of the pulse energy is reflected back to the receiver of the radar. The quantity of scattering depends on the shape and structure of the reflected particle. 
-Vertical profiles of reflectivity give information about the diameter of the target object.
+Radars are very useful to observe the vertical profile of hydro meteors in the atmosphere. The instrument detects mesoscale features and makes it possible to visualise the vertical structure of storms \citep{markowski_mesoscale_2011}.
 \\
-The Micro Rain Radar (\Cref{fig:MRR}) measures profiles of Doppler spectra \citep{metek_micro_2010}. The Doppler spectrum describes the movement of the particle. The vertical pointing Doppler radar measures the returning energy from each interval and enables the detection of the Doppler spectrum \citep{lecuyer_aos_2017}. The MRR has a frequency of \SI{24}{\giga\Hz} and a temporal and spatial resolution of \SI{60}{\second} and \SI{100}{\metre}, respectively. The radar height range from \SI{100}{\metre} (because of ground clutter) to \SI{3.000}{\metre} \citep{metek_micro_2010}.
+The Micro Rain Radar (MRR, \Cref{fig:MRR}) measures profiles of Doppler frequencies \citep{metek_micro_2010}.
+The MRR in \Cref{fig:MRR} transmits electromagnetic radiation (transmitter) at a frequency of \SI{24}{\GHz}.
+The principle of radar measurement is based on an electromagnetic wave, which is emitted from the radar transceiver over the parabolic dish into the atmosphere. The electromagnetic wave interacts with the falling hydrometeors along the beam, were a small fraction is scattered back to the antenna (parabolic dish) and radar receiver (\Cref{fig:MRR}). 
+%A fraction of the pulse energy is reflected back to the receiver of the radar. 
+The quantity of scattering depends on the shape and structure of the reflected particle. 
+Due to the falling particles exists a frequency difference between the transmitted and the received signal (Doppler frequency). The Doppler frequency describes the movement of the particle. %From this frequency deviation the fall velocity of the particles can be determined. 
+Particles have different size diameters and therefore different fall velocity, hence the backscatter signal consists of a distribution of different Doppler frequencies. From the Doppler frequencies a power spectrum can be calculated and from this a reflectivity spectrum is computed with the use of calibration parameters \citep{metek_micro_2010}.
 \\
-MRR radar reflectivity ($Z$) is transformed from \SI{1}{\mm^6\per\metre^3} to \SI{}{\decibel\,Z}, by the following relationship;
+The transmitting signal is send out continuously as a linearly decreasing saw tooth signal which makes it possible to achieve profiles of reflectivity. Vertical profiles of reflectivity give information about the diameter of the target object.
+%T  %The vertical pointing Doppler radar measures the returning energy from each interval and enables the detection of the Doppler spectrum \citep{lecuyer_aos_2017}. 
+The MRR has a frequency of \SI{24}{\giga\Hz} and a temporal and spatial resolution of \SI{60}{\second} and \SI{100}{\metre}, respectively. The radar height range from \SI{100}{\metre} (because of ground clutter) to \SI{3.000}{\metre} \citep{metek_micro_2010}.
+\\
+MRR radar reflectivity ($Z$) is transformed from \SI{1}{\mm^6\per\metre^3} to radar equivalent reflectivity ($Ze$) \SI{}{\decibel\,Z}, by the following relationship;
 % Everything after this seems to be a tangent that has no meaningful relationship to the the MRR or the project.  But I am not sure if the Met Norwya people want 'extra' background information such as this as part of your thesis.   But this certianly would not be in a journal article.  
 \begin{align}
 	Ze & = 10 \log_{10} \left(\frac{Z}{\SI{1}{\mm^6\per\metre^3}}\right) \qquad [\SI{}{\decibel Z}]
 	\label{eq:Ze}
 \end{align}
-A transformation to rainfall rates can be performed by the $Z$-$R$ (reflectivity - rainfall) relationship. 
-The rainfall rate in each layer can be estimated by the use of typical fall speeds and the Marshall-Palmer particle size distribution for liquid particles \citep{rinehart_radar_2010}, \Cref{eq:Z-R} 
+% \\
+\newpage
+\noindent
+A transformation to rainfall rates can be performed by the $Z$-$R$ relationship ($R$, rain rate [\SI{}{\mm\per\hour}]). 
+The rainfall rate in each layer can be estimated by the use of typical fall speeds and the Marshall-Palmer particle size distribution for liquid particles \citep{rinehart_radar_2010},  
 \begin{align}
 	Z & = 200 R^{\frac{8}{5}} \qquad [\SI{}{\mm^6\metre^{-3}} ] \nonumber \\ 
-	R & = \left( \frac{ 10^{\frac{Ze}{10}} }{200} \right)^{\frac{8}{5}} \qquad [ \SI{}{\mm\per\hour} ]
+	R & = \left( \frac{ 10^{\frac{Ze}{10}} }{200} \right)^{\frac{8}{5}} \qquad [ \SI{}{\mm\per\hour} ].
 	\label{eq:Z-R}
 \end{align}
 \\
-The Z-R relationship with the Marshall-Palmer assumption (\Cref{eq:Z-R}) applied is represented in \Cref{tab:ref_values}. Z-snowfall relationships are developed but are difficult to apply due to the variation of size and density of the particles \citep{lecuyer_aos_2017}. \\
-After the transformation to \SI{}{\decibel Z} the reflectivity is averaged for every \SI{200}{\metre} thick layers, where only values above \SI{300}{\metre} taken into account, e.g. a reflectivity at \SI{400}{\metre} represents the mean value of reflectivity between \SIlist{300;500}{\metre}. 
+The Z-R relationship (\Cref{eq:Z-R}) and transformation to radar equivalent reflectivity can be used to estimate rain rate for polarimetric measurands obtained from modelling, measurements, and literature \citep{doviak_doppler_1993} is represented in \Cref{tab:ref_values}. Z-snowfall relationships were developed but showed to be difficult to apply due to the variation of size and density of the particles. It was found that using traditional Z-snowfall relationships did not provide accurate results for all snow events \citep{lecuyer_aos_2017}. 
+This shows the need to combine ground-based observations together with an optimal estimation retrieval to estimate accurate results for snowfall events.
 %%% table REFLECTIVITY AND RAINRATE %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \input{./tables_tex/instruments_typical_ref}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\noindent
+\\
+In this thesis the data was provided in \SI{}{\decibel Z} ($Ze$) and then transformed to $Z$ [\SI{}{\mm^6\metre^{-3}}] with the inverse of \Cref{eq:Ze}. After the transformation the reflectivity is averaged for every \SI{200}{\metre} thickness layer, where only values above \SI{300}{\metre} altitude were taken into account. Reflectivity at \SI{400}{\metre} represents the mean value of reflectivity between \SIlist{300;500}{\metre}. 
+\\
+Afterwards the averaged reflectivity is uses as a-priori guess in the optimal estimation retrieval (\Cref{sec:ret_scheme}).
+\\
+In \Cref{sec:res:large_scale_vert} the measured $Ze$ are used to give a first estimate about the type of precipitation with the help of \Cref{tab:ref_values}.
+
 
 \newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%% PiP %%%%%%%%%%%%%%
-\subsection{PIP - Precipitation Imaging Package}
+\subsection{Precipitation Imaging Package}
 %%% image PiP instrument %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \input{./images_tex/instruments_PiP}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-The Precipitation Imaging Package (PIP) is a video disdrometer that is a modification of the Snowflake Video Imager presented by \citet{newman_presenting_2009}. It consist of a halogen flood lamp and a video system that samples at \SI{60}{\Hz} (\Cref{fig:PiP}). 
+The Precipitation Imaging Package (PIP) is a video disdrometer that is a modification of the Snowflake Video Imager presented by \citet{newman_presenting_2009}. It consist of a halogen lamp and a video system that samples at \SI{60}{\Hz} (\Cref{fig:PiP}). 
 %The instrument determines the habit of snowflakes from images at a frequency of \SI{60}{\Hz}. 
-Both lamp and lens have a distance of approximately \SI{3}{\metre} that follows a field of view: \SI{32}{\mm} by \SI{24}{\mm}. 
+Both lamp and lens have a distance of approximately \SI{3}{\metre} that follows a field of view: \SI{24}{\mm} by  \SI{32}{\mm}. 
 \\
-In front of the halogen lamp there is a frosted window, so that the background light is uniform over all time. A falling particle appears as a 2-D shadow in the video image. 
-Particle size distribution (PSD) and fall speed of precipitation can be determined from the black and white images provided by the system. The instrument also can give first order estimates of snowflake particle habit when in focus in the images.  
+In front of the halogen lamp is a frosted window, so that the background light is uniform over all time. A falling particle appears as a 2-D shadow in the video image. 
+Particle size distribution (PSD) and fall speed of precipitation can be determined from the black and white images provided by the system. The instrument also can give first order estimates of snowflake particle habit when on focus in the images.  
 \citet{newman_presenting_2009} describes the details of the algorithm applied to the system to get information about the snow-particle habit. \\
-The Winds have almost no effect on the result of the video distrometer \citep{newman_presenting_2009}. To reduce eventual wind effects, the distrometer was oriented perpendicular to the mean wind.
+The winds have almost no effect on the result of the video distrometer \citep{newman_presenting_2009}. To reduce eventual wind effects, the distrometer was oriented perpendicular to the mean wind.
+\par\medskip\noindent
+PIP videos were analysed for the Christmas storm 2016. % the gale like winds followed particles blowing up-ward and therefore could the fall speed not be taken from the PIP videos. For the optimal estimation fall speed assumption (\Cref{sec:retrieval}) a 2016/2017 climatological average fall speed is assumed \citep[personal communication,][]{Priv_Comm_Schirle}.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\newpage
 %%%%%%%%% MASC %%%%%%%%%%%%%%
-\subsection{MASC - Multi-Angular Snowfall Camera}
+\subsection{Multi-Angular Snowfall Camera}
 %%% image MASC %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \input{./images_tex/instruments_MASC}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %Instruments like the afore mentioned PIP has according to \citet{garrett_fall_2012} coarser resolution and the determination of particle size can have larger errors. Hence, a new instrument was developed. 
 The Multi-Angular Snowfall Camera (MASC) takes high-resolution images of hydrometeors in free fall and measures the fall-speed simultaneously. \\
-The MASC consists of three cameras, three flashes, and two near-infrared sensors, pointing at a ring centre (\Cref{fig:MASC}). A hydrometeor has to pass through the ring in a certain way to trigger the near-infrared sensors. At the same time the three cameras take a picture of the falling particle. Since the cameras take pictures from three different angles, the particles size, shape, and orientation can be specified from an algorithm applied to the image, described in \citet{garrett_fall_2012}. Furthermore, the form and heritage of the hydrometeor, such as collision-coalescence, riming, capture nucleation, or aggregation, can be estimated. \\
-The near-infrared sensor, that is used to trigger the cameras and the lights quantifies the fall-speed of the hydrometeors, by measuring the time the particle needs to pass the distance between the upper and lower trigger.    
+The MASC consists of three cameras, three flashes, and two near-infrared sensors, pointing at a ring centre (\Cref{fig:MASC}). A hydrometeor has to pass through the ring in a certain way to trigger the near-infrared sensors. At the same time three cameras take a picture of the falling particle. Since the cameras take pictures from three different angles, the particles size, shape, and orientation can be specified from an algorithm applied to the image, described in \citet{garrett_fall_2012}. Furthermore, the form and heritage of the hydrometeor, such as collision-coalescence, riming, capture nucleation, or aggregation, can be estimated. The near-infrared sensors are used to trigger the cameras and the lights. Furthermore the fall-speed of the hydrometeors is measured. The time difference between the upper trigger and the lower trigger is calculated while a particle passes.
+% is measured between a particle passing the upper trigger 
+% needs to pass between the first trigger 
+% by measuring the time the particle needs to pass the distance between the upper and lower trigger.    
+\par\medskip\noindent
+Particle images were analysed for \num{21} to \SI{26}{\dec} to make the correct particle habit assumption used in the optimal estimation retrieval in the next section (\ref{sec:retrieval}) and \ref{sec:ret:sensitivity}.

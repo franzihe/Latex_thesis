@@ -1,0 +1,21 @@
+% !TeX spellcheck = en_GB
+\section{Integrated Vapour Transport}
+\label{sec:dim:atm_riv}
+An atmospheric river (AR) is a filament structure of intense moisture transport from the tropics to higher latitudes. Heavy precipitation can be associated with it, because the air is warm and moist. This can often be observed at mountain ranges at west coasts such as in Norway \citep{azad_extreme_2017}. Due to orographic lifting the moisture will be released and follow high amounts of precipitation. 
+\\
+An atmospheric river is characterised if the integrated vapour transport shows values higher than \SI{250}{\IVT} and a continuous region larger than \SI{2000}{\km} \citep{rutz_climatological_2014}.
+\\
+The integrated vapour transport (IVT, \Cref{sec:weather:atm_riv}) was calculated from the ECMWF data as followed:
+\begin{align}
+IVT = \frac{1}{g} \int\limits_{p_{sfc}}^{\SI{100}{\hPa}} q \mathbf{V} dp \qquad [\SI{}{\IVT}]
+\label{eq:IVT}
+\end{align} 
+where $g$ is the standard gravity, $q$ the specific humidity, and $\mathbf{V}$ the total wind vector at each pressure level $p$. The numerical, trapezoidal integration is performed by using data from the surface pressure $p_{sfc}$ to \SI{850}{\hPa} in \SI{50}{\hPa} intervals and from \SIrange{700}{100}{\hPa} in \SI{100}{\hPa} intervals.
+%%%%%%%%%%%%
+
+%%% NAO %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{North Atlantic Oscillation}
+It has long been known that precipitation and temperature fluctuations occur during European winter in connection with NAO (North Atlantic Oscillation). The NAO is a redistribution of atmospheric mass between the North Atlantic high (Azores high), and the polar low (Iceland low).
+The NAO index is defined as the gradient between the sea level pressure of the Azores high and the Icelandic low during the winter months (December - March) \citep{hurrell_decadal_1995}. Positive index shows the deepening of the Icelandic low and a strengthening of the Azores high and negative indexes respectively \citep{uvo_analysis_2003}. 
+\\
+Positive NAO is associated with stronger westerlies than usual across the middle latitudes of the Atlantic \citep{uvo_analysis_2003}. In addition, more moisture is transported to Scandinavia \citep{hurrell_decadal_1995}. A positive NAO during winter is often associated with higher temperatures than normal and with an increase in precipitation in northern Europe and low temperatures in southern Europe \citep{uvo_analysis_2003}.

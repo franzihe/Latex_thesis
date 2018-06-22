@@ -6,11 +6,11 @@ After the analysis of meteorological quantities, the snow at Haukeliseter during
 \\
 First the results from the optimal estimation retrieval scheme will be examined and compared to the observations of the double fence. After the overestimation of surface accumulation will be analysed, followed by a vertical comparison of observed estimates of snow water content and predictions. The sections finishes with the relation between wind and precipitation related to the surrounding topography at Haukeliseter. 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
+\newpage
 %%%%%%%%% retrieval sensitivity study %%%%%%%%%%%%%%
 \subsection{Sensitivity of the Optimal Estimation Retrieval}\label{sec:ret:sensitivity}
 %%%%%%% image observed ice crystals %%%%%%%%%%%%%%%%
-\begin{figure}[!b]
+\begin{figure}[!t]
 	\centering
 	\includegraphics[width=0.8\textwidth]{./MASC_obs/blow_part}
 	\caption{MASC particle images of small ground-up blowing snow (red frame) and rimed aggregates (five images to the right). Images taken during the Christmas storm 2016. }\label{fig:ret:all_part}
@@ -41,8 +41,9 @@ Indeed, \Cref{fig:ret_sensitivity} suggests that the reflective 'B6' aggregate a
 \Cref{tab:res:ret_sens} presents the percentage differences between snow gauge and retrieved estimates found when using these particle model assumptions for \SI{22}{\dec}. Use of the 'B6' aggregate agreed within \SI{5}{\percent} of the double fence observations (\Cref{tab:res:ret_sens}) for both \SI{12}{\hour} and \SI{24}{\hour} surface accumulations. Admittedly, use of the ‘B6’ aggregate produced slightly too little snow amount relative to the gauges for the remaining days of the event as discussed in \Cref{sec:ret_dofe_comp}. The use of the ‘B8’ aggregate, however, overestimates accumulated snow by at least \SI{65}{\percent} for both the \SI{12}{\hour} and \SI{24}{\hour} surface accumulations (\Cref{tab:res:ret_sens}). Since this aggregate had low reflectivity per unit mass, it required significantly more SWC in the forward model calculations (\Cref{sec:ret_scheme}) to match MRR reflectivities. The retrieval therefore overestimates snowfall rate for these meteorological conditions at Haukeliseter during the Christmas 2016 storm.
 \\
 The sensitivity study here has focused on MASC estimates of habit instead of particle size distribution or fall speed. The reason is that MASC and PIP primarily detected blowing snow particles at the surface that likely were much smaller than the particles that the MRR remotely sensed aloft. The use of the PSD measured by the MASC or PIP in the retrieval therefore produced much larger surface precipitation amount than those measured by the double fence snow gauges, e.g. on \SI{22}{\dec} (\Cref{fig:ret_sensitivity}). Essentially, it takes a much greater mass of small particles than large particles to match a given reflectivity. The results during the Christmas 2016 event contrast with those found for low wind speed events at Haukeliseter where the use of MASC habit, PSD, and fall speed observations resulted in retrieved snow accumulations very close to Met-Norway double fence gauge observations.  Regardless, for this high wind event, the a priori temperature PSD relationship by \citet{wood_estimation_2011} and a climatological average fall speed of \SI{0.85}{\mPs} \citep[personal communication,][]{Priv_Comm_Schirle} were employed.
+\\
 %%%%%%% table error sfc acc ret sensitivity %%%%%%%%%%%%%%%%
-\begin{table}[t]
+\begin{table}[!t]
 	\begin{center}
 		\caption{Observations by the double fence gauge (obs.) and retrieved  snow amounts (ret.) for \SI{22}{\dec} for different particle model assumptions. B6 is the rimed aggregate assumption used in this thesis (\Cref{sec:ret_scheme}) and B8 the assumption for small particles as used in the CloudSat optimal estimation snowfall retrieval.}\label{tab:res:ret_sens}
 		\begin{tabular}{c||r|r|c||r|r|c}
@@ -60,9 +61,7 @@ The sensitivity study here has focused on MASC estimates of habit instead of par
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-
-
-\clearpage
+\newpage
 %%%%%%%%% Observation agreement %%%%%%%%%%%%%%
 \subsection{Surface Observations} \label{sec:ret_dofe_comp}
 To be able to compare the vertical predicted snow water content with the retrieved snow water content a verification of the surface accumulation is made. If the retrieved surface accumulation is reliable in comparison to the double fence measurement, then the vertical measurements can be trusted.
@@ -78,7 +77,7 @@ Snow accumulation calculated on \SI{23}{\dec} at \SI{0}{\UTC} show after \SI{24}
 For the Christmas storm (\num{21} to \SI{26}{\dec}) an average difference of \SI{85.5}{\percent} is calculated for \SI{12}{\hour} surface accumulation %follows for 
 (\Cref{tab:res:ret_error}). For longer, \SI{24}{\hour} accumulation the average difference decreases to \SI{- 4.7}{\percent} (excluding values on \SI{25}{\dec} after \SI{12}{\UTC} and on \SI{26}{\dec} after \SI{17}{\UTC} because of attenuation at the MRR). The daily surface precipitation amount difference between retrieval and observation in \Cref{tab:res:ret_error} show almost always a well agreement to the double fence. The only well pronounced mismatch is seen on \SI{21}{\dec}, where it measures much more than the double fence gauge (+\SI{435.8}{\percent}).
 %%%%%%% image scatter obs ret %%%%%%%%%%%%%%%%
-\begin{figure}[ht!]
+\begin{figure}[!t]
 	\centering
 	\begin{subfigure}[b]{0.38\textwidth}
 		\includegraphics[trim={0.cm 0.cm 13cm 0cm},clip,
@@ -103,6 +102,13 @@ For the Christmas storm (\num{21} to \SI{26}{\dec}) an average difference of \SI
 \\
 \\
 Similar to this study, \citet{cooper_variational_2017} used a CloudSat snow particle model, PSD and fall speed from MASC observations for five snow events at Barrow, Alaska. The comparison to the weather station revealed a difference between National Weather Service observations and retrieved accumulations of \SI{- 18}{\percent} for five snow events.
+\\
+\Cref{tab:res:ret_error} shows the difference for each individual day and the average difference for six and four days, depending on the accumulation of \SI{12}{\hour} or \SI{24}{\hour}.
+The choice of the correct PSD model, slope parameters and fall speed in the optimal estimation snowfall retrieval, shows a good agreement with the observations at Haukeliseter for the 2016 Christmas storm in contrast to the \SI{200}{\percent} difference when only using the CloudSat snowfall algorithm (\Cref{sec:retrieval}). It also indicates a reduction of the non-uniqueness of snow accumulation is reduced, when using a combination of ground-based observations instead of only Ze-S relationships. 
+%Of course, more storms should be investigated to find the exact correlation between the surface observations and the estimated accumulation to see if the deviation keeps as small for different snow patterns at Haukeliseter. 
+%During the 2016 Christmas storm the average error for \SI{24}{\hour} accumulation is almost similar to the best estimate at Barrow, Alaska.
+\\
+It turns out that there is no relation between high and low precipitation events since the differences vary daily. \citet{cooper_variational_2017} also showed different combinations of PSD assumptions and snow fall speed. For Barrow, best agreements between observations and retrieved snow accumulation were found by using the CloudSat particle model, slope parameters and snowfall speeds from the MASC. In the here presented study, the best assumption for surface snow accumulation was found by using a particle model for rimed aggregates (\Cref{sec:retrieval} and \ref{sec:ret:sensitivity}) such as in \Cref{fig:ret:all_part}.
 %%%%%%% table error sfc acc ret obs %%%%%%%%%%%%%%%%
 \begin{table}[t!]
 	\begin{center}
@@ -124,15 +130,7 @@ Similar to this study, \citet{cooper_variational_2017} used a CloudSat snow part
 	\end{center}
 \end{table}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\\
-\Cref{tab:res:ret_error} shows the difference for each individual day and the average difference for six and four days, depending on the accumulation of \SI{12}{\hour} or \SI{24}{\hour}.
-The choice of the correct PSD model, slope parameters and fall speed in the optimal estimation snowfall retrieval, shows a good agreement with the observations at Haukeliseter for the 2016 Christmas storm in contrast to the \SI{200}{\percent} difference when only using the CloudSat snowfall algorithm (\Cref{sec:retrieval}). It also indicates a reduction of the non-uniqueness of snow accumulation is reduced, when using a combination of ground-based observations instead of only Ze-S relationships. 
-%Of course, more storms should be investigated to find the exact correlation between the surface observations and the estimated accumulation to see if the deviation keeps as small for different snow patterns at Haukeliseter. 
-%During the 2016 Christmas storm the average error for \SI{24}{\hour} accumulation is almost similar to the best estimate at Barrow, Alaska. 
-\\
-It turns out that there is no relation between high and low precipitation events since the differences vary daily. \citet{cooper_variational_2017} also showed different combinations of PSD assumptions and snow fall speed. For Barrow, best agreements between observations and retrieved snow accumulation were found by using the CloudSat particle model, slope parameters and snowfall speeds from the MASC. In the here presented study, the best assumption for surface snow accumulation was found by using a particle model for rimed aggregates (\Cref{sec:retrieval} and \ref{sec:ret:sensitivity}) such as in \Cref{fig:ret:all_part}. 
-\\
-\\
+\par\medskip
 On \SI{21}{\dec}, the deviation is large (\SI{435.8}{\percent}). This is probably related to an observation of precipitation at the double fence, while the MRR did not observe precipitation.
 On \SI{21}{\dec}, observation at the double fence might be related to some particles stirred up by wind into the orifice of the gauge. Since no manual observations are done at the Haukeliseter site, is it difficult to say if blowing snow occurred or if it was snowing. This introduces additional errors on the double fence measurements. From the vertical MRR reflectivity, in \Cref{sec:res:large_scale_vert}, \Cref{fig:ret:refl}, it can be seen, that precipitation was not observed on \SI{21}{\dec} before \SI{9}{\UTC}.
 \\
@@ -152,16 +150,15 @@ In \Cref{sec:res:large_scale_vert}, the vertical SWC will be compared to the for
 
 
 
-
-
-
-
-
-
-
 %%%%%%%% Overestimation of surface snowfall %%%%%%%%%%%%%%
 \subsection{Surface Observation and MEPS}\label{sec:sfc_acc}
 Hereafter, MEPS surface precipitation prediction forecast is compared to the double fence gauge observations at Haukeliseter to see if observed surface accumulation was correctly predicted by MEPS.
+\\
+%%% sfc dofe comparison %%%%%
+\Cref{fig:sfc_acc} shows surface accumulation observations at the double fence, retrieved snow accumulation, and MEPS forecast for \SI{48}{\hour}. 
+The blue dashed line shows the ensemble mean of all ten members. The ensemble mean of precipitation amount is calculated every three hours, due to the three hourly time resolution of most of the perturbed member (\Cref{sec:ens_mean_spread}).
+When not all perturbed member forecast data was available from the \citet{norwegian_meteorological_institute_met_2016}, like on \SI{23}{\dec} (\Cref{fig:sfc_acc23}), no ensemble mean is calculated. 
+At the bottom of \Cref{fig:sfc_acc} the associated \SI{10}{\minute} average wind of the last hour from the \SI{10}{\metre} weather mast at Haukeliseter is presented. This will help to see if surface precipitation observations by the double fence may be influenced by wind. MEPS surface accumulation does not account for under-catchment by too high wind speeds, and therefore are not presented in \Cref{fig:sfc_acc}.
 %%% image surface accumulation %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{figure}[H]
 	\centering
@@ -210,13 +207,6 @@ Hereafter, MEPS surface precipitation prediction forecast is compared to the dou
 \end{figure}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \noindent
-\\
-%%% sfc dofe comparison %%%%%
-\Cref{fig:sfc_acc} shows surface accumulation observations at the double fence, retrieved snow accumulation, and MEPS forecast for \SI{48}{\hour}.  
-The blue dashed line shows the ensemble mean of all ten members. The ensemble mean of precipiation amount is calculated every three hours, due to the three hourly time resolution of most of the perturbed member (\Cref{sec:ens_mean_spread}).
-When not all perturbed member forecast data was available from the \citet{norwegian_meteorological_institute_met_2016}, like on \SI{23}{\dec} (\Cref{fig:sfc_acc23}), no ensemble mean is calculated. 
-At the bottom of \Cref{fig:sfc_acc} the associated \SI{10}{\minute} average wind of the last hour from the \SI{10}{\metre} weather mast at Haukeliseter is presented. This will help to see if surface precipitation observations by the double fence may be influenced by wind. MEPS surface accumulation does not account for undercatchment by too high wind speeds, and therefore are not presented in \Cref{fig:sfc_acc}.
-\\
 In general, \Cref{fig:sfc_acc21,fig:sfc_acc22,fig:sfc_acc23} show a better agreement between double fence precipitation amount observations and forecast for \SI{48}{\hour} forecasts initialised on \num{21} to \SI{23}{\dec} at \SI{0}{\UTC} than for initialisations on \num{24} to \SI{26}{\dec}. 
 The double fence observation lie for \num{21}, \num{22}, and \SI{23}{\dec} within the spread of the ensemble members (\Cref{fig:sfc_acc21,fig:sfc_acc22,fig:sfc_acc23}), covering the uncertainty within the measurements (\Cref{sec:DIM:MEPS}). On the other hand, observations between \num{24} and \SI{26}{\dec} are too low  compared to the ensemble spread (\Cref{fig:sfc_acc24,fig:sfc_acc25,fig:sfc_acc26}).
 During \num{24} and \SI{26}{\dec}, the low-pressure system intensifies and gets closer to the Norwegian coast, influencing the local weather in Norway (\Cref{sec:largeScale}). \Cref{fig:sfc_acc24} to \subref{fig:sfc_acc26} indicate a larger estimated surface precipitation amount for all ten ensemble members compared to observed values at the measurement site between \num{24} to \SI{26}{\dec}. Furthermore, all ensemble members seem to overestimate the surface accumulation after \SI{18}{\hour} on \SI{24}{\dec} and after \SI{12}{\hour} on \num{25} and \SI{26}{\dec}. 
@@ -232,11 +222,14 @@ Initialisations on \SI{24}{\dec} (\Cref{fig:sfc_acc24}) indicate an overestimati
 \\
 %%% 25/12
 While the cyclone propagates closer to Norway, the forecast error of the surface precipitation increases. Overestimation occurs around \SI{12}{\UTC} on \SI{25}{\dec}. This overestimation of the precipitation amount could be associated with the warm sector evolution at Haukeliseter (\Cref{sec:res:large_scale_sfc}). Afterwards, with increasing lead time MEPS forecasts show the same simulated precipitation development as the double fence, but too high. The precipitation is light between \SIlist{12;18}{\UTC} which shows as an almost constant surface precipitation amount. At \SI{18}{\UTC} the surface precipitation amount at the double fence increases and so does the MEPS forecast.
+\\
 %%% 26/12
 An overestimation of the surface precipitation is also simulated on \SI{26}{\dec}. While the surface analysis indicates the passage of an occlusion after \SI{15}{\UTC} (\Cref{fig:DT26}, \ref{fig:GP26}, and \Cref{sec:res:large_scale_sfc}). The overestimation seems to occur after a \SI{12}{\hour} lead time in \Cref{fig:sfc_acc26}. 
 The MEPS ensemble seems to predict the timing of precipitation correctly compared to the double fence, but estimates a too high surface accumulation.
+%%% average difference
+\Cref{tab:res:MEPS_err} shows the difference between the observations and ensemble mean MEPS forecast for \SIlist{12;24}{\hour} accumulation. Generally the forecast accuracy decreases with lead time which can be seen on the larger deviation between the ensemble member after \SI{18}{\hour} lead time (\Cref{fig:sfc_acc:2123}, \ref{fig:sfc_acc:2426}). As seen in \Cref{tab:res:MEPS_err}, the average difference decreases with longer forecast time. For \num{21} to \SI{26}{\dec} the deviation is +\SI{134.7}{\percent}. For longer lead times, \SI{24}{\hour}, the average difference is reduced to +\SI{32.6}{\percent}. Due to the good forecast between \num{21} to \SI{23}{\dec} ($\le$ \SI{11}{\percent}) the averaged difference is smaller. 
 %%%%%%% table error MEPS accumulation %%%%%%%%%%%%%%%%
-\begin{table}[t]
+\begin{table}[!t]
 	\begin{center}
 		\caption{Observations (obs.) and forecasted (MEPS) surface precipitation amounts for the Christmas storm 2016. Difference refers to the percentage difference between MEPS ensemble members and the double fence observation, averaged over all ensemble member for \SIlist{12;24}{\hour}. The average difference is the value over all days.}\label{tab:res:MEPS_err}
 		\begin{tabular}{c||r|r|c|c|c||r|r|c|c|c}
@@ -256,9 +249,7 @@ The MEPS ensemble seems to predict the timing of precipitation correctly compare
 	\end{center}
 \end{table}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%% average difference
 \noindent
-\Cref{tab:res:MEPS_err} shows the difference between the observations and ensemble mean MEPS forecast for \SIlist{12;24}{\hour} accumulation. Generally the forecast accuracy decreases with lead time which can be seen on the larger deviation between the ensemble member after \SI{18}{\hour} lead time (\Cref{fig:sfc_acc:2123}, \ref{fig:sfc_acc:2426}). As seen in \Cref{tab:res:MEPS_err}, the average difference decreases with longer forecast time. For \num{21} to \SI{26}{\dec} the deviation is +\SI{134.7}{\percent}. For longer lead times, \SI{24}{\hour}, the average difference is reduced to +\SI{32.6}{\percent}. Due to the good forecast between \num{21} to \SI{23}{\dec} ($\le$ \SI{11}{\percent}) the averaged difference is smaller. 
 \\
 On \SI{21}{\dec} very large deviation (\SI{626.1}{\percent}) is shown. 
 AROME-MetCoOp had problems with too low precipitation. The deviation between observed and forecasted values was larger if the precipitation amount is less than \SI{10}{\mm} \citep{muller_arome-metcoop:_2017}. At Haukeliseter, low precipitation amount is observed (\SI{0.7}{\mm}) on \SI{21}{\dec}.
@@ -270,8 +261,23 @@ The largest overestimation of MEPS forecast for precipitation amount is seen in 
 \\
 In \Cref{fig:bias} show the ensemble member a balanced bias from \num{21} to \SI{23}{\dec}. The bias for \num{24} to \SI{26}{\dec} is wet, also showing the overestimation of surface accumulation.
 In \Cref{fig:MAE:precip12}, the mean absolute error is less than \SI{7}{\mm} for \num{21} to \SI{23}{\dec} and increases with intensification of the storm up to \SI{14}{\mm} on \SI{26}{\dec}. The mean absolute error in \Cref{fig:MAE:precip12} for \SI{12}{\hour} precipitation is less than \SI{7}{\mm} on \SI{25}{\dec}, similar to \num{21} to \SI{23}{\dec}.
+\\
+%%% average difference with 10%
+Since MEPS performance was better on \num{21} to \SI{23}{\dec} one might assume that the double fence measurement is influenced by surface winds. 
+%\citet{wolff_wmo_2018}, [unpublished] states that the double fence gauge is influenced by wind, and that the double fence gauge underestimates precipitation accumulation within \SI{10}{\percent} for winds up to \SI{9}{\mPs}. 
+A relation between high wind and double fence observation could be possible. \Cref{tab:res:MEPS_err_10} presents the percentage difference between the double fence and MEPS forecasts under the condition that the double fence is affected by wind with a catch-ratio less than \SI{10}{\percent}. Here, it also shows an increase in forecast accuracy for precipitation accumulation over \SI{24}{\hour}.
+%, but a reduction of overestimation for surface accumulation in general. 
+The average difference is reduced by \SI{23.5}{\percent} for \SI{12}{\hour} accumulation. Assuming an accumulation underestimation of \SI{10}{\percent} would lead to a reduction of overestimation to \SI{43.8}{\percent} for \SI{12}{\hour} during \num{24} to \SI{26}{\dec} (\Cref{tab:res:MEPS_err_10}).
+This shows that even with a \SI{10}{\percent} under-catchment from the double fence gauge, MEPS would still overestimate the surface accumulation (\SI{12}{\hour}: +\SI{43.8}{\percent}; \SI{24}{\hour}: +\SI{39}{\percent}). 
+\\
+%%% 24, 25, 26/12
+On \num{24}, \num{25}, and \SI{26}{\dec} winds between \SIlist{5;20}{\mPs} were observed (\Cref{fig:res:sfc_ws23}, \ref{fig:res:sfc_ws25}, \ref{fig:res_sf_ws26}). The accumulation after \SI{12}{\hour} lead time in \Cref{tab:res:MEPS_err_10} indicate if wind may have influenced the catchment of the double fence and effect the result of overestimation. It shows, overestimation would still be present on \num{25} and \SI{26}{\dec}. On the other hand, overestimation would not be present for \SI{24}{\dec} until \SI{12}{\hour} accumulation.
+\\
+Still, an simulation of too much surface accumulation is apparent for \SI{24}{\hour} lead time.
+It seems even though the double fence gauge is influenced by wind, the overestimation of surface accumulation by MEPS is still present. 
+% The surface wind observation in \Cref{fig:res:sfc_ws26} shows also high wind speed up to \SI{17.5}{\mPs} observations on \SI{26}{\dec}.  The application of the \SI{10}{\percent} under-catchment on the double fence observation would still follow an error of \SI{83.6}{\percent} (\Cref{tab:res:MEPS_err,tab:res:MEPS_err_10}).
 %%%%%%% table if 10% underestimate of double fence %%%%%%%%%%%%%%%%
-\begin{table}[t]
+\begin{table}[!t]
 	\begin{center}
 		\caption{ \textit{AS \Cref{tab:res:MEPS_err}}, adjusted just for an under-catchment of \SI{10}{\percent} difference by the double fence gauge. }\label{tab:res:MEPS_err_10}
 		\begin{tabular}{c||r|r|c|c|c||r|r|c|c|c}
@@ -293,23 +299,18 @@ In \Cref{fig:MAE:precip12}, the mean absolute error is less than \SI{7}{\mm} for
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \noindent
 \\
-%%% average difference with 10%
-Since MEPS performance was better on \num{21} to \SI{23}{\dec} one might assume that the double fence measurement is influenced by surface winds. 
-%\citet{wolff_wmo_2018}, [unpublished] states that the double fence gauge is influenced by wind, and that the double fence gauge underestimates precipitation accumulation within \SI{10}{\percent} for winds up to \SI{9}{\mPs}. 
-A relation between high wind and double fence observation could be possible. \Cref{tab:res:MEPS_err_10} presents the percentage difference between the double fence and MEPS forecasts under the condition that the double fence is affected by wind with a catch-ratio less than \SI{10}{\percent}. Here, it also shows an increase in forecast accuracy for precipitation accumulation over \SI{24}{\hour}.
-%, but a reduction of overestimation for surface accumulation in general. 
-The average difference is reduced by \SI{23.5}{\percent} for \SI{12}{\hour} accumulation. Assuming an accumulation underestimation of \SI{10}{\percent} would lead to a reduction of overestimation to \SI{43.8}{\percent} for \SI{12}{\hour} during \num{24} to \SI{26}{\dec} (\Cref{tab:res:MEPS_err_10}).
-This shows that even with a \SI{10}{\percent} under-catchment from the double fence gauge, MEPS would still overestimate the surface accumulation (\SI{12}{\hour}: +\SI{43.8}{\percent}; \SI{24}{\hour}: +\SI{39}{\percent}). 
+%%%% variability %%%%%%%%
+In order to quantify the statistical uncertainty of the ensemble members, a box-whisker plot is provided in \Cref{fig:boxplot}. The box-whisker-plots in \Cref{fig:boxplot} show the time evolution of the distribution of the precipitation amount made of ten ensemble members up to \SI{48}{\hour} on \num{24}, \num{25}, and \SI{26}{\dec} (\Cref{fig:boxplot:24,fig:boxplot:25,fig:boxplot:26}). 
+%The box-whisker-plot in \Cref{fig:boxplot} displays the distribution of the ten ensemble members for the respective days. 
+\Cref{fig:boxplot} provides information every \SI{3}{\hour}, since some ensemble member do not have forecast values every hour.
 \\
-%%% 24, 25, 26/12
-On \num{24}, \num{25}, and \SI{26}{\dec} winds between \SIlist{5;18}{\mPs} were observed (\Cref{fig:res:sfc_ws23}, \ref{fig:res:sfc_ws25}, \ref{fig:res_sf_ws26}). The accumulation after \SI{12}{\hour} lead time in \Cref{tab:res:MEPS_err_10} indicate if wind may have influenced the catchment of the double fence and effect the result of overestimation. It shows, overestimation would still be present on \num{25} and \SI{26}{\dec}. On the other hand, overestimation would not be present for \SI{24}{\dec} until \SI{12}{\hour} accumulation.
-\\
-Still, an simulation of too much surface accumulation is apparent for \SI{24}{\hour} lead time.
-It seems even though the double fence gauge is influenced by wind, the overestimation of surface accumulation by MEPS is still present. 
-% The surface wind observation in \Cref{fig:res:sfc_ws26} shows also high wind speed up to \SI{17.5}{\mPs} observations on \SI{26}{\dec}.  The application of the \SI{10}{\percent} under-catchment on the double fence observation would still follow an error of \SI{83.6}{\percent} (\Cref{tab:res:MEPS_err,tab:res:MEPS_err_10}).
+All three days with overestimation seem to have different variability between the ensemble member. As expected the forecast uncertainty increases  with longer forecast time for precipitation amount. \Cref{fig:boxplot:25} and \subref{fig:boxplot:26} show a smaller ensemble member variability on \num{25} and \SI{26}{\dec} than on \SI{24}{\dec}.
+%Whereas the spread between the ensemble members is large in the beginning of \SI{24}{\dec}, the variability between the members is narrow for \num{25} and \SI{26}{\dec} for the first \SI{6}{\hour} (\Cref{fig:boxplot}). 
+%More variation between the ensemble members is shown on \num{24} and \SI{26}{\dec} after \SI{3}{\hour} (\Cref{fig:ens_vari}).
+% As the correlation for precipitation amount in \Cref{fig:scat:precip2426} suggests, the overestimation is not as high as for \num{24} and \SI{26}{\dec}. 
 \\
 %%% image surface accumulation variation %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{figure}[h!]
+\begin{figure}[ht!]
 	\centering
 	\begin{subfigure}[b]{\textwidth}
 		\centering
@@ -332,16 +333,6 @@ It seems even though the double fence gauge is influenced by wind, the overestim
 \end{figure}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \noindent
-%%%% variability %%%%%%%%
-In order to quantify the statistical uncertainty of the ensemble members, a box-whisker plot is provided in \Cref{fig:boxplot}. The box-whisker-plots in \Cref{fig:boxplot} show the time evolution of the distribution of the precipitation amount made of ten ensemble members up to \SI{48}{\hour} on \num{24}, \num{25}, and \SI{26}{\dec} (\Cref{fig:boxplot:24,fig:boxplot:25,fig:boxplot:26}). 
-%The box-whisker-plot in \Cref{fig:boxplot} displays the distribution of the ten ensemble members for the respective days. 
-\Cref{fig:boxplot} provides information every \SI{3}{\hour}, since some ensemble member do not have forecast values every hour.
-\\
-All three days with overestimation seem to have different variability between the ensemble member. As expected the forecast uncertainty increases  with longer forecast time for precipitation amount. \Cref{fig:boxplot:25} and \subref{fig:boxplot:26} show a smaller ensemble member variability on \num{25} and \SI{26}{\dec} than on \SI{24}{\dec}.
-%Whereas the spread between the ensemble members is large in the beginning of \SI{24}{\dec}, the variability between the members is narrow for \num{25} and \SI{26}{\dec} for the first \SI{6}{\hour} (\Cref{fig:boxplot}). 
-%More variation between the ensemble members is shown on \num{24} and \SI{26}{\dec} after \SI{3}{\hour} (\Cref{fig:ens_vari}).
-% As the correlation for precipitation amount in \Cref{fig:scat:precip2426} suggests, the overestimation is not as high as for \num{24} and \SI{26}{\dec}. 
-\\
 %%% 24/12
 Large variability is already present after \SI{3}{\hour} prediction time in \Cref{fig:boxplot:24} on \SI{24}{\dec}. The spread between the ensemble members (shown by the minimum and maximum whiskers) seems to be wide indicating a large uncertainty of the amount of surface accumulation. The ensemble mean (red line) is always higher than the median, suggesting a positively skewed distribution. 
 This means more low surface precipitation amount is predicted than large surface precipitation amount at the surface.
@@ -375,8 +366,7 @@ The overestimation at the surface could be related to the \SI{10}{\percent} unde
 %This value is approximated by \citet{wolff_wmo_2018}, [unpublished] from measurement sites for wind speed below \SI{9}{\mPs}. 
 \citet{wolff_wmo_2018}, [unpublished] states that estimates for higher wind speeds such observed at Haukeliseter do not exist but is hypothesized to be within \SI{20}{\percent}. During the event the \SI{10}{\metre} observed wind was less than \SI{20}{\mPs} for \SI{10}{\minute} averaged wind speeds prior the full hour.
 The forecast error could be reduced because of the wind related effect of the double fence.
-\\
-\\
+\par\medskip\noindent
 %%% synoptic
 The uncertainty of the surface accumulation might also have been related to the fact that the large-scale situation intensified more than low pressure systems in Norway usually do. 
 \\
@@ -472,6 +462,29 @@ Even though with the launch of MEPS the variation of observations is covered, th
 \label{sec:res:large_scale_vert}
 Frontal passages were observed at the surface several times throughout the extreme storm in December 2016. MEPS is able to predict the large scale synoptics and related precipitation, temperature, and wind changes for initialisation more than \SI{24}{\hour} in advance (\Cref{sec:res:large_scale_sfc}). Three additional instruments were installed %to measure the vertical snow water content 
 to measure frozen precipitation up to \SI{3}{\km} at Haukeliseter. 
+\\
+This %unique approach 
+gives the opportunity to compare the forecasts %of SWC with frozen precipitation observations in the vertical. 
+with retrieved vertical snow water content (\Cref{sec:ret:sensitivity,sec:ret_dofe_comp}).
+This study is unique because it uses state of the art vertical measurement to compare to an ensemble prediction forecast system. As far as the author is aware of there is no study about verification of MEPS for the vertical %ensemble member prediction models 
+with observations.
+\\
+The motivation to compare regional model forecasts with vertical snow measurements resulted from a study by \citet{joos_influence_2012}. They did sensitivity studies on the microphysical scheme of COSMO (COnsortium for Small-scale MOdelling) and found that the storm development depends on the correct vertical placement of the precipitation inside a modeled storm. Vertical precipitation placement determines the vertical profile of latent heating, and hence the generation of potential vorticity which in return shows if a storm strengthens or weakens. Correct vertical precipitation observations can then help to correctly evaluate model vertical precipitation patterns.
+%Previous studies such as \citet{joos_influence_2012} motivate to make accurate surface measurements more available to improve mesoscale models.
+\\
+Passages of occluded fronts and a warm sector were observed on \num{23}, \num{26}, and \SI{25}{\dec}. Additionally, an overestimation at the ground is shown on  \num{24}, \num{25}, and \SI{26}{\dec} for surface precipitation amount (\Cref{sec:sfc_acc}, \Cref{fig:sfc_acc}). 
+\\
+\\
+\Cref{fig:ret:refl} shows the reflectivity from the MRR at Haukeliseter for these days. Likely periods of frozen precipitation are inidcate with orange and red in \Cref{fig:ret:refl}.% areas with orange and red indicate likely periods with snowfall. 
+On \SI{26}{\dec} only values until \SI{17}{\UTC} are displayed, because of the temperature change and hence a precipitation shift led to liquid drops freezing on the MRR dish so that the signal got attenuated.
+\\
+During the Christmas 2016 extreme event two precipitation patterns are seen in the vertical. First, a continuous precipitation pattern with constant precipitation over several hours. In the following it is referred to as \textit{continuous}.
+The second pattern shows interchangeable high and low amounts of snow over \SI{1}{\hour}. This will be referred to as \textit{pulsing}.
+\\
+\\
+%%%% fronts upslope (23+26) %%%%
+More continuous precipitation pattern with high reflectivity values in \Cref{fig:ret:refl} indicate the transition of the occlusion on \num{23}, \num{26}, and the warm sector passage on \SI{25}{\dec}.
+The high reflectivity on \num{23} and \SI{26}{\dec} shows the passage of the occlusion and the associated frozen precipitation.
 %%%%%%%%% image reflectivity %%%%%%%%%%%%%%
 \begin{figure}[H]
 	\centering
@@ -507,28 +520,6 @@ to measure frozen precipitation up to \SI{3}{\km} at Haukeliseter.
 \end{figure}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \noindent
-This %unique approach 
-gives the opportunity to compare the forecasts %of SWC with frozen precipitation observations in the vertical. 
-with retrieved vertical snow water content (\Cref{sec:ret:sensitivity,sec:ret_dofe_comp}).
-This study is unique because it uses state of the art vertical measurement to compare to an ensemble prediction forecast system. As far as the author is aware of there is no study about verification of MEPS for the vertical %ensemble member prediction models 
-with observations.
-\\
-The motivation to compare regional model forecasts with vertical snow measurements resulted from a study by \citet{joos_influence_2012}. They did sensitivity studies on the microphysical scheme of COSMO (COnsortium for Small-scale MOdelling) and found that the storm development depends on the correct vertical placement of the precipitation inside a modeled storm. Vertical precipitation placement determines the vertical profile of latent heating, and hence the generation of potential vorticity which in return shows if a storm strengthens or weakens. Correct vertical precipitation observations can then help to correctly evaluate model vertical precipitation patterns.
-%Previous studies such as \citet{joos_influence_2012} motivate to make accurate surface measurements more available to improve mesoscale models.
-\\
-Passages of occluded fronts and a warm sector were observed on \num{23}, \num{26}, and \SI{25}{\dec}. Additionally, an overestimation at the ground is shown on  \num{24}, \num{25}, and \SI{26}{\dec} for surface precipitation amount (\Cref{sec:sfc_acc}, \Cref{fig:sfc_acc}). 
-\\
-\\
-\Cref{fig:ret:refl} shows the reflectivity from the MRR at Haukeliseter for these days. Likely periods of frozen precipitation are inidcate with orange and red in \Cref{fig:ret:refl}.% areas with orange and red indicate likely periods with snowfall. 
-On \SI{26}{\dec} only values until \SI{17}{\UTC} are displayed, because of the temperature change and hence a precipitation shift led to liquid drops freezing on the MRR dish so that the signal got attenuated.
-\\
-During the Christmas 2016 extreme event two precipitation patterns are seen in the vertical. First, a continuous precipitation pattern with constant precipitation over several hours. In the following it is referred to as \textit{continuous}.
-The second pattern shows interchangeable high and low amounts of snow over \SI{1}{\hour}. This will be referred to as \textit{pulsing}.
-\\
-\\
-%%%% fronts upslope (23+26) %%%%
-More continuous precipitation pattern with high reflectivity values in \Cref{fig:ret:refl} indicate the transition of the occlusion on \num{23}, \num{26}, and the warm sector passage on \SI{25}{\dec}.
-The high reflectivity on \num{23} and \SI{26}{\dec} shows the passage of the occlusion and the associated frozen precipitation.
 \\
 % 23/12
 On \SI{23}{\dec}, the surface observations of sea level pressure (\Cref{fig:res:sfc_pres23}), \SI{2}{\metre} air temperature (\subref{fig:res:sfc_temp23}), and \SI{10}{\metre} wind (\subref{fig:res:sfc_wd23}), allow to assume that the occluded front passed through Haukeliseter between \SIlist{12;21}{\UTC}.
@@ -554,6 +545,12 @@ The same pulsing is seen on \SI{26}{\dec} before \SI{12}{\UTC} in \Cref{fig:ret:
 \\
 \\
 %%%% SWC %%%%%%%%%
+\Cref{fig:SWC22,fig:SWC23,fig:SWC24,fig:SWC25,fig:SWC26} present the reflectivity of the MRR and the snow water content retrieved from the reflectivity as well as the \SI{48}{\hour} forecast values. Minutely MRR reflectivity and retrieved snow water content can be seen in \Cref{fig:SWC:ret_22} to \ref{fig:SWC:ret_26}. \Cref{fig:SWC_EM:22} to \ref{fig:SWC_EM:26} show in the upper panel the hourly averaged values from the retrieved SWC and in the lower panel the ensemble mean of the instantaneous forecast values every hour over all ensemble member.   
+Three hourly averaged retrieved values are then presented in the upper panel of \Cref{fig:SWC3h:22} to \ref{fig:SWC3h:26}, the lower panel are the ensemble mean forecast values every three hours.
+\\
+%%%% fronts upslope (23+26) %%%%
+% 23/12
+On \SI{23}{\dec} an occlusion passes over Haukeliseter between \SIlist{16;23}{\UTC}. The passage of the occlusion on \SI{23}{\dec} is already predicted for initialisations on \SI{22}{\dec} in \Cref{fig:SWC_EM:22}, \subref{fig:SWC3h:22}. With shorter lead time the snow water content for hourly and three hourly ensemble means increases in \Cref{fig:SWC_EM:23} and \subref{fig:SWC3h:23} after \SI{16}{\UTC} on \SI{23}{\dec}. MEPS is able to estimate the snow water content for ensemble means of time resolutions \SI{3}{\hour} in \Cref{fig:SWC3h:22}, \ref{fig:SWC3h:23}.
 %%%%%%%%% image SWC retrieval MEPS 21 %%%%%%%%%%%%%%
 \begin{figure}[H]
 	\centering
@@ -701,18 +698,25 @@ The same pulsing is seen on \SI{26}{\dec} before \SI{12}{\UTC} in \Cref{fig:ret:
 	\caption{\textit{(As \Cref{fig:SWC21}.)} Initialisation \SI{26}{\dec} at \SI{0}{\UTC}.}\label{fig:SWC26}
 \end{figure}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+\newpage
 \noindent
-\Cref{fig:SWC22,fig:SWC23,fig:SWC24,fig:SWC25,fig:SWC26} present the reflectivity of the MRR and the snow water content retrieved from the reflectivity as well as the \SI{48}{\hour} forecast values. Minutely MRR reflectivity and retrieved snow water content can be seen in \Cref{fig:SWC:ret_22} to \ref{fig:SWC:ret_26}. \Cref{fig:SWC_EM:22} to \ref{fig:SWC_EM:26} show in the upper panel the hourly averaged values from the retrieved SWC and in the lower panel the ensemble mean of the instantaneous forecast values every hour over all ensemble member.   
-Three hourly averaged retrieved values are then presented in the upper panel of \Cref{fig:SWC3h:22} to \ref{fig:SWC3h:26}, the lower panel are the ensemble mean forecast values every three hours.
-%%%% fronts upslope (23+26) %%%%
-% 23/12
-On \SI{23}{\dec} an occlusion passes over Haukeliseter between \SIlist{16;23}{\UTC}. The passage of the occlusion on \SI{23}{\dec} is already predicted for initialisations on \SI{22}{\dec} in \Cref{fig:SWC_EM:22}, \subref{fig:SWC3h:22}. 
-% The predicted hourly and three hourly snow water content increases with shorter lead time in \Cref{fig:SWC_EM:23} and \subref{fig:SWC3h:23} after \SI{16}{\UTC}.
-With shorter lead time the snow water content for hourly and three hourly ensemble means increases in \Cref{fig:SWC_EM:23} and \subref{fig:SWC3h:23} after \SI{16}{\UTC} on \SI{23}{\dec}. MEPS is able to estimate the snow water content for ensemble means of time resolutions \SI{3}{\hour} in \Cref{fig:SWC3h:22}, \ref{fig:SWC3h:23}.
-\\
 % 26/12
 On \SI{26}{\dec}, retrieved snow water content until the passage of the occlusion is observed (\Cref{fig:res:sfc_pres26,fig:res:sfc_temp26,fig:res:sfc_wd26,fig:res:sfc_ws26,fig:res:sfc_precip26}). The average of all ensemble members (\Cref{fig:SWC_EM:26}) as well as the three-hourly instantaneous SWC (\Cref{fig:SWC3h:26}) predict the frontal transition between \SIlist{15;21}{\UTC}. Initialisations already \SI{39}{\hour} prior (\SI{25}{\dec}) simulate that intense precipitation will occur over a short time (\Cref{fig:SWC_EM:25}, \subref{fig:SWC3h:25}). 
 \\
+%%%% warm sector --> liquid (25) %%%%%
+In general, the \SI{25}{\dec} %was a very weak 
+storm had little snow but much %with 
+liquid precipitation observed between \SIlist{11;19}{\UTC} in \Cref{fig:ret:refl25}. The retrieved snow water content in \Cref{fig:SWC24} and \ref{fig:SWC25} show a gap of missing values during liquid precipitation (\Cref{sec:pre_snow}).
+The initialisations on \num{24} (\Cref{fig:SWC24}) and \SI{25}{\dec} (\Cref{fig:SWC25}) show forecasted snow water content less than \SI{0.4}{\SWC} for \SI{25}{\dec} while the retrieved maximum value is \SI{0.7}{\SWC} at \SI{15}{\UTC}.
+\\
+To see if liquid precipitation is predicted, the atmospheric cloud condensed water content and rainfall amount in model levels is summed (\Cref{fig:LWC:2425}). \Cref{fig:LWC:24} and \subref{fig:LWC:25} show liquid water content for initialisations on \SI{24}{\dec} and \SI{25}{\dec}, respectively. Positive \SI{2}{\metre} air temperatures are forecasted between \SIlist{12;21}{\UTC} (\Cref{fig:res:sfc_temp25}). Initialisations more than \SI{24}{\hour} prior (\SI{24}{\dec}) already show the occurrence of the liquid precipitation layer (\Cref{fig:LWC:24}). \Cref{fig:LWC:24} and \subref{fig:LWC:25} also show a narrow liquid layer thickness up to \SI{800}{\metre} for initialisations on \num{24} and \SI{25}{\dec}. 
+\\
+In Norwegian mountainous terrain this is an important forecast ability, since precipitation change can lead to a increased risk for people. The avalanche danger increases with the precipitation change especially during high wind speeds \citep{hansen_warmer_2014}. A change from snow to liquid precipitation increases the risk of transport accidence because of freezing rain.
+Since MEPS forecasts the liquid layer correctly in thickness and duration it seems to be a good interaction between the \SI{2}{\metre} air temperature and the temperature in model levels. To produce the forecast analysis in MEPS, upper-air and surface assimilation is decoupled when starting from the model background (\Cref{sec:AROME}). MEPS \SI{2}{\metre} air temperature forecasts show the increase in temperature between \SIlist{12;18}{\UTC} on \SI{25}{\dec} (\Cref{fig:res:sfc_temp25}). This follows, that \SI{2}{\metre} air temperature is correctly translated to the upper model levels by applying a realistic temperature gradient, so that liquid precipitation is forecasted. 
+The model level temperature must also reach a certain temperature threshold to forecast precipitation as liquid. 
+This follows a high accuracy of MEPS for liquid forecast and the positive impact of using a high resolution convective scheme model. Precipitation is placement dependent. Lower horizontal resolution models, such as ECMWF, simulate for large grid cell area. This may lead that low temperature at a mountain top is predicted even though the meteorological observation in a valley observes rain, because an altitude difference of some hundred meter. %This can lead to forecasts of frozen precipitation instead of liquid.
+%%%% turbulent (24+26) %%%%%
 %%%%%%% image liquid forecast 25 %%%%%%%%%%%%%%%%
 \begin{figure}[t]
 	\centering
@@ -733,19 +737,6 @@ On \SI{26}{\dec}, retrieved snow water content until the passage of the occlusio
 \end{figure}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \noindent
-%%%% warm sector --> liquid (25) %%%%%
-In general, the \SI{25}{\dec} %was a very weak 
-storm had little snow but much %with 
-liquid precipitation observed between \SIlist{11;19}{\UTC} in \Cref{fig:ret:refl25}. The retrieved snow water content in \Cref{fig:SWC24} and \ref{fig:SWC25} show a gap of missing values during liquid precipitation (\Cref{sec:pre_snow}).
-The initialisations on \num{24} (\Cref{fig:SWC24}) and \SI{25}{\dec} (\Cref{fig:SWC25}) show forecasted snow water content less than \SI{0.4}{\SWC} for \SI{25}{\dec} while the retrieved maximum value is \SI{0.7}{\SWC} at \SI{15}{\UTC}.
-\\
-To see if liquid precipitation is predicted, the atmospheric cloud condensed water content and rainfall amount in model levels is summed (\Cref{fig:LWC:2425}). \Cref{fig:LWC:24} and \subref{fig:LWC:25} show liquid water content for initialisations on \SI{24}{\dec} and \SI{25}{\dec}, respectively. Positive \SI{2}{\metre} air temperatures are forecasted between \SIlist{12;21}{\UTC} (\Cref{fig:res:sfc_temp25}). Initialisations more than \SI{24}{\hour} prior (\SI{24}{\dec}) already show the occurrence of the liquid precipitation layer (\Cref{fig:LWC:24}). \Cref{fig:LWC:24} and \subref{fig:LWC:25} also show a narrow liquid layer thickness up to \SI{800}{\metre} for initialisations on \num{24} and \SI{25}{\dec}. 
-\\
-In Norwegian mountainous terrain this is an important forecast ability, since precipitation change can lead to a increased risk for people. The avalanche danger increases with the precipitation change especially during high wind speeds \citep{hansen_warmer_2014}. A change from snow to liquid precipitation increases the risk of transport accidence because of freezing rain.
-Since MEPS forecasts the liquid layer correctly in thickness and duration it seems to be a good interaction between the \SI{2}{\metre} air temperature and the temperature in model levels. To produce the forecast analysis in MEPS, upper-air and surface assimilation is decoupled when starting from the model background (\Cref{sec:AROME}). MEPS \SI{2}{\metre} air temperature forecasts show the increase in temperature between \SIlist{12;18}{\UTC} on \SI{25}{\dec} (\Cref{fig:res:sfc_temp25}). This follows, that \SI{2}{\metre} air temperature is correctly translated to the upper model levels by applying a realistic temperature gradient, so that liquid precipitation is forecasted. 
-The model level temperature must also reach a certain temperature threshold to forecast precipitation as liquid. 
-This follows a high accuracy of MEPS for liquid forecast and the positive impact of using a high resolution convective scheme model. Precipitation is placement dependent. Lower horizontal resolution models, such as ECMWF, simulate for large grid cell area. This may lead that low temperature at a mountain top is predicted even though the meteorological observation in a valley observes rain, because an altitude difference of some hundred meter. %This can lead to forecasts of frozen precipitation instead of liquid.
-%%%% turbulent (24+26) %%%%%
 \\
 \\
 %%%% 1h average, EM01 %%%%%%%%%
@@ -876,7 +867,7 @@ Comparing hourly instantaneous SWC is not a fair comparison, since there might b
 \\
 %%%% general weak SWC %%%%%%%%%
 %%%%%%% low predicted SWC %%%%%%%%%%%%%%%%
-\begin{figure}[ht!]
+\begin{figure}[!b]
 	\centering
 	\begin{subfigure}[b]{0.49\textwidth}
 		\includegraphics[width=\textwidth]{./fig_SWP_scat/EM09_20161221_23_00}
@@ -950,7 +941,7 @@ The previous chapters have indicated that the regional model MEPS is able to pre
 \\
 %%%% local topography
 % %%%%%%% image location %%%%%%%%%%%%%%%%
-\begin{figure}[ht!]
+\begin{figure}[!t]
 	\begin{tabular}[t]{cc}
 		\begin{tabular}[t]{c}
 			\begin{subfigure}[b]{0.8\columnwidth}

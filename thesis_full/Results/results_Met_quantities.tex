@@ -27,7 +27,7 @@ During all days the MEPS forecasts seem to predict similar sea level pressure, \
 \\
 \\
 %\textcolor{red}{include R-coefficient}
-\Cref{fig:scat:SLP,fig:scat:T_WD,fig:scat:WS_precip} presents the correlation of sea level pressure, \SI{2}{\metre} air temperature, \SI{10}{\metre} wind, and surface precipitation amount  between the observations and the \SI{48}{\hour} MEPS ensemble forecast. The relation for Haukeliseter observations and the MEPS forecast members is indicated with the regression calculated for each day. The scatter plots in \Cref{fig:scat:SLP,fig:scat:T_WD,fig:scat:WS_precip} show a good correlation for sea level pressure and \SI{2}{\metre} air temperature.
+\Cref{fig:scat:SLP_T,fig:scat:WD_WS,fig:scat:precip} presents the correlation of sea level pressure, \SI{2}{\metre} air temperature, \SI{10}{\metre} wind, and surface precipitation amount  between the observations and the \SI{48}{\hour} MEPS ensemble forecast. The relation for Haukeliseter observations and the MEPS forecast members is indicated with the regression calculated for each day. The scatter plots in \Cref{fig:scat:SLP_T,fig:scat:WD_WS,fig:scat:precip} show a good correlation for sea level pressure and \SI{2}{\metre} air temperature.
 % Pressure
 Sea level pressure has the best correlation of  all variables. 
 % wind direction
@@ -99,50 +99,50 @@ On \SI{23}{\dec}, the evolution of the occlusion is also observed by an increase
 		Line representation according to the label. From top to bottom: sea level pressure, \SI{2}{\metre} air temperature, \SI{10}{\metre} wind direction and speed, and precipitation amount. \textit{Continued on next page.}}\label{fig:obs_meps:21}
 	%
 \end{figure}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%  \begin{figure}[H]%\ContinuedFloat
-%  	\centering
-%  	% sfc pressure
-%  	\begin{subfigure}[b]{0.9\textwidth}
-%  		\includegraphics[trim={0.cm 1.5cm 0cm 0cm},clip,
-%  		width=\textwidth]{./fig_sfc_pressure/20161222_00}
-%  		\caption{}\label{fig:res:sfc_pres22}
-%  	\end{subfigure}
-%  	% sfc temp
-%  	\begin{subfigure}[b]{0.9\textwidth}
-%  		\includegraphics[trim={0.cm 1.5cm 0cm 0cm},clip,
-%  		width=\textwidth]{./fig_sfc_temp/20161222_00}
-%  		\caption{}\label{fig:res:sfc_temp22}
-%  	\end{subfigure}
-%  	%
-%  	% sfc wd
-%  	\begin{subfigure}[b]{0.9\textwidth}
-%  		\includegraphics[trim={0.cm 1.5cm 0cm 0cm},clip,
-%  		width=\textwidth]{./fig_sfc_wd/20161222_00}
-%  		\caption{}\label{fig:res:sfc_wd22}
-%  	\end{subfigure}
-%  	% sfc ws
-%  	\begin{subfigure}[b]{0.9\textwidth}
-%  		\includegraphics[trim={0.cm 1.5cm 0cm 0cm},clip,
-%  		width=\textwidth]{./fig_sfc_ws/20161222_00}
-%  		\caption{}\label{fig:res:sfc_ws22}
-%  	\end{subfigure}
-%  	% sfc precip
-%  	\begin{subfigure}[b]{0.9\textwidth}
-%  		\includegraphics[trim={0.cm 1.5cm 0cm 0cm},clip,
-%  		width=\textwidth]{./fig_sfc_precip/20161222_00}
-%  		\caption{}\label{fig:res:sfc_precip22}
-%  	\end{subfigure}
-%  	% label
-%  	\begin{subfigure}[b]{\textwidth}
-%  		\centering
-%  		\includegraphics[trim={5.5cm 0cm 5.cm 17.7cm},clip,
-%  		width=0.8\textwidth]{./fig_sfc_precip/20161221_00_label}
-%  	\end{subfigure}
-%  	\caption{\textit{(As \Cref{fig:obs_meps:21}.)} Initialisation on \SI{22}{\dec} at \SI{0}{\UTC}. }\label{fig:obs_meps:22}
-%  	%
-%  \end{figure}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%   \begin{figure}[H]%\ContinuedFloat
+%   	\centering
+%   	% sfc pressure
+%   	\begin{subfigure}[b]{0.9\textwidth}
+%   		\includegraphics[trim={0.cm 1.5cm 0cm 0cm},clip,
+%   		width=\textwidth]{./fig_sfc_pressure/20161222_00}
+%   		\caption{}\label{fig:res:sfc_pres22}
+%   	\end{subfigure}
+%   	% sfc temp
+%   	\begin{subfigure}[b]{0.9\textwidth}
+%   		\includegraphics[trim={0.cm 1.5cm 0cm 0cm},clip,
+%   		width=\textwidth]{./fig_sfc_temp/20161222_00}
+%   		\caption{}\label{fig:res:sfc_temp22}
+%   	\end{subfigure}
+%   	%
+%   	% sfc wd
+%   	\begin{subfigure}[b]{0.9\textwidth}
+%   		\includegraphics[trim={0.cm 1.5cm 0cm 0cm},clip,
+%   		width=\textwidth]{./fig_sfc_wd/20161222_00}
+%   		\caption{}\label{fig:res:sfc_wd22}
+%   	\end{subfigure}
+%   	% sfc ws
+%   	\begin{subfigure}[b]{0.9\textwidth}
+%   		\includegraphics[trim={0.cm 1.5cm 0cm 0cm},clip,
+%   		width=\textwidth]{./fig_sfc_ws/20161222_00}
+%   		\caption{}\label{fig:res:sfc_ws22}
+%   	\end{subfigure}
+%   	% sfc precip
+%   	\begin{subfigure}[b]{0.9\textwidth}
+%   		\includegraphics[trim={0.cm 1.5cm 0cm 0cm},clip,
+%   		width=\textwidth]{./fig_sfc_precip/20161222_00}
+%   		\caption{}\label{fig:res:sfc_precip22}
+%   	\end{subfigure}
+%   	% label
+%   	\begin{subfigure}[b]{\textwidth}
+%   		\centering
+%   		\includegraphics[trim={5.5cm 0cm 5.cm 17.7cm},clip,
+%   		width=0.8\textwidth]{./fig_sfc_precip/20161221_00_label}
+%   	\end{subfigure}
+%   	\caption{\textit{(As \Cref{fig:obs_meps:21}.)} Initialisation on \SI{22}{\dec} at \SI{0}{\UTC}. }\label{fig:obs_meps:22}
+%   	%
+%   \end{figure}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{figure}[H]%\ContinuedFloat
 	\centering
 	% sfc pressure
@@ -185,50 +185,50 @@ On \SI{23}{\dec}, the evolution of the occlusion is also observed by an increase
 	\caption{\textit{(As \Cref{fig:obs_meps:21}.)} Initialisation on \SI{23}{\dec} at \SI{0}{\UTC}. }\label{fig:obs_meps:23}
 	%
 \end{figure}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%  \begin{figure}[H]%\ContinuedFloat
-%  	\centering
-%  	% sfc pressure
-%  	\begin{subfigure}[b]{0.9\textwidth}
-%  		\includegraphics[trim={0.cm 1.5cm 0cm 0cm},clip,
-%  		width=\textwidth]{./fig_sfc_pressure/20161224_00}
-%  		\caption{}\label{fig:res:sfc_pres24}
-%  	\end{subfigure}
-%  	% sfc temp
-%  	\begin{subfigure}[b]{0.9\textwidth}
-%  		\includegraphics[trim={0.cm 1.5cm 0cm 0cm},clip,
-%  		width=\textwidth]{./fig_sfc_temp/20161224_00}
-%  		\caption{}\label{fig:res:sfc_temp24}
-%  	\end{subfigure}
-%  	%
-%  	% sfc wd
-%  	\begin{subfigure}[b]{0.9\textwidth}
-%  		\includegraphics[trim={0.cm 1.5cm 0cm 0cm},clip,
-%  		width=\textwidth]{./fig_sfc_wd/20161224_00}
-%  		\caption{}\label{fig:res:sfc_wd24}
-%  	\end{subfigure}
-%  	% sfc ws
-%  	\begin{subfigure}[b]{0.9\textwidth}
-%  		\includegraphics[trim={0.cm 1.5cm 0cm 0cm},clip,
-%  		width=\textwidth]{./fig_sfc_ws/20161224_00}
-%  		\caption{}\label{fig:res:sfc_ws24}
-%  	\end{subfigure}
-%  	% sfc precip
-%  	\begin{subfigure}[b]{0.9\textwidth}
-%  		\includegraphics[trim={0.cm 1.5cm 0cm 0cm},clip,
-%  		width=\textwidth]{./fig_sfc_precip/20161224_00}
-%  		\caption{}\label{fig:res:sfc_precip24}
-%  	\end{subfigure}
-%  	% label
-%  	\begin{subfigure}[b]{\textwidth}
-%  		\centering
-%  		\includegraphics[trim={5.5cm 0cm 5.cm 17.7cm},clip,
-%  		width=0.8\textwidth]{./fig_sfc_precip/20161221_00_label}
-%  	\end{subfigure}
-%  	\caption{\textit{(As \Cref{fig:obs_meps:21}.)} Initialisation on \SI{24}{\dec} at \SI{0}{\UTC}. }\label{fig:obs_meps:24}
-%  	%
-%  \end{figure}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%   \begin{figure}[H]%\ContinuedFloat
+%   	\centering
+%   	% sfc pressure
+%   	\begin{subfigure}[b]{0.9\textwidth}
+%   		\includegraphics[trim={0.cm 1.5cm 0cm 0cm},clip,
+%   		width=\textwidth]{./fig_sfc_pressure/20161224_00}
+%   		\caption{}\label{fig:res:sfc_pres24}
+%   	\end{subfigure}
+%   	% sfc temp
+%   	\begin{subfigure}[b]{0.9\textwidth}
+%   		\includegraphics[trim={0.cm 1.5cm 0cm 0cm},clip,
+%   		width=\textwidth]{./fig_sfc_temp/20161224_00}
+%   		\caption{}\label{fig:res:sfc_temp24}
+%   	\end{subfigure}
+%   	%
+%   	% sfc wd
+%   	\begin{subfigure}[b]{0.9\textwidth}
+%   		\includegraphics[trim={0.cm 1.5cm 0cm 0cm},clip,
+%   		width=\textwidth]{./fig_sfc_wd/20161224_00}
+%   		\caption{}\label{fig:res:sfc_wd24}
+%   	\end{subfigure}
+%   	% sfc ws
+%   	\begin{subfigure}[b]{0.9\textwidth}
+%   		\includegraphics[trim={0.cm 1.5cm 0cm 0cm},clip,
+%   		width=\textwidth]{./fig_sfc_ws/20161224_00}
+%   		\caption{}\label{fig:res:sfc_ws24}
+%   	\end{subfigure}
+%   	% sfc precip
+%   	\begin{subfigure}[b]{0.9\textwidth}
+%   		\includegraphics[trim={0.cm 1.5cm 0cm 0cm},clip,
+%   		width=\textwidth]{./fig_sfc_precip/20161224_00}
+%   		\caption{}\label{fig:res:sfc_precip24}
+%   	\end{subfigure}
+%   	% label
+%   	\begin{subfigure}[b]{\textwidth}
+%   		\centering
+%   		\includegraphics[trim={5.5cm 0cm 5.cm 17.7cm},clip,
+%   		width=0.8\textwidth]{./fig_sfc_precip/20161221_00_label}
+%   	\end{subfigure}
+%   	\caption{\textit{(As \Cref{fig:obs_meps:21}.)} Initialisation on \SI{24}{\dec} at \SI{0}{\UTC}. }\label{fig:obs_meps:24}
+%   	%
+%   \end{figure}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{figure}[H]%\ContinuedFloat
 	\centering
 	% sfc pressure
@@ -321,10 +321,27 @@ On \SI{23}{\dec}, the evolution of the occlusion is also observed by an increase
 	\caption{\textit{(As \Cref{fig:obs_meps:21}.)} Initialisation on \SI{26}{\dec} at \SI{0}{\UTC}.}\label{fig:obs_meps:26}
 \end{figure}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%\noindent
-%
+\noindent
+%\\
+%\\
+Similar patterns as on \SI{23}{\dec} is seen for the evolution of the occluded front on \SI{26}{\dec} in the ECMWF analysis \Cref{fig:DT26} and \ref{fig:GP26}. In this case the low-pressure system was located north of Møre and Romsdal in the Norwegian Sea. In the morning the cyclone is located east of Iceland and in the course of the day it moves closer to the coast of Norway (\Cref{fig:DT26_18} and \ref{fig:GP26_18}). Before landfall at \SI{16}{\UTC}, a pressure decrease occurs at Haukeliseter (\Cref{fig:res:sfc_pres26}). During the development of the occluded front, the pressure reaches its lowest point of \SI{985}{\hPa} (\Cref{fig:res:sfc_pres26}) and increases afterwards during the dissipation of the 2016 Christmas storm. 
+%% Pressure, temperature, and wind changes for the occlusion transition were already forecasted for initialisations on \SI{25}{\dec} (\Cref{fig:res:sfc_pres25}, \subref{fig:res:sfc_temp25}, \subref{fig:res:sfc_wd25}, \subref{fig:res:sfc_ws25}), only wind speed and precipitation seem not to agree with the observations at Haukeliseter. 
+\\
+Since the cyclone was surrounded by colder air (south of the low-pressure system in \Cref{fig:DT26}), first a drop and then an increase of temperature were observed and forecasted by MEPS (\Cref{fig:res:sfc_temp26}). An indication of the occlusion evolution is also visible in the \SI{10}{\metre} wind observations and MEPS predictions in \Cref{fig:res:sfc_wd26} and \subref{fig:res:sfc_ws26}. 
+On \SI{26}{\dec} at \SI{0}{\UTC}, the low pressure system is east of Iceland (not shown), moving closer into the Norwegian Sea by \SI{12}{\UTC} (\Cref{fig:DT26} and \ref{fig:GP26}). 
+Surface westerly winds are associated to the cyclone in the Norwegian Sea, and impinging on the West coast of Norway \Cref{fig:GP26}. The \SI{10}{\metre} wind measurement and MEPS forecast in \Cref{fig:res:sfc_wd26} and \ref{fig:res:sfc_ws26}, show a westerly gale of up to \SI{18}{\mPs} at Haukeliseter before \SI{12}{\UTC}.
+The centre of the occluded front is located over Norway at \SI{18}{\UTC}, and the pronounced surface pressure gradient, in \Cref{fig:GP26_18}, indicate an increase in surface wind with a north-west wind direction. During this transition of the occlusion, the wind direction changes to north-west with higher observed wind speeds up to \SI{20}{\mPs} (\Cref{fig:res:sfc_wd26} and \ref{fig:res:sfc_ws26}). 
+\\
+Throughout the day light to moderate precipitation is continuing until the occlusion passage is seen in \Cref{fig:res:sfc_precip26}.
+Heavy precipitation related to the occlusion, around \SI{16}{\UTC}, is followed by moderate to light precipitation on \SI{26}{\dec}. 
+\\
+\\
+On \SI{23}{\dec} a cyclone is south of Iceland (\Cref{fig:weather:23}) and precipitation was associated to the transition of the occlusion. 
+While \SI{26}{\dec} precipitation was associated with the landfall of an occlusion. \SI{25}{\dec} was marked by the transition of a warm sector. The ECMWF analysis shows a pronounced upper level ridge at the dynamic tropopause (\Cref{fig:DT25}). The cyclone core is south east of Iceland in \Cref{fig:DT25} with two associated frontal boundaries. While the warm front is approaching the west coast, the cold front is north-west of Great Britain. In \Cref{fig:GP25}, the tail of the cold front moved into lower latitudes, following the slowdown of the front, leading to a stationary frontal boundary. Furthermore, the mid-latitude jet is aligned with the surface frontal boundaries (\Cref{fig:DT25}), while the Haukeliseter site is located below the the midlatitudal jet (\Cref{fig:GP25}). %This leads to rising motion at the surface.
+\\
+Neither pressure nor wind observations and forecasts in \Cref{fig:res:sfc_pres25}, \subref{fig:res:sfc_wd25}, and \subref{fig:res:sfc_ws25}, indicate the evolution of any frontal boundary. The only indication of a transition could be seen in the increase and decrease of temperature afterwards at \SI{11}{\UTC} until \SI{21}{\UTC} (\Cref{fig:res:sfc_temp25}). In \Cref{fig:res:sfc_wd25}, a small wind direction change from west to north-west is observed by the wind mast at \SI{10}{\UTC}. This is not forecasted by MEPS, as it rather estimated strong westerly winds.
 %%%%%%% image scatter obs ret %%%%%%%%%%%%%%%%
-\begin{figure}[t!]
+\begin{figure}[H]
 	\centering
 	% sfc pressure
 	\begin{subfigure}[b]{0.49\textwidth}
@@ -338,27 +355,6 @@ On \SI{23}{\dec}, the evolution of the occlusion is also observed by an increase
 		width=\textwidth]{./fig_sfc_pressure/obs_model_20161224_26_00}
 		\caption{}\label{fig:scat:pres2426}
 	\end{subfigure}
-	%
-	% label
-	\begin{subfigure}[b]{0.49\textwidth}
-		\centering
-		\includegraphics[trim={25.cm 15.5cm 0cm 3.6cm},clip,
-		width=0.8\textwidth]{./fig_sfc_temp/obs_model_20161221_23_00_label}
-	\end{subfigure}
-	\begin{subfigure}[b]{0.49\textwidth}
-		\centering
-		\includegraphics[trim={25.cm 15.5cm 0cm 3.6cm},clip,
-		width=0.8\textwidth]{./fig_sfc_temp/obs_model_20161224_26_00_label}
-	\end{subfigure}
-	\caption{Scatter plots for sea level pressure observations and ensemble forecasts initialised for \num{21} to \SI{23}{\dec} (\protect\subref{fig:scat:pres2123})
-    %, \protect\subref{fig:scat:temp2123}, \protect\subref{fig:scat:wd2123}, \protect\subref{fig:scat:ws2123}, \protect\subref{fig:scat:precip2123}) 
-    and  for \num{24} ton \SI{26}{\dec} (\protect\subref{fig:scat:pres2426})
-    %, \protect\subref{fig:scat:temp2426}, \protect\subref{fig:scat:wd2426}, \protect\subref{fig:scat:ws2426}, \protect\subref{fig:scat:precip2426}). 
-    The \SI{48}{\hour} scatter values indicate each day, showing the \SIlist{1;3}{\hour} ten ensemble member forecasts respectively. The linear regression of all ensemble member for each individual day is presented together with the correlation coefficient $R$. %\textit{Continued on next page.}  
-    }\label{fig:scat:SLP}
-\end{figure}
-\begin{figure}%\ContinuedFloat
-	\centering
 	%     % sfc temp
 	\begin{subfigure}[b]{0.49\textwidth}
 		\includegraphics[
@@ -371,6 +367,26 @@ On \SI{23}{\dec}, the evolution of the occlusion is also observed by an increase
 		width=\textwidth]{./fig_sfc_temp/obs_model_20161224_26_00}
 		\caption{}\label{fig:scat:temp2426}
 	\end{subfigure}
+	% label
+	\begin{subfigure}[b]{0.49\textwidth}
+		\centering
+		\includegraphics[trim={25.cm 15.5cm 0cm 3.6cm},clip,
+		width=0.8\textwidth]{./fig_sfc_temp/obs_model_20161221_23_00_label}
+	\end{subfigure}
+	\begin{subfigure}[b]{0.49\textwidth}
+		\centering
+		\includegraphics[trim={25.cm 15.5cm 0cm 3.6cm},clip,
+		width=0.8\textwidth]{./fig_sfc_temp/obs_model_20161224_26_00_label}
+	\end{subfigure}
+	\caption{Scatter plots for sea level pressure and \SI{2}{\metre} air temperature observations and ensemble forecasts initialised for \num{21} to \SI{23}{\dec} (\protect\subref{fig:scat:pres2123}, \protect\subref{fig:scat:temp2123})
+		%, \protect\subref{fig:scat:temp2123}, \protect\subref{fig:scat:wd2123}, \protect\subref{fig:scat:ws2123}, \protect\subref{fig:scat:precip2123}) 
+		and  for \num{24} to \SI{26}{\dec} (\protect\subref{fig:scat:pres2426}, to \protect\subref{fig:scat:pres2426})
+		%, \protect\subref{fig:scat:temp2426}, \protect\subref{fig:scat:wd2426}, \protect\subref{fig:scat:ws2426}, \protect\subref{fig:scat:precip2426}). 
+		The \SI{48}{\hour} scatter values indicate each day, showing the \SIlist{1;3}{\hour} ten ensemble member forecasts respectively. The linear regression of all ensemble member for each individual day is presented together with the correlation coefficient $R$. %\textit{Continued on next page.}  
+	}\label{fig:scat:SLP_T}
+\end{figure}
+\begin{figure}[H]%\ContinuedFloat
+	\centering
 	% 
 	% sfc wd
 	\begin{subfigure}[b]{0.49\textwidth}
@@ -384,21 +400,6 @@ On \SI{23}{\dec}, the evolution of the occlusion is also observed by an increase
 		width=\textwidth]{./fig_sfc_wd/obs_model_20161224_26_00}
 		\caption{}\label{fig:scat:wd2426}
 	\end{subfigure}
-	
-	% label
-	\begin{subfigure}[b]{0.49\textwidth}
-		\centering
-		\includegraphics[trim={25.cm 15.5cm 0cm 3.6cm},clip,
-		width=0.8\textwidth]{./fig_sfc_temp/obs_model_20161221_23_00_label}
-	\end{subfigure}
-	\begin{subfigure}[b]{0.49\textwidth}
-		\centering
-		\includegraphics[trim={25.cm 15.5cm 0cm 3.6cm},clip,
-		width=0.8\textwidth]{./fig_sfc_temp/obs_model_20161224_26_00_label}
-	\end{subfigure}
-	\caption{\textit{(As \Cref{fig:scat:SLP}.)} From top to bottom: (\protect\subref{fig:scat:temp2123}, \protect\subref{fig:scat:temp2426}) \SI{2}{\metre} air temperature, (\protect\subref{fig:scat:wd2123}, \protect\subref{fig:scat:wd2426}) \SI{10}{\metre} wind direction.} \label{fig:scat:T_WD}
-\end{figure}
-\begin{figure}%\ContinuedFloat
 	% sfc ws
 	\begin{subfigure}[b]{0.49\textwidth}
 		\includegraphics[
@@ -411,6 +412,20 @@ On \SI{23}{\dec}, the evolution of the occlusion is also observed by an increase
 		width=\textwidth]{./fig_sfc_ws/obs_model_20161224_26_00}
 		\caption{}\label{fig:scat:ws2426}
 	\end{subfigure}
+	% label
+	\begin{subfigure}[b]{0.49\textwidth}
+		\centering
+		\includegraphics[trim={25.cm 15.5cm 0cm 3.6cm},clip,
+		width=0.8\textwidth]{./fig_sfc_temp/obs_model_20161221_23_00_label}
+	\end{subfigure}
+	\begin{subfigure}[b]{0.49\textwidth}
+		\centering
+		\includegraphics[trim={25.cm 15.5cm 0cm 3.6cm},clip,
+		width=0.8\textwidth]{./fig_sfc_temp/obs_model_20161224_26_00_label}
+	\end{subfigure}
+	\caption{\textit{(As \Cref{fig:scat:SLP_T}.)} From top to bottom: (\protect\subref{fig:scat:wd2123}, \protect\subref{fig:scat:wd2426}) \SI{10}{\metre} wind direction, (\protect\subref{fig:scat:wd2123}, \protect\subref{fig:scat:wd2426}) \SI{10}{\metre} wind speed.} \label{fig:scat:WD_WS}
+\end{figure}
+\begin{figure}[H]%\ContinuedFloat
 	% sfc precip
 	\begin{subfigure}[b]{0.49\textwidth}
 		\includegraphics[
@@ -434,36 +449,10 @@ On \SI{23}{\dec}, the evolution of the occlusion is also observed by an increase
 		\includegraphics[trim={25.cm 15.5cm 0cm 3.6cm},clip,
 		width=0.8\textwidth]{./fig_sfc_temp/obs_model_20161224_26_00_label}
 	\end{subfigure}
-    \caption{\textit{(As \Cref{fig:scat:SLP}.)} From top to bottom: (\protect\subref{fig:scat:ws2123}, \protect\subref{fig:scat:ws2426}) \SI{10}{\metre} wind speed, (\protect\subref{fig:scat:precip2123}, \protect\subref{fig:scat:precip2426}) surface precipitation amount comparing double fence observations to \SI{48}{\hour} MEPS forecasts.} \label{fig:scat:WS_precip}
+	\caption{\textit{(As \Cref{fig:scat:SLP_T}.)}  (\protect\subref{fig:scat:precip2123}, \protect\subref{fig:scat:precip2426}) surface precipitation amount comparing double fence observations to \SI{48}{\hour} MEPS forecasts.} \label{fig:scat:precip}
 \end{figure}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \noindent
-\\
-\\
-Similar patterns as on \SI{23}{\dec} is seen for the evolution of the occluded front on \SI{26}{\dec} in the ECMWF analysis \Cref{fig:DT26} and \ref{fig:GP26}. In this case the low-pressure system was located north of Møre and Romsdal in the Norwegian Sea. In the morning the cyclone is located east of Iceland and in the course of the day it moves closer to the coast of Norway (\Cref{fig:DT26_18} and \ref{fig:GP26_18}). Before landfall at \SI{16}{\UTC}, a pressure decrease occurs at Haukeliseter (\Cref{fig:res:sfc_pres26}). During the development of the occluded front, the pressure reaches its lowest point of \SI{985}{\hPa} (\Cref{fig:res:sfc_pres26}) and increases afterwards during the dissipation of the 2016 Christmas storm. 
-%% Pressure, temperature, and wind changes for the occlusion transition were already forecasted for initialisations on \SI{25}{\dec} (\Cref{fig:res:sfc_pres25}, \subref{fig:res:sfc_temp25}, \subref{fig:res:sfc_wd25}, \subref{fig:res:sfc_ws25}), only wind speed and precipitation seem not to agree with the observations at Haukeliseter. 
-\\
-Since the cyclone was surrounded by colder air (south of the low-pressure system in \Cref{fig:DT26}), first a drop and then an increase of temperature were observed and forecasted by MEPS (\Cref{fig:res:sfc_temp26}). An indication of the occlusion evolution is also visible in the \SI{10}{\metre} wind observations and MEPS predictions in \Cref{fig:res:sfc_wd26} and \subref{fig:res:sfc_ws26}. 
-On \SI{26}{\dec} at \SI{0}{\UTC}, the low pressure system is east of Iceland (not shown), moving closer into the Norwegian Sea by \SI{12}{\UTC} (\Cref{fig:DT26} and \ref{fig:GP26}). 
-Surface westerly winds are associated to the cyclone in the Norwegian Sea, and impinging on the West coast of Norway \Cref{fig:GP26}. The \SI{10}{\metre} wind measurement and MEPS forecast in \Cref{fig:res:sfc_wd26} and \ref{fig:res:sfc_ws26}, show a westerly gale of up to \SI{18}{\mPs} at Haukeliseter before \SI{12}{\UTC}.
-The centre of the occluded front is located over Norway at \SI{18}{\UTC}, and the pronounced surface pressure gradient, in \Cref{fig:GP26_18}, indicate an increase in surface wind with a north-west wind direction. During this transition of the occlusion, the wind direction changes to north-west with higher observed wind speeds up to \SI{20}{\mPs} (\Cref{fig:res:sfc_wd26} and \ref{fig:res:sfc_ws26}). 
-\\
-Throughout the day light to moderate precipitation is continuing until the occlusion passage is seen in \Cref{fig:res:sfc_precip26}.
-Heavy precipitation related to the occlusion, around \SI{16}{\UTC}, is followed by moderate to light precipitation on \SI{26}{\dec}. 
-\\
-%%%%%%% image liquid obs particle %%%%%%%%%%%%%%%%
-\begin{figure}[t]
-	\centering
-	\includegraphics[%trim={45.cm 30.cm 13cm 35cm},clip,
-	width=0.8\textwidth]{./MASC_obs/Masc_obs_liquid_2512}
-	\caption{MASC images of falling water drops observed on \SI{25}{\dec} at \SI{17}{\UTC} from three different angles. Not all parts of the liquid sphere are equally illuminated.}\label{fig:res:obs_masc}
-\end{figure}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\\
-On \SI{23}{\dec} a cyclone is south of Iceland (\Cref{fig:weather:23}) and precipitation was associated to the transition of the occlusion. 
-While \SI{26}{\dec} precipitation was associated with the landfall of an occlusion. \SI{25}{\dec} was marked by the transition of a warm sector. The ECMWF analysis shows a pronounced upper level ridge at the dynamic tropopause (\Cref{fig:DT25}). The cyclone core is south east of Iceland in \Cref{fig:DT25} with two associated frontal boundaries. While the warm front is approaching the west coast, the cold front is north-west of Great Britain. In \Cref{fig:GP25}, the tail of the cold front moved into lower latitudes, following the slowdown of the front, leading to a stationary frontal boundary. Furthermore, the mid-latitude jet is aligned with the surface frontal boundaries (\Cref{fig:DT25}), while the Haukeliseter site is located below the the midlatitudal jet (\Cref{fig:GP25}). %This leads to rising motion at the surface.
-\\
-Neither pressure nor wind observations and forecasts in \Cref{fig:res:sfc_pres25}, \subref{fig:res:sfc_wd25}, and \subref{fig:res:sfc_ws25}, indicate the evolution of any frontal boundary. The only indication of a transition could be seen in the increase and decrease of temperature afterwards at \SI{11}{\UTC} until \SI{21}{\UTC} (\Cref{fig:res:sfc_temp25}). In \Cref{fig:res:sfc_wd25}, a small wind direction change from west to north-west is observed by the wind mast at \SI{10}{\UTC}. This is not forecasted by MEPS, as it rather estimated strong westerly winds.
 \\
 Particle images taken by the MASC are available on \SI{25}{\dec}, during the transition of the warm sector in \Cref{fig:res:obs_masc}. Without theses images taken around \SI{17}{\UTC} it would only be possible to verify that liquid precipitation occurred with the optical precipiation detectors at the Haukeliseter site. Together with the increase in surface temperature (\Cref{fig:res:sfc_temp25}) it can be concluded that the warm sector of the Christmas 2016 event passed by the measurement site.
 %\textcolor{red}{KICKI: Should I include the DIANA analysis maps? But the meteorologist also use ECMWF to make them!}
@@ -471,6 +460,15 @@ Particle images taken by the MASC are available on \SI{25}{\dec}, during the tra
 \\
 \\
 The comparison between the ECMWF analysis (\Cref{sec:largeScale}) and the observations at the measurement site (\Cref{fig:res:sfc_obs_meps}), allow to conclude that the ensemble member forecast system MEPS covers the prediction of large scale weather systems like occlusions and fronts, as well as liquid precipitation at the surface. 
+%%%%%%% image liquid obs particle %%%%%%%%%%%%%%%%
+\begin{figure}[!t]
+	\centering
+	\includegraphics[%trim={45.cm 30.cm 13cm 35cm},clip,
+	width=0.8\textwidth]{./MASC_obs/Masc_obs_liquid_2512}
+	\caption{MASC images of falling water drops observed on \SI{25}{\dec} at \SI{17}{\UTC} from three different angles. Not all parts of the liquid sphere are equally illuminated.}\label{fig:res:obs_masc}
+\end{figure}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\noindent
 \\
 The scatter plots for observations and MEPS forecasts show good correlation for most variables (\Cref{fig:scat:SLP,fig:scat:T_WD,fig:scat:WS_precip}).
 The best agreement for pressure is reached on \SI{26}{\dec} (\Cref{fig:res:sfc_pres26}), when the Christmas storm hit land and dissipated after the evolution of the occlusion at \SI{16}{\UTC}. \citet{dahlgren_comparison_2013} showed an improvement of sea level pressure forecast for AROME, by including large scale boundary conditions for ECMWF into the regional model. The observation-model comparison by \citet{dahlgren_comparison_2013} showed a decrease of pressure bias with lead time after \SI{24}{\hour} with the use of pressure mixing. 
@@ -486,7 +484,7 @@ The mean error for the Norwegian model domain of AROME-MetCoOP estimated by \cit
 %The new ensemble forecast system MEPS shows a reduction of mean errors for the Christmas 2016 extreme event, when compared to the Norwegian mean of AROME-MetCoOp.
 \\
 %%% image bias %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{figure}[H]%\ContinuedFloat
+\begin{figure}[!t]%\ContinuedFloat
 	\centering
 	% pres
 	\begin{subfigure}[b]{\textwidth}
@@ -591,8 +589,8 @@ Pressure, temperature, and wind changes for the occlusion transition on \SI{26}{
 \end{figure}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \noindent
-\\
-\\
+% \\
+% \\
 %\textcolor{red}{Write here about all days, a summary.}
 Overall, for initialisations on \num{21} to \SI{23}{\dec} (\Cref{fig:scat:SLP,fig:scat:T_WD,fig:scat:WS_precip}) the forecast is best for all variables. 
 The large-scale weather pattern seems to be more predictable as long as the weather situation is not extreme.

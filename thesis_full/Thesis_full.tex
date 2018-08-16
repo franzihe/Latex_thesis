@@ -2,7 +2,7 @@
 \documentclass[a4paper,11pt, UKenglish,twoside]{report}
 
 % ********** Preamble: Contains packages and user-defined commands and settings ****************************
-\input{Preamble/preamble}
+\input{Preamble/preamble_copy}
 
 
 % ******** Thesis Inforamtion such as Title, author, and date *****
@@ -12,8 +12,8 @@
 %\includeonly{title_page,Abstract/abstract,Introduction/introduction,Summary/summary}
 %\includeonly{title_page,Introduction/introduction}
 %\includeonly{Introduction/introduction}
-\includeonly{%title_page,
-	Results/results}%,Summary/summary,./Appendix/SWC_1h,./Appendix/all_vert_ens_memb}
+%\includeonly{%title_page,
+%	Results/results}%,Summary/summary,./Appendix/SWC_1h,./Appendix/all_vert_ens_memb}
 %\includeonly{Data_Instrument_Methods/data_instruments_methods}
 %\includeonly{Weather_Situation/weather_situation}%,Results/results}
 %\includeonly{Summary/summary}
@@ -66,17 +66,18 @@
 	\newpage\pagenumbering{arabic}\setcounter{page}{1}
     \include{Introduction/introduction}
   %    \include{Theory/theory}
- % 	\clearpage\thispagestyle{empty}\hbox{}\newpage %whole line needed to insert a blank page
+  	\clearpage\thispagestyle{empty}\hbox{}\newpage %whole line needed to insert a blank page
     \include{Data_Instrument_Methods/data_instruments_methods}
 %%	\addcontentsline{toc}{part}{Results and Discussion}
 	\include{Weather_Situation/weather_situation}
-%	\clearpage\thispagestyle{empty}\hbox{}\newpage %whole line needed to insert a blank
+	\clearpage\thispagestyle{empty}\hbox{}\newpage %whole line needed to insert a blank
     \include{Results/results}
+    \clearpage\thispagestyle{empty}\hbox{}\newpage %whole line needed to
     \include{Summary/summary}
 %    
 %    
-    
-
+    \cleardoublepage
+%	\clearpage\thispagestyle{empty}\hbox{}\newpage %whole line needed to
 % ********** List of Abreviations **************
     \newpage
 	\addcontentsline{toc}{chapter}{List of Abbreviations}
@@ -84,44 +85,47 @@
 	\printnomenclature[1in]              %%% add width here.
 	\thispagestyle{empty}
 
-	\clearpage\thispagestyle{empty}\hbox{}\newpage %whole line needed to insert a blank page
+%	\clearpage\thispagestyle{empty}\hbox{}\newpage %whole line needed to insert a blank page
 
-
-
-	  
 % ******* Bibliography *******************************
 %	\clearpage\thispagestyle{empty}\hbox{}\newpage %whole line needed to insert a blank page
-	\newpage
-	\cleardoublepage
+\newpage
+\cleardoublepage
 %	\phantomsection
-	\addcontentsline{toc}{chapter}{References}
-	\renewcommand{\bibname}{References}
-    \bibliography{./References/MasterThesis,./References/Names,./References/unpublished}
-    \bibliographystyle{plainnat_reversed}
-    \newpage
+\addcontentsline{toc}{chapter}{References}
+\renewcommand{\bibname}{References}
+\bibliography{./References/MasterThesis,./References/Names,./References/unpublished}
+\bibliographystyle{plainnat_reversed}
+\newpage
 
-	\clearpage\thispagestyle{empty}\hbox{}\newpage %whole line needed to insert a
-	
+%\clearpage\thispagestyle{empty}\hbox{}\newpage %whole line needed to insert a
+
+
 % ******* Appendices *********************************
 %	\clearpage\thispagestyle{empty}\hbox{}\newpage %whole line needed to insert a blank page
 %	\pagestyle{plain}
 %  \begin{appendices}
-	\appendix
+\appendix
 %   \chapter{}
 
 %	\include{./Appendix/sounding}
-	\include{./Appendix/B6pr_2_dimensional_and_mass_oriented_24.0GHz}
+\include{./Appendix/B6pr_2_dimensional_and_mass_oriented_24.0GHz}
 
 %   \chapter{Results}
 %	\include{./Appendix/surface_obs}
 %	\include{./Appendix/error_var_sfc}
-	\include{./Appendix/SWC_1h}
-	\include{./Appendix/all_vert_ens_memb}
+\include{./Appendix/SWC_1h}
+\include{./Appendix/all_vert_ens_memb}
 
 % 	\end{appendices}	  	
-	
 
-	\clearpage\thispagestyle{empty}\hbox{}\newpage %whole line needed to insert a	
+
+	  
+
+
+
+%\clearpage\thispagestyle{empty}\hbox{}\newpage %whole line needed to insert a		
+
 	
 % ********** Acknowledgment **************
 	\include{Acknowledgment/acknowledgement}

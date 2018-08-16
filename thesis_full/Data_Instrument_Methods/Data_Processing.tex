@@ -9,17 +9,17 @@ The following section describes how the different model variables where processe
 Vertical hybrid coordinates are terrain-following and are mass-based, \citep{muller_arome-metcoop:_2017}. %How the vertical hybrid coordinates are transformed into layer thickness or height is described in \Cref{sec:layer_thickness}. Furthermore, 
 MEPS underlies non-hydrostatic dynamics, \cite{metcoop_wiki_description_2017}.
 \\
-MEPS has a vertical resolution in hybrid sigma pressure coordinates, which starts at the surface and decreases with height. To calculate the actual vertical pressure in \SI{}{\Pa} AROME uses the vertical discretisation based on \citet{simmons_energy_1981}. %, a formula is provided in the OPeNDAP Dataset of \texttt{meps\_full\_2\_5km\_*.nc} by the \citet{norwegian_meteorological_institute_met_2016}.  
+MEPS has a vertical resolution in hybrid sigma pressure coordinates, which starts at the surface and decreases with height. To calculate the actual vertical pressure in [\SI{}{\hPa}], AROME uses the vertical discretisation based on \citet{simmons_energy_1981}. %, a formula is provided in the OPeNDAP Dataset of \texttt{meps\_full\_2\_5km\_*.nc} by the \citet{norwegian_meteorological_institute_met_2016}.  
 \begin{align}
-	p(n,k,j,i) = a_p(k) + b_p(k) \cdot p_s(n,j,i) \qquad [\SI{}{\Pa}].
-	\label{eq:hybrid_sigma_pressure}
+p(n,k,j,i) = a_p(k) + b_p(k) \cdot p_s(n,j,i) \qquad [\SI{}{\Pa}].
+\label{eq:hybrid_sigma_pressure}
 \end{align}
 $p_s$ is the surface air pressure in \SI{}{\Pa}, $a_p$, $b_p$ are the vertical coordinate parameters. Prognostic variables are at model level $k$. $n$ is the forecast time, $j$ and $i$ are the latitudal and longitudal grid points, respectively.
 \\
 The next step was to convert pressure-levels into actual heights with the help of the hypsometric equation. Here, the air temperature in model levels is used to calculate the mean temperature of each thickness layer. 
 \begin{align}
-	\overline{T} = \dfrac{\int\limits_{p2}^{p1} T \partial ln p}{\int\limits_{p2}^{p1}\partial ln p} \qquad [\SI{}{\kelvin}]
-	\label{eq:T_avg}
+\overline{T} = \dfrac{\int\limits_{p2}^{p1} T \partial ln p}{\int\limits_{p2}^{p1}\partial ln p} \qquad [\SI{}{\kelvin}]
+\label{eq:T_avg}
 \end{align}
 %For the numerical integration, the Simpson rule was used, which is a build-in function in Python. \\
 \citet{martin_mid-latitude_2006} presents steps of differentiating the hypsometric equation by using the virtual air temperature. But when the atmospheric mixing ratio is large, the virtual temperature will only be \SI{1}{\percent} larger than the actual air temperature. Since the error is small, calculations are done with the provided air temperature in model levels.
@@ -46,9 +46,9 @@ Since MEPS has a higher vertical resolution than the optimal estimation snowfall
 \\
 Within the output from MEPS snow water content does not exist for each model layer. Hence the calculation of the SWC is performed by using the three solid precipitation categories given in MEPS. Namely the instantaneous mixing ratio of snow ($r_\mathbf{s}$), graupel  ($r_\mathbf{g}$) and the cloud ice ($r_\mathbf{i}$). The mixing ratios are represented in \SI{}{\kg\per\kg} and a transformation to \SI{}{\g\per\cubic\meter} is performed. Densities of each model level ($\rho$) are calculated with \Cref{eq:hybrid_sigma_pressure} and the model level air temperature. These are then multiplied with the sum of the solid precipitation mixing ratio. 
 \begin{align}
-	\rho & = \frac{p}{R_d T} & \quad [\SI{}{\kg\per\cubic\meter}]  \\
-	SWC & = \rho \cdot (r_\mathbf{s} + r_\mathbf{g} + r_\mathbf{i}) \cdot \num{e6} & \quad [\SI{}{\g\per\cubic\meter}].
-	\label{eq:SWC_ml}
+\rho & = \frac{p}{R_d T} & \quad [\SI{}{\kg\per\cubic\meter}]  \\
+SWC & = \rho \cdot (r_\mathbf{s} + r_\mathbf{g} + r_\mathbf{i}) \cdot \num{e6} & \quad [\SI{}{\g\per\cubic\meter}].
+\label{eq:SWC_ml}
 \end{align}
 The same is done for liquid water content in the atmosphere, just cloud condensed water and rain amount are summed.
 
@@ -75,7 +75,7 @@ For this thesis I calculated ensemble mean, coefficient of variation, mean error
 \label{sec:ens_mean_spread}
 The model ensemble mean ($\bar{f}$) is the average of all ten ensemble members ($f_i$) of MEPS.
 \begin{align}
-	\bar{f} & = \frac{\sum_{i=1}^n f_i}{n} \label{eq:meanMEPS}
+\bar{f} & = \frac{\sum_{i=1}^n f_i}{n} \label{eq:meanMEPS}
 \end{align}
 %The standard deviation, $\sigma$ of the ten ensemble members is divided by the mean of all ensemble members. 
 The coefficient of variation (CV) is represented by the standard deviation, $\sigma$  with respect to the ensemble mean.
@@ -84,12 +84,12 @@ The coefficient of variation (CV) is represented by the standard deviation, $\si
 %It follows for even a low ensemble spread of SWC (standard deviation of all ensemble members) then the different members do not need to be less variable.
 The standard deviation is defined as:
 \begin{align}
-	\sigma & = \sqrt{\frac{\sum_{i=1}^n (f_i - \bar{f})^2}{n-1}} .\label{eq:stdMEPS}
+\sigma & = \sqrt{\frac{\sum_{i=1}^n (f_i - \bar{f})^2}{n-1}} .\label{eq:stdMEPS}
 \end{align}
 The CV gives the variability between the individual ensemble member forecast for SWC (\Cref{tab:verification}). Furthermore, the variation around the deterministic forecast shows. Since the CV is normed over the ensemble mean, daily variations can be compared to each other for the Christmas 2016 storm period (\Cref{sec:res:large_scale_vert}).
 %which follows for the coefficient of variation:
 \begin{align}
-	CV & = \frac{\sigma}{\bar{f}}
+CV & = \frac{\sigma}{\bar{f}}
 \end{align}
 % \\
 % To verify how well MEPS performed during the Christmas storm a variation of the SWC is calculated. For this, the standard deviation (\Cref{eq:stdMEPS}) is divided by the ensemble mean (\Cref{eq:meanMEPS}).
@@ -99,12 +99,12 @@ The CV gives the variability between the individual ensemble member forecast for
 %\subsection{Mean Error and Mean Absolute Error}
 In \Cref{sec:res:large_scale_sfc} mean error ($ME$) and mean absolute error ($MAE$) is used. The $ME$ for each model ensemble member and from the observations ($o_i$) is calculated with: 
 \begin{align}
-	ME = \frac{\sum_{i=1}^n f_i - o_i}{n}
+ME = \frac{\sum_{i=1}^n f_i - o_i}{n}
 \end{align}
 %where $MEPS_{ens}$ represents the value of each ensemble member and $DoFe_{obs}$ defines the observation from the double fence. 
 For the mean absolute error ($MAE$) follows then:
 \begin{align}
-	MAE = \frac{\sum_{i=1}^n \left| f_i - o_i\right|}{n} \label{eq:MAE}
+MAE = \frac{\sum_{i=1}^n \left| f_i - o_i\right|}{n} \label{eq:MAE}
 \end{align}
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -112,7 +112,7 @@ For the mean absolute error ($MAE$) follows then:
 %\subsection{Percent Difference and Average Difference}
 The percentage difference of double fence gauge and retrieved surface accumulation (\Cref{tab:res:ret_sens} and \ref{tab:res:ret_error}) and MEPS forecasts (\Cref{tab:res:MEPS_err} and \ref{tab:res:MEPS_err_10}) are calculated by:
 \begin{align}
-	\SI{}{\percent} \text{Difference} & = \frac{f_i - o_i}{o_i} \times 100
+\SI{}{\percent} \text{Difference} & = \frac{f_i - o_i}{o_i} \times 100
 \end{align}
 $f_i$ presents the snowfall from the retrieval or the MEPS ensemble forecast. The mean is then taken from all \SI{}{\percent} Difference values to see the average deviation during the Christmas storm 2016.
 
